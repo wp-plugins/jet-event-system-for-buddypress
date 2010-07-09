@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-08 16:18+0300\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Jettochkin <milord_k@mail.ru>\n"
+"Last-Translator: Alexandr\n"
 "Language-Team: Jettochkin <milord_k@mail.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,7 +59,7 @@ msgstr "Домой"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:265
 msgid "Admin"
-msgstr "Админ"
+msgstr "Управление"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:269
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1312
@@ -238,15 +238,15 @@ msgstr "Новый аватар успешно загружен!"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:860
 msgid "There was an error when promoting that user, please try again"
-msgstr ""
+msgstr "Произошла ошибка при продвижении пользователя, повторите"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:862
 msgid "User promoted successfully"
-msgstr ""
+msgstr "Продвижение пользователя прошло успешно"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:879
 msgid "There was an error when demoting that user, please try again"
-msgstr ""
+msgstr "Произошла ошибка при понижении роли пользователя, повторите"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:881
 msgid "User demoted successfully"
@@ -270,27 +270,27 @@ msgstr "Пользовательский бан успешно отменен"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:961
 msgid "There was an error accepting the membership request, please try again."
-msgstr ""
+msgstr "Произошла ошибка при принятии запроса, повторите"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:963
 msgid "Event membership request accepted"
-msgstr ""
+msgstr "Запрос принят"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:973
 msgid "There was an error rejecting the membership request, please try again."
-msgstr ""
+msgstr "Произошла ошибка при отказе запроса, повторите"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:975
 msgid "Event membership request rejected"
-msgstr ""
+msgstr "Запрос отклонен"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1007
 msgid "There was an error deleting the event, please try again."
-msgstr ""
+msgstr "Произошла ошибка при удалении события, повторите"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1009
 msgid "The event was deleted successfully"
-msgstr ""
+msgstr "Событие успешно удалено"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1033
 msgid "Yes"
@@ -302,7 +302,7 @@ msgstr "Нет"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1041
 msgid "A member invites you to join a event"
-msgstr ""
+msgstr "Пользовательские запросы на присоединение к событию"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1047
 msgid "Event information is updated"
@@ -310,15 +310,15 @@ msgstr "Информация о событии успешно обновлена
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1053
 msgid "You are promoted to a event administrator or moderator"
-msgstr ""
+msgstr "Вы повышены до администратора или модератора события"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1059
 msgid "A member requests to join a private event for which you are an admin"
-msgstr ""
+msgstr "Запрсы на присоединение к событию на котором вы администратор"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1108
 msgid "There was an error saving event details. Please try again."
-msgstr ""
+msgstr "Произошла ошибка при сохранении деталей события, попробуйте еще раз"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1130
 msgid "Please fill in all of the required fields"
@@ -336,7 +336,7 @@ msgstr "%s создал событие: %s"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1241
 msgid "There was an error saving the event avatar, please try uploading again."
-msgstr ""
+msgstr "Произошла ошибка при сохранении аватара события, попробуйте загрузить еще раз"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1243
 msgid "The event avatar was uploaded successfully!"
@@ -378,7 +378,7 @@ msgstr "Новый пост события"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1442
 msgid "Event Membership Requests"
-msgstr ""
+msgstr "Запросы пользователей на событие"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1442
 #, php-format
@@ -393,42 +393,42 @@ msgstr "%s запросов для события \"%s\""
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1456
 #, php-format
 msgid "%d accepted event membership requests"
-msgstr ""
+msgstr "%d подтвержденных запросов на событие"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1458
 #, php-format
 msgid "Membership for event \"%s\" accepted"
-msgstr ""
+msgstr "Запросы для события \"%s\" приняты"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1469
 #, php-format
 msgid "%d rejected event membership requests"
-msgstr ""
+msgstr "%d запросов отклонено"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1471
 #, php-format
 msgid "Membership for event \"%s\" rejected"
-msgstr ""
+msgstr "Запросы на событие \"%s\" отклонены"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1482
 #, php-format
 msgid "You were promoted to an admin in %d events"
-msgstr ""
+msgstr "Вы повышены до администратора события - %d"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1484
 #, php-format
 msgid "You were promoted to an admin in the event %s"
-msgstr ""
+msgstr "Вы повышены до администратора в событии %s"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1495
 #, php-format
 msgid "You were promoted to a mod in %d events"
-msgstr ""
+msgstr "Вы повышены до модератора на событии %d"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1497
 #, php-format
 msgid "You were promoted to a mod in the event %s"
-msgstr ""
+msgstr "Вы повышены до модератора в событии %s"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1508
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1510
@@ -443,7 +443,7 @@ msgstr "Вы имеете %d новых приглашений"
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1510
 #, php-format
 msgid "You have an invitation to the event: %s"
-msgstr ""
+msgstr "Вы приглашены на событие: %s"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1626
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-classes.php:810
@@ -452,12 +452,12 @@ msgstr "Администратор события"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1772
 msgid "As the only Admin, you cannot leave the event."
-msgstr ""
+msgstr "Вы как администратор не можете покинуть событие"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:2016
 #, php-format
 msgid "%s posted an update in the event %s:"
-msgstr ""
+msgstr "%s разместил обновление для события %s:"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:2087
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:2192
@@ -631,7 +631,7 @@ msgstr "Аватар события"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:334
 msgid "not yet active"
-msgstr ""
+msgstr "не активен"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:610
 msgid "Public"
@@ -656,7 +656,7 @@ msgstr "Фильтр событий"
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:757
 #, php-format
 msgid "Viewing event %1$s to %2$s (of %3$s events)"
-msgstr ""
+msgstr "Просмотр событий с %1$s по %2$s (из %3$s событий)"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:780
 #, php-format
@@ -704,7 +704,7 @@ msgstr "Понизить пользователей"
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1594
 #, php-format
 msgid "joined %s ago"
-msgstr ""
+msgstr "присоединился %s назад"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:951
 msgid "This event has no administrators"
@@ -768,7 +768,7 @@ msgstr ""
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1644
 #, php-format
 msgid "Viewing members %1$s to %2$s (of %3$s members)"
-msgstr ""
+msgstr "Просмотр участников с %1$s по %2$s (из %3$s участников)"
 
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2001
 #: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2007
@@ -1396,3 +1396,4 @@ msgstr "Отсутствуют записи для данного топика"
 
 #~ msgid "simple code"
 #~ msgstr " "
+
