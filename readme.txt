@@ -17,16 +17,16 @@ The plugin is in testing, may not operate some features! Please give your sugges
 ru: Система событий для Вашей социальной сети. Возможность привлекать участников сети к проводимым мероприятиям. 
 Плагин находится в стадии тестирования, могут не работать некоторые функции! Просьба высказывать свои предложения по новым функциям и улучшению уже существующих. Просьба не удалять ссылки на разработчика (для статистики установок)
 
-
-<a href="http://sportactions.ru">Live demo</a> (need registration)
+<a href="http://sportactions.ru">Sport site</a> and <a href="http://volks-wagen-club.ru">Volkswagen Club</a>
 
 
 == Installation ==
 
 1. Upload `jet-event-system-for-buddypress` folder to the `/wp-content/plugins/` directory
-2. Upload `events` folder to the `/wp-content/themes/<you work theme>` directory
+2. Upload <b>`events`</b> folder to the `/wp-content/themes/<you work theme>` directory ! (/wp-content/themes/bp-default ?)
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Add widget to site (if needed)
+5. See Events Caralog: http://<yousite>/events
 
 
 == Screenshots ==
@@ -37,9 +37,7 @@ ru: Система событий для Вашей социальной сет�
 == Contact ==
 
 For suggestions, bugs, hugs and love can be donated at the following locations.
-
 [Authors page](http://milordk.ru)
-
 [Plugin page](http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html)
 
 
