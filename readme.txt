@@ -40,7 +40,7 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 [Authors page](http://milordk.ru)
 
-[Plugin page](http://milordk.ru/)
+[Plugin page](http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html)
 
 
 == Changelog ==
