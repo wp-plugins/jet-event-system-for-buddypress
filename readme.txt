@@ -45,6 +45,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.0.1 =
+* Fix theme files
+
 = 1.0 =
 * First release. Main functionality
 

@@ -18,8 +18,8 @@
 					
 </td>
 <td width="50%" style="vertical-align:top;">
-<h4><?php _e('News for event','jet-event-system') ?></h4>	
 					<p><strong><?php _e('Special Conditions', 'jet-event-system') ?>:</strong> <?php bp_event_eventterms() ?></p>
+<h4><?php _e('News for event','jet-event-system') ?></h4>	
 					<p><strong><?php _e('Event Public news', 'jet-event-system') ?>:</strong> <?php bp_event_newspublic() ?></p>	
 					<?php if (bp_is_user_events()) { ?>
 					<p><strong><?php _e('Event Private news', 'jet-event-system') ?>:</strong> <?php bp_event_newsprivate() ?></p>
