@@ -17,7 +17,7 @@ The plugin is in testing, may not operate some features! Please give your sugges
 ru: Система событий для Вашей социальной сети. Возможность привлекать участников сети к проводимым мероприятиям. 
 Плагин находится в стадии тестирования, могут не работать некоторые функции! Просьба высказывать свои предложения по новым функциям и улучшению уже существующих. Просьба не удалять ссылки на разработчика (для статистики установок)
 
-<a href="http://sportactions.ru">Sport site</a> and <a href="http://volks-wagen-club.ru">Volkswagen Club</a>
+Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://volks-wagen-club.ru">Volkswagen Club</a>
 
 
 == Installation ==
