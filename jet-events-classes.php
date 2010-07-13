@@ -80,8 +80,8 @@ Class BP_Events_Event {
 		$this->newsprivate = apply_filters( 'events_event_newsprivate_before_save', $this->newsprivate, $this->id );
 		$this->edtsd = apply_filters( 'events_event_edtsd_before_save', $this->edtsd, $this->id );		
 		$this->edted = apply_filters( 'events_event_edted_before_save', $this->edted, $this->id );	
-		$this->edtsdunix = apply_filters( 'events_event_edtsdunix_before_save', $this->edtsdunix, $this->id );		
-		$this->edtedunix = apply_filters( 'events_event_edtedunix_before_save', $this->edtedunix, $this->id );		
+		$this->edtsdunix = datetounix(apply_filters( 'events_event_edtsdunix_before_save', $this->edtsd, $this->id ));		
+		$this->edtedunix = datetounix(apply_filters( 'events_event_edtedunix_before_save', $this->edted, $this->id ));		
  		$this->status = apply_filters( 'events_event_status_before_save', $this->status, $this->id );
 		$this->enable_forum = apply_filters( 'events_event_enable_forum_before_save', $this->enable_forum, $this->id );
 		$this->date_created = apply_filters( 'events_event_date_created_before_save', $this->date_created, $this->id );
