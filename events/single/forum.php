@@ -1,9 +1,9 @@
 <?php do_action( 'bp_before_event_forum_content' ) ?>
 
-<?php if ( bp_is_event_forum_topic_edit() ) : ?>
+<?php if ( jes_is_event_forum_topic_edit() ) : ?>
 	<?php locate_template( array( 'events/single/forum/edit.php' ), true ) ?>
 
-<?php elseif ( bp_is_event_forum_topic() ) : ?>
+<?php elseif ( jes_is_event_forum_topic() ) : ?>
 	<?php locate_template( array( 'events/single/forum/topic.php' ), true ) ?>
 
 <?php else : ?>
@@ -16,7 +16,7 @@
 
 <?php do_action( 'bp_after_event_forum_content' ) ?>
 
-<?php if ( !bp_is_event_forum_topic_edit() && !bp_is_event_forum_topic() ) : ?>
+<?php if ( !jes_is_event_forum_topic_edit() && !jes_is_event_forum_topic() ) : ?>
 
 	<?php if ( ( is_user_logged_in() && 'public' == bp_get_event_status() ) || bp_event_is_member() ) : ?>
 

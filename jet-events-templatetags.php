@@ -245,11 +245,11 @@ function bp_event_type() {
 			$event =& $events_template->event;
 
 		if ( 'public' == $event->status ) {
-			$type = __( "Public Event", "buddypress" );
+			$type = __( "Public Event", "jet-event-system" );
 		} else if ( 'hidden' == $event->status ) {
-			$type = __( "Hidden Event", "buddypress" );
+			$type = __( "Hidden Event", "jet-event-system" );
 		} else if ( 'private' == $event->status ) {
-			$type = __( "Private Event", "buddypress" );
+			$type = __( "Private Event", "jet-event-system" );
 		} else {
 			$type = ucwords( $event->status ) . ' ' . __( 'Event', 'jet-event-system' );
 		}
@@ -2464,6 +2464,24 @@ function bp_is_event_forum() {
 
 	return false;
 }
-	
-	
+
+function jes_is_event_forum_topic() {
+	global $bp;
+
+	if ( BP_GROUPS_SLUG == $bp->current_component && $bp->is_single_item && 'forum' == $bp->current_action && 'topic' == $bp->action_variables[0] )
+		return true;
+
+	return false;
+}
+
+
+function jes_is_event_forum_topic_edit() {
+	global $bp;
+
+	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && 'forum' == $bp->current_action && 'topic' == $bp->action_variables[0] && 'edit' == $bp->action_variables[2] )
+		return true;
+
+	return false;
+}
+
 ?>

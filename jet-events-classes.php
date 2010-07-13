@@ -358,29 +358,37 @@ Class BP_Events_Event {
 	}
 /* ------------ */
 
-	function get_soon( $user_id, $limit = false, $page = false, $filter = false ) {
+	function get_soon( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
 			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
-		$oldevents = get_old_events_filter('AND g.');
+		if ( !is_user_logged_in() || ( !is_site_admin() && ( $user_id != $bp->loggedin_user->id ) ) )
+			$hidden_sql = "AND g.status != 'hidden'";
 
-		if ( $filter ) {
-			$filter = like_escape( $wpdb->escape( $filter ) );
-			$filter_sql = " AND ( g.name LIKE '{$filter}%%' OR g.description LIKE '{$filter}%%' )";
+		if ( $search_terms ) {
+			$search_terms = like_escape( $wpdb->escape( $search_terms ) );
+			$search_sql = " AND ( g.name LIKE '%%{$search_terms}%%' OR g.description LIKE '%%{$search_terms}%%' )";
 		}
 
-		if ( !bp_is_home() )
-			$hidden_sql = " AND g.status != 'hidden'";
+		if ( $user_id ) {
+			$user_id = $wpdb->escape( $user_id );
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->events->table_name_eventmeta} gm1, {$bp->events->table_name_eventmeta} gm2, {$bp->events->table_name_members} m, {$bp->events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY g.edtsdunix DESC {$pag_sql}" );
+			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->events->table_name_members} m LEFT JOIN {$bp->events->table_name_eventmeta} gm ON m.event_id = gm.event_id INNER JOIN {$bp->events->table_name} g ON m.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
+		} else {
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->events->table_name_eventmeta} gm1, {$bp->events->table_name_eventmeta} gm2, {$bp->events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} ORDER BY g.edtsdunix DESC {$pag_sql}" );
+			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT g.id) FROM {$bp->events->table_name_eventmeta} gm INNER JOIN {$bp->events->table_name} g ON gm.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql}" );
+		}
 
-		$paged_events = $wpdb->get_results( $wpdb->prepare( "SELECT DISTINCT m.event_id FROM {$bp->events->table_name_members} m, {$bp->events->table_name} g WHERE m.event_id = g.id{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.inviter_id = 0 AND m.is_banned = 0 " . $oldevents . " ORDER BY g.edtsd ASC {$pag_sql}", $user_id ) );
-		$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT DISTINCT count(m.event_id) FROM {$bp->events->table_name_members} m, {$bp->events->table_name} g WHERE m.event_id = g.id{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.inviter_id = 0 AND m.is_banned = 0 " . $oldevents . " ORDER BY g.edtsd ASC", $user_id ) );
+		if ( !empty( $populate_extras ) ) {
+			foreach ( (array)$paged_events as $event ) $event_ids[] = $event->id;
+			$event_ids = $wpdb->escape( join( ',', (array)$event_ids ) );
+			$paged_events = BP_Events_Event::get_event_extras( &$paged_events, $event_ids, 'soon' );
+		}
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
-
-
 /* ---------------- */	
 	
 	function get_active( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {

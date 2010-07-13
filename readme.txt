@@ -46,6 +46,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.0.3 =
+* Fixed sorting Soon in the widget. 
+* Activated bookmark "My Events / All events from the list of events
+
 = 1.0.2 =
 * Fixed an issue where when you activate the plugin stopped working group forum (technical releases)
 

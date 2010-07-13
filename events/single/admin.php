@@ -207,7 +207,7 @@
 	<?php endif; ?>
 
 	<div class="bp-widget">
-		<h4><?php _e("Members", "buddypress"); ?></h4>
+		<h4><?php _e("Members", "jet-event-system"); ?></h4>
 
 		<?php if ( bp_event_has_members( 'per_page=15&exclude_banned=false' ) ) : ?>
 

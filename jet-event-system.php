@@ -3,7 +3,7 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.0.2
+Version: 1.0.3
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
@@ -16,12 +16,24 @@ define ('BP_EVENTS_DB_VERSION', '1.0');
 if ( !defined( 'BP_EVENTS_SLUG' ) )
 	define ( 'BP_EVENTS_SLUG', 'events' );
 
+/* Admin */
+/*	
+	register_activation_hook( __FILE__, 'jes_activation' );
+register_deactivation_hook( __FILE__, 'jes_deactivation' );
+function jes_activation() {
+	$jet_event[ 'classifier' ] = 'yes';
+	add_option( 'jet_event', $jet_event, '', 'yes' );
+}
+function jes_deactivation() { delete_option( 'jet_event' ); }
+*/	
+	
+	
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-classes.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-templatetags.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-widgets.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-filters.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-notifications.php' );
-
+// require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-admin.php' );
 
 function jet_event_system_load_textdomain() {
 	$locale = apply_filters( 'wordpress_locale', get_locale() );
@@ -32,7 +44,15 @@ function jet_event_system_load_textdomain() {
 }
 add_action ( 'plugins_loaded', 'jet_event_system_load_textdomain', 7 );
 
-	
+
+function jes_add_admin_menu() {
+	if ( !is_site_admin() )
+		return false;
+		
+	add_submenu_page( 'bp-general-settings', __( 'Jet Event System', 'jet-event-system' ), __( 'Jet Event System', 'jet-event-system' ), 'manage_options', 'jes-event-admin', 'jes_event_admin' );
+
+}
+add_action( 'admin_menu', 'jes_add_admin_menu' );	
 
 function jet_events_add_js() {
   global $bp;
@@ -109,7 +129,8 @@ function events_install() {
 
 	do_action( 'events_install' );
 
-	update_site_option( 'bp-events-db-version', BP_EVENTS_DB_VERSION );
+	update_site_option( 'bp-events-db-version', BP_EVENTS_DB_VERSION );	
+	
 }
 
 function events_setup_globals() {
@@ -2235,6 +2256,7 @@ function events_clear_event_object_cache( $event_id ) {
 	wp_cache_delete( 'events_event_nouserdata_' . $event_id, 'bp' );
 	wp_cache_delete( 'events_event_' . $event_id, 'bp' );
 	wp_cache_delete( 'newest_events', 'bp' );
+	wp_cache_delete( 'soon_events', 'bp' );
 	wp_cache_delete( 'active_events', 'bp' );
 	wp_cache_delete( 'popular_events', 'bp' );
 	wp_cache_delete( 'events_random_events', 'bp' );

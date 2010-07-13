@@ -120,7 +120,7 @@ function events_ajax_widget_events_list() {
 					<div class="item">
 						<div class="item-title"><a href="<?php bp_event_permalink() ?>" title="<?php bp_event_name() ?>"><?php bp_event_name() ?></a></div>
 						<div class="item-meta">
-							<span class="activity">
+							<span>
 								<?php
 								if ( 'newest-events' == $_POST['filter'] ) {
 									printf( __( 'created %s ago', 'jet-event-system' ), bp_get_event_date_created() );
@@ -129,6 +129,9 @@ function events_ajax_widget_events_list() {
 								} else if ( 'popular-events' == $_POST['filter'] ) {
 									bp_event_member_count();
 								}
+								 else if ( 'soon-events' == $_POST['filter'] ) {
+								?><?php _e('In city:','jet-event-system') ?> <?php bp_event_placedcity() ?>, <?php _e('Start:','jet-event-system') ?> <?php bp_event_edtsd() ?> <?php _e('End:','jet-event-system') ?> <?php bp_event_edted() ?> <?
+								}								
 								?>
 							</span>
 						</div>
