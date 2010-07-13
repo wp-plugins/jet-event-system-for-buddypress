@@ -505,6 +505,10 @@ function events_screen_event_admin_edit_details() {
 					bp_core_add_message( __( 'Event details were successfully updated.', 'jet-event-system' ) );
 				}
 
+if ( datetounix($_POST['event-edtsd']) > datetounix($_POST['event-edted'])) {
+					bp_core_add_message( __( 'There was an error updating event details (check date!), please try again.', 'jet-event-system' ), 'error' );
+}				
+				
 				do_action( 'events_event_details_edited', $bp->events->current_event->id );
 
 				bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) . 'admin/edit-details/' );
