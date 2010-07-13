@@ -20,7 +20,7 @@ ru: Система событий для Вашей социальной сет�
 Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://volks-wagen-club.ru">Volkswagen Club</a>
 
 
-<a href="http://jet.milordk.ru">Official website of the plugin</a>
+<a href="http://jes.milordk.ru">Official website of the plugin</a>
 
 
 == Installation ==
