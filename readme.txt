@@ -20,6 +20,9 @@ ru: Система событий для Вашей социальной сет�
 Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://volks-wagen-club.ru">Volkswagen Club</a>
 
 
+<a href="http://jet.milordk.ru">Official website of the plugin</a>
+
+
 == Installation ==
 
 1. Upload `jet-event-system-for-buddypress` folder to the `/wp-content/plugins/` directory
@@ -42,6 +45,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.0.2 =
+* Fixed an issue where when you activate the plugin stopped working group forum (technical releases)
 
 = 1.0.1 =
 * Fix theme files

@@ -795,117 +795,8 @@ function bp_event_member_count_dec() {
 	}
 	
 	
-function bp_event_forum_permalink() {
-	echo bp_get_event_forum_permalink();
-}
-	function bp_get_event_forum_permalink( $event = false ) {
-		global $events_template;
 
-		if ( !$event )
-			$event =& $events_template->event;
-
-		return apply_filters( 'bp_get_event_forum_permalink', bp_get_event_permalink( $event ) . 'forum' );
-	}
-
-function bp_event_forum_topic_count( $args = '' ) {
-	echo bp_get_event_forum_topic_count( $args );
-}
-	function bp_get_event_forum_topic_count( $args = '' ) {
-		global $events_template;
-
-		$defaults = array(
-			'showtext' => false
-		);
-
-		$r = wp_parse_args( $args, $defaults );
-		extract( $r, EXTR_SKIP );
-
-		if ( !$forum_id = events_get_eventmeta( $events_template->event->id, 'forum_id' ) )
-			return false;
-
-		if ( !function_exists( 'bp_forums_get_forum_topicpost_count' ) )
-			return false;
-
-		if ( !$events_template->event->forum_counts )
-			$events_template->event->forum_counts = bp_forums_get_forum_topicpost_count( (int)$forum_id );
-
-		if ( (bool) $showtext ) {
-			if ( 1 == (int) $events_template->event->forum_counts[0]->topics )
-				$total_topics = sprintf( __( '%d topic', 'jet-event-system' ), (int) $events_template->event->forum_counts[0]->topics );
-			else
-				$total_topics = sprintf( __( '%d topics', 'jet-event-system' ), (int) $events_template->event->forum_counts[0]->topics );
-		} else {
-			$total_topics = (int) $events_template->event->forum_counts[0]->topics;
-		}
-
-		return apply_filters( 'bp_get_event_forum_topic_count', $total_topics, (bool)$showtext );
-	}
-
-function bp_event_forum_post_count( $args = '' ) {
-	echo bp_get_event_forum_post_count( $args );
-}
-	function bp_get_event_forum_post_count( $args = '' ) {
-		global $events_template;
-
-		$defaults = array(
-			'showtext' => false
-		);
-
-		$r = wp_parse_args( $args, $defaults );
-		extract( $r, EXTR_SKIP );
-
-		if ( !$forum_id = events_get_eventmeta( $events_template->event->id, 'forum_id' ) )
-			return false;
-
-		if ( !function_exists( 'bp_forums_get_forum_topicpost_count' ) )
-			return false;
-
-		if ( !$events_template->event->forum_counts )
-			$events_template->event->forum_counts = bp_forums_get_forum_topicpost_count( (int)$forum_id );
-
-		if ( (bool) $showtext ) {
-			if ( 1 == (int) $events_template->event->forum_counts[0]->posts )
-				$total_posts = sprintf( __( '%d post', 'jet-event-system' ), (int) $events_template->event->forum_counts[0]->posts );
-			else
-				$total_posts = sprintf( __( '%d posts', 'jet-event-system' ), (int) $events_template->event->forum_counts[0]->posts );
-		} else {
-			$total_posts = (int) $events_template->event->forum_counts[0]->posts;
-		}
-
-		return apply_filters( 'bp_get_event_forum_post_count', $total_posts, (bool)$showtext );
-	}
-
-function bp_event_is_forum_enabled( $event = false ) {
-	global $events_template;
-
-	if ( !$event )
-		$event =& $events_template->event;
-
-	if ( function_exists( 'bp_forums_is_installed_correctly' ) ) {
-		if ( bp_forums_is_installed_correctly() ) {
-			if ( $event->enable_forum )
-				return true;
-
-			return false;
-		} else {
-			return false;
-		}
-	}
-
-	return false;
-}
-
-function bp_event_show_forum_setting( $event = false ) {
-	global $events_template;
-
-	if ( !$event )
-		$event =& $events_template->event;
-
-	if ( $event->enable_forum )
-		echo ' checked="checked"';
-}
-
-function bp_event_show_status_setting( $setting, $event = false ) {
+function jet_bp_event_show_status_setting( $setting, $event = false ) {
 	global $events_template;
 
 	if ( !$event )
@@ -1878,14 +1769,6 @@ function bp_new_event_weekly() {
 	}
 	
 		
-function bp_new_event_enable_forum() {
-	echo bp_get_new_event_enable_forum();
-}
-	function bp_get_new_event_enable_forum() {
-		global $bp;
-		return (int) apply_filters( 'bp_get_new_event_enable_forum', $bp->events->current_event->enable_forum );
-	}
-
 function bp_new_event_status() {
 	echo bp_get_new_event_status();
 }
@@ -2493,15 +2376,6 @@ function bp_current_event_name() {
 		return apply_filters( 'bp_get_current_event_name', $name );
 	}
 	
-function bp_is_event_forum() {
-	global $bp;
-
-	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && 'forum' == $bp->current_action )
-		return true;
-
-	return false;
-}
-
 function bp_is_event_activity() {
 	global $bp;
 
@@ -2520,14 +2394,6 @@ function bp_is_event_forum_topic() {
 	return false;
 }
 
-function bp_is_event_forum_topic_edit() {
-	global $bp;
-
-	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && 'forum' == $bp->current_action && 'topic' == $bp->action_variables[0] && 'edit' == $bp->action_variables[2] )
-		return true;
-
-	return false;
-}
 
 function bp_is_event_members() {
 	global $bp;
@@ -2582,5 +2448,22 @@ function bp_is_user_events() {
 
 	return false;
 }
+function jet_new_event_enable_forum() {
+	echo jet_get_new_event_enable_forum();
+}
+	function jet_get_new_event_enable_forum() {
+		global $bp;
+		return (int) apply_filters( 'bp_get_new_event_enable_forum', $bp->events->current_event->enable_forum );
+	}
 
+function bp_is_event_forum() {
+	global $bp;
+
+	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && 'forum' == $bp->current_action )
+		return true;
+
+	return false;
+}
+	
+	
 ?>

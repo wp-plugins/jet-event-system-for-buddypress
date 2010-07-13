@@ -88,7 +88,7 @@
 		<?php if ( bp_forums_is_installed_correctly() ) : ?>
 
 			<div class="checkbox">
-				<label><input type="checkbox" name="event-show-forum" id="event-show-forum" value="1"<?php bp_event_show_forum_setting() ?> /> <?php _e( 'Enable discussion forum', 'jet-event-system' ) ?></label>
+				<label><input type="checkbox" name="event-show-forum" id="event-show-forum" value="1"<?php jet_bp_event_show_forum_setting() ?> /> <?php _e( 'Enable discussion forum', 'jet-event-system' ) ?></label>
 			</div>
 
 		<?php endif; ?>
@@ -101,7 +101,7 @@
 
 	<div class="radio">
 		<label>
-			<input type="radio" name="event-status" value="public"<?php bp_event_show_status_setting('public') ?> />
+			<input type="radio" name="event-status" value="public"<?php jet_bp_event_show_status_setting('public') ?> />
 			<strong><?php _e( 'This is a public event', 'jet-event-system' ) ?></strong>
 			<ul>
 				<li><?php _e( 'Any site member can join this event.', 'jet-event-system' ) ?></li>
@@ -111,7 +111,7 @@
 		</label>
 
 		<label>
-			<input type="radio" name="event-status" value="private"<?php bp_event_show_status_setting('private') ?> />
+			<input type="radio" name="event-status" value="private"<?php jet_bp_event_show_status_setting('private') ?> />
 			<strong><?php _e( 'This is a private event', 'jet-event-system' ) ?></strong>
 			<ul>
 				<li><?php _e( 'Only users who request membership and are accepted can join the event.', 'jet-event-system' ) ?></li>
@@ -121,7 +121,7 @@
 		</label>
 
 		<label>
-			<input type="radio" name="event-status" value="hidden"<?php bp_event_show_status_setting('hidden') ?> />
+			<input type="radio" name="event-status" value="hidden"<?php jet_bp_event_show_status_setting('hidden') ?> />
 			<strong><?php _e( 'This is a hidden event', 'jet-event-system' ) ?></strong>
 			<ul>
 				<li><?php _e( 'Only users who are invited can join the event.', 'jet-event-system' ) ?></li>

@@ -3,14 +3,14 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.0.1
+Version: 1.0.2
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
 Network: true
 */
 
-define('Jet Events System', '1.0b');
+define('Jet Events System', '1.0.2');
 define ('BP_EVENTS_DB_VERSION', '1.0');
 /* Define the slug for the component */
 if ( !defined( 'BP_EVENTS_SLUG' ) )
@@ -39,8 +39,7 @@ function jet_events_add_js() {
 
 	if ( $bp->current_component == $bp->events->slug )
 		wp_enqueue_script( 'jet-event-js', get_stylesheet_directory_uri() . '/events/js/datepacker.js' );
-	if ( $bp->current_component == $bp->events->slug )
-		wp_enqueue_script( 'jet-event-js-2', get_stylesheet_directory_uri() . '/events/js/directory-events.js' );		
+	
 }
 add_action( 'template_redirect', 'jet_events_add_js', 1 );	
 	
@@ -256,9 +255,9 @@ function events_setup_nav() {
 			if ( !is_site_admin() && is_user_logged_in() && !$bp->events->current_event->is_user_member && !events_check_for_membership_request( $bp->loggedin_user->id, $bp->events->current_event->id ) && $bp->events->current_event->status == 'private' )
 				bp_core_new_subnav_item( array( 'name' => __( 'Request Membership', 'jet-event-system' ), 'slug' => 'request-membership', 'parent_url' => $event_link, 'parent_slug' => $bp->events->slug, 'screen_function' => 'events_screen_event_request_membership', 'position' => 30 ) );
 
-			if ( $bp->events->current_event->enable_forum && function_exists('bp_forums_setup') )
+		/*	if ( $bp->events->current_event->enable_forum && function_exists('bp_forums_setup') )
 				bp_core_new_subnav_item( array( 'name' => __( 'Forum', 'jet-event-system' ), 'slug' => 'forum', 'parent_url' => $event_link, 'parent_slug' => $bp->events->slug, 'screen_function' => 'events_screen_event_forum', 'position' => 40, 'user_has_access' => $bp->events->current_event->user_has_access, 'item_css_id' => 'forums' ) );
-
+*/
 			bp_core_new_subnav_item( array( 'name' => sprintf( __( 'Members (%s)', 'jet-event-system' ), number_format( $bp->events->current_event->total_member_count ) ), 'slug' => 'members', 'parent_url' => $event_link, 'parent_slug' => $bp->events->slug, 'screen_function' => 'events_screen_event_members', 'position' => 60, 'user_has_access' => $bp->events->current_event->user_has_access, 'item_css_id' => 'members'  ) );
 
 			if ( is_user_logged_in() && events_is_user_member( $bp->loggedin_user->id, $bp->events->current_event->id ) ) {
@@ -399,219 +398,6 @@ function events_screen_event_home() {
 	}
 }
 
-function events_screen_event_forum() {
-	global $bp;
-
-	if ( $bp->is_single_item && $bp->events->current_event->user_has_access ) {
-
-		/* Fetch the details we need */
-		$topic_slug = $bp->action_variables[1];
-		$topic_id = bp_forums_get_topic_id_from_slug( $topic_slug );
-		$forum_id = events_get_eventmeta( $bp->events->current_event->id, 'forum_id' );
-
-		if ( $topic_slug && $topic_id ) {
-
-			/* Posting a reply */
-			if ( !$bp->action_variables[2] && isset( $_POST['submit_reply'] ) ) {
-				/* Check the nonce */
-				check_admin_referer( 'bp_forums_new_reply' );
-
-				/* Auto join this user if they are not yet a member of this event */
-				if ( !is_site_admin() && 'public' == $bp->events->current_event->status && !events_is_user_member( $bp->loggedin_user->id, $bp->events->current_event->id ) )
-					events_join_event( $bp->events->current_event->id, $bp->loggedin_user->id );
-
-				if ( !$post_id = events_new_event_forum_post( $_POST['reply_text'], $topic_id, $_GET['topic_page'] ) )
-					bp_core_add_message( __( 'There was an error when replying to that topic', 'jet-event-system'), 'error' );
-				else
-					bp_core_add_message( __( 'Your reply was posted successfully', 'jet-event-system') );
-
-				if ( $_SERVER['QUERY_STRING'] )
-					$query_vars = '?' . $_SERVER['QUERY_STRING'];
-
-				bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) . 'forum/topic/' . $topic_slug . '/' . $query_vars . '#post-' . $post_id );
-			}
-
-			/* Sticky a topic */
-			else if ( 'stick' == $bp->action_variables[2] && ( $bp->is_item_admin || $bp->is_item_mod ) ) {
-				/* Check the nonce */
-				check_admin_referer( 'bp_forums_stick_topic' );
-
-				if ( !bp_forums_sticky_topic( array( 'topic_id' => $topic_id ) ) )
-					bp_core_add_message( __( 'There was an error when making that topic a sticky', 'jet-event-system' ), 'error' );
-				else
-					bp_core_add_message( __( 'The topic was made sticky successfully', 'jet-event-system' ) );
-
-				do_action( 'events_stick_forum_topic', $topic_id );
-				bp_core_redirect( wp_get_referer() );
-			}
-
-			/* Un-Sticky a topic */
-			else if ( 'unstick' == $bp->action_variables[2] && ( $bp->is_item_admin || $bp->is_item_mod ) ) {
-				/* Check the nonce */
-				check_admin_referer( 'bp_forums_unstick_topic' );
-
-				if ( !bp_forums_sticky_topic( array( 'topic_id' => $topic_id, 'mode' => 'unstick' ) ) )
-					bp_core_add_message( __( 'There was an error when unsticking that topic', 'jet-event-system'), 'error' );
-				else
-					bp_core_add_message( __( 'The topic was unstuck successfully', 'jet-event-system') );
-
-				do_action( 'events_unstick_forum_topic', $topic_id );
-				bp_core_redirect( wp_get_referer() );
-			}
-
-			/* Close a topic */
-			else if ( 'close' == $bp->action_variables[2] && ( $bp->is_item_admin || $bp->is_item_mod ) ) {
-				/* Check the nonce */
-				check_admin_referer( 'bp_forums_close_topic' );
-
-				if ( !bp_forums_openclose_topic( array( 'topic_id' => $topic_id ) ) )
-					bp_core_add_message( __( 'There was an error when closing that topic', 'jet-event-system'), 'error' );
-				else
-					bp_core_add_message( __( 'The topic was closed successfully', 'jet-event-system') );
-
-				do_action( 'events_close_forum_topic', $topic_id );
-				bp_core_redirect( wp_get_referer() );
-			}
-
-			/* Open a topic */
-			else if ( 'open' == $bp->action_variables[2] && ( $bp->is_item_admin || $bp->is_item_mod ) ) {
-				/* Check the nonce */
-				check_admin_referer( 'bp_forums_open_topic' );
-
-				if ( !bp_forums_openclose_topic( array( 'topic_id' => $topic_id, 'mode' => 'open' ) ) )
-					bp_core_add_message( __( 'There was an error when opening that topic', 'jet-event-system'), 'error' );
-				else
-					bp_core_add_message( __( 'The topic was opened successfully', 'jet-event-system') );
-
-				do_action( 'events_open_forum_topic', $topic_id );
-				bp_core_redirect( wp_get_referer() );
-			}
-
-			/* Delete a topic */
-			else if ( 'delete' == $bp->action_variables[2] && empty( $bp->action_variables[3] ) ) {
-				/* Fetch the topic */
-				$topic = bp_forums_get_topic_details( $topic_id );
-
-				/* Check the logged in user can delete this topic */
-				if ( !$bp->is_item_admin && !$bp->is_item_mod && (int)$bp->loggedin_user->id != (int)$topic->topic_poster )
-					bp_core_redirect( wp_get_referer() );
-
-				/* Check the nonce */
-				check_admin_referer( 'bp_forums_delete_topic' );
-
-				if ( !events_delete_event_forum_topic( $topic_id ) )
-					bp_core_add_message( __( 'There was an error deleting the topic', 'jet-event-system'), 'error' );
-				else
-					bp_core_add_message( __( 'The topic was deleted successfully', 'jet-event-system') );
-
-				do_action( 'events_delete_forum_topic', $topic_id );
-				bp_core_redirect( wp_get_referer() );
-			}
-
-			/* Editing a topic */
-			else if ( 'edit' == $bp->action_variables[2] && empty( $bp->action_variables[3] ) ) {
-				/* Fetch the topic */
-				$topic = bp_forums_get_topic_details( $topic_id );
-
-				/* Check the logged in user can edit this topic */
-				if ( !$bp->is_item_admin && !$bp->is_item_mod && (int)$bp->loggedin_user->id != (int)$topic->topic_poster )
-					bp_core_redirect( wp_get_referer() );
-
-				if ( isset( $_POST['save_changes'] ) ) {
-					/* Check the nonce */
-					check_admin_referer( 'bp_forums_edit_topic' );
-
-					if ( !events_update_event_forum_topic( $topic_id, $_POST['topic_title'], $_POST['topic_text'] ) )
-						bp_core_add_message( __( 'There was an error when editing that topic', 'jet-event-system'), 'error' );
-					else
-						bp_core_add_message( __( 'The topic was edited successfully', 'jet-event-system') );
-
-					do_action( 'events_edit_forum_topic', $topic_id );
-					bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) . 'forum/topic/' . $topic_slug . '/' );
-				}
-
-				bp_core_load_template( apply_filters( 'events_template_event_forum_topic_edit', 'events/single/home' ) );
-			}
-
-			/* Delete a post */
-			else if ( 'delete' == $bp->action_variables[2] && $post_id = $bp->action_variables[4] ) {
-				/* Fetch the post */
-				$post = bp_forums_get_post( $post_id );
-
-				/* Check the logged in user can edit this topic */
-				if ( !$bp->is_item_admin && !$bp->is_item_mod && (int)$bp->loggedin_user->id != (int)$post->poster_id )
-					bp_core_redirect( wp_get_referer() );
-
-				/* Check the nonce */
-				check_admin_referer( 'bp_forums_delete_post' );
-
-				if ( !events_delete_event_forum_post( $bp->action_variables[4], $topic_id ) )
-					bp_core_add_message( __( 'There was an error deleting that post', 'jet-event-system'), 'error' );
-				else
-					bp_core_add_message( __( 'The post was deleted successfully', 'jet-event-system') );
-
-				do_action( 'events_delete_forum_post', $post_id );
-				bp_core_redirect( wp_get_referer() );
-			}
-
-			/* Editing a post */
-			else if ( 'edit' == $bp->action_variables[2] && $post_id = $bp->action_variables[4] ) {
-				/* Fetch the post */
-				$post = bp_forums_get_post( $bp->action_variables[4] );
-
-				/* Check the logged in user can edit this topic */
-				if ( !$bp->is_item_admin && !$bp->is_item_mod && (int)$bp->loggedin_user->id != (int)$post->poster_id )
-					bp_core_redirect( wp_get_referer() );
-
-				if ( isset( $_POST['save_changes'] ) ) {
-					/* Check the nonce */
-					check_admin_referer( 'bp_forums_edit_post' );
-
-					if ( !$post_id = events_update_event_forum_post( $post_id, $_POST['post_text'], $topic_id, $_GET['topic_page'] ) )
-						bp_core_add_message( __( 'There was an error when editing that post', 'jet-event-system'), 'error' );
-					else
-						bp_core_add_message( __( 'The post was edited successfully', 'jet-event-system') );
-
-					if ( $_SERVER['QUERY_STRING'] )
-						$query_vars = '?' . $_SERVER['QUERY_STRING'];
-
-					do_action( 'events_edit_forum_post', $post_id );
-					bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) . 'forum/topic/' . $topic_slug . '/' . $query_vars . '#post-' . $post_id );
-				}
-
-				bp_core_load_template( apply_filters( 'events_template_event_forum_topic_edit', 'events/single/home' ) );
-			}
-
-			/* Standard topic display */
-			else {
-				bp_core_load_template( apply_filters( 'events_template_event_forum_topic', 'events/single/home' ) );
-			}
-
-		} else {
-
-			/* Posting a topic */
-			if ( isset( $_POST['submit_topic'] ) && function_exists( 'bp_forums_new_topic') ) {
-				/* Check the nonce */
-				check_admin_referer( 'bp_forums_new_topic' );
-
-				/* Auto join this user if they are not yet a member of this event */
-				if ( !is_site_admin() && 'public' == $bp->events->current_event->status && !events_is_user_member( $bp->loggedin_user->id, $bp->events->current_event->id ) )
-					events_join_event( $bp->events->current_event->id, $bp->loggedin_user->id );
-
-				if ( !$topic = events_new_event_forum_topic( $_POST['topic_title'], $_POST['topic_text'], $_POST['topic_tags'], $forum_id ) )
-					bp_core_add_message( __( 'There was an error when creating the topic', 'jet-event-system'), 'error' );
-				else
-					bp_core_add_message( __( 'The topic was created successfully', 'jet-event-system') );
-
-				bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) . 'forum/topic/' . $topic->topic_slug . '/' );
-			}
-
-			do_action( 'events_screen_event_forum', $topic_id, $forum_id );
-
-			bp_core_load_template( apply_filters( 'events_template_event_forum', 'events/single/home' ) );
-		}
-	}
-}
 
 function events_screen_event_members() {
 	global $bp;
@@ -1135,10 +921,6 @@ function events_action_create_event() {
 			if ( !isset($_POST['event-show-forum']) ) {
 				$event_enable_forum = 0;
 			} else {
-				/* Create the forum if enable_forum = 1 */
-				if ( function_exists( 'bp_forums_setup' ) && '' == events_get_eventmeta( $bp->events->new_event_id, 'forum_id' ) ) {
-					events_new_event_forum();
-				}
 			}
 
 			if ( 'private' == $_POST['event-status'] )
@@ -1411,8 +1193,7 @@ function events_update_last_activity( $event_id ) {
 add_action( 'events_joined_event', 'events_update_last_activity' );
 add_action( 'events_leave_event', 'events_update_last_activity' );
 add_action( 'events_created_event', 'events_update_last_activity' );
-add_action( 'events_new_forum_topic', 'events_update_last_activity' );
-add_action( 'events_new_forum_topic_post', 'events_update_last_activity' );
+
 
 function events_format_notifications( $action, $item_id, $secondary_item_id, $total_items ) {
 	global $bp;
@@ -1673,13 +1454,6 @@ function events_edit_event_settings( $event_id, $enable_forum, $status ) {
 	if ( !$event->save() )
 		return false;
 
-	/* If forums have been enabled, and a forum does not yet exist, we need to create one. */
-	if ( $event->enable_forum ) {
-		if ( function_exists( 'bp_forums_setup' ) && '' == events_get_eventmeta( $event->id, 'forum_id' ) ) {
-			events_new_event_forum( $event->id, $event->name, $event->description );
-		}
-	}
-
 	events_update_eventmeta( $event->id, 'last_activity', gmdate( "Y-m-d H:i:s" ) );
 	do_action( 'events_settings_updated', $event->id );
 
@@ -1893,10 +1667,10 @@ function events_get_events( $args = '' ) {
 			$events = BP_Events_Event::get_random( $per_page, $page, $user_id, $search_terms, $populate_extras );
 			break;
 		case 'most-forum-topics':
-			$events = BP_Events_Event::get_by_most_forum_topics( $per_page, $page, $user_id, $search_terms, $populate_extras );
+			$events = BP_Events_Event::jet_get_by_most_forum_topics( $per_page, $page, $user_id, $search_terms, $populate_extras );
 			break;
 		case 'most-forum-posts':
-			$events = BP_Events_Event::get_by_most_forum_posts( $per_page, $page, $user_id, $search_terms, $populate_extras );
+			$events = BP_Events_Event::jet_get_by_most_forum_posts( $per_page, $page, $user_id, $search_terms, $populate_extras );
 			break;
 		case 'soon':
 			$events = BP_Events_Event::get_soon( $per_page, $page, $user_id, $search_terms, $populate_extras );
@@ -2019,233 +1793,6 @@ function events_post_update( $args = '' ) {
 	do_action( 'bp_events_posted_update', $content, $user_id, $event_id, $activity_id );
 
 	return $activity_id;
-}
-
-/*** Event Forums **************************************************************/
-
-function events_new_event_forum( $event_id = false, $event_name = false, $event_desc = false ) {
-	global $bp;
-
-	if ( !$event_id )
-		$event_id = $bp->events->current_event->id;
-
-	if ( !$event_name )
-		$event_name = $bp->events->current_event->name;
-
-	if ( !$event_desc )
-		$event_desc = $bp->events->current_event->description;
-
-	$forum_id = bp_forums_new_forum( array( 'forum_name' => $event_name, 'forum_desc' => $event_desc ) );
-
-	events_update_eventmeta( $event_id, 'forum_id', $forum_id );
-
-	do_action( 'events_new_event_forum', $forum_id, $event_id );
-}
-
-function events_update_event_forum( $event_id ) {
-
-	$event = new BP_Events_Event( $event_id );
-
-	if ( !$event->enable_forum )
-		return false;
-
-	$args = array(
-		'forum_id'		=> events_get_eventmeta( $event, 'forum_id' ),
-		'forum_name'	=> $event->name,
-		'forum_desc'	=> $event->desc,
-		'forum_slug'	=> $event->slug
-	);
-
-	bp_forums_update_forum( apply_filters( 'events_update_event_forum', $args ) );
-}
-add_action( 'events_details_updated', 'events_update_event_forum' );
-
-function events_new_event_forum_post( $post_text, $topic_id, $page = false ) {
-	global $bp;
-
-	if ( empty( $post_text ) )
-		return false;
-
-	$post_text = apply_filters( 'event_forum_post_text_before_save', $post_text );
-	$topic_id = apply_filters( 'event_forum_post_topic_id_before_save', $topic_id );
-
-	if ( $post_id = bp_forums_insert_post( array( 'post_text' => $post_text, 'topic_id' => $topic_id ) ) ) {
-		$topic = bp_forums_get_topic_details( $topic_id );
-
-		$activity_action = sprintf( __( '%s posted on the forum topic %s in the event %s:', 'jet-event-system'), bp_core_get_userlink( $bp->loggedin_user->id ), '<a href="' . bp_get_event_permalink( $bp->events->current_event ) . 'forum/topic/' . $topic->topic_slug .'/">' . attribute_escape( $topic->topic_title ) . '</a>', '<a href="' . bp_get_event_permalink( $bp->events->current_event ) . '">' . attribute_escape( $bp->events->current_event->name ) . '</a>' );
-		$activity_content = bp_create_excerpt( $post_text );
-		$primary_link = bp_get_event_permalink( $bp->events->current_event ) . 'forum/topic/' . $topic->topic_slug . '/';
-
-		if ( $page )
-			$primary_link .= "?topic_page=" . $page;
-
-		/* Record this in activity streams */
-		events_record_activity( array(
-			'action' => apply_filters( 'events_activity_new_forum_post_action', $activity_action, $post_id, $post_text, &$topic ),
-			'content' => apply_filters( 'events_activity_new_forum_post_content', $activity_content, $post_id, $post_text, &$topic ),
-			'primary_link' => apply_filters( 'events_activity_new_forum_post_primary_link', "{$primary_link}#post-{$post_id}" ),
-			'type' => 'new_forum_post',
-			'item_id' => $bp->events->current_event->id,
-			'secondary_item_id' => $post_id
-		) );
-
-		do_action( 'events_new_forum_topic_post', $bp->events->current_event->id, $post_id );
-
-		return $post_id;
-	}
-
-	return false;
-}
-
-function events_new_event_forum_topic( $topic_title, $topic_text, $topic_tags, $forum_id ) {
-	global $bp;
-
-	if ( empty( $topic_title ) || empty( $topic_text ) )
-		return false;
-
-	$topic_title = apply_filters( 'event_forum_topic_title_before_save', $topic_title );
-	$topic_text = apply_filters( 'event_forum_topic_text_before_save', $topic_text );
-	$topic_tags = apply_filters( 'event_forum_topic_tags_before_save', $topic_tags );
-	$forum_id = apply_filters( 'event_forum_topic_forum_id_before_save', $forum_id );
-
-	if ( $topic_id = bp_forums_new_topic( array( 'topic_title' => $topic_title, 'topic_text' => $topic_text, 'topic_tags' => $topic_tags, 'forum_id' => $forum_id ) ) ) {
-		$topic = bp_forums_get_topic_details( $topic_id );
-
-		$activity_action = sprintf( __( '%s started the forum topic %s in the event %s:', 'jet-event-system'), bp_core_get_userlink( $bp->loggedin_user->id ), '<a href="' . bp_get_event_permalink( $bp->events->current_event ) . 'forum/topic/' . $topic->topic_slug .'/">' . attribute_escape( $topic->topic_title ) . '</a>', '<a href="' . bp_get_event_permalink( $bp->events->current_event ) . '">' . attribute_escape( $bp->events->current_event->name ) . '</a>' );
-		$activity_content = bp_create_excerpt( $topic_text );
-
-		/* Record this in activity streams */
-		events_record_activity( array(
-			'action' => apply_filters( 'events_activity_new_forum_topic_action', $activity_action, $topic_text, &$topic ),
-			'content' => apply_filters( 'events_activity_new_forum_topic_content', $activity_content, $topic_text, &$topic ),
-			'primary_link' => apply_filters( 'events_activity_new_forum_topic_primary_link', bp_get_event_permalink( $bp->events->current_event ) . 'forum/topic/' . $topic->topic_slug . '/' ),
-			'type' => 'new_forum_topic',
-			'item_id' => $bp->events->current_event->id,
-			'secondary_item_id' => $topic->topic_id
-		) );
-
-		do_action( 'events_new_forum_topic', $bp->events->current_event->id, &$topic );
-
-		return $topic;
-	}
-
-	return false;
-}
-
-function events_update_event_forum_topic( $topic_id, $topic_title, $topic_text ) {
-	global $bp;
-
-	$topic_title = apply_filters( 'event_forum_topic_title_before_save', $topic_title );
-	$topic_text = apply_filters( 'event_forum_topic_text_before_save', $topic_text );
-
-	if ( $topic = bp_forums_update_topic( array( 'topic_title' => $topic_title, 'topic_text' => $topic_text, 'topic_id' => $topic_id ) ) ) {
-		/* Update the activity stream item */
-		if ( function_exists( 'bp_activity_delete_by_item_id' ) )
-			bp_activity_delete_by_item_id( array( 'item_id' => $bp->events->current_event->id, 'secondary_item_id' => $topic_id, 'component' => $bp->events->id, 'type' => 'new_forum_topic' ) );
-
-		$activity_action = sprintf( __( '%s started the forum topic %s in the event %s:', 'jet-event-system'), bp_core_get_userlink( $topic->topic_poster ), '<a href="' . bp_get_event_permalink( $bp->events->current_event ) . 'forum/topic/' . $topic->topic_slug .'/">' . attribute_escape( $topic->topic_title ) . '</a>', '<a href="' . bp_get_event_permalink( $bp->events->current_event ) . '">' . attribute_escape( $bp->events->current_event->name ) . '</a>' );
-		$activity_content = bp_create_excerpt( $topic_text );
-
-		/* Record this in activity streams */
-		events_record_activity( array(
-			'action' => apply_filters( 'events_activity_new_forum_topic_action', $activity_action, $topic_text, &$topic ),
-			'content' => apply_filters( 'events_activity_new_forum_topic_content', $activity_content, $topic_text, &$topic ),
-			'primary_link' => apply_filters( 'events_activity_new_forum_topic_primary_link', bp_get_event_permalink( $bp->events->current_event ) . 'forum/topic/' . $topic->topic_slug . '/' ),
-			'type' => 'new_forum_topic',
-			'item_id' => (int)$bp->events->current_event->id,
-			'user_id' => (int)$topic->topic_poster,
-			'secondary_item_id' => $topic->topic_id,
-			'recorded_time' => $topic->topic_time
-		) );
-
-		do_action( 'events_update_event_forum_topic', &$topic );
-
-		return $topic;
-	}
-
-	return false;
-}
-
-function events_update_event_forum_post( $post_id, $post_text, $topic_id, $page = false ) {
-	global $bp;
-
-	$post_text = apply_filters( 'event_forum_post_text_before_save', $post_text );
-	$topic_id = apply_filters( 'event_forum_post_topic_id_before_save', $topic_id );
-
-	$post = bp_forums_get_post( $post_id );
-
-	if ( $post_id = bp_forums_insert_post( array( 'post_id' => $post_id, 'post_text' => $post_text, 'post_time' => $post->post_time, 'topic_id' => $topic_id, 'poster_id' => $post->poster_id ) ) ) {
-		$topic = bp_forums_get_topic_details( $topic_id );
-
-		$activity_action = sprintf( __( '%s posted on the forum topic %s in the event %s:', 'jet-event-system'), bp_core_get_userlink( $post->poster_id ), '<a href="' . bp_get_event_permalink( $bp->events->current_event ) . 'forum/topic/' . $topic->topic_slug .'">' . attribute_escape( $topic->topic_title ) . '</a>', '<a href="' . bp_get_event_permalink( $bp->events->current_event ) . '">' . attribute_escape( $bp->events->current_event->name ) . '</a>' );
-		$activity_content = bp_create_excerpt( $post_text );
-		$primary_link = bp_get_event_permalink( $bp->events->current_event ) . 'forum/topic/' . $topic->topic_slug . '/';
-
-		if ( $page )
-			$primary_link .= "?topic_page=" . $page;
-
-		/* Fetch an existing entry and update if one exists. */
-		if ( function_exists( 'bp_activity_get_activity_id' ) )
-			$id = bp_activity_get_activity_id( array( 'user_id' => $post->poster_id, 'component' => $bp->events->id, 'type' => 'new_forum_post', 'item_id' => $bp->events->current_event->id, 'secondary_item_id' => $post_id ) );
-
-		/* Update the entry in activity streams */
-		events_record_activity( array(
-			'id' => $id,
-			'action' => apply_filters( 'events_activity_new_forum_post_action', $activity_action, $post_text, &$topic, &$forum_post ),
-			'content' => apply_filters( 'events_activity_new_forum_post_content', $activity_content, $post_text, &$topic, &$forum_post ),
-			'primary_link' => apply_filters( 'events_activity_new_forum_post_primary_link', $primary_link . "#post-" . $post_id ),
-			'type' => 'new_forum_post',
-			'item_id' => (int)$bp->events->current_event->id,
-			'user_id' => (int)$post->poster_id,
-			'secondary_item_id' => $post_id,
-			'recorded_time' => $post->post_time
-		) );
-
-		do_action( 'events_update_event_forum_post', &$post, &$topic );
-
-		return $post_id;
-	}
-
-	return false;
-}
-
-function events_delete_event_forum_topic( $topic_id ) {
-	global $bp;
-
-	if ( bp_forums_delete_topic( array( 'topic_id' => $topic_id ) ) ) {
-		/* Delete the activity stream item */
-		if ( function_exists( 'bp_activity_delete' ) ) {
-			bp_activity_delete( array( 'item_id' => $bp->events->current_event->id, 'secondary_item_id' => $topic_id, 'component' => $bp->events->id, 'type' => 'new_forum_topic' ) );
-		}
-
-		do_action( 'events_delete_event_forum_topic', $topic_id );
-
-		return true;
-	}
-
-	return false;
-}
-
-function events_delete_event_forum_post( $post_id, $topic_id ) {
-	global $bp;
-
-	if ( bp_forums_delete_post( array( 'post_id' => $post_id ) ) ) {
-		/* Delete the activity stream item */
-		if ( function_exists( 'bp_activity_delete' ) ) {
-			bp_activity_delete( array( 'item_id' => $bp->events->current_event->id, 'secondary_item_id' => $post_id, 'component' => $bp->events->id, 'type' => 'new_forum_post' ) );
-		}
-
-		do_action( 'events_delete_event_forum_post', $post_id, $topic_id );
-
-		return true;
-	}
-
-	return false;
-}
-
-
-function events_total_public_forum_topic_count( $type = 'newest' ) {
-	return apply_filters( 'events_total_public_forum_topic_count', BP_Events_Event::get_global_forum_topic_count( $type ) );
 }
 
 /*** Event Invitations *********************************************************/
@@ -2694,6 +2241,18 @@ add_action( 'events_settings_updated', 'events_clear_event_object_cache' );
 add_action( 'events_details_updated', 'events_clear_event_object_cache' );
 add_action( 'events_event_avatar_updated', 'events_clear_event_object_cache' );
 add_action( 'events_create_event_step_complete', 'events_clear_event_object_cache' );
+
+function datetounix($inputdate) {
+	$ev_day = substr($inputdate,1,2);
+	$ev_month = substr($inputdate,4,2);
+	$ev_year = substr($inputdate,7,4);
+
+	$ev_h = substr($inputdate,12,2);
+	$ev_m = substr($inputdate,15,2);
+
+	$ev_dres = mktime ($ev_h,$ev_m,0,$ev_month,$ev_day,$ev_year);
+return $ev_dres;
+}
 
 function events_clear_event_user_object_cache( $event_id, $user_id ) {
 	wp_cache_delete( 'bp_total_events_for_user_' . $user_id );

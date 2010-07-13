@@ -90,14 +90,14 @@
 
 					<?php if ( function_exists('bp_wire_install') ) : ?>
 					<div class="checkbox">
-						<label><input type="checkbox" name="event-show-wire" id="event-show-wire" value="1"<?php if ( bp_get_new_event_enable_wire() ) { ?> checked="checked"<?php } ?> /> <?php _e('Enable comment wire', 'jet-event-system') ?></label>
+						<label><input type="checkbox" name="event-show-wire" id="event-show-wire" value="1"<?php if ( jet_get_new_event_enable_wire() ) { ?> checked="checked"<?php } ?> /> <?php _e('Enable comment wire', 'jet-event-system') ?></label>
 					</div>
 					<?php endif; ?>
 
 					<?php if ( function_exists('bp_forums_is_installed_correctly') ) : ?>
 						<?php if ( bp_forums_is_installed_correctly() ) : ?>
 							<div class="checkbox">
-								<label><input type="checkbox" name="event-show-forum" id="event-show-forum" value="1"<?php if ( bp_get_new_event_enable_forum() ) { ?> checked="checked"<?php } ?> /> <?php _e('Enable discussion forum', 'jet-event-system') ?></label>
+								<label><input type="checkbox" name="event-show-forum" id="event-show-forum" value="1"<?php if ( jet_get_new_event_enable_forum() ) { ?> checked="checked"<?php } ?> /> <?php _e('Enable discussion forum', 'jet-event-system') ?></label>
 							</div>
 						<?php else : ?>
 							<?php if ( is_site_admin() ) : ?>

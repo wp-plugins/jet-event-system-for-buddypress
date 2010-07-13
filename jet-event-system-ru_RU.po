@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jet Event System\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-08 16:18+0300\n"
+"POT-Creation-Date: 2010-07-13 10:19+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Alexandr\n"
 "Language-Team: Jettochkin <milord_k@mail.ru>\n"
@@ -12,474 +12,378 @@ msgstr ""
 "X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-Basepath: C:\\testwork-web\\home\\wp30.ru\\www\\wp-content\\plugins\\jet-event-system-for-buddypress\n"
-"X-Poedit-SearchPath-0: C:\\testwork-web\\home\\wp30.ru\\www\\wp-content\\plugins\\jet-event-system-for-buddypress\n"
+"X-Poedit-Basepath: D:\\Plugins-Wordpress\\jet-event-system-for-buddypress\\trunk\n"
+"X-Poedit-SearchPath-0: D:\\Plugins-Wordpress\\jet-event-system-for-buddypress\\trunk\n"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:146
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:133
 msgid "Details"
 msgstr "Детали"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:147
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:134
 msgid "Settings"
 msgstr "Настройки"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:148
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:135
 msgid "Avatar"
 msgstr "Аватар"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:177
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1032
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1456
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1469
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1482
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1495
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-widgets.php:13
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:164
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:806
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1225
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1238
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1251
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1264
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:13
 msgid "Events"
 msgstr "События"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:209
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:196
 #, php-format
 msgid "Events <span>(%d)</span>"
 msgstr "События <span>(%d)</span>"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:214
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:220
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:201
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:207
 msgid "My Events"
 msgstr "Мои события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:239
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1111
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2074
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:226
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1002
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1957
 msgid "Event Avatar"
 msgstr "Аватар события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:261
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:248
 msgid "Home"
 msgstr "Домой"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:265
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:252
 msgid "Admin"
 msgstr "Управление"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:269
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1312
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:256
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1203
 msgid "Request Membership"
 msgstr "Запросы дружбы"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:272
-msgid "Forum"
-msgstr "Форум"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:274
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:261
 #, php-format
 msgid "Members (%s)"
 msgstr "Участники (%s)"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:278
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:265
 msgid "Send Invites"
 msgstr "Отправить приглашения"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:310
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:297
 msgid "Admin Options"
 msgstr "Административные опции"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:313
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1120
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:333
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:300
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1011
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:333
 msgid "Delete Event"
 msgstr "Удалить событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:358
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:345
 msgid "Event invite could not be accepted"
 msgstr "Приглашение на событие не может быть принято"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:360
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:347
 msgid "Event invite accepted"
 msgstr "Приглашение на событие принято"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:366
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1837
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:2521
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:353
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1599
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:2056
 #, php-format
 msgid "%s joined the event %s"
 msgstr "%s присоединился к событию:  %s"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:380
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:367
 msgid "Event invite could not be rejected"
 msgstr "Приглашение на событие не может быть отменено"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:382
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:369
 msgid "Event invite rejected"
 msgstr "Приглашение на событие отменено"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:436
-msgid "There was an error when replying to that topic"
-msgstr "Произошла ошибка при ответе в топике"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:438
-msgid "Your reply was posted successfully"
-msgstr "Ваш ответ успешно опубликован"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:452
-msgid "There was an error when making that topic a sticky"
-msgstr "Ошибка при прикреплении топика"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:454
-msgid "The topic was made sticky successfully"
-msgstr "Топик прикреплен"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:466
-msgid "There was an error when unsticking that topic"
-msgstr "Ошбка открепления топика"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:468
-msgid "The topic was unstuck successfully"
-msgstr "Топик успешно откреплен"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:480
-msgid "There was an error when closing that topic"
-msgstr "Ошибка при закрытии топика"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:482
-msgid "The topic was closed successfully"
-msgstr "Топик успешно откреплен"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:494
-msgid "There was an error when opening that topic"
-msgstr "Ошибка при открытии топика"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:496
-msgid "The topic was opened successfully"
-msgstr "Топик успешно открыт"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:515
-msgid "There was an error deleting the topic"
-msgstr "Ошибка при удалении топика"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:517
-msgid "The topic was deleted successfully"
-msgstr "Топик успешно удален"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:537
-msgid "There was an error when editing that topic"
-msgstr "Ошибка при редактировании топика"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:539
-msgid "The topic was edited successfully"
-msgstr "Топик успешно отредактирован"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:561
-msgid "There was an error deleting that post"
-msgstr "Ошибка при удалении поста"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:563
-msgid "The post was deleted successfully"
-msgstr "Пост успешно удален"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:583
-msgid "There was an error when editing that post"
-msgstr "Ошибка при редактировании поста"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:585
-msgid "The post was edited successfully"
-msgstr "Пост успешно отредактирован"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:614
-msgid "There was an error when creating the topic"
-msgstr "Ошибка при создании топика"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:616
-msgid "The topic was created successfully"
-msgstr "Топик успешно создан"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:652
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:426
 msgid "Event invites sent."
 msgstr "Приглашение на событие отправлено"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:678
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:452
 msgid "There was an error sending your event membership request, please try again."
 msgstr "Ошибка отправки приглашения, повторите"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:680
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:454
 msgid "Your membership request was sent to the event administrator successfully. You will be notified when the event administrator responds to your request."
 msgstr "Ваш запрос администратору успешно отправлен. Вы будете оповещены о решении администратора события."
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:729
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:503
 msgid "There was an error updating event details, please try again."
 msgstr "Ошибка обновления деталей события, повторите"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:731
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:505
 msgid "Event details were successfully updated."
 msgstr "Детали события успешно обновлены"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:767
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:541
 msgid "There was an error updating event settings, please try again."
 msgstr "Ошибка обновления деталий события, повторите"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:769
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:543
 msgid "Event settings were successfully updated."
 msgstr "Настройки события успешно обновлены."
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:799
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:573
 msgid "Your avatar was deleted successfully!"
 msgstr "Аватар успешно удален!"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:801
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:575
 msgid "There was a problem deleting that avatar, please try again."
 msgstr "Ошибка удаления аватара, повторите"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:829
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:603
 msgid "There was a problem cropping the avatar, please try uploading it again"
 msgstr "Ошибка обрезания аватара, попробуйте загрузить еще раз"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:831
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:605
 msgid "The new event avatar was uploaded successfully!"
 msgstr "Новый аватар успешно загружен!"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:860
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:634
 msgid "There was an error when promoting that user, please try again"
 msgstr "Произошла ошибка при продвижении пользователя, повторите"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:862
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:636
 msgid "User promoted successfully"
 msgstr "Продвижение пользователя прошло успешно"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:879
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:653
 msgid "There was an error when demoting that user, please try again"
 msgstr "Произошла ошибка при понижении роли пользователя, повторите"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:881
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:655
 msgid "User demoted successfully"
 msgstr "Понижение пользователя успешно выполнено"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:898
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:672
 msgid "There was an error when banning that user, please try again"
 msgstr "Ошибка бана пользователя, повторите"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:900
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:674
 msgid "User banned successfully"
 msgstr "Пользователь успешно забанен"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:917
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:691
 msgid "There was an error when unbanning that user, please try again"
 msgstr "Ошибка разбанивания пользователя, повторите"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:919
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:693
 msgid "User ban removed successfully"
 msgstr "Пользовательский бан успешно отменен"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:961
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:735
 msgid "There was an error accepting the membership request, please try again."
 msgstr "Произошла ошибка при принятии запроса, повторите"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:963
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:737
 msgid "Event membership request accepted"
 msgstr "Запрос принят"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:973
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:747
 msgid "There was an error rejecting the membership request, please try again."
 msgstr "Произошла ошибка при отказе запроса, повторите"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:975
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:749
 msgid "Event membership request rejected"
 msgstr "Запрос отклонен"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1007
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:781
 msgid "There was an error deleting the event, please try again."
 msgstr "Произошла ошибка при удалении события, повторите"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1009
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:783
 msgid "The event was deleted successfully"
 msgstr "Событие успешно удалено"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1033
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:807
 msgid "Yes"
 msgstr "Да"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1034
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:808
 msgid "No"
 msgstr "Нет"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1041
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:815
 msgid "A member invites you to join a event"
 msgstr "Пользовательские запросы на присоединение к событию"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1047
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:821
 msgid "Event information is updated"
 msgstr "Информация о событии успешно обновлена"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1053
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:827
 msgid "You are promoted to a event administrator or moderator"
 msgstr "Вы повышены до администратора или модератора события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1059
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:833
 msgid "A member requests to join a private event for which you are an admin"
 msgstr "Запрсы на присоединение к событию на котором вы администратор"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1108
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:882
 msgid "There was an error saving event details. Please try again."
 msgstr "Произошла ошибка при сохранении деталей события, попробуйте еще раз"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1130
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:904
 msgid "Please fill in all of the required fields"
 msgstr "Пожалуйста, заполните все поля"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1135
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1162
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:909
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:932
 msgid "There was an error saving event details, please try again."
 msgstr "Ошибка сохранения деталей события, повторите"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1193
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:963
 #, php-format
 msgid "%s created the event %s"
 msgstr "%s создал событие: %s"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1241
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1011
 msgid "There was an error saving the event avatar, please try uploading again."
 msgstr "Произошла ошибка при сохранении аватара события, попробуйте загрузить еще раз"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1243
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1013
 msgid "The event avatar was uploaded successfully!"
 msgstr "Аватар события успешно загружен!"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1267
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1274
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1037
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1044
 msgid "There was an error joining the event."
 msgstr "Ошибка присоединения к событию"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1276
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1046
 msgid "You joined the event!"
 msgstr "Вы присоединились к событию!"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1299
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1069
 msgid "There was an error leaving the event."
 msgstr "Ошибка покидания события."
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1301
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1795
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1071
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1557
 msgid "You successfully left the event."
 msgstr "Вы успешно отказались от события."
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1379
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1149
 msgid "Created a event"
 msgstr "Создание события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1380
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1150
 msgid "Joined a event"
 msgstr "Присоединиться к событию"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1381
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1151
 msgid "New event forum topic"
 msgstr "Новый топик события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1382
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1152
 msgid "New event forum post"
 msgstr "Новый пост события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1442
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1211
 msgid "Event Membership Requests"
 msgstr "Запросы пользователей на событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1442
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1211
 #, php-format
 msgid "%d new membership requests for the event \"%s\""
 msgstr "%d новых запросов на вступление к событию \"%s\""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1445
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1214
 #, php-format
 msgid "%s requests membership for the event \"%s\""
 msgstr "%s запросов для события \"%s\""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1456
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1225
 #, php-format
 msgid "%d accepted event membership requests"
 msgstr "%d подтвержденных запросов на событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1458
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1227
 #, php-format
 msgid "Membership for event \"%s\" accepted"
 msgstr "Запросы для события \"%s\" приняты"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1469
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1238
 #, php-format
 msgid "%d rejected event membership requests"
 msgstr "%d запросов отклонено"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1471
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1240
 #, php-format
 msgid "Membership for event \"%s\" rejected"
 msgstr "Запросы на событие \"%s\" отклонены"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1482
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1251
 #, php-format
 msgid "You were promoted to an admin in %d events"
 msgstr "Вы повышены до администратора события - %d"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1484
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1253
 #, php-format
 msgid "You were promoted to an admin in the event %s"
 msgstr "Вы повышены до администратора в событии %s"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1495
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1264
 #, php-format
 msgid "You were promoted to a mod in %d events"
 msgstr "Вы повышены до модератора на событии %d"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1497
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1266
 #, php-format
 msgid "You were promoted to a mod in the event %s"
 msgstr "Вы повышены до модератора в событии %s"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1508
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1510
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1277
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1279
 msgid "Event Invites"
 msgstr "Приглашения на событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1508
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1277
 #, php-format
 msgid "You have %d new event invitations"
 msgstr "Вы имеете %d новых приглашений"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1510
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1279
 #, php-format
 msgid "You have an invitation to the event: %s"
 msgstr "Вы приглашены на событие: %s"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1626
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-classes.php:810
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1395
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-classes.php:740
 msgid "Event Admin"
 msgstr "Администратор события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:1772
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1534
 msgid "As the only Admin, you cannot leave the event."
 msgstr "Вы как администратор не можете покинуть событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:2016
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1778
 #, php-format
 msgid "%s posted an update in the event %s:"
 msgstr "%s разместил обновление для события %s:"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:2087
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:2192
-#, php-format
-msgid "%s posted on the forum topic %s in the event %s:"
-msgstr ""
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:2126
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-event-system.php:2158
-#, php-format
-msgid "%s started the forum topic %s in the event %s:"
-msgstr ""
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-classes.php:804
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-classes.php:734
 msgid "Event Mod"
 msgstr "Модератор события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:7
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:7
 msgid "Event Details Updated"
 msgstr "Детали события обновлены"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:22
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:22
 #, php-format
 msgid ""
 "Event details for the event \"%s\" were updated:\n"
@@ -489,22 +393,22 @@ msgid ""
 "---------------------\n"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:29
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:77
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:130
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:176
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:228
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:285
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:29
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:77
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:130
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:176
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:228
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:285
 #, php-format
 msgid "To disable these notifications please log in and go to: %s"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:62
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:62
 #, php-format
 msgid "Membership request for event: %s"
 msgstr "Запросов на событие от пользователей: %s"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:65
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:65
 #, php-format
 msgid ""
 "%s wants to join the event \"%s\".\n"
@@ -519,12 +423,12 @@ msgid ""
 "---------------------\n"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:110
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:110
 #, php-format
 msgid "Membership request for event \"%s\" accepted"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:112
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:112
 #, php-format
 msgid ""
 "Your membership request for the event \"%s\" has been accepted.\n"
@@ -534,12 +438,12 @@ msgid ""
 "---------------------\n"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:120
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:120
 #, php-format
 msgid "Membership request for event \"%s\" rejected"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:122
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:122
 #, php-format
 msgid ""
 "Your membership request for the event \"%s\" has been rejected.\n"
@@ -549,20 +453,20 @@ msgid ""
 "---------------------\n"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:144
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:144
 msgid "an administrator"
 msgstr "до администратора"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:147
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:147
 msgid "a moderator"
 msgstr "до модератора"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:166
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:166
 #, php-format
 msgid "You have been promoted in the event: \"%s\""
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:169
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:169
 #, php-format
 msgid ""
 "You have been promoted to %s for the event: \"%s\".\n"
@@ -572,12 +476,12 @@ msgid ""
 "---------------------\n"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:214
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:214
 #, php-format
 msgid "You have an invitation to the event: \"%s\""
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:217
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:217
 #, php-format
 msgid ""
 "One of your friends %s has invited you to the event: \"%s\".\n"
@@ -591,12 +495,12 @@ msgid ""
 "---------------------\n"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:273
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:273
 #, php-format
 msgid "%s mentioned you in the event \"%s\""
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-notifications.php:276
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:276
 #, php-format
 msgid ""
 "%s mentioned you in the event \"%s\":\n"
@@ -608,792 +512,822 @@ msgid ""
 "---------------------\n"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:248
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:248
 msgid "Public Event"
 msgstr "Публичное событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:250
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:250
 msgid "Hidden Event"
 msgstr "Скрытое событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:252
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:252
 msgid "Private Event"
 msgstr "Приватное событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:254
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:254
 msgid "Event"
 msgstr "Событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:284
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1909
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:284
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1792
 msgid "Event avatar"
 msgstr "Аватар события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:334
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:334
 msgid "not yet active"
 msgstr "не активен"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:610
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:610
 msgid "Public"
 msgstr "Публичное"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:612
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:612
 msgid "Private"
 msgstr "Приватное"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:667
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:667
 msgid "No Admins"
 msgstr "Не админ"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:687
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:687
 msgid "No Mods"
 msgstr "Не мод."
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:709
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:709
 msgid "Filter Events"
 msgstr "Фильтр событий"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:757
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:757
 #, php-format
 msgid "Viewing event %1$s to %2$s (of %3$s events)"
 msgstr "Просмотр событий с %1$s по %2$s (из %3$s событий)"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:780
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:780
 #, php-format
 msgid "%s member"
 msgstr "%s пользователь"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:782
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:782
 #, php-format
 msgid "%s members"
 msgstr "%s пользователей"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:792
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:794
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:792
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:794
 #, php-format
 msgid "(%s)"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:834
-#, php-format
-msgid "%d topic"
-msgstr "%d топик"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:836
-#, php-format
-msgid "%d topics"
-msgstr "%d топики"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:868
-#, php-format
-msgid "%d post"
-msgstr "%d пост"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:870
-#, php-format
-msgid "%d posts"
-msgstr "%d посты"
-
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:932
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:970
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:823
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:861
 msgid "Demote to Member"
 msgstr "Понизить пользователей"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:938
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:976
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1594
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:829
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:867
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1485
 #, php-format
 msgid "joined %s ago"
 msgstr "присоединился %s назад"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:951
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:842
 msgid "This event has no administrators"
 msgstr "Данное событие без администраторов"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:970
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:244
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:861
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:244
 msgid "Promote to Admin"
 msgstr "Повысить до администратора"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:989
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:880
 msgid "This event has no moderators"
 msgstr "Данное событие без модераторов"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1103
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:994
 msgid "Edit Details"
 msgstr "Редактировать детали"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1110
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1001
 msgid "Event Settings"
 msgstr "Настройки события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1112
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1003
 msgid "Manage Members"
 msgstr "Управлять пользователями"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1115
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1006
 msgid "Membership Requests"
 msgstr "Запрос дружбы"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1301
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1309
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1320
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1192
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1200
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1211
 msgid "Leave Event"
 msgstr "Покинуть событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1304
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1195
 msgid "Join Event"
 msgstr "Присоединиться к событию"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1314
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1205
 msgid "Request Sent"
 msgstr "Запрос отправлен"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1336
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1227
 msgid "This is a private event and you must request event membership in order to join."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1338
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1229
 msgid "This is a private event. To join you must be a registered site member and request event membership."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1340
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1231
 msgid "This is a private event. Your membership request is awaiting approval from the event administrator."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1342
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1233
 msgid "This is a hidden event and only invited members can join."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:1644
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1535
 #, php-format
 msgid "Viewing members %1$s to %2$s (of %3$s members)"
 msgstr "Просмотр участников с %1$s по %2$s (из %3$s участников)"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2001
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2007
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1884
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1890
 msgid "Search anything..."
 msgstr "Искать везде.."
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2008
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1891
 msgid "Search"
 msgstr "Поиск"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2016
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2033
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1899
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1916
 msgid "Recently Active"
 msgstr "Активные"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2017
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2036
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1900
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1919
 msgid "Recently Joined"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2018
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2039
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1901
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1922
 msgid "Most Popular"
 msgstr "Популярные"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2019
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2042
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1902
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1925
 msgid "Administrator Of"
 msgstr "Администратор"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2020
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2045
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1903
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1928
 msgid "Moderator Of"
 msgstr "Модератор"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2021
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2048
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1904
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1931
 msgid "Alphabetically"
 msgstr "Алфавит"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2076
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1959
 msgid "No Event Avatar"
 msgstr "Нет автара события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-templatetags.php:2265
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:2148
 #, php-format
 msgid "requested %s ago"
 msgstr "запрошено %s назад"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-widgets.php:32
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:32
 msgid "Soon"
 msgstr "Ближайшие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-widgets.php:33
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:33
 msgid "Newest"
 msgstr "Новые"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-widgets.php:34
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:34
 msgid "Active"
 msgstr "Активные"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-widgets.php:35
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:35
 msgid "Popular"
 msgstr "Популярные"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-widgets.php:51
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:51
 msgid "In city:"
 msgstr "В городе:"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-widgets.php:51
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:51
 msgid "Start:"
 msgstr "Начало:"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-widgets.php:51
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:51
 msgid "End:"
 msgstr "Окончание:"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-widgets.php:64
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:64
 msgid "There are no events to display."
 msgstr "Нет событий для отображения"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-widgets.php:85
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:85
 msgid "Max events to show:"
 msgstr "Максимальное количество событий для отображения:"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-widgets.php:126
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:126
 #, php-format
 msgid "created %s ago"
 msgstr "создано %s назад"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-widgets.php:128
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/event-header.php:31
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:128
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/event-header.php:31
 #, php-format
 msgid "active %s ago"
 msgstr "активно %s назад"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/jet-events-widgets.php:145
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:145
 msgid "No events matched the current filter."
 msgstr "Не найдены события с заданным фильтром"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:7
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/index.php:7
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:7
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:7
 msgid "Create a Event"
 msgstr "Создать событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:7
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/index.php:7
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:7
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:7
 msgid "Events Directory"
 msgstr "Каталог событий"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:28
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:19
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/details.php:7
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:28
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:19
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:7
 msgid "Base event details"
 msgstr "Основные детали события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:29
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:20
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:29
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:20
 msgid "* Event Name"
 msgstr "* Название события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:29
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:32
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:35
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:38
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:64
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:69
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:20
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:23
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:26
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:29
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:54
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:59
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:29
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:32
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:35
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:38
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:64
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:69
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:20
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:23
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:26
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:29
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:54
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:59
 msgid "(required)"
 msgstr "(обязательно)"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:32
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:23
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:32
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:23
 msgid "* Event classification"
 msgstr "* Классификатор события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:35
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:26
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:35
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:26
 msgid "* Event Description"
 msgstr "* Описание события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:38
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:29
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:38
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:29
 msgid "* Event Placed City"
 msgstr "* Город проведения события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:41
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:32
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/details.php:16
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:41
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:32
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:16
 msgid "Event Placed address"
 msgstr "Адрес проведения события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:45
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:36
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/details.php:22
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:45
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:36
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:21
 msgid "Special Conditions"
 msgstr "Специальные условия"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:47
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:38
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/details.php:21
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:47
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:38
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:22
 msgid "News for event"
 msgstr "Новости"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:48
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:39
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/details.php:23
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:48
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:39
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:23
 msgid "Event Public news"
 msgstr "Публичные новости"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:51
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:41
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/details.php:25
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:51
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:41
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:25
 msgid "Event Private news"
 msgstr "Новости для участников"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:63
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:53
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/details.php:31
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:63
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:53
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:31
 msgid "Date event"
 msgstr "Дата события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:64
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:54
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:64
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:54
 msgid "* Event Start date"
 msgstr "Дата время начала события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:69
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:59
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:69
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:59
 msgid "* Event End date"
 msgstr "Дата время окончания события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:93
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:81
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:93
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:81
 msgid "Enable comment wire"
 msgstr "Разрешить комментарии в сети"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:100
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:91
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:100
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:91
 msgid "Enable discussion forum"
 msgstr "Разрешить форум"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:105
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:105
 #, php-format
 msgid "<strong>Attention Site Admin:</strong> Event forums require the <a href=\"%s\">correct setup and configuration</a> of a bbPress installation."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:113
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:100
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:113
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:100
 msgid "Privacy Options"
 msgstr "Приватные опции"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:117
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:105
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:117
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:105
 msgid "This is a public event"
 msgstr "Это публичное событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:119
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:107
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:119
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:107
 msgid "Any site member can join this event."
 msgstr "Любой пользователь может присоединиться к этому событию"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:120
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:129
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:108
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:118
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:120
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:129
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:108
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:118
 msgid "This event will be listed in the events directory and in search results."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:121
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:109
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:121
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:109
 msgid "Event content and activity will be visible to any site member."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:126
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:115
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:126
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:115
 msgid "This is a private event"
 msgstr "Это приватное событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:128
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:117
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:128
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:117
 msgid "Only users who request membership and are accepted can join the event."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:130
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:139
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:119
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:129
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:130
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:139
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:119
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:129
 msgid "Event content and activity will only be visible to members of the event."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:135
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:125
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:135
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:125
 msgid "This is a hidden event"
 msgstr "Это скрытое событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:137
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:127
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:137
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:127
 #, fuzzy
 msgid "Only users who are invited can join the event."
 msgstr "Любой пользователь может присоединиться к этому событию"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:138
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:128
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:138
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:128
 msgid "This event will not be listed in the events directory or search results."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:162
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:146
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:162
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:146
 msgid "Upload an image to use as an avatar for this event. The image will be shown on the main event page, and in search results."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:166
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:150
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:166
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:150
 msgid "Upload Image"
 msgstr "Загрузить изображение"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:170
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:170
 msgid "To skip the avatar upload process, hit the \"Next Step\" button."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:177
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:177
 msgid "Crop Event Avatar"
 msgstr "Обрезать аватар события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:179
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:170
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:179
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:170
 #, fuzzy
 msgid "Avatar to crop"
 msgstr "Аватар"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:182
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:173
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:182
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:173
 #, fuzzy
 msgid "Avatar preview"
 msgstr "Аватар"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:185
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:176
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:185
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:176
 msgid "Crop Image"
 msgstr "Обрезать изображение"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:223
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:223
 msgid "Select people to invite from your friends list."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:239
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:239
 #, fuzzy
 msgid "Remove Invite"
 msgstr "Приглашения на событие"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:254
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:254
 msgid "Once you have built up friend connections you will be able to invite others to your event. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new event."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:272
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:272
 msgid "Previous Step"
 msgstr "Предыдущий шаг"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:277
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:277
 msgid "Next Step"
 msgstr "Следующий шаг"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:282
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:282
 msgid "Create Event and Continue"
 msgstr "Создать событие и продолжить"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/create.php:287
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:287
 msgid "Finish"
 msgstr "Закончить"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/events-loop.php:30
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:30
 msgid "Short description:"
 msgstr "Краткое описание"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/events-loop.php:33
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:33
 msgid "The event will be held in the city:"
 msgstr "Событие будет проходить в городе: "
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/events-loop.php:33
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:33
 msgid "at "
 msgstr "по адресу "
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/events-loop.php:34
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:34
 msgid "From: "
 msgstr "C: "
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/events-loop.php:34
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:34
 msgid "to: "
 msgstr "по: "
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/events-loop.php:45
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:45
 #, php-format
 msgid "Last activity: %s ago"
 msgstr "Последняя активность: %s назад"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/events-loop.php:62
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:62
 msgid "There were no events found."
 msgstr "Не найдены события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/index.php:17
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:17
 #, php-format
 msgid "All Events (%s)"
 msgstr "Все события (%s)"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/index.php:20
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:20
 #, php-format
 msgid "My Events (%s)"
 msgstr "Мои события (%s)"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/index.php:27
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:27
 msgid "Order By:"
 msgstr "Сортировка:"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/index.php:29
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:29
 msgid "Last Active"
 msgstr "Последняя активность"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/index.php:30
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:30
 msgid "Most Members"
 msgstr "По количеству пользователей"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/index.php:31
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:31
 msgid "Newly Created"
 msgstr "Недавно созданные"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/index.php:32
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:32
 msgid "Alphabetical"
 msgstr "По алфавиту"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/activity.php:3
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/activity.php:3
 msgid "RSS"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/activity.php:9
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/activity.php:9
 msgid "No Filter"
 msgstr "Без фильтра"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/activity.php:10
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/activity.php:10
 msgid "Show Updates"
 msgstr "Показать обновления"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/activity.php:13
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/activity.php:13
 msgid "Show New Forum Topics"
 msgstr "Показать новые топики форума"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/activity.php:14
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/activity.php:14
 msgid "Show Forum Replies"
 msgstr "Показать ответы"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/activity.php:17
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/activity.php:17
 #, fuzzy
 msgid "Show New Event Memberships"
 msgstr "Запросы дружбы"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:68
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:136
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:68
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:136
 msgid "Save Changes"
 msgstr "Сохранить изменения"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:155
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:155
 msgid "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:158
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:158
 msgid "Delete Avatar"
 msgstr "Удалить аватар"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:168
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:168
 msgid "Crop Avatar"
 msgstr "Обрезать аватар"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:196
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:196
 msgid "Administrators"
 msgstr "Администраторы"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:203
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:203
 msgid "Moderators"
 msgstr "Модераторы"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:210
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:210
 msgid "Members"
 msgstr "Пользователя"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:238
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:238
 msgid "(banned)"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:238
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:244
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:238
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:244
 msgid "Kick and ban this member"
 msgstr "Удалить и забанить пользователя"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:238
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:238
 msgid "Remove Ban"
 msgstr "Удалить бан"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:244
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:244
 msgid "Kick &amp; Ban"
 msgstr "Удалить и в бан"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:244
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:244
 #, fuzzy
 msgid "Promote to Mod"
 msgstr "Повысить до администратора"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:257
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/members.php:51
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:257
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/members.php:51
 #, fuzzy
 msgid "This event has no members."
 msgstr "Данное событие без модераторов"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:288
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:288
 msgid "Accept"
 msgstr "Подтвердить"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:294
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:294
 msgid "Reject"
 msgstr "Отклонить"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:308
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:308
 #, fuzzy
 msgid "There are no pending membership requests."
 msgstr "Ошибка отправки приглашения, повторите"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:325
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:325
 msgid "WARNING: Deleting this event will completely remove ALL content associated with it. There is no way back, please be careful with this option."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/admin.php:328
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:328
 msgid "I understand the consequences of deleting this event."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/details.php:8
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:8
 msgid "Event Name"
 msgstr "Название события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/details.php:10
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:10
 msgid "Event classification"
 msgstr "Классификатор события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/details.php:12
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:12
 msgid "Event Description"
 msgstr "Описание события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/details.php:14
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:14
 msgid "Event Placed City"
 msgstr "Событие будет проходить в городе"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/details.php:32
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:32
 msgid "Event Start date"
 msgstr "Дата время начала события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/details.php:35
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:35
 msgid "Event End date"
 msgstr "Дата время окончания события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/event-header.php:6
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/event-header.php:6
 msgid "Event Admins"
 msgstr "Администраторы события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/event-header.php:14
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/event-header.php:14
 #, fuzzy
 msgid "Event Mods"
 msgstr "Модератор события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/event-header.php:37
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/event-header.php:37
 msgid "New Topic"
 msgstr "Новый топик"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum.php:29
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum.php:29
 msgid "You will auto join this event when you start a new topic."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum.php:33
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum.php:33
 msgid "Post a New Topic:"
 msgstr "Разместить новый топик: "
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum.php:35
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum.php:35
 msgid "Title:"
 msgstr "Заголовок:"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum.php:38
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum.php:38
 msgid "Content:"
 msgstr "Контент:"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum.php:41
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum.php:41
 msgid "Tags (comma separated):"
 msgstr "Метки (через запятую):"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum.php:47
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum.php:47
 #, fuzzy
 msgid "Post Topic"
 msgstr "Разместить новый топик: "
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/request-membership.php:4
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/request-membership.php:4
 #, fuzzy, php-format
 msgid "You are requesting to become a member of the event '%s'."
 msgstr "%s запросов для события \"%s\""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/request-membership.php:7
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/request-membership.php:7
 msgid "Comments (optional)"
 msgstr "Комментарии (опционально)"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/request-membership.php:12
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/request-membership.php:12
 msgid "Send Request"
 msgstr "Отправить запрос"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/edit.php:9
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/topic.php:21
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/edit.php:9
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:21
 msgid "Event Forum"
 msgstr "Форум события"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/edit.php:9
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/topic.php:21
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/edit.php:9
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:21
 #, fuzzy
 msgid "Event Forum Directory"
 msgstr "Каталог событий"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/edit.php:24
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/edit.php:24
 msgid "Edit Topic:"
 msgstr "Редактировать топик:"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/edit.php:46
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/edit.php:46
 msgid "Edit Post:"
 msgstr "Редактировать пост:"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/edit.php:67
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/edit.php:67
 msgid "This topic does not exist."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/topic.php:42
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:42
 #, fuzzy, php-format
 msgid "%s said %s ago:"
 msgstr "активно %s назад"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/topic.php:56
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:56
 msgid "Permanent link to this post"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/topic.php:87
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:87
 msgid "You will auto join this event when you reply to this topic."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/topic.php:92
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:92
 msgid "Add a reply:"
 msgstr "Добавить ответ"
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/topic.php:97
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:97
 msgid "Post Reply"
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/topic.php:108
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:108
 msgid "This topic is closed, replies are no longer accepted."
 msgstr ""
 
-#: C:\testwork-web\home\wp30.ru\www\wp-content\plugins\jet-event-system-for-buddypress/events/single/forum/topic.php:121
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:121
 msgid "There are no posts for this topic."
 msgstr "Отсутствуют записи для данного топика"
 
+#~ msgid "Forum"
+#~ msgstr "Форум"
+#~ msgid "There was an error when replying to that topic"
+#~ msgstr "Произошла ошибка при ответе в топике"
+#~ msgid "Your reply was posted successfully"
+#~ msgstr "Ваш ответ успешно опубликован"
+#~ msgid "There was an error when making that topic a sticky"
+#~ msgstr "Ошибка при прикреплении топика"
+#~ msgid "The topic was made sticky successfully"
+#~ msgstr "Топик прикреплен"
+#~ msgid "There was an error when unsticking that topic"
+#~ msgstr "Ошбка открепления топика"
+#~ msgid "The topic was unstuck successfully"
+#~ msgstr "Топик успешно откреплен"
+#~ msgid "There was an error when closing that topic"
+#~ msgstr "Ошибка при закрытии топика"
+#~ msgid "The topic was closed successfully"
+#~ msgstr "Топик успешно откреплен"
+#~ msgid "There was an error when opening that topic"
+#~ msgstr "Ошибка при открытии топика"
+#~ msgid "The topic was opened successfully"
+#~ msgstr "Топик успешно открыт"
+#~ msgid "There was an error deleting the topic"
+#~ msgstr "Ошибка при удалении топика"
+#~ msgid "The topic was deleted successfully"
+#~ msgstr "Топик успешно удален"
+#~ msgid "There was an error when editing that topic"
+#~ msgstr "Ошибка при редактировании топика"
+#~ msgid "The topic was edited successfully"
+#~ msgstr "Топик успешно отредактирован"
+#~ msgid "There was an error deleting that post"
+#~ msgstr "Ошибка при удалении поста"
+#~ msgid "The post was deleted successfully"
+#~ msgstr "Пост успешно удален"
+#~ msgid "There was an error when editing that post"
+#~ msgstr "Ошибка при редактировании поста"
+#~ msgid "The post was edited successfully"
+#~ msgstr "Пост успешно отредактирован"
+#~ msgid "There was an error when creating the topic"
+#~ msgstr "Ошибка при создании топика"
+#~ msgid "The topic was created successfully"
+#~ msgstr "Топик успешно создан"
+#~ msgid "%d topic"
+#~ msgstr "%d топик"
+#~ msgid "%d topics"
+#~ msgstr "%d топики"
+#~ msgid "%d post"
+#~ msgstr "%d пост"
+#~ msgid "%d posts"
+#~ msgstr "%d посты"
 #~ msgid "simple code"
 #~ msgstr " "
 

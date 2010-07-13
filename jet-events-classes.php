@@ -45,6 +45,8 @@ Class BP_Events_Event {
 			$this->newsprivate = stripslashes($event->newsprivate);
 			$this->edtsd = stripslashes($event->edtsd);			
 			$this->edted = stripslashes($event->edted);			
+			$this->edtsdunix = stripslashes($event->edtsdunix);			
+			$this->edtedunix = stripslashes($event->edtedunix);	
 			$this->status = $event->status;
 			$this->enable_forum = $event->enable_forum;
 			$this->date_created = $event->date_created;
@@ -77,7 +79,9 @@ Class BP_Events_Event {
 		$this->newspublic = apply_filters( 'events_event_newspublic_before_save', $this->newspublic, $this->id );
 		$this->newsprivate = apply_filters( 'events_event_newsprivate_before_save', $this->newsprivate, $this->id );
 		$this->edtsd = apply_filters( 'events_event_edtsd_before_save', $this->edtsd, $this->id );		
-		$this->edted = apply_filters( 'events_event_edted_before_save', $this->edted, $this->id );		
+		$this->edted = apply_filters( 'events_event_edted_before_save', $this->edted, $this->id );	
+		$this->edtsdunix = apply_filters( 'events_event_edtsdunix_before_save', $this->edtsdunix, $this->id );		
+		$this->edtedunix = apply_filters( 'events_event_edtedunix_before_save', $this->edtedunix, $this->id );		
  		$this->status = apply_filters( 'events_event_status_before_save', $this->status, $this->id );
 		$this->enable_forum = apply_filters( 'events_event_enable_forum_before_save', $this->enable_forum, $this->id );
 		$this->date_created = apply_filters( 'events_event_date_created_before_save', $this->date_created, $this->id );
@@ -99,6 +103,8 @@ Class BP_Events_Event {
 					newsprivate = %s,
 					edtsd = %s,
 					edted = %s,
+					edtsdunix = %s,
+					edtedunix = %s,
 					status = %s,
 					enable_forum = %d,
 					date_created = %s
@@ -117,6 +123,8 @@ Class BP_Events_Event {
 					$this->newsprivate,
 					$this->edtsd,
 					$this->edted,
+					datetounix($this->edtsd),
+					datetounix($this->edted),
 					$this->status,
 					$this->enable_forum,
 					$this->date_created,
@@ -137,11 +145,13 @@ Class BP_Events_Event {
 					newsprivate,
 					edtsd,
 					edted,
+					edtsdunix,
+					edtedunix,
 					status,
 					enable_forum,
 					date_created
 				) VALUES (
-					%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %s
+					%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %s
 				)",
 					$this->creator_id,
 					$this->name,
@@ -155,6 +165,8 @@ Class BP_Events_Event {
 					$this->newsprivate,
 					$this->edtsd,
 					$this->edted,
+					datetounix($this->edtsdunix),
+					datetounix($this->edtedunix),
 					$this->status,
 					$this->enable_forum,
 					$this->date_created
@@ -468,78 +480,6 @@ Class BP_Events_Event {
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
 
-	function get_by_most_forum_topics( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
-		global $wpdb, $bp, $bbdb;
-
-		if ( !$bbdb )
-			do_action( 'bbpress_init' );
-
-		if ( $limit && $page ) {
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
-		}
-
-		if ( !is_user_logged_in() || ( !is_site_admin() && ( $user_id != $bp->loggedin_user->id ) ) )
-			$hidden_sql = " AND g.status != 'hidden'";
-
-		if ( $search_terms ) {
-			$search_terms = like_escape( $wpdb->escape( $search_terms ) );
-			$search_sql = " AND ( g.name LIKE '%%{$search_terms}%%' OR g.description LIKE '%%{$search_terms}%%' )";
-		}
-
-		if ( $user_id ) {
-			$user_id = $wpdb->escape( $user_id );
-			$paged_events = $wpdb->get_results( "SELECT DISTINCT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->events->table_name_eventmeta} gm1, {$bp->events->table_name_eventmeta} gm2, {$bp->events->table_name_eventmeta} gm3, {$bp->events->table_name_members} m, {$bbdb->forums} f, {$bp->events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND g.id = gm3.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND (gm3.meta_key = 'forum_id' AND gm3.meta_value = f.forum_id) AND f.topics > 0 {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY f.topics DESC {$pag_sql}" );
-			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT g.id) FROM {$bp->events->table_name_eventmeta} gm1, {$bp->events->table_name_eventmeta} gm2, {$bp->events->table_name_eventmeta} gm3, {$bbdb->forums} f, {$bp->events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND g.id = gm3.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND (gm3.meta_key = 'forum_id' AND gm3.meta_value = f.forum_id) AND f.topics > 0 {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
-		} else {
-			$paged_events = $wpdb->get_results( "SELECT DISTINCT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->events->table_name_eventmeta} gm1, {$bp->events->table_name_eventmeta} gm2, {$bp->events->table_name_eventmeta} gm3, {$bbdb->forums} f, {$bp->events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND g.id = gm3.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND (gm3.meta_key = 'forum_id' AND gm3.meta_value = f.forum_id) AND f.topics > 0 {$hidden_sql} {$search_sql} ORDER BY f.topics DESC {$pag_sql}" );
-			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT g.id) FROM {$bp->events->table_name_eventmeta} gm1, {$bp->events->table_name_eventmeta} gm2, {$bp->events->table_name_eventmeta} gm3, {$bbdb->forums} f, {$bp->events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND g.id = gm3.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND (gm3.meta_key = 'forum_id' AND gm3.meta_value = f.forum_id) AND f.topics > 0 {$hidden_sql} {$search_sql}" );
-		}
-
-		if ( !empty( $populate_extras ) ) {
-			foreach ( (array)$paged_events as $event ) $event_ids[] = $event->id;
-			$event_ids = $wpdb->escape( join( ',', (array)$event_ids ) );
-			$paged_events = BP_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
-		}
-
-		return array( 'events' => $paged_events, 'total' => $total_events );
-	}
-
-	function get_by_most_forum_posts( $limit = null, $page = null, $search_terms = false, $populate_extras = true ) {
-		global $wpdb, $bp, $bbdb;
-
-		if ( !$bbdb )
-			do_action( 'bbpress_init' );
-
-		if ( $limit && $page ) {
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
-		}
-
-		if ( !is_user_logged_in() || ( !is_site_admin() && ( $user_id != $bp->loggedin_user->id ) ) )
-			$hidden_sql = " AND g.status != 'hidden'";
-
-		if ( $search_terms ) {
-			$search_terms = like_escape( $wpdb->escape( $search_terms ) );
-			$search_sql = " AND ( g.name LIKE '%%{$search_terms}%%' OR g.description LIKE '%%{$search_terms}%%' )";
-		}
-
-		if ( $user_id ) {
-			$user_id = $wpdb->escape( $user_id );
-			$paged_events = $wpdb->get_results( "SELECT DISTINCT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->events->table_name_eventmeta} gm1, {$bp->events->table_name_eventmeta} gm2, {$bp->events->table_name_eventmeta} gm3, {$bp->events->table_name_members} m, {$bbdb->forums} f, {$bp->events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND g.id = gm3.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND (gm3.meta_key = 'forum_id' AND gm3.meta_value = f.forum_id) {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY f.posts ASC {$pag_sql}" );
-			$total_events = $wpdb->get_results( "SELECT COUNT(DISTINCT g.id) FROM {$bp->events->table_name_eventmeta} gm1, {$bp->events->table_name_eventmeta} gm2, {$bp->events->table_name_eventmeta} gm3, {$bp->events->table_name_members} m, {$bbdb->forums} f, {$bp->events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND g.id = gm3.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND (gm3.meta_key = 'forum_id' AND gm3.meta_value = f.forum_id) AND f.posts > 0 {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
-		} else {
-			$paged_events = $wpdb->get_results( "SELECT DISTINCT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->events->table_name_eventmeta} gm1, {$bp->events->table_name_eventmeta} gm2, {$bp->events->table_name_eventmeta} gm3, {$bbdb->forums} f, {$bp->events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND g.id = gm3.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND (gm3.meta_key = 'forum_id' AND gm3.meta_value = f.forum_id) AND f.posts > 0 {$hidden_sql} {$search_sql} ORDER BY f.posts ASC {$pag_sql}" );
-			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT g.id) FROM {$bp->events->table_name_eventmeta} gm1, {$bp->events->table_name_eventmeta} gm2, {$bp->events->table_name_eventmeta} gm3, {$bbdb->forums} f, {$bp->events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND g.id = gm3.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND (gm3.meta_key = 'forum_id' AND gm3.meta_value = f.forum_id) {$hidden_sql} {$search_sql}" );
-		}
-
-		if ( !empty( $populate_extras ) ) {
-			foreach ( (array)$paged_events as $event ) $event_ids[] = $event->id;
-			$event_ids = $wpdb->escape( join( ',', (array)$event_ids ) );
-			$paged_events = BP_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
-		}
-
-		return array( 'events' => $paged_events, 'total' => $total_events );
-	}
-
 	function get_all( $limit = null, $page = null, $only_public = true, $sort_by = false, $order = false ) {
 		global $wpdb, $bp;
 
@@ -684,16 +624,6 @@ Class BP_Events_Event {
 		return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->events->table_name} {$hidden_sql}" ) );
 	}
 
-	function get_global_forum_topic_count( $type ) {
-		global $bbdb, $wpdb, $bp;
-
-		if ( 'unreplied' == $type )
-			$bp->events->filter_sql = ' AND t.topic_posts = 1';
-
-		$extra_sql = apply_filters( 'events_total_public_forum_topic_count', $bp->events->filter_sql, $type );
-
-		return $wpdb->get_var( "SELECT COUNT(t.topic_id) FROM {$bbdb->topics} AS t, {$bp->events->table_name} AS g LEFT JOIN {$bp->events->table_name_eventmeta} AS gm ON g.id = gm.event_id WHERE (gm.meta_key = 'forum_id' AND gm.meta_value = t.forum_id) AND g.status = 'public' AND t.topic_status = '0' AND t.topic_sticky != '2' {$extra_sql} " );
-	}
 
 	function get_total_member_count( $event_id ) {
 		global $wpdb, $bp;
