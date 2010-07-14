@@ -2,13 +2,13 @@
 
 /* Register widgets for events component */
 function events_register_widgets() {
-	add_action('widgets_init', create_function('', 'return register_widget("BP_Events_Widget");') );
+	add_action('widgets_init', create_function('', 'return register_widget("JES_BP_Events_Widget");') );
 }
 add_action( 'bp_register_widgets', 'events_register_widgets' );
 
 /*** EVENTS WIDGET *****************/
 
-class BP_Events_Widget extends WP_Widget {
+class JES_BP_Events_Widget extends WP_Widget {
 	function jes_bp_events_widget() {
 		parent::WP_Widget( false, $name = __( 'Events', 'jet-event-system' ) );
 

@@ -46,6 +46,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.0.5 =
+* Fixed Widget
+
 = 1.0.4 =
 * The solution to create a blog for activate the plugin
 
