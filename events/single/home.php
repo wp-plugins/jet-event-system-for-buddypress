@@ -2,7 +2,7 @@
 
 	<div id="content">
 		<div class="padder">
-			<?php if ( bp_has_events() ) : while ( bp_events() ) : bp_the_event(); ?>
+			<?php if ( bp_jes_has_events() ) : while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 
 			<?php do_action( 'bp_before_event_home_content' ) ?>
 
@@ -23,31 +23,31 @@
 			<div id="item-body">
 				<?php do_action( 'bp_before_event_body' ) ?>
 
-				<?php if ( bp_is_event_admin_page() && bp_event_is_visible() ) : ?>
+				<?php if ( bp_is_event_admin_page() && jes_bp_event_is_visible() ) : ?>
 					<?php locate_template( array( 'events/single/admin.php' ), true ) ?>
 
-				<?php elseif ( bp_is_event_members() && bp_event_is_visible() ) : ?>
+				<?php elseif ( bp_is_event_members() && jes_bp_event_is_visible() ) : ?>
 					<?php locate_template( array( 'events/single/members.php' ), true ) ?>
 
-				<?php elseif ( bp_is_event_invites() && bp_event_is_visible() ) : ?>
+				<?php elseif ( bp_is_event_invites() && jes_bp_event_is_visible() ) : ?>
 					<?php locate_template( array( 'events/single/send-invites.php' ), true ) ?>
 
-				<?php elseif ( bp_is_event_forum() && bp_event_is_visible() ) : ?>
+				<?php elseif ( bp_is_event_forum() && jes_bp_event_is_visible() ) : ?>
 					<?php locate_template( array( 'events/single/forum.php' ), true ) ?>
 
 				<?php elseif ( bp_is_event_membership_request() ) : ?>
 					<?php locate_template( array( 'events/single/request-membership.php' ), true ) ?>
 
-				<?php elseif ( bp_event_is_visible() && bp_is_active( 'activity' ) ) : ?>
+				<?php elseif ( jes_bp_event_is_visible() && bp_is_active( 'activity' ) ) : ?>
 					<?php locate_template( array( 'events/single/details.php' ), true ) ?>
 
-				<?php elseif ( !bp_event_is_visible() ) : ?>
+				<?php elseif ( !jes_bp_event_is_visible() ) : ?>
 					<?php /* The event is not visible, show the status message */ ?>
 
 					<?php do_action( 'bp_before_event_status_message' ) ?>
 
 					<div id="message" class="info">
-						<p><?php bp_event_status_message() ?></p>
+						<p><?php jes_bp_event_status_message() ?></p>
 					</div>
 
 					<?php do_action( 'bp_after_event_status_message' ) ?>

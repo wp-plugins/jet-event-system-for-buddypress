@@ -1,4 +1,4 @@
-<?php if ( bp_event_has_members( 'exclude_admins_mods=0' ) ) : ?>
+<?php if ( bp_event_jes_has_members( 'exclude_admins_mods=0' ) ) : ?>
 
 	<?php do_action( 'bp_before_event_members_content' ) ?>
 

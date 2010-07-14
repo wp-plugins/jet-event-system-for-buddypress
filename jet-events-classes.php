@@ -1,6 +1,6 @@
 <?php
 
-Class BP_Events_Event {
+Class JES_Events_Event {
 	var $id;
 	var $creator_id;
 	var $name;
@@ -21,7 +21,7 @@ Class BP_Events_Event {
 	var $admins;
 	var $total_member_count;
 
-	function bp_events_event( $id = null ) {
+	function jes_events_event( $id = null ) {
 		if ( $id ) {
 			$this->id = $id;
 			$this->populate();
@@ -52,7 +52,7 @@ Class BP_Events_Event {
 			$this->date_created = $event->date_created;
 			$this->last_activity = $event->last_activity;
 			$this->total_member_count = $event->total_member_count;
-			$this->is_member = BP_Events_Member::check_is_member( $bp->loggedin_user->id, $this->id );
+			$this->is_member = JES_Events_Member::jes_check_is_member( $bp->loggedin_user->id, $this->id );
 
 			/* Get event admins and mods */
 			$admin_mods = $wpdb->get_results( $wpdb->prepare( "SELECT u.ID as user_id, u.user_login, u.user_email, u.user_nicename, m.is_admin, m.is_mod FROM {$wpdb->users} u, {$bp->events->table_name_members} m WHERE u.ID = m.user_id AND m.event_id = %d AND ( m.is_admin = 1 OR m.is_mod = 1 )", $this->id ) );
@@ -192,16 +192,16 @@ Class BP_Events_Event {
 		events_delete_eventmeta( $this->id );
 
 		/* Fetch the user IDs of all the members of the event */
-		$user_ids = BP_Events_Member::get_event_member_ids( $this->id );
+		$user_ids = JES_Events_Member::jes_get_event_member_ids( $this->id );
 		$user_ids = implode( ',', (array)$user_ids );
 
 		/* Modify event count usermeta for members */
-		$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->usermeta} SET meta_value = meta_value - 1 WHERE meta_key = 'total_event_count' AND user_id IN ( {$user_ids} )" ) );
+		$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->usermeta} SET meta_value = meta_value - 1 WHERE meta_key = 'jes_total_event_count' AND user_id IN ( {$user_ids} )" ) );
 
 		/* Now delete all event member entries */
-		BP_Events_Member::delete_all( $this->id );
+		JES_Events_Member::jes_delete_all( $this->id );
 
-		do_action( 'bp_events_delete_event', $this );
+		do_action( 'jes_bp_events_delete_event', $this );
 
 		// Finally remove the event entry from the DB
 		if ( !$wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->events->table_name} WHERE id = %d", $this->id ) ) )
@@ -212,7 +212,7 @@ Class BP_Events_Event {
 
 	/* Static Functions */
 
-	function event_exists( $slug, $table_name = false ) {
+	function jes_event_exists( $slug, $table_name = false ) {
 		global $wpdb, $bp;
 
 		if ( !$table_name )
@@ -224,16 +224,16 @@ Class BP_Events_Event {
 		return $wpdb->get_var( $wpdb->prepare( "SELECT id FROM {$table_name} WHERE slug = %s", $slug ) );
 	}
 
-	function get_id_from_slug( $slug ) {
-		return BP_Events_Event::event_exists( $slug );
+	function jes_get_id_from_slug( $slug ) {
+		return JES_Events_Event::jes_event_exists( $slug );
 	}
 
-	function get_invites( $user_id, $event_id ) {
+	function jes_get_invites( $user_id, $event_id ) {
 		global $wpdb, $bp;
 		return $wpdb->get_col( $wpdb->prepare( "SELECT user_id FROM {$bp->events->table_name_members} WHERE event_id = %d and is_confirmed = 0 AND inviter_id = %d", $event_id, $user_id ) );
 	}
 
-	function filter_user_events( $filter, $user_id = false, $order = false, $limit = null, $page = null ) {
+	function jes_filter_user_events( $filter, $user_id = false, $order = false, $limit = null, $page = null ) {
 		global $wpdb, $bp;
 
 		if ( !$user_id )
@@ -245,7 +245,7 @@ Class BP_Events_Event {
 			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		// Get all the event ids for the current user's events.
-		$gids = BP_Events_Member::get_event_ids( $user_id );
+		$gids = JES_Events_Member::jes_get_event_ids( $user_id );
 
 		if ( !$gids['events'] )
 			return false;
@@ -258,7 +258,7 @@ Class BP_Events_Event {
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
 
-	function search_events( $filter, $limit = null, $page = null, $sort_by = false, $order = false ) {
+	function jes_search_events( $filter, $limit = null, $page = null, $sort_by = false, $order = false ) {
 		global $wpdb, $bp;
 
 		$filter = like_escape( $wpdb->escape( $filter ) );
@@ -281,19 +281,19 @@ Class BP_Events_Event {
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
 
-	function check_slug( $slug ) {
+	function jes_check_slug( $slug ) {
 		global $wpdb, $bp;
 
 		return $wpdb->get_var( $wpdb->prepare( "SELECT slug FROM {$bp->events->table_name} WHERE slug = %s", $slug ) );
 	}
 
-	function get_slug( $event_id ) {
+	function jes_get_slug( $event_id ) {
 		global $wpdb, $bp;
 
 		return $wpdb->get_var( $wpdb->prepare( "SELECT slug FROM {$bp->events->table_name} WHERE id = %d", $event_id ) );
 	}
 
-	function has_members( $event_id ) {
+	function jes_has_members( $event_id ) {
 		global $wpdb, $bp;
 
 		$members = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->events->table_name_members} WHERE event_id = %d", $event_id ) );
@@ -304,7 +304,7 @@ Class BP_Events_Event {
 		return true;
 	}
 
-	function has_membership_requests( $event_id ) {
+	function jes_has_membership_requests( $event_id ) {
 		global $wpdb, $bp;
 
 		return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->events->table_name_members} WHERE event_id = %d AND is_confirmed = 0", $event_id ) );
@@ -325,7 +325,7 @@ Class BP_Events_Event {
 
 	/* TODO: Merge all these get_() functions into one. */
 
-	function get_newest( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
+	function jes_get_newest( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
@@ -351,14 +351,14 @@ Class BP_Events_Event {
 		if ( !empty( $populate_extras ) ) {
 			foreach ( (array)$paged_events as $event ) $event_ids[] = $event->id;
 			$event_ids = $wpdb->escape( join( ',', (array)$event_ids ) );
-			$paged_events = BP_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
+			$paged_events = JES_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
 		}
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
 /* ------------ */
 
-	function get_soon( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
+	function jes_get_soon( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
@@ -384,14 +384,14 @@ Class BP_Events_Event {
 		if ( !empty( $populate_extras ) ) {
 			foreach ( (array)$paged_events as $event ) $event_ids[] = $event->id;
 			$event_ids = $wpdb->escape( join( ',', (array)$event_ids ) );
-			$paged_events = BP_Events_Event::get_event_extras( &$paged_events, $event_ids, 'soon' );
+			$paged_events = JES_Events_Event::get_event_extras( &$paged_events, $event_ids, 'soon' );
 		}
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
 /* ---------------- */	
 	
-	function get_active( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
+	function jes_get_active( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
@@ -417,13 +417,13 @@ Class BP_Events_Event {
 		if ( !empty( $populate_extras ) ) {
 			foreach ( (array)$paged_events as $event ) $event_ids[] = $event->id;
 			$event_ids = $wpdb->escape( join( ',', (array)$event_ids ) );
-			$paged_events = BP_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
+			$paged_events = JES_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
 		}
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
 
-	function get_popular( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
+	function jes_get_popular( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page ) {
@@ -450,13 +450,13 @@ Class BP_Events_Event {
 		if ( !empty( $populate_extras ) ) {
 			foreach ( (array)$paged_events as $event ) $event_ids[] = $event->id;
 			$event_ids = $wpdb->escape( join( ',', (array)$event_ids ) );
-			$paged_events = BP_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
+			$paged_events = JES_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
 		}
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
 
-	function get_alphabetically( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
+	function jes_get_alphabetically( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
@@ -482,13 +482,13 @@ Class BP_Events_Event {
 		if ( !empty( $populate_extras ) ) {
 			foreach ( (array)$paged_events as $event ) $event_ids[] = $event->id;
 			$event_ids = $wpdb->escape( join( ',', (array)$event_ids ) );
-			$paged_events = BP_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
+			$paged_events = JES_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
 		}
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
 
-	function get_all( $limit = null, $page = null, $only_public = true, $sort_by = false, $order = false ) {
+	function jes_get_all( $limit = null, $page = null, $only_public = true, $sort_by = false, $order = false ) {
 		global $wpdb, $bp;
 
 		// Default sql WHERE conditions are blank. TODO: generic handler function.
@@ -532,7 +532,7 @@ Class BP_Events_Event {
 		return $wpdb->get_results($sql);
 	}
 
-	function get_by_letter( $letter, $limit = null, $page = null, $populate_extras = true ) {
+	function jes_get_by_letter( $letter, $limit = null, $page = null, $populate_extras = true ) {
 		global $wpdb, $bp;
 
 		if ( strlen($letter) > 1 || is_numeric($letter) || !$letter )
@@ -553,13 +553,13 @@ Class BP_Events_Event {
 		if ( !empty( $populate_extras ) ) {
 			foreach ( (array)$paged_events as $event ) $event_ids[] = $event->id;
 			$event_ids = $wpdb->escape( join( ',', (array)$event_ids ) );
-			$paged_events = BP_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
+			$paged_events = JES_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
 		}
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
 
-	function get_random( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
+	function jes_get_random( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
@@ -585,7 +585,7 @@ Class BP_Events_Event {
 		if ( !empty( $populate_extras ) ) {
 			foreach ( (array)$paged_events as $event ) $event_ids[] = $event->id;
 			$event_ids = $wpdb->escape( join( ',', (array)$event_ids ) );
-			$paged_events = BP_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
+			$paged_events = JES_Events_Event::get_event_extras( &$paged_events, $event_ids, 'newest' );
 		}
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
@@ -617,13 +617,13 @@ Class BP_Events_Event {
 		return $paged_events;
 	}
 
-	function delete_all_invites( $event_id ) {
+	function jes_jes_delete_all_invites( $event_id ) {
 		global $wpdb, $bp;
 
 		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->events->table_name_members} WHERE event_id = %d AND invite_sent = 1", $event_id ) );
 	}
 
-	function get_total_event_count() {
+	function jes_get_jes_total_event_count() {
 		global $wpdb, $bp;
 
 		if ( !is_site_admin() )
@@ -633,14 +633,14 @@ Class BP_Events_Event {
 	}
 
 
-	function get_total_member_count( $event_id ) {
+	function jes_get_total_member_count( $event_id ) {
 		global $wpdb, $bp;
 
 		return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->events->table_name_members} WHERE event_id = %d AND is_confirmed = 1 AND is_banned = 0", $event_id ) );
 	}
 }
 
-Class BP_Events_Member {
+Class JES_Events_Member {
 	var $id;
 	var $event_id;
 	var $user_id;
@@ -656,7 +656,7 @@ Class BP_Events_Member {
 
 	var $user;
 
-	function bp_events_member( $user_id = false, $event_id = false, $id = false, $populate = true ) {
+	function jes_events_member( $user_id = false, $event_id = false, $id = false, $populate = true ) {
 		if ( $user_id && $event_id && !$id ) {
 			$this->user_id = $user_id;
 			$this->event_id = $event_id;
@@ -768,9 +768,9 @@ Class BP_Events_Member {
 
 		events_update_eventmeta( $this->event_id, 'total_member_count', ( (int) events_get_eventmeta( $this->event_id, 'total_member_count' ) - 1 ) );
 
-		$event_count = get_usermeta( $this->user_id, 'total_event_count' );
+		$event_count = get_usermeta( $this->user_id, 'jes_total_event_count' );
 		if ( !empty( $event_count ) )
-			update_usermeta( $this->user_id, 'total_event_count', (int)$event_count - 1 );
+			update_usermeta( $this->user_id, 'jes_total_event_count', (int)$event_count - 1 );
 
 		return $this->save();
 	}
@@ -782,18 +782,18 @@ Class BP_Events_Member {
 		$this->is_banned = 0;
 
 		events_update_eventmeta( $this->event_id, 'total_member_count', ( (int) events_get_eventmeta( $this->event_id, 'total_member_count' ) + 1 ) );
-		update_usermeta( $this->user_id, 'total_event_count', (int)get_usermeta( $this->user_id, 'total_event_count' ) + 1 );
+		update_usermeta( $this->user_id, 'jes_total_event_count', (int)get_usermeta( $this->user_id, 'jes_total_event_count' ) + 1 );
 
 		return $this->save();
 	}
 
-	function accept_invite() {
+	function jes_accept_invite() {
 		$this->inviter_id = 0;
 		$this->is_confirmed = 1;
 		$this->date_modified = gmdate( "Y-m-d H:i:s" );
 	}
 
-	function accept_request() {
+	function jes_accept_request() {
 		$this->is_confirmed = 1;
 		$this->date_modified = gmdate( "Y-m-d H:i:s" );
 	}
@@ -806,7 +806,7 @@ Class BP_Events_Member {
 		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->events->table_name_members} WHERE user_id = %d AND event_id = %d", $user_id, $event_id ) );
 	}
 
-	function get_event_ids( $user_id, $limit = false, $page = false ) {
+	function jes_get_event_ids( $user_id, $limit = false, $page = false ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
@@ -826,7 +826,7 @@ Class BP_Events_Member {
 		return array( 'events' => $events, 'total' => (int) $total_events );
 	}
 
-	function get_recently_joined( $user_id, $limit = false, $page = false, $filter = false ) {
+	function jes_get_recently_joined( $user_id, $limit = false, $page = false, $filter = false ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
@@ -846,7 +846,7 @@ Class BP_Events_Member {
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
 
-	function get_is_admin_of( $user_id, $limit = false, $page = false, $filter = false ) {
+	function jes_get_is_admin_of( $user_id, $limit = false, $page = false, $filter = false ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
@@ -866,7 +866,7 @@ Class BP_Events_Member {
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
 
-	function get_is_mod_of( $user_id, $limit = false, $page = false, $filter = false ) {
+	function jes_get_is_mod_of( $user_id, $limit = false, $page = false, $filter = false ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
@@ -886,7 +886,7 @@ Class BP_Events_Member {
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
 
-	function total_event_count( $user_id = false ) {
+	function jes_total_event_count( $user_id = false ) {
 		global $bp, $wpdb;
 
 		if ( !$user_id )
@@ -899,7 +899,7 @@ Class BP_Events_Member {
 		}
 	}
 
-	function get_invites( $user_id, $limit = false, $page = false ) {
+	function jes_get_invites( $user_id, $limit = false, $page = false ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
@@ -920,7 +920,7 @@ Class BP_Events_Member {
 		return $wpdb->get_var( $wpdb->prepare( "SELECT id FROM {$bp->events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND inviter_id != 0 AND invite_sent = 1", $user_id, $event_id ) );
 	}
 
-	function delete_invite( $user_id, $event_id ) {
+	function jes_delete_invite( $user_id, $event_id ) {
 		global $wpdb, $bp;
 
 		if ( !$user_id )
@@ -929,7 +929,7 @@ Class BP_Events_Member {
 		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND inviter_id != 0 AND invite_sent = 1", $user_id, $event_id ) );
 	}
 
-	function delete_request( $user_id, $event_id ) {
+	function jes_delete_request( $user_id, $event_id ) {
 		global $wpdb, $bp;
 
 		if ( !$user_id )
@@ -938,7 +938,7 @@ Class BP_Events_Member {
  		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND inviter_id = 0 AND invite_sent = 0", $user_id, $event_id ) );
 	}
 
-	function check_is_admin( $user_id, $event_id ) {
+	function jes_check_is_admin( $user_id, $event_id ) {
 		global $wpdb, $bp;
 
 		if ( !$user_id )
@@ -947,7 +947,7 @@ Class BP_Events_Member {
 		return $wpdb->query( $wpdb->prepare( "SELECT id FROM {$bp->events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_admin = 1 AND is_banned = 0", $user_id, $event_id ) );
 	}
 
-	function check_is_mod( $user_id, $event_id ) {
+	function jes_check_is_mod( $user_id, $event_id ) {
 		global $wpdb, $bp;
 
 		if ( !$user_id )
@@ -956,7 +956,7 @@ Class BP_Events_Member {
 		return $wpdb->query( $wpdb->prepare( "SELECT id FROM {$bp->events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_mod = 1 AND is_banned = 0", $user_id, $event_id ) );
 	}
 
-	function check_is_member( $user_id, $event_id ) {
+	function jes_check_is_member( $user_id, $event_id ) {
 		global $wpdb, $bp;
 
 		if ( !$user_id )
@@ -965,7 +965,7 @@ Class BP_Events_Member {
 		return $wpdb->query( $wpdb->prepare( "SELECT id FROM {$bp->events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 1 AND is_banned = 0", $user_id, $event_id ) );
 	}
 
-	function check_is_banned( $user_id, $event_id ) {
+	function jes_check_is_banned( $user_id, $event_id ) {
 		global $wpdb, $bp;
 
 		if ( !$user_id )
@@ -974,7 +974,7 @@ Class BP_Events_Member {
 		return $wpdb->get_var( $wpdb->prepare( "SELECT is_banned FROM {$bp->events->table_name_members} WHERE user_id = %d AND event_id = %d", $user_id, $event_id ) );
 	}
 
-	function check_for_membership_request( $user_id, $event_id ) {
+	function jes_check_for_membership_request( $user_id, $event_id ) {
 		global $wpdb, $bp;
 
 		if ( !$user_id )
@@ -983,7 +983,7 @@ Class BP_Events_Member {
 		return $wpdb->query( $wpdb->prepare( "SELECT id FROM {$bp->events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND is_banned = 0 AND inviter_id = 0", $user_id, $event_id ) );
 	}
 
-	function get_random_events( $user_id, $total_events = 5 ) {
+	function jes_get_random_events( $user_id, $total_events = 5 ) {
 		global $wpdb, $bp;
 
 		// If the user is logged in and viewing their random events, we can show hidden and private events
@@ -994,13 +994,13 @@ Class BP_Events_Member {
 		}
 	}
 
-	function get_event_member_ids( $event_id ) {
+	function jes_get_event_member_ids( $event_id ) {
 		global $bp, $wpdb;
 
 		return $wpdb->get_col( $wpdb->prepare( "SELECT user_id FROM {$bp->events->table_name_members} WHERE event_id = %d AND is_confirmed = 1 AND is_banned = 0", $event_id ) );
 	}
 
-	function get_event_administrator_ids( $event_id ) {
+	function jes_get_event_administrator_ids( $event_id ) {
 		global $bp, $wpdb;
 
 		return $wpdb->get_results( $wpdb->prepare( "SELECT user_id, date_modified FROM {$bp->events->table_name_members} WHERE event_id = %d AND is_admin = 1 AND is_banned = 0", $event_id ) );
@@ -1012,13 +1012,13 @@ Class BP_Events_Member {
 		return $wpdb->get_results( $wpdb->prepare( "SELECT user_id, date_modified FROM {$bp->events->table_name_members} WHERE event_id = %d AND is_mod = 1 AND is_banned = 0", $event_id ) );
 	}
 
-	function get_all_membership_request_user_ids( $event_id ) {
+	function jes_get_all_membership_request_user_ids( $event_id ) {
 		global $bp, $wpdb;
 
 		return $wpdb->get_col( $wpdb->prepare( "SELECT user_id FROM {$bp->events->table_name_members} WHERE event_id = %d AND is_confirmed = 0 AND inviter_id = 0", $event_id ) );
 	}
 
-	function get_all_for_event( $event_id, $limit = false, $page = false, $exclude_admins_mods = true, $exclude_banned = true ) {
+	function jes_get_all_for_event( $event_id, $limit = false, $page = false, $exclude_admins_mods = true, $exclude_banned = true ) {
 		global $bp, $wpdb;
 
 		if ( $limit && $page )
@@ -1060,19 +1060,19 @@ Class BP_Events_Member {
 		return array( 'members' => $members, 'count' => $total_member_count );
 	}
 
-	function delete_all( $event_id ) {
+	function jes_delete_all( $event_id ) {
 		global $wpdb, $bp;
 
 		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->events->table_name_members} WHERE event_id = %d", $event_id ) );
 	}
 
-	function delete_all_for_user( $user_id ) {
+	function jes_delete_all_for_user( $user_id ) {
 		global $wpdb, $bp;
 
 		// Get all the event ids for the current user's events and update counts
-		$event_ids = $this->get_event_ids( $user_id );
+		$event_ids = $this->jes_get_event_ids( $user_id );
 		foreach ( $event_ids->events as $event_id ) {
-			events_update_eventmeta( $event_id, 'total_member_count', events_get_total_member_count( $event_id ) - 1 );
+			events_update_eventmeta( $event_id, 'total_member_count', events_jes_get_total_member_count( $event_id ) - 1 );
 		}
 
 		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->events->table_name_members} WHERE user_id = %d", $user_id ) );
@@ -1085,15 +1085,15 @@ Class BP_Events_Member {
  *
  * This class must be extended for each event extension and the following methods overridden:
  *
- * BP_Event_Extension::widget_display(), BP_Event_Extension::display(),
- * BP_Event_Extension::edit_screen_save(), BP_Event_Extension::edit_screen(),
- * BP_Event_Extension::create_screen_save(), BP_Event_Extension::create_screen()
+ * JES_Event_Extension::widget_display(), JES_Event_Extension::display(),
+ * JES_Event_Extension::edit_screen_save(), JES_Event_Extension::edit_screen(),
+ * JES_Event_Extension::create_screen_save(), JES_Event_Extension::create_screen()
  *
  * @package BuddyPress
  * @subpackage Events
  * @since 1.1
  */
-class BP_Event_Extension {
+class JES_Event_Extension {
 	var $name = false;
 	var $slug = false;
 
@@ -1115,27 +1115,27 @@ class BP_Event_Extension {
 	// Methods you should override
 
 	function display() {
-		die( 'function BP_Event_Extension::display() must be over-ridden in a sub-class.' );
+		die( 'function JES_Event_Extension::display() must be over-ridden in a sub-class.' );
 	}
 
 	function widget_display() {
-		die( 'function BP_Event_Extension::widget_display() must be over-ridden in a sub-class.' );
+		die( 'function JES_Event_Extension::widget_display() must be over-ridden in a sub-class.' );
 	}
 
 	function edit_screen() {
-		die( 'function BP_Event_Extension::edit_screen() must be over-ridden in a sub-class.' );
+		die( 'function JES_Event_Extension::edit_screen() must be over-ridden in a sub-class.' );
 	}
 
 	function edit_screen_save() {
-		die( 'function BP_Event_Extension::edit_screen_save() must be over-ridden in a sub-class.' );
+		die( 'function JES_Event_Extension::edit_screen_save() must be over-ridden in a sub-class.' );
 	}
 
 	function create_screen() {
-		die( 'function BP_Event_Extension::create_screen() must be over-ridden in a sub-class.' );
+		die( 'function JES_Event_Extension::create_screen() must be over-ridden in a sub-class.' );
 	}
 
 	function create_screen_save() {
-		die( 'function BP_Event_Extension::create_screen_save() must be over-ridden in a sub-class.' );
+		die( 'function JES_Event_Extension::create_screen_save() must be over-ridden in a sub-class.' );
 	}
 
 	// Private Methods
@@ -1177,7 +1177,7 @@ class BP_Event_Extension {
 		if ( $this->visbility == 'public' || ( $this->visbility != 'public' && $bp->events->current_event->user_has_access ) ) {
 			if ( $this->enable_nav_item ) {
 				if ( $bp->current_component == $bp->events->slug && $bp->is_single_item )
-					bp_core_new_subnav_item( array( 'name' => ( !$this->nav_item_name ) ? $this->name : $this->nav_item_name, 'slug' => $this->slug, 'parent_slug' => BP_EVENTS_SLUG, 'parent_url' => bp_get_event_permalink( $bp->events->current_event ), 'position' => $this->nav_item_position, 'item_css_id' => 'nav-' . $this->slug, 'screen_function' => array( &$this, '_display_hook' ), 'user_has_access' => $this->enable_nav_item ) );
+					bp_core_new_subnav_item( array( 'name' => ( !$this->nav_item_name ) ? $this->name : $this->nav_item_name, 'slug' => $this->slug, 'parent_slug' => BP_EVENTS_SLUG, 'parent_url' => jes_bp_get_event_permalink( $bp->events->current_event ), 'position' => $this->nav_item_position, 'item_css_id' => 'nav-' . $this->slug, 'screen_function' => array( &$this, '_display_hook' ), 'user_has_access' => $this->enable_nav_item ) );
 
 				/* When we are viewing the extension display page, set the title and options title */
 				if ( $bp->current_component == $bp->events->slug && $bp->is_single_item && $bp->current_action == $this->slug ) {
@@ -1198,14 +1198,14 @@ class BP_Event_Extension {
 	}
 }
 
-function bp_register_event_extension( $event_extension_class ) {
+function jes_bp_register_event_extension( $jes_event_extension_class ) {
 	global $bp;
 
-	if ( !class_exists( $event_extension_class ) )
+	if ( !class_exists( $jes_event_extension_class ) )
 		return false;
 
 	/* Register the event extension on the bp_init action so we have access to all plugins */
-	add_action( 'bp_init', create_function( '', '$extension = new ' . $event_extension_class . '; add_action( "wp", array( &$extension, "_register" ), 2 );' ), 11 );
+	add_action( 'bp_init', create_function( '', '$extension = new ' . $jes_event_extension_class . '; add_action( "wp", array( &$extension, "_register" ), 2 );' ), 11 );
 }
 
 

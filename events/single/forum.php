@@ -18,7 +18,7 @@
 
 <?php if ( !jes_is_event_forum_topic_edit() && !jes_is_event_forum_topic() ) : ?>
 
-	<?php if ( ( is_user_logged_in() && 'public' == bp_get_event_status() ) || bp_event_is_member() ) : ?>
+	<?php if ( ( is_user_logged_in() && 'public' == jes_bp_get_event_status() ) || bp_event_is_member() ) : ?>
 
 		<form action="" method="post" id="forum-topic-form" class="standard-form">
 			<div id="post-new-topic">

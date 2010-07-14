@@ -3,15 +3,15 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.0.3
+Version: 1.0.4
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
 Network: true
 */
 
-define('Jet Events System', '1.0.2');
-define ('BP_EVENTS_DB_VERSION', '1.0');
+define('Jet Events System', '1.0.4');
+define ('JES_EVENTS_DB_VERSION', '1.0');
 /* Define the slug for the component */
 if ( !defined( 'BP_EVENTS_SLUG' ) )
 	define ( 'BP_EVENTS_SLUG', 'events' );
@@ -45,7 +45,7 @@ function jet_event_system_load_textdomain() {
 add_action ( 'plugins_loaded', 'jet_event_system_load_textdomain', 7 );
 
 
-function jes_add_admin_menu() {
+/* function jes_add_admin_menu() {
 	if ( !is_site_admin() )
 		return false;
 		
@@ -53,7 +53,7 @@ function jes_add_admin_menu() {
 
 }
 add_action( 'admin_menu', 'jes_add_admin_menu' );	
-
+*/
 function jet_events_add_js() {
   global $bp;
 
@@ -63,7 +63,7 @@ function jet_events_add_js() {
 }
 add_action( 'template_redirect', 'jet_events_add_js', 1 );	
 	
-function events_install() {
+function jes_events_install() {
 	global $wpdb, $bp;
 
 	if ( !empty($wpdb->charset) )
@@ -127,13 +127,13 @@ function events_install() {
 	require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
 	dbDelta($sql);
 
-	do_action( 'events_install' );
+	do_action( 'jes_events_install' );
 
-	update_site_option( 'bp-events-db-version', BP_EVENTS_DB_VERSION );	
+	update_site_option( 'bp-events-db-version', JES_EVENTS_DB_VERSION );	
 	
 }
 
-function events_setup_globals() {
+function jes_events_setup_globals() {
 	global $bp, $wpdb;
 
 	/* For internal identification */
@@ -144,7 +144,7 @@ function events_setup_globals() {
 	$bp->events->table_name_eventmeta = $wpdb->base_prefix . 'jet_events_eventmeta';
 	$bp->events->format_notification_function = 'events_format_notifications';
 	$bp->events->slug = BP_EVENTS_SLUG;
-	events_install();
+	//jes_events_install();
 	/* Register this in the active components array */
 	$bp->active_components[$bp->events->slug] = $bp->events->id;
 
@@ -158,9 +158,9 @@ function events_setup_globals() {
 
 	$bp->events->valid_status = apply_filters( 'events_valid_status', array( 'public', 'private', 'hidden' ) );
 
-	do_action( 'events_setup_globals' );
+	do_action( 'jes_events_setup_globals' );
 }
-add_action( 'bp_setup_globals', 'events_setup_globals' );
+add_action( 'bp_setup_globals', 'jes_events_setup_globals' );
 
 /* Ajax Tabs */
 add_action( 'wp_ajax_events_filter', 'bp_dtheme_object_template_loader' );
@@ -173,8 +173,8 @@ add_action( 'bp_setup_root_components', 'events_setup_root_component' );
 
 function events_check_installed() {
 	/* Need to check db tables exist, activate hook no-worky in mu-plugins folder. */
-	if ( get_site_option( 'bp-events-db-version' ) < BP_EVENTS_DB_VERSION )
-		events_install();
+	//if ( get_site_option( 'bp-events-db-version' ) < JES_EVENTS_DB_VERSION )
+	//	jes_events_install();
 }
 add_action( 'admin_menu', 'events_check_installed' );
 
@@ -190,11 +190,11 @@ add_action('bp_nav_items','add_events_to_main_menu');
 function events_setup_nav() {
 	global $bp;
 
-	if ( $bp->current_component == $bp->events->slug && $event_id = BP_Events_Event::event_exists($bp->current_action) ) {
+	if ( $bp->current_component == $bp->events->slug && $event_id = JES_Events_Event::jes_event_exists($bp->current_action) ) {
 
 		/* This is a single event page. */
 		$bp->is_single_item = true;
-		$bp->events->current_event = new BP_Events_Event( $event_id );
+		$bp->events->current_event = new JES_Events_Event( $event_id );
 
 		/* Using "item" not "event" for generic support in other components. */
 		if ( is_site_admin() )
@@ -273,7 +273,7 @@ function events_setup_nav() {
 				bp_core_new_subnav_item( array( 'name' => __( 'Admin', 'jet-event-system' ), 'slug' => 'admin', 'parent_url' => $event_link, 'parent_slug' => $bp->events->slug, 'screen_function' => 'events_screen_event_admin', 'position' => 20, 'user_has_access' => ( $bp->is_item_admin + (int)$bp->is_item_mod ), 'item_css_id' => 'admin' ) );
 
 			// If this is a private event, and the user is not a member, show a "Request Membership" nav item.
-			if ( !is_site_admin() && is_user_logged_in() && !$bp->events->current_event->is_user_member && !events_check_for_membership_request( $bp->loggedin_user->id, $bp->events->current_event->id ) && $bp->events->current_event->status == 'private' )
+			if ( !is_site_admin() && is_user_logged_in() && !$bp->events->current_event->is_user_member && !events_jes_check_for_membership_request( $bp->loggedin_user->id, $bp->events->current_event->id ) && $bp->events->current_event->status == 'private' )
 				bp_core_new_subnav_item( array( 'name' => __( 'Request Membership', 'jet-event-system' ), 'slug' => 'request-membership', 'parent_url' => $event_link, 'parent_slug' => $bp->events->slug, 'screen_function' => 'events_screen_event_request_membership', 'position' => 30 ) );
 
 		/*	if ( $bp->events->current_event->enable_forum && function_exists('bp_forums_setup') )
@@ -318,7 +318,7 @@ function events_setup_adminbar_menu() {
 		<a href=""><?php _e( 'Admin Options', 'jet-event-system' ) ?></a>
 
 		<ul>
-			<li><a class="confirm" href="<?php echo wp_nonce_url( bp_get_event_permalink( $bp->events->current_event ) . 'admin/delete-event/', 'events_delete_event' ) ?>&amp;delete-event-button=1&amp;delete-event-understand=1"><?php _e( "Delete Event", 'jet-event-system' ) ?></a></li>
+			<li><a class="confirm" href="<?php echo wp_nonce_url( jes_bp_get_event_permalink( $bp->events->current_event ) . 'admin/delete-event/', 'events_delete_event' ) ?>&amp;delete-event-button=1&amp;delete-event-understand=1"><?php _e( "Delete Event", 'jet-event-system' ) ?></a></li>
 
 			<?php do_action( 'events_adminbar_menu_items' ) ?>
 		</ul>
@@ -359,19 +359,19 @@ function events_screen_event_invites() {
 
 	if ( isset($bp->action_variables) && in_array( 'accept', (array)$bp->action_variables ) && is_numeric($event_id) ) {
 		/* Check the nonce */
-		if ( !check_admin_referer( 'events_accept_invite' ) )
+		if ( !check_admin_referer( 'events_jes_accept_invite' ) )
 			return false;
 
-		if ( !events_accept_invite( $bp->loggedin_user->id, $event_id ) ) {
+		if ( !events_jes_accept_invite( $bp->loggedin_user->id, $event_id ) ) {
 			bp_core_add_message( __('Event invite could not be accepted', 'jet-event-system'), 'error' );
 		} else {
 			bp_core_add_message( __('Event invite accepted', 'jet-event-system') );
 
 			/* Record this in activity streams */
-			$event = new BP_Events_Event( $event_id );
+			$event = new JES_Events_Event( $event_id );
 
 			events_record_activity( array(
-				'action' => apply_filters( 'events_activity_accepted_invite_action', sprintf( __( '%s joined the event %s', 'jet-event-system'), bp_core_get_userlink( $bp->loggedin_user->id ), '<a href="' . bp_get_event_permalink( $event ) . '">' . attribute_escape( $event->name ) . '</a>' ), $bp->loggedin_user->id, &$event ),
+				'action' => apply_filters( 'events_activity_accepted_invite_action', sprintf( __( '%s joined the event %s', 'jet-event-system'), bp_core_get_userlink( $bp->loggedin_user->id ), '<a href="' . jes_bp_get_event_permalink( $event ) . '">' . attribute_escape( $event->name ) . '</a>' ), $bp->loggedin_user->id, &$event ),
 				'type' => 'joined_event',
 				'item_id' => $event->id
 			) );
@@ -425,7 +425,7 @@ function events_screen_event_members() {
 
 	if ( $bp->is_single_item ) {
 		/* Refresh the event member count meta */
-		events_update_eventmeta( $bp->events->current_event->id, 'total_member_count', events_get_total_member_count( $bp->events->current_event->id ) );
+		events_update_eventmeta( $bp->events->current_event->id, 'total_member_count', events_jes_get_total_member_count( $bp->events->current_event->id ) );
 
 		do_action( 'events_screen_event_members', $bp->events->current_event->id );
 		bp_core_load_template( apply_filters( 'events_template_event_members', 'events/single/home' ) );
@@ -448,7 +448,7 @@ function events_screen_event_invite() {
 
 			do_action( 'events_screen_event_invite', $bp->events->current_event->id );
 
-			bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) );
+			bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) );
 		} else {
 			// Show send invite page
 			bp_core_load_template( apply_filters( 'events_template_event_invite', 'events/single/home' ) );
@@ -474,7 +474,7 @@ function events_screen_event_request_membership() {
 			} else {
 				bp_core_add_message( __( 'Your membership request was sent to the event administrator successfully. You will be notified when the event administrator responds to your request.', 'jet-event-system' ) );
 			}
-			bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) );
+			bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) );
 		}
 
 		do_action( 'events_screen_event_request_membership', $bp->events->current_event->id );
@@ -504,7 +504,7 @@ function events_screen_event_admin() {
 	if ( !empty( $bp->action_variables[0] ) )
 		return false;
 
-	bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) . 'admin/edit-details/' );
+	bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) . 'admin/edit-details/' );
 }
 
 function events_screen_event_admin_edit_details() {
@@ -532,7 +532,7 @@ if ( datetounix($_POST['event-edtsd']) > datetounix($_POST['event-edted'])) {
 				
 				do_action( 'events_event_details_edited', $bp->events->current_event->id );
 
-				bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) . 'admin/edit-details/' );
+				bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) . 'admin/edit-details/' );
 			}
 
 			do_action( 'events_screen_event_admin_edit_details', $bp->events->current_event->id );
@@ -570,7 +570,7 @@ function events_screen_event_admin_settings() {
 
 			do_action( 'events_event_settings_edited', $bp->events->current_event->id );
 
-			bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) . 'admin/event-settings/' );
+			bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) . 'admin/event-settings/' );
 		}
 
 		do_action( 'events_screen_event_admin_settings', $bp->events->current_event->id );
@@ -592,7 +592,7 @@ function events_screen_event_admin_avatar() {
 		if ( 'delete' == $bp->action_variables[1] ) {
 
 			/* Check the nonce */
-			check_admin_referer( 'bp_event_avatar_delete' );
+			check_admin_referer( 'jes_bp_event_avatar_delete' );
 
 			if ( bp_core_delete_existing_avatar( array( 'item_id' => $bp->events->current_event->id, 'object' => 'event' ) ) )
 				bp_core_add_message( __( 'Your avatar was deleted successfully!', 'jet-event-system' ) );
@@ -663,7 +663,7 @@ function events_screen_event_admin_manage_members() {
 
 			do_action( 'events_promoted_member', $user_id, $bp->events->current_event->id );
 
-			bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) . 'admin/manage-members/' );
+			bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) . 'admin/manage-members/' );
 		}
 
 		if ( 'demote' == $bp->action_variables[1] && is_numeric( $bp->action_variables[2] ) ) {
@@ -682,7 +682,7 @@ function events_screen_event_admin_manage_members() {
 
 			do_action( 'events_demoted_member', $user_id, $bp->events->current_event->id );
 
-			bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) . 'admin/manage-members/' );
+			bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) . 'admin/manage-members/' );
 		}
 
 		if ( 'ban' == $bp->action_variables[1] && is_numeric( $bp->action_variables[2] ) ) {
@@ -701,7 +701,7 @@ function events_screen_event_admin_manage_members() {
 
 			do_action( 'events_banned_member', $user_id, $bp->events->current_event->id );
 
-			bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) . 'admin/manage-members/' );
+			bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) . 'admin/manage-members/' );
 		}
 
 		if ( 'unban' == $bp->action_variables[1] && is_numeric( $bp->action_variables[2] ) ) {
@@ -720,7 +720,7 @@ function events_screen_event_admin_manage_members() {
 
 			do_action( 'events_unbanned_member', $user_id, $bp->events->current_event->id );
 
-			bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) . 'admin/manage-members/' );
+			bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) . 'admin/manage-members/' );
 		}
 
 		do_action( 'events_screen_event_admin_manage_members', $bp->events->current_event->id );
@@ -778,7 +778,7 @@ function events_screen_event_admin_requests() {
 
 			do_action( 'events_event_request_managed', $bp->events->current_event->id, $request_action, $membership_id );
 
-			bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) . 'admin/membership-requests/' );
+			bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) . 'admin/membership-requests/' );
 		}
 
 		do_action( 'events_screen_event_admin_requests', $bp->events->current_event->id );
@@ -915,7 +915,7 @@ function events_action_create_event() {
 	/* Set the ID of the new event, if it has already been created in a previous step */
 	if ( isset( $_COOKIE['bp_new_event_id'] ) ) {
 		$bp->events->new_event_id = $_COOKIE['bp_new_event_id'];
-		$bp->events->current_event = new BP_Events_Event( $bp->events->new_event_id );
+		$bp->events->current_event = new JES_Events_Event( $bp->events->new_event_id );
 	}
 
 	/* If the save, upload or skip button is hit, lets calculate what we need to save */
@@ -930,7 +930,7 @@ function events_action_create_event() {
 				bp_core_redirect( $bp->root_domain . '/' . $bp->events->slug . '/create/step/' . $bp->events->current_create_step . '/' );
 			}
 
-			if ( !$bp->events->new_event_id = events_create_event( array( 'event_id' => $bp->events->new_event_id, 'name' => $_POST['event-name'], 'etype' => $_POST['event-etype'], 'description' => $_POST['event-desc'], 'eventterms' => $_POST['event-eventterms'], 'placedcity' => $_POST['event-placedcity'], 'placedaddress' => $_POST['event-placedaddress'], 'newspublic' => $_POST['event-newspublic'], 'newsprivate' => $_POST['event-newsprivate'], 'edtsd' => $_POST['event-edtsd'], 'edted' => $_POST['event-edted'], 'slug' => events_check_slug( sanitize_title( esc_attr( $_POST['event-name'] ) ) ), 'date_created' => gmdate( "Y-m-d H:i:s" ), 'status' => 'public' ) ) ) {
+			if ( !$bp->events->new_event_id = events_create_event( array( 'event_id' => $bp->events->new_event_id, 'name' => $_POST['event-name'], 'etype' => $_POST['event-etype'], 'description' => $_POST['event-desc'], 'eventterms' => $_POST['event-eventterms'], 'placedcity' => $_POST['event-placedcity'], 'placedaddress' => $_POST['event-placedaddress'], 'newspublic' => $_POST['event-newspublic'], 'newsprivate' => $_POST['event-newsprivate'], 'edtsd' => $_POST['event-edtsd'], 'edted' => $_POST['event-edted'], 'slug' => events_jes_check_slug( sanitize_title( esc_attr( $_POST['event-name'] ) ) ), 'date_created' => gmdate( "Y-m-d H:i:s" ), 'status' => 'public' ) ) ) {
 				bp_core_add_message( __( 'There was an error saving event details, please try again.', 'jet-event-system' ), 'error' );
 				bp_core_redirect( $bp->root_domain . '/' . $bp->events->slug . '/create/step/' . $bp->events->current_create_step . '/' );
 			}
@@ -985,14 +985,14 @@ function events_action_create_event() {
 
 			/* Once we compelete all steps, record the event creation in the activity stream. */
 			events_record_activity( array(
-				'action' => apply_filters( 'events_activity_created_event_action', sprintf( __( '%s created the event %s', 'jet-event-system'), bp_core_get_userlink( $bp->loggedin_user->id ), '<a href="' . bp_get_event_permalink( $bp->events->current_event ) . '">' . attribute_escape( $bp->events->current_event->name ) . '</a>' ) ),
+				'action' => apply_filters( 'events_activity_created_event_action', sprintf( __( '%s created the event %s', 'jet-event-system'), bp_core_get_userlink( $bp->loggedin_user->id ), '<a href="' . jes_bp_get_event_permalink( $bp->events->current_event ) . '">' . attribute_escape( $bp->events->current_event->name ) . '</a>' ) ),
 				'type' => 'created_event',
 				'item_id' => $bp->events->new_event_id
 			) );
 
 			do_action( 'events_event_create_complete', $bp->events->new_event_id );
 
-			bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) );
+			bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) );
 		} else {
 			/**
 			 * Since we don't know what the next step is going to be (any plugin can insert steps)
@@ -1060,7 +1060,7 @@ function events_action_join_event() {
 		if ( $bp->events->current_event->status != 'public' ) {
 			if ( !events_check_user_has_invite( $bp->loggedin_user->id, $bp->events->current_event->id ) ) {
 				bp_core_add_message( __( 'There was an error joining the event.', 'jet-event-system' ), 'error' );
-				bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) );
+				bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) );
 			}
 		}
 
@@ -1070,7 +1070,7 @@ function events_action_join_event() {
 		else
 			bp_core_add_message( __( 'You joined the event!', 'jet-event-system' ) );
 
-		bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) );
+		bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) );
 	}
 
 	bp_core_load_template( apply_filters( 'events_template_event_home', 'events/single/home' ) );
@@ -1095,7 +1095,7 @@ function events_action_leave_event() {
 		} else {
 			bp_core_add_message( __( 'You successfully left the event.', 'jet-event-system' ) );
 		}
-		bp_core_redirect( bp_get_event_permalink( $bp->events->current_event ) );
+		bp_core_redirect( jes_bp_get_event_permalink( $bp->events->current_event ) );
 	}
 
 	bp_core_load_template( apply_filters( 'events_template_event_home', 'events/single/home' ) );
@@ -1228,80 +1228,80 @@ function events_format_notifications( $action, $item_id, $secondary_item_id, $to
 			$event_id = $secondary_item_id;
 			$requesting_user_id = $item_id;
 
-			$event = new BP_Events_Event( $event_id );
+			$event = new JES_Events_Event( $event_id );
 
-			$event_link = bp_get_event_permalink( $event );
+			$event_link = jes_bp_get_event_permalink( $event );
 
 			if ( (int)$total_items > 1 ) {
-				return apply_filters( 'bp_events_multiple_new_membership_requests_notification', '<a href="' . $event_link . '/admin/membership-requests/?n=1" title="' . __( 'Event Membership Requests', 'jet-event-system' ) . '">' . sprintf( __( '%d new membership requests for the event "%s"', 'jet-event-system' ), (int)$total_items, $event->name ) . '</a>', $event_link, $total_items, $event->name );
+				return apply_filters( 'jes_bp_events_multiple_new_membership_requests_notification', '<a href="' . $event_link . '/admin/membership-requests/?n=1" title="' . __( 'Event Membership Requests', 'jet-event-system' ) . '">' . sprintf( __( '%d new membership requests for the event "%s"', 'jet-event-system' ), (int)$total_items, $event->name ) . '</a>', $event_link, $total_items, $event->name );
 			} else {
 				$user_fullname = bp_core_get_user_displayname( $requesting_user_id );
-				return apply_filters( 'bp_events_single_new_membership_request_notification', '<a href="' . $event_link . 'admin/membership-requests/?n=1" title="' . $user_fullname .' requests event membership">' . sprintf( __( '%s requests membership for the event "%s"', 'jet-event-system' ), $user_fullname, $event->name ) . '</a>', $event_link, $user_fullname, $event->name );
+				return apply_filters( 'jes_bp_events_single_new_membership_request_notification', '<a href="' . $event_link . 'admin/membership-requests/?n=1" title="' . $user_fullname .' requests event membership">' . sprintf( __( '%s requests membership for the event "%s"', 'jet-event-system' ), $user_fullname, $event->name ) . '</a>', $event_link, $user_fullname, $event->name );
 			}
 		break;
 
 		case 'membership_request_accepted':
 			$event_id = $item_id;
 
-			$event = new BP_Events_Event( $event_id );
-			$event_link = bp_get_event_permalink( $event );
+			$event = new JES_Events_Event( $event_id );
+			$event_link = jes_bp_get_event_permalink( $event );
 
 			if ( (int)$total_items > 1 )
-				return apply_filters( 'bp_events_multiple_membership_request_accepted_notification', '<a href="' . $bp->loggedin_user->domain . $bp->events->slug . '/?n=1" title="' . __( 'Events', 'jet-event-system' ) . '">' . sprintf( __( '%d accepted event membership requests', 'jet-event-system' ), (int)$total_items, $event->name ) . '</a>', $total_items, $event_name );
+				return apply_filters( 'jes_bp_events_multiple_membership_request_accepted_notification', '<a href="' . $bp->loggedin_user->domain . $bp->events->slug . '/?n=1" title="' . __( 'Events', 'jet-event-system' ) . '">' . sprintf( __( '%d accepted event membership requests', 'jet-event-system' ), (int)$total_items, $event->name ) . '</a>', $total_items, $event_name );
 			else
-				return apply_filters( 'bp_events_single_membership_request_accepted_notification', '<a href="' . $event_link . '?n=1">' . sprintf( __( 'Membership for event "%s" accepted', 'jet-event-system' ), $event->name ) . '</a>', $event_link, $event->name );
+				return apply_filters( 'jes_bp_events_single_membership_request_accepted_notification', '<a href="' . $event_link . '?n=1">' . sprintf( __( 'Membership for event "%s" accepted', 'jet-event-system' ), $event->name ) . '</a>', $event_link, $event->name );
 
 		break;
 
 		case 'membership_request_rejected':
 			$event_id = $item_id;
 
-			$event = new BP_Events_Event( $event_id );
-			$event_link = bp_get_event_permalink( $event );
+			$event = new JES_Events_Event( $event_id );
+			$event_link = jes_bp_get_event_permalink( $event );
 
 			if ( (int)$total_items > 1 )
-				return apply_filters( 'bp_events_multiple_membership_request_rejected_notification', '<a href="' . site_url() . '/' . BP_MEMBERS_SLUG . '/' . $bp->events->slug . '/?n=1" title="' . __( 'Events', 'jet-event-system' ) . '">' . sprintf( __( '%d rejected event membership requests', 'jet-event-system' ), (int)$total_items, $event->name ) . '</a>', $total_items, $event->name );
+				return apply_filters( 'jes_bp_events_multiple_membership_request_rejected_notification', '<a href="' . site_url() . '/' . BP_MEMBERS_SLUG . '/' . $bp->events->slug . '/?n=1" title="' . __( 'Events', 'jet-event-system' ) . '">' . sprintf( __( '%d rejected event membership requests', 'jet-event-system' ), (int)$total_items, $event->name ) . '</a>', $total_items, $event->name );
 			else
-				return apply_filters( 'bp_events_single_membership_request_rejected_notification', '<a href="' . $event_link . '?n=1">' . sprintf( __( 'Membership for event "%s" rejected', 'jet-event-system' ), $event->name ) . '</a>', $event_link, $event->name );
+				return apply_filters( 'jes_bp_events_single_membership_request_rejected_notification', '<a href="' . $event_link . '?n=1">' . sprintf( __( 'Membership for event "%s" rejected', 'jet-event-system' ), $event->name ) . '</a>', $event_link, $event->name );
 
 		break;
 
 		case 'member_promoted_to_admin':
 			$event_id = $item_id;
 
-			$event = new BP_Events_Event( $event_id );
-			$event_link = bp_get_event_permalink( $event );
+			$event = new JES_Events_Event( $event_id );
+			$event_link = jes_bp_get_event_permalink( $event );
 
 			if ( (int)$total_items > 1 )
-				return apply_filters( 'bp_events_multiple_member_promoted_to_admin_notification', '<a href="' . $bp->loggedin_user->domain . $bp->events->slug . '/?n=1" title="' . __( 'Events', 'jet-event-system' ) . '">' . sprintf( __( 'You were promoted to an admin in %d events', 'jet-event-system' ), (int)$total_items ) . '</a>', $total_items );
+				return apply_filters( 'jes_bp_events_multiple_member_promoted_to_admin_notification', '<a href="' . $bp->loggedin_user->domain . $bp->events->slug . '/?n=1" title="' . __( 'Events', 'jet-event-system' ) . '">' . sprintf( __( 'You were promoted to an admin in %d events', 'jet-event-system' ), (int)$total_items ) . '</a>', $total_items );
 			else
-				return apply_filters( 'bp_events_single_member_promoted_to_admin_notification', '<a href="' . $event_link . '?n=1">' . sprintf( __( 'You were promoted to an admin in the event %s', 'jet-event-system' ), $event->name ) . '</a>', $event_link, $event->name );
+				return apply_filters( 'jes_bp_events_single_member_promoted_to_admin_notification', '<a href="' . $event_link . '?n=1">' . sprintf( __( 'You were promoted to an admin in the event %s', 'jet-event-system' ), $event->name ) . '</a>', $event_link, $event->name );
 
 		break;
 
 		case 'member_promoted_to_mod':
 			$event_id = $item_id;
 
-			$event = new BP_Events_Event( $event_id );
-			$event_link = bp_get_event_permalink( $event );
+			$event = new JES_Events_Event( $event_id );
+			$event_link = jes_bp_get_event_permalink( $event );
 
 			if ( (int)$total_items > 1 )
-				return apply_filters( 'bp_events_multiple_member_promoted_to_mod_notification', '<a href="' . $bp->loggedin_user->domain . $bp->events->slug . '/?n=1" title="' . __( 'Events', 'jet-event-system' ) . '">' . sprintf( __( 'You were promoted to a mod in %d events', 'jet-event-system' ), (int)$total_items ) . '</a>', $total_items );
+				return apply_filters( 'jes_bp_events_multiple_member_promoted_to_mod_notification', '<a href="' . $bp->loggedin_user->domain . $bp->events->slug . '/?n=1" title="' . __( 'Events', 'jet-event-system' ) . '">' . sprintf( __( 'You were promoted to a mod in %d events', 'jet-event-system' ), (int)$total_items ) . '</a>', $total_items );
 			else
-				return apply_filters( 'bp_events_single_member_promoted_to_mod_notification', '<a href="' . $event_link . '?n=1">' . sprintf( __( 'You were promoted to a mod in the event %s', 'jet-event-system' ), $event->name ) . '</a>', $event_link, $event->name );
+				return apply_filters( 'jes_bp_events_single_member_promoted_to_mod_notification', '<a href="' . $event_link . '?n=1">' . sprintf( __( 'You were promoted to a mod in the event %s', 'jet-event-system' ), $event->name ) . '</a>', $event_link, $event->name );
 
 		break;
 
 		case 'event_invite':
 			$event_id = $item_id;
 
-			$event = new BP_Events_Event( $event_id );
+			$event = new JES_Events_Event( $event_id );
 			$user_url = bp_core_get_user_domain( $user_id );
 
 			if ( (int)$total_items > 1 )
-				return apply_filters( 'bp_events_multiple_event_invite_notification', '<a href="' . $bp->loggedin_user->domain . $bp->events->slug . '/invites/?n=1" title="' . __( 'Event Invites', 'jet-event-system' ) . '">' . sprintf( __( 'You have %d new event invitations', 'jet-event-system' ), (int)$total_items ) . '</a>', $total_items );
+				return apply_filters( 'jes_bp_events_multiple_event_invite_notification', '<a href="' . $bp->loggedin_user->domain . $bp->events->slug . '/invites/?n=1" title="' . __( 'Event Invites', 'jet-event-system' ) . '">' . sprintf( __( 'You have %d new event invitations', 'jet-event-system' ), (int)$total_items ) . '</a>', $total_items );
 			else
-				return apply_filters( 'bp_events_single_event_invite_notification', '<a href="' . $bp->loggedin_user->domain . $bp->events->slug . '/invites/?n=1" title="' . __( 'Event Invites', 'jet-event-system' ) . '">' . sprintf( __( 'You have an invitation to the event: %s', 'jet-event-system' ), $event->name ) . '</a>', $event->name );
+				return apply_filters( 'jes_bp_events_single_event_invite_notification', '<a href="' . $bp->loggedin_user->domain . $bp->events->slug . '/invites/?n=1" title="' . __( 'Event Invites', 'jet-event-system' ) . '">' . sprintf( __( 'You have an invitation to the event: %s', 'jet-event-system' ), $event->name ) . '</a>', $event->name );
 
 		break;
 	}
@@ -1330,7 +1330,7 @@ function events_get_event( $args = '' ) {
 	$args = wp_parse_args( $args, $defaults );
 	extract( $args, EXTR_SKIP );
 
-	return apply_filters( 'events_get_event', new BP_Events_Event( $event_id, true, $load_users ) );
+	return apply_filters( 'events_get_event', new JES_Events_Event( $event_id, true, $load_users ) );
 }
 
 /*** Event Creation, Editing & Deletion *****************************************/
@@ -1353,9 +1353,9 @@ function events_create_event( $args = '' ) {
 	 */
 
 	if ( $event_id )
-		$event = new BP_Events_Event( $event_id );
+		$event = new JES_Events_Event( $event_id );
 	else
-		$event = new BP_Events_Event;
+		$event = new JES_Events_Event;
 
 	if ( $creator_id )
 		$event->creator_id = $creator_id;
@@ -1392,7 +1392,7 @@ function events_create_event( $args = '' ) {
 	if ( isset( $edted ) )
 		$event->edted = $edted;
 	
-	if ( isset( $slug ) && events_check_slug( $slug ) )
+	if ( isset( $slug ) && events_jes_check_slug( $slug ) )
 		$event->slug = $slug;
 
 	if ( isset( $status ) ) {
@@ -1413,7 +1413,7 @@ function events_create_event( $args = '' ) {
 
 	if ( !$event_id ) {
 		/* If this is a new event, set up the creator as the first member and admin */
-		$member = new BP_Events_Member;
+		$member = new JES_Events_Member;
 		$member->event_id = $event->id;
 		$member->user_id = $event->creator_id;
 		$member->is_admin = 1;
@@ -1435,7 +1435,7 @@ function events_edit_base_event_details( $event_id, $event_name, $event_etype, $
 	if ( empty( $event_name ) || empty( $event_desc ) || empty ( $event_placedcity) || empty ( $event_etype) || empty ( $event_edtsd) || empty ( $event_edted))
 		return false;
 
-	$event = new BP_Events_Event( $event_id );
+	$event = new JES_Events_Event( $event_id );
 	$event->name = $event_name;
 	$event->etype = $event_etype;
 	$event->description = $event_desc;
@@ -1463,7 +1463,7 @@ function events_edit_base_event_details( $event_id, $event_name, $event_etype, $
 function events_edit_event_settings( $event_id, $enable_forum, $status ) {
 	global $bp;
 
-	$event = new BP_Events_Event( $event_id );
+	$event = new JES_Events_Event( $event_id );
 	$event->enable_forum = $enable_forum;
 
 	/***
@@ -1493,7 +1493,7 @@ function events_delete_event( $event_id ) {
 		return false;
 
 	// Get the event object
-	$event = new BP_Events_Event( $event_id );
+	$event = new JES_Events_Event( $event_id );
 
 	if ( !$event->delete() )
 		return false;
@@ -1504,10 +1504,10 @@ function events_delete_event( $event_id ) {
 	}
 
 	// Remove all outstanding invites for this event
-	events_delete_all_event_invites( $event_id );
+	events_jes_delete_all_event_invites( $event_id );
 
 	// Remove all notifications for any user belonging to this event
-	bp_core_delete_all_notifications_by_type( $event_id, $bp->events->slug );
+	bp_core_jes_delete_all_notifications_by_type( $event_id, $bp->events->slug );
 
 	do_action( 'events_delete_event', $event_id );
 
@@ -1520,7 +1520,7 @@ function events_is_valid_status( $status ) {
 	return in_array( $status, (array)$bp->events->valid_status );
 }
 
-function events_check_slug( $slug ) {
+function events_jes_check_slug( $slug ) {
 	global $bp;
 
 	if ( 'wp' == substr( $slug, 0, 2 ) )
@@ -1530,18 +1530,18 @@ function events_check_slug( $slug ) {
 		$slug = $slug . '-' . rand();
 	}
 
-	if ( BP_Events_Event::check_slug( $slug ) ) {
+	if ( JES_Events_Event::jes_check_slug( $slug ) ) {
 		do {
 			$slug = $slug . '-' . rand();
 		}
-		while ( BP_Events_Event::check_slug( $slug ) );
+		while ( JES_Events_Event::jes_check_slug( $slug ) );
 	}
 
 	return $slug;
 }
 
-function events_get_slug( $event_id ) {
-	$event = new BP_Events_Event( $event_id );
+function events_jes_get_slug( $event_id ) {
+	$event = new JES_Events_Event( $event_id );
 	return $event->slug;
 }
 
@@ -1561,7 +1561,7 @@ function events_leave_event( $event_id, $user_id = false ) {
 		}
 	}
 
-	$membership = new BP_Events_Member( $user_id, $event_id );
+	$membership = new JES_Events_Member( $user_id, $event_id );
 
 	// This is exactly the same as deleting an invite, just is_confirmed = 1 NOT 0.
 	if ( !events_uninvite_user( $user_id, $event_id ) )
@@ -1571,7 +1571,7 @@ function events_leave_event( $event_id, $user_id = false ) {
 	events_update_eventmeta( $event_id, 'total_member_count', (int) events_get_eventmeta( $event_id, 'total_member_count') - 1 );
 
 	/* Modify user's event memberhip count */
-	update_usermeta( $user_id, 'total_event_count', (int) get_usermeta( $user_id, 'total_event_count') - 1 );
+	update_usermeta( $user_id, 'jes_total_event_count', (int) get_usermeta( $user_id, 'jes_total_event_count') - 1 );
 
 	/* If the user joined this event less than five minutes ago, remove the joined_event activity so
 	 * users cannot flood the activity stream by joining/leaving the event in quick succession.
@@ -1594,10 +1594,10 @@ function events_join_event( $event_id, $user_id = false ) {
 
 	/* Check if the user has an outstanding invite, is so delete it. */
 	if ( events_check_user_has_invite( $user_id, $event_id ) )
-		events_delete_invite( $user_id, $event_id );
+		events_jes_delete_invite( $user_id, $event_id );
 
 	/* Check if the user has an outstanding request, is so delete it. */
-	if ( events_check_for_membership_request( $user_id, $event_id ) )
+	if ( events_jes_check_for_membership_request( $user_id, $event_id ) )
 		events_delete_membership_request( $user_id, $event_id );
 
 	/* User is already a member, just return true */
@@ -1605,9 +1605,9 @@ function events_join_event( $event_id, $user_id = false ) {
 		return true;
 
 	if ( !$bp->events->current_event )
-		$bp->events->current_event = new BP_Events_Event( $event_id );
+		$bp->events->current_event = new JES_Events_Event( $event_id );
 
-	$new_member = new BP_Events_Member;
+	$new_member = new JES_Events_Member;
 	$new_member->event_id = $event_id;
 	$new_member->user_id = $user_id;
 	$new_member->inviter_id = 0;
@@ -1621,7 +1621,7 @@ function events_join_event( $event_id, $user_id = false ) {
 
 	/* Record this in activity streams */
 	events_record_activity( array(
-		'action' => apply_filters( 'events_activity_joined_event', sprintf( __( '%s joined the event %s', 'jet-event-system'), bp_core_get_userlink( $user_id ), '<a href="' . bp_get_event_permalink( $bp->events->current_event ) . '">' . attribute_escape( $bp->events->current_event->name ) . '</a>' ) ),
+		'action' => apply_filters( 'events_activity_joined_event', sprintf( __( '%s joined the event %s', 'jet-event-system'), bp_core_get_userlink( $user_id ), '<a href="' . jes_bp_get_event_permalink( $bp->events->current_event ) . '">' . attribute_escape( $bp->events->current_event->name ) . '</a>' ) ),
 		'type' => 'joined_event',
 		'item_id' => $event_id
 	) );
@@ -1637,24 +1637,24 @@ function events_join_event( $event_id, $user_id = false ) {
 
 /*** General Event Functions ****************************************************/
 
-function events_check_event_exists( $event_id ) {
-	return BP_Events_Event::event_exists( $event_id );
+function events_check_jes_event_exists( $event_id ) {
+	return JES_Events_Event::jes_event_exists( $event_id );
 }
 
 function events_get_event_admins( $event_id ) {
-	return BP_Events_Member::get_event_administrator_ids( $event_id );
+	return JES_Events_Member::jes_get_event_administrator_ids( $event_id );
 }
 
 function events_get_event_mods( $event_id ) {
-	return BP_Events_Member::get_event_moderator_ids( $event_id );
+	return JES_Events_Member::get_event_moderator_ids( $event_id );
 }
 
 function events_get_event_members( $event_id, $limit = false, $page = false ) {
-	return BP_Events_Member::get_all_for_event( $event_id, $limit, $page );
+	return JES_Events_Member::jes_get_all_for_event( $event_id, $limit, $page );
 }
 
-function events_get_total_member_count( $event_id ) {
-	return BP_Events_Event::get_total_member_count( $event_id );
+function events_jes_get_total_member_count( $event_id ) {
+	return JES_Events_Event::jes_get_total_member_count( $event_id );
 }
 
 /*** Event Fetching, Filtering & Searching  *************************************/
@@ -1677,38 +1677,38 @@ function events_get_events( $args = '' ) {
 
 	switch ( $type ) {
 		case 'active': default:
-			$events = BP_Events_Event::get_active( $per_page, $page, $user_id, $search_terms, $populate_extras );
+			$events = JES_Events_Event::jes_get_active( $per_page, $page, $user_id, $search_terms, $populate_extras );
 			break;
 		case 'newest':
-			$events = BP_Events_Event::get_newest( $per_page, $page, $user_id, $search_terms, $populate_extras );
+			$events = JES_Events_Event::jes_get_newest( $per_page, $page, $user_id, $search_terms, $populate_extras );
 			break;
 		case 'popular':
-			$events = BP_Events_Event::get_popular( $per_page, $page, $user_id, $search_terms, $populate_extras );
+			$events = JES_Events_Event::jes_get_popular( $per_page, $page, $user_id, $search_terms, $populate_extras );
 			break;
 		case 'alphabetical':
-			$events = BP_Events_Event::get_alphabetically( $per_page, $page, $user_id, $search_terms, $populate_extras );
+			$events = JES_Events_Event::jes_get_alphabetically( $per_page, $page, $user_id, $search_terms, $populate_extras );
 			break;
 		case 'random':
-			$events = BP_Events_Event::get_random( $per_page, $page, $user_id, $search_terms, $populate_extras );
+			$events = JES_Events_Event::jes_get_random( $per_page, $page, $user_id, $search_terms, $populate_extras );
 			break;
 		case 'most-forum-topics':
-			$events = BP_Events_Event::jet_get_by_most_forum_topics( $per_page, $page, $user_id, $search_terms, $populate_extras );
+			$events = JES_Events_Event::jet_get_by_most_forum_topics( $per_page, $page, $user_id, $search_terms, $populate_extras );
 			break;
 		case 'most-forum-posts':
-			$events = BP_Events_Event::jet_get_by_most_forum_posts( $per_page, $page, $user_id, $search_terms, $populate_extras );
+			$events = JES_Events_Event::jet_get_by_most_forum_posts( $per_page, $page, $user_id, $search_terms, $populate_extras );
 			break;
 		case 'soon':
-			$events = BP_Events_Event::get_soon( $per_page, $page, $user_id, $search_terms, $populate_extras );
+			$events = JES_Events_Event::jes_get_soon( $per_page, $page, $user_id, $search_terms, $populate_extras );
 			break;			
 	}
 	
 	return apply_filters( 'events_get_events', $events, &$params );
 }
 
-function events_get_total_event_count() {
-	if ( !$count = wp_cache_get( 'bp_total_event_count', 'bp' ) ) {
-		$count = BP_Events_Event::get_total_event_count();
-		wp_cache_set( 'bp_total_event_count', $count, 'bp' );
+function events_jes_get_jes_total_event_count() {
+	if ( !$count = wp_cache_get( 'bp_jes_total_event_count', 'bp' ) ) {
+		$count = JES_Events_Event::jes_get_jes_total_event_count();
+		wp_cache_set( 'bp_jes_total_event_count', $count, 'bp' );
 	}
 
 	return $count;
@@ -1720,7 +1720,7 @@ function events_get_user_events( $user_id = false, $pag_num = false, $pag_page =
 	if ( !$user_id )
 		$user_id = $bp->displayed_user->id;
 
-	return BP_Events_Member::get_event_ids( $user_id, $pag_num, $pag_page );
+	return JES_Events_Member::jes_get_event_ids( $user_id, $pag_num, $pag_page );
 }
 
 function events_total_events_for_user( $user_id = false ) {
@@ -1730,7 +1730,7 @@ function events_total_events_for_user( $user_id = false ) {
 		$user_id = ( $bp->displayed_user->id ) ? $bp->displayed_user->id : $bp->loggedin_user->id;
 
 	if ( !$count = wp_cache_get( 'bp_total_events_for_user_' . $user_id, 'bp' ) ) {
-		$count = BP_Events_Member::total_event_count( $user_id );
+		$count = JES_Events_Member::jes_total_event_count( $user_id );
 		wp_cache_set( 'bp_total_events_for_user_' . $user_id, $count, 'bp' );
 	}
 
@@ -1761,19 +1761,19 @@ function events_avatar_upload_dir( $event_id = false ) {
 /*** Event Member Status Checks ************************************************/
 
 function events_is_user_admin( $user_id, $event_id ) {
-	return BP_Events_Member::check_is_admin( $user_id, $event_id );
+	return JES_Events_Member::jes_check_is_admin( $user_id, $event_id );
 }
 
 function events_is_user_mod( $user_id, $event_id ) {
-	return BP_Events_Member::check_is_mod( $user_id, $event_id );
+	return JES_Events_Member::jes_jes_check_is_mod( $user_id, $event_id );
 }
 
 function events_is_user_member( $user_id, $event_id ) {
-	return BP_Events_Member::check_is_member( $user_id, $event_id );
+	return JES_Events_Member::jes_check_is_member( $user_id, $event_id );
 }
 
 function events_is_user_banned( $user_id, $event_id ) {
-	return BP_Events_Member::check_is_banned( $user_id, $event_id );
+	return JES_Events_Member::jes_check_is_banned( $user_id, $event_id );
 }
 
 /*** Event Activity Posting **************************************************/
@@ -1793,14 +1793,14 @@ function events_post_update( $args = '' ) {
 	if ( empty($content) || !strlen( trim( $content ) ) || empty($user_id) || empty($event_id) )
 		return false;
 
-	$bp->events->current_event = new BP_Events_Event( $event_id );
+	$bp->events->current_event = new JES_Events_Event( $event_id );
 
 	/* Be sure the user is a member of the event before posting. */
 	if ( !is_site_admin() && !events_is_user_member( $user_id, $event_id ) )
 		return false;
 
 	/* Record this in activity streams */
-	$activity_action = sprintf( __( '%s posted an update in the event %s:', 'jet-event-system'), bp_core_get_userlink( $user_id ), '<a href="' . bp_get_event_permalink( $bp->events->current_event ) . '">' . attribute_escape( $bp->events->current_event->name ) . '</a>' );
+	$activity_action = sprintf( __( '%s posted an update in the event %s:', 'jet-event-system'), bp_core_get_userlink( $user_id ), '<a href="' . jes_bp_get_event_permalink( $bp->events->current_event ) . '">' . attribute_escape( $bp->events->current_event->name ) . '</a>' );
 	$activity_content = $content;
 
 	$activity_id = events_record_activity( array(
@@ -1815,20 +1815,20 @@ function events_post_update( $args = '' ) {
 	require_once( BP_PLUGIN_DIR . '/bp-events/bp-events-notifications.php' );
 
 	events_update_eventmeta( $event_id, 'last_activity', gmdate( "Y-m-d H:i:s" ) );
-	do_action( 'bp_events_posted_update', $content, $user_id, $event_id, $activity_id );
+	do_action( 'jes_bp_events_posted_update', $content, $user_id, $event_id, $activity_id );
 
 	return $activity_id;
 }
 
 /*** Event Invitations *********************************************************/
 
-function events_get_invites_for_user( $user_id = false, $limit = false, $page = false ) {
+function events_jes_get_invites_for_user( $user_id = false, $limit = false, $page = false ) {
 	global $bp;
 
 	if ( !$user_id )
 		$user_id = $bp->loggedin_user->id;
 
-	return BP_Events_Member::get_invites( $user_id, $limit, $page );
+	return JES_Events_Member::jes_get_invites( $user_id, $limit, $page );
 }
 
 function events_invite_user( $args = '' ) {
@@ -1849,7 +1849,7 @@ function events_invite_user( $args = '' ) {
 		return false;
 
 	if ( !events_is_user_member( $user_id, $event_id ) && !events_check_user_has_invite( $user_id, $event_id ) ) {
-		$invite = new BP_Events_Member;
+		$invite = new JES_Events_Member;
 		$invite->event_id = $event_id;
 		$invite->user_id = $user_id;
 		$invite->date_modified = $date_modified;
@@ -1868,7 +1868,7 @@ function events_invite_user( $args = '' ) {
 function events_uninvite_user( $user_id, $event_id ) {
 	global $bp;
 
-	if ( !BP_Events_Member::delete( $user_id, $event_id ) )
+	if ( !JES_Events_Member::delete( $user_id, $event_id ) )
 		return false;
 
 	do_action( 'events_uninvite_user', $event_id, $user_id );
@@ -1876,21 +1876,21 @@ function events_uninvite_user( $user_id, $event_id ) {
 	return true;
 }
 
-function events_accept_invite( $user_id, $event_id ) {
+function events_jes_accept_invite( $user_id, $event_id ) {
 	global $bp;
 
 	if ( events_is_user_member( $user_id, $event_id ) )
 		return false;
 
-	$member = new BP_Events_Member( $user_id, $event_id );
-	$member->accept_invite();
+	$member = new JES_Events_Member( $user_id, $event_id );
+	$member->jes_accept_invite();
 
 	if ( !$member->save() )
 		return false;
 
 	/* Remove request to join */
-	if ( $member->check_for_membership_request( $user_id, $event_id ) )
-		$member->delete_request( $user_id, $event_id );
+	if ( $member->jes_check_for_membership_request( $user_id, $event_id ) )
+		$member->jes_delete_request( $user_id, $event_id );
 
 	/* Modify event meta */
 	events_update_eventmeta( $event_id, 'total_member_count', (int) events_get_eventmeta( $event_id, 'total_member_count') + 1 );
@@ -1898,12 +1898,12 @@ function events_accept_invite( $user_id, $event_id ) {
 
 	bp_core_delete_notifications_for_user_by_item_id( $user_id, $event_id, $bp->events->id, 'event_invite' );
 
-	do_action( 'events_accept_invite', $user_id, $event_id );
+	do_action( 'events_jes_accept_invite', $user_id, $event_id );
 	return true;
 }
 
 function events_reject_invite( $user_id, $event_id ) {
-	if ( !BP_Events_Member::delete( $user_id, $event_id ) )
+	if ( !JES_Events_Member::delete( $user_id, $event_id ) )
 		return false;
 
 	do_action( 'events_reject_invite', $user_id, $event_id );
@@ -1911,10 +1911,10 @@ function events_reject_invite( $user_id, $event_id ) {
 	return true;
 }
 
-function events_delete_invite( $user_id, $event_id ) {
+function events_jes_delete_invite( $user_id, $event_id ) {
 	global $bp;
 
-	$delete = BP_Events_Member::delete_invite( $user_id, $event_id );
+	$delete = JES_Events_Member::jes_delete_invite( $user_id, $event_id );
 
 	if ( $delete )
 		bp_core_delete_notifications_for_user_by_item_id( $user_id, $event_id, $bp->events->id, 'event_invite' );
@@ -1931,11 +1931,11 @@ function events_send_invites( $user_id, $event_id ) {
 		$user_id = $bp->loggedin_user->id;
 
 	// Send friend invites.
-	$invited_users = events_get_invites_for_event( $user_id, $event_id );
-	$event = new BP_Events_Event( $event_id );
+	$invited_users = events_jes_get_invites_for_event( $user_id, $event_id );
+	$event = new JES_Events_Event( $event_id );
 
 	for ( $i = 0; $i < count( $invited_users ); $i++ ) {
-		$member = new BP_Events_Member( $invited_users[$i], $event_id );
+		$member = new JES_Events_Member( $invited_users[$i], $event_id );
 
 		// Send the actual invite
 		events_notification_event_invites( $event, $member, $user_id );
@@ -1947,16 +1947,16 @@ function events_send_invites( $user_id, $event_id ) {
 	do_action( 'events_send_invites', $bp->events->current_event->id, $invited_users );
 }
 
-function events_get_invites_for_event( $user_id, $event_id ) {
-	return BP_Events_Event::get_invites( $user_id, $event_id );
+function events_jes_get_invites_for_event( $user_id, $event_id ) {
+	return JES_Events_Event::jes_get_invites( $user_id, $event_id );
 }
 
 function events_check_user_has_invite( $user_id, $event_id ) {
-	return BP_Events_Member::check_has_invite( $user_id, $event_id );
+	return JES_Events_Member::check_has_invite( $user_id, $event_id );
 }
 
-function events_delete_all_event_invites( $event_id ) {
-	return BP_Events_Event::delete_all_invites( $event_id );
+function events_jes_delete_all_event_invites( $event_id ) {
+	return JES_Events_Event::jes_jes_delete_all_invites( $event_id );
 }
 
 /*** Event Promotion & Banning *************************************************/
@@ -1967,7 +1967,7 @@ function events_promote_member( $user_id, $event_id, $status ) {
 	if ( !$bp->is_item_admin )
 		return false;
 
-	$member = new BP_Events_Member( $user_id, $event_id );
+	$member = new JES_Events_Member( $user_id, $event_id );
 
 	do_action( 'events_premote_member', $event_id, $user_id, $status );
 
@@ -1977,7 +1977,7 @@ function events_promote_member( $user_id, $event_id, $status ) {
 function events_demote_member( $user_id, $event_id ) {
 	global $bp;
 
-	$member = new BP_Events_Member( $user_id, $event_id );
+	$member = new JES_Events_Member( $user_id, $event_id );
 
 	do_action( 'events_demote_member', $event_id, $user_id );
 
@@ -1990,14 +1990,14 @@ function events_ban_member( $user_id, $event_id ) {
 	if ( !$bp->is_item_admin )
 		return false;
 
-	$member = new BP_Events_Member( $user_id, $event_id );
+	$member = new JES_Events_Member( $user_id, $event_id );
 
 	do_action( 'events_ban_member', $event_id, $user_id );
 
 	if ( !$member->ban() )
 		return false;
 
-	update_usermeta( $user_id, 'total_event_count', (int)$total_count - 1 );
+	update_usermeta( $user_id, 'jes_total_event_count', (int)$total_count - 1 );
 }
 
 function events_unban_member( $user_id, $event_id ) {
@@ -2006,7 +2006,7 @@ function events_unban_member( $user_id, $event_id ) {
 	if ( !$bp->is_item_admin )
 		return false;
 
-	$member = new BP_Events_Member( $user_id, $event_id );
+	$member = new JES_Events_Member( $user_id, $event_id );
 
 	do_action( 'events_unban_member', $event_id, $user_id );
 
@@ -2019,14 +2019,14 @@ function events_send_membership_request( $requesting_user_id, $event_id ) {
 	global $bp;
 
 	/* Prevent duplicate requests */
-	if ( events_check_for_membership_request( $requesting_user_id, $event_id ) )
+	if ( events_jes_check_for_membership_request( $requesting_user_id, $event_id ) )
 		return false;
 
 	/* Check if the user is already a member or is banned */
 	if ( events_is_user_member( $requesting_user_id, $event_id ) || events_is_user_banned( $requesting_user_id, $event_id ) )
 		return false;
 
-	$requesting_user = new BP_Events_Member;
+	$requesting_user = new JES_Events_Member;
 	$requesting_user->event_id = $event_id;
 	$requesting_user->user_id = $requesting_user_id;
 	$requesting_user->inviter_id = 0;
@@ -2058,27 +2058,27 @@ function events_accept_membership_request( $membership_id, $user_id = false, $ev
 	global $bp;
 
 	if ( $user_id && $event_id )
-		$membership = new BP_Events_Member( $user_id, $event_id );
+		$membership = new JES_Events_Member( $user_id, $event_id );
 	else
-		$membership = new BP_Events_Member( false, false, $membership_id );
+		$membership = new JES_Events_Member( false, false, $membership_id );
 
-	$membership->accept_request();
+	$membership->jes_accept_request();
 
 	if ( !$membership->save() )
 		return false;
 
 	/* Check if the user has an outstanding invite, if so delete it. */
 	if ( events_check_user_has_invite( $membership->user_id, $membership->event_id ) )
-		events_delete_invite( $membership->user_id, $membership->event_id );
+		events_jes_delete_invite( $membership->user_id, $membership->event_id );
 
 	/* Modify event member count */
 	events_update_eventmeta( $membership->event_id, 'total_member_count', (int) events_get_eventmeta( $membership->event_id, 'total_member_count') + 1 );
 
 	/* Record this in activity streams */
-	$event = new BP_Events_Event( $membership->event_id );
+	$event = new JES_Events_Event( $membership->event_id );
 
 	events_record_activity( array(
-		'action'	=> apply_filters( 'events_activity_membership_accepted_action', sprintf( __( '%s joined the event %s', 'jet-event-system'), bp_core_get_userlink( $membership->user_id ), '<a href="' . bp_get_event_permalink( $event ) . '">' . attribute_escape( $event->name ) . '</a>' ), $membership->user_id, &$event ),
+		'action'	=> apply_filters( 'events_activity_membership_accepted_action', sprintf( __( '%s joined the event %s', 'jet-event-system'), bp_core_get_userlink( $membership->user_id ), '<a href="' . jes_bp_get_event_permalink( $event ) . '">' . attribute_escape( $event->name ) . '</a>' ), $membership->user_id, &$event ),
 		'type'		=> 'joined_event',
 		'item_id'	=> $membership->event_id,
 		'user_id'	=> $membership->user_id
@@ -2108,22 +2108,22 @@ function events_reject_membership_request( $membership_id, $user_id = false, $ev
 
 function events_delete_membership_request( $membership_id, $user_id = false, $event_id = false ) {
 	if ( $user_id && $event_id )
-		$membership = new BP_Events_Member( $user_id, $event_id );
+		$membership = new JES_Events_Member( $user_id, $event_id );
 	else
-		$membership = new BP_Events_Member( false, false, $membership_id );
+		$membership = new JES_Events_Member( false, false, $membership_id );
 
-	if ( !BP_Events_Member::delete( $membership->user_id, $membership->event_id ) )
+	if ( !JES_Events_Member::delete( $membership->user_id, $membership->event_id ) )
 		return false;
 
 	return $membership;
 }
 
-function events_check_for_membership_request( $user_id, $event_id ) {
-	return BP_Events_Member::check_for_membership_request( $user_id, $event_id );
+function events_jes_check_for_membership_request( $user_id, $event_id ) {
+	return JES_Events_Member::jes_check_for_membership_request( $user_id, $event_id );
 }
 
 function events_accept_all_pending_membership_requests( $event_id ) {
-	$user_ids = BP_Events_Member::get_all_membership_request_user_ids( $event_id );
+	$user_ids = JES_Events_Member::jes_get_all_membership_request_user_ids( $event_id );
 
 	if ( !$user_ids )
 		return false;
@@ -2161,7 +2161,7 @@ function events_delete_eventmeta( $event_id, $meta_key = false, $meta_value = fa
 	}
 
 	/* Delete the cached object */
-	wp_cache_delete( 'bp_events_eventmeta_' . $event_id . '_' . $meta_key, 'bp' );
+	wp_cache_delete( 'jes_events_eventmeta_' . $event_id . '_' . $meta_key, 'bp' );
 
 	return true;
 }
@@ -2177,9 +2177,9 @@ function events_get_eventmeta( $event_id, $meta_key = '') {
 	if ( !empty($meta_key) ) {
 		$meta_key = preg_replace('|[^a-z0-9_]|i', '', $meta_key);
 
-		if ( !$metas = wp_cache_get( 'bp_events_eventmeta_' . $event_id . '_' . $meta_key, 'bp' ) ) {
+		if ( !$metas = wp_cache_get( 'jes_events_eventmeta_' . $event_id . '_' . $meta_key, 'bp' ) ) {
 			$metas = $wpdb->get_col( $wpdb->prepare("SELECT meta_value FROM " . $bp->events->table_name_eventmeta . " WHERE event_id = %d AND meta_key = %s", $event_id, $meta_key) );
-			wp_cache_set( 'bp_events_eventmeta_' . $event_id . '_' . $meta_key, $metas, 'bp' );
+			wp_cache_set( 'jes_events_eventmeta_' . $event_id . '_' . $meta_key, $metas, 'bp' );
 		}
 	} else {
 		$metas = $wpdb->get_col( $wpdb->prepare("SELECT meta_value FROM " . $bp->events->table_name_eventmeta . " WHERE event_id = %d", $event_id) );
@@ -2228,7 +2228,7 @@ function events_update_eventmeta( $event_id, $meta_key, $meta_value ) {
 	}
 
 	/* Update the cached object and recache */
-	wp_cache_set( 'bp_events_eventmeta_' . $event_id . '_' . $meta_key, $meta_value, 'bp' );
+	wp_cache_set( 'jes_events_eventmeta_' . $event_id . '_' . $meta_key, $meta_value, 'bp' );
 
 	return true;
 }
@@ -2236,7 +2236,7 @@ function events_update_eventmeta( $event_id, $meta_key, $meta_value ) {
 /*** Event Cleanup Functions ****************************************************/
 
 function events_remove_data_for_user( $user_id ) {
-	BP_Events_Member::delete_all_for_user($user_id);
+	JES_Events_Member::jes_delete_all_for_user($user_id);
 
 	do_action( 'events_remove_data_for_user', $user_id );
 }
@@ -2260,7 +2260,7 @@ function events_clear_event_object_cache( $event_id ) {
 	wp_cache_delete( 'active_events', 'bp' );
 	wp_cache_delete( 'popular_events', 'bp' );
 	wp_cache_delete( 'events_random_events', 'bp' );
-	wp_cache_delete( 'bp_total_event_count', 'bp' );
+	wp_cache_delete( 'bp_jes_total_event_count', 'bp' );
 }
 add_action( 'events_event_deleted', 'events_clear_event_object_cache' );
 add_action( 'events_settings_updated', 'events_clear_event_object_cache' );
@@ -2291,7 +2291,7 @@ add_action( 'events_unban_member', 'events_clear_event_user_object_cache', 10, 2
 /* List actions to clear super cached pages on, if super cache is installed */
 add_action( 'events_join_event', 'bp_core_clear_cache' );
 add_action( 'events_leave_event', 'bp_core_clear_cache' );
-add_action( 'events_accept_invite', 'bp_core_clear_cache' );
+add_action( 'events_jes_accept_invite', 'bp_core_clear_cache' );
 add_action( 'events_reject_invite', 'bp_core_clear_cache' );
 add_action( 'events_invite_user', 'bp_core_clear_cache' );
 add_action( 'events_uninvite_user', 'bp_core_clear_cache' );

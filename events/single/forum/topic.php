@@ -21,7 +21,7 @@
 			<a class="button" href="<?php bp_forum_permalink() ?>/">&larr; <?php _e( 'Event Forum', 'jet-event-system' ) ?></a> &nbsp; <a class="button" href="<?php bp_forum_directory_permalink() ?>/"><?php _e( 'Event Forum Directory', 'jet-event-system') ?></a>
 
 			<div class="admin-links">
-				<?php if ( bp_event_is_admin() || bp_event_is_mod() || bp_get_the_topic_is_mine() ) : ?>
+				<?php if ( jes_bp_event_is_admin() || jes_bp_event_is_mod() || bp_get_the_topic_is_mine() ) : ?>
 					<?php bp_the_topic_admin_links() ?>
 				<?php endif; ?>
 
@@ -47,7 +47,7 @@
 					</div>
 
 					<div class="admin-links">
-						<?php if ( bp_event_is_admin() || bp_event_is_mod() || bp_get_the_topic_post_is_mine() ) : ?>
+						<?php if ( jes_bp_event_is_admin() || jes_bp_event_is_mod() || bp_get_the_topic_post_is_mine() ) : ?>
 							<?php bp_the_topic_post_admin_links() ?>
 						<?php endif; ?>
 
@@ -74,7 +74,7 @@
 
 		</div>
 
-		<?php if ( ( is_user_logged_in() && 'public' == bp_get_event_status() ) || bp_event_is_member() ) : ?>
+		<?php if ( ( is_user_logged_in() && 'public' == jes_bp_get_event_status() ) || bp_event_is_member() ) : ?>
 
 			<?php if ( bp_get_the_topic_is_last_page() ) : ?>
 

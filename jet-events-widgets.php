@@ -9,7 +9,7 @@ add_action( 'bp_register_widgets', 'events_register_widgets' );
 /*** EVENTS WIDGET *****************/
 
 class BP_Events_Widget extends WP_Widget {
-	function bp_events_widget() {
+	function jes_bp_events_widget() {
 		parent::WP_Widget( false, $name = __( 'Events', 'jet-event-system' ) );
 
 		if ( is_active_widget( false, false, $this->id_base ) )
@@ -26,7 +26,7 @@ class BP_Events_Widget extends WP_Widget {
 		   . $widget_name
 		   . $after_title; ?>
 
-		<?php if ( bp_has_events( 'type=popular&per_page=' . $instance['max_events'] . '&max=' . $instance['max_events'] ) ) : ?>
+		<?php if ( bp_jes_has_events( 'type=popular&per_page=' . $instance['max_events'] . '&max=' . $instance['max_events'] ) ) : ?>
 			<div class="item-options" id="events-list-options">
 				<span class="ajax-loader" id="ajax-loader-events"></span>
 				<a href="<?php echo site_url() . '/' . $bp->events->slug ?>" id="soon-events"><?php _e("Soon", 'jet-event-system') ?></a> |
@@ -36,19 +36,19 @@ class BP_Events_Widget extends WP_Widget {
 			</div>
 
 			<ul id="events-list" class="item-list">
-				<?php while ( bp_events() ) : bp_the_event(); ?>
+				<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 					<li>
 						<div class="item-avatar">
-							<a href="<?php bp_event_permalink() ?>"><?php bp_event_avatar_thumb() ?></a>
+							<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar_thumb() ?></a>
 							<div class="item-title">
-								<a href="<?php bp_event_permalink() ?>" title="<?php bp_event_name() ?>"><?php bp_event_name() ?></a>
+								<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
 							</div>							
 						</div>
 
 						<div class="item">
 
 							<div class="item-meta">
-								<span><?php _e('In city:','jet-event-system') ?> <?php bp_event_placedcity() ?>, <?php _e('Start:','jet-event-system') ?> <?php bp_event_edtsd() ?> <?php _e('End:','jet-event-system') ?> <?php bp_event_edted() ?></span>
+								<span><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>, <?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?> <?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?></span>
 							</div>
 						</div>
 					</li>
@@ -107,30 +107,30 @@ function events_ajax_widget_events_list() {
 		break;		
 	}
 
-	if ( bp_has_events( 'type=' . $type . '&per_page=' . $_POST['max_events'] . '&max=' . $_POST['max_events'] ) ) : ?>
+	if ( bp_jes_has_events( 'type=' . $type . '&per_page=' . $_POST['max_events'] . '&max=' . $_POST['max_events'] ) ) : ?>
 		<?php echo "0[[SPLIT]]"; ?>
 
 		<ul id="events-list" class="item-list">
-			<?php while ( bp_events() ) : bp_the_event(); ?>
+			<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 				<li>
 					<div class="item-avatar">
-						<a href="<?php bp_event_permalink() ?>"><?php bp_event_avatar_thumb() ?></a>
+						<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar_thumb() ?></a>
 					</div>
 
 					<div class="item">
-						<div class="item-title"><a href="<?php bp_event_permalink() ?>" title="<?php bp_event_name() ?>"><?php bp_event_name() ?></a></div>
+						<div class="item-title"><a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a></div>
 						<div class="item-meta">
 							<span>
 								<?php
 								if ( 'newest-events' == $_POST['filter'] ) {
-									printf( __( 'created %s ago', 'jet-event-system' ), bp_get_event_date_created() );
+									printf( __( 'created %s ago', 'jet-event-system' ), jes_bp_get_event_date_created() );
 								} else if ( 'recently-active-events' == $_POST['filter'] ) {
-									printf( __( 'active %s ago', 'jet-event-system' ), bp_get_event_last_active() );
+									printf( __( 'active %s ago', 'jet-event-system' ), jes_bp_get_event_last_active() );
 								} else if ( 'popular-events' == $_POST['filter'] ) {
-									bp_event_member_count();
+									jes_bp_event_member_count();
 								}
 								 else if ( 'soon-events' == $_POST['filter'] ) {
-								?><?php _e('In city:','jet-event-system') ?> <?php bp_event_placedcity() ?>, <?php _e('Start:','jet-event-system') ?> <?php bp_event_edtsd() ?> <?php _e('End:','jet-event-system') ?> <?php bp_event_edted() ?> <?
+								?><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>, <?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?> <?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?> <?
 								}								
 								?>
 							</span>

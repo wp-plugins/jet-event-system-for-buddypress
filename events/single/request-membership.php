@@ -1,7 +1,7 @@
 <?php do_action( 'bp_before_event_request_membership_content' ) ?>
 
 <?php if ( !bp_event_has_requested_membership() ) : ?>
-	<p><?php printf( __( "You are requesting to become a member of the event '%s'.", "jet-event-system" ), bp_get_event_name( false ) ); ?></p>
+	<p><?php printf( __( "You are requesting to become a member of the event '%s'.", "jet-event-system" ), jes_bp_get_event_name( false ) ); ?></p>
 
 	<form action="<?php bp_event_form_action('request-membership') ?>" method="post" name="request-membership-form" id="request-membership-form" class="standard-form">
 		<label for="event-request-membership-comments"><?php _e( 'Comments (optional)', 'jet-event-system' ); ?></label>

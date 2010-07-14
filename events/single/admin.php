@@ -18,28 +18,28 @@
 <td width="50%" style="vertical-align:top;">
 <h4><?php _e('Base event details','jet-event-system') ?></h4>
 					<label for="event-name"><?php _e('* Event Name', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
-					<input type="text" name="event-name" id="event-name" value="<?php bp_event_name() ?>" />
+					<input type="text" name="event-name" id="event-name" value="<?php jes_bp_event_name() ?>" />
 
 					<label for="event-etype"><?php _e('* Event classification', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
-					<input type="text" name="event-etype" id="event-etype" value="<?php bp_event_etype() ?>" />					
+					<input type="text" name="event-etype" id="event-etype" value="<?php jes_bp_event_etype() ?>" />					
 					
 					<label for="event-desc"><?php _e('* Event Description', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
-					<textarea name="event-desc" id="event-desc"><?php bp_event_description() ?></textarea>
+					<textarea name="event-desc" id="event-desc"><?php jes_bp_event_description() ?></textarea>
 
 					<label for="event-placedcity"><?php _e('* Event Placed City', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
-					<input type="text" name="event-placedcity" id="event-placedcity" value="<?php bp_event_placedcity() ?>" />					
+					<input type="text" name="event-placedcity" id="event-placedcity" value="<?php jes_bp_event_placedcity() ?>" />					
 
 					<label for="event-placedaddress"><?php _e('Event Placed address', 'jet-event-system') ?></label>
-					<input type="text" name="event-placedaddress" id="event-placedaddress" value="<?php bp_event_placedaddress() ?>" />						
+					<input type="text" name="event-placedaddress" id="event-placedaddress" value="<?php jes_bp_event_placedaddress() ?>" />						
 </td>
 <td width="50%" style="vertical-align:top;">
-					<label for="event-eventterms"><h4><?php _e('Special Conditions', 'jet-event-system') ?></h4></label>>
-					<textarea name="event-eventterms" id="event-eventterms"><?php bp_event_eventterms() ?></textarea>
+					<label for="event-eventterms"><h4><?php _e('Special Conditions', 'jet-event-system') ?></h4></label>
+					<textarea name="event-eventterms" id="event-eventterms"><?php jes_bp_event_eventterms() ?></textarea>
 <h4><?php _e('News for event','jet-event-system') ?></h4>					
 					<label for="event-newspublic"><?php _e('Event Public news', 'jet-event-system') ?></label>
-					<textarea name="event-newspublic" id="event-newspublic"><?php bp_event_newspublic() ?></textarea>
+					<textarea name="event-newspublic" id="event-newspublic"><?php jes_bp_event_newspublic() ?></textarea>
 					<label for="event-newsprivate"><?php _e('Event Private news', 'jet-event-system') ?></label>
-					<textarea name="event-newsprivate" id="event-newsprivate"><?php bp_event_newsprivate() ?></textarea>					
+					<textarea name="event-newsprivate" id="event-newsprivate"><?php jes_bp_event_newsprivate() ?></textarea>					
 </td>
 </tr>
 <tr>
@@ -52,12 +52,12 @@
 });</script>
 <h4><?php _e('Date event','jet-event-system') ?></h4>
 					<label for="event-edtsd"><?php _e('* Event Start date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
-					<input type="text" name="event-edtsd" id="event-edtsd" value="<?php bp_event_edtsd() ?>" />
+					<input type="text" name="event-edtsd" id="event-edtsd" value="<?php jes_bp_event_edtsd() ?>" />
 					<br /><span class="small">dd/mm/yyyy HH:mm</span>
 </td>
 <td width="50%" style="vertical-align:bottom;">
 					<label for="event-edtsd"><?php _e('* Event End date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
-					<input type="text" name="event-edted" id="event-edted" value="<?php bp_event_edted() ?>" />	
+					<input type="text" name="event-edted" id="event-edted" value="<?php jes_bp_event_edted() ?>" />	
 					<br /><span class="small">dd/mm/yyyy HH:mm</span>
 </td>
 </tr>
@@ -82,7 +82,7 @@
 		</div>
 
 	<?php endif; ?>
-
+<?php /*
 	<?php if ( function_exists('bp_forums_is_installed_correctly') ) : ?>
 
 		<?php if ( bp_forums_is_installed_correctly() ) : ?>
@@ -96,7 +96,7 @@
 	<?php endif; ?>
 
 	<hr />
-
+*/ ?>
 	<h4><?php _e( 'Privacy Options', 'jet-event-system' ); ?></h4>
 
 	<div class="radio">
@@ -155,7 +155,7 @@
 				<p><?php _e( "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button.", 'jet-event-system' ) ?></p>
 
 				<div class="generic-button" id="delete-event-avatar-button">
-					<a class="edit" href="<?php bp_event_avatar_delete_link() ?>" title="<?php _e( 'Delete Avatar', 'jet-event-system' ) ?>"><?php _e( 'Delete Avatar', 'jet-event-system' ) ?></a>
+					<a class="edit" href="<?php jes_bp_event_avatar_delete_link() ?>" title="<?php _e( 'Delete Avatar', 'jet-event-system' ) ?>"><?php _e( 'Delete Avatar', 'jet-event-system' ) ?></a>
 				</div>
 			<?php endif; ?>
 
@@ -194,14 +194,14 @@
 
 	<div class="bp-widget">
 		<h4><?php _e( 'Administrators', 'jet-event-system' ); ?></h4>
-		<?php bp_event_admin_memberlist( true ) ?>
+		<?php jes_bp_event_admin_memberlist( true ) ?>
 	</div>
 
-	<?php if ( bp_event_has_moderators() ) : ?>
+	<?php if ( jes_bp_event_has_moderators() ) : ?>
 
 		<div class="bp-widget">
 			<h4><?php _e( 'Moderators', 'jet-event-system' ) ?></h4>
-			<?php bp_event_mod_memberlist( true ) ?>
+			<?php jes_bp_event_mod_memberlist( true ) ?>
 		</div>
 
 	<?php endif; ?>
@@ -209,7 +209,7 @@
 	<div class="bp-widget">
 		<h4><?php _e("Members", "jet-event-system"); ?></h4>
 
-		<?php if ( bp_event_has_members( 'per_page=15&exclude_banned=false' ) ) : ?>
+		<?php if ( bp_event_jes_has_members( 'per_page=15&exclude_banned=false' ) ) : ?>
 
 			<?php if ( bp_event_member_needs_pagination() ) : ?>
 
@@ -270,7 +270,7 @@
 
 	<?php do_action( 'bp_before_event_membership_requests_admin' ); ?>
 
-	<?php if ( bp_event_has_membership_requests() ) : ?>
+	<?php if ( bp_event_jes_has_membership_requests() ) : ?>
 
 		<ul id="request-list" class="item-list">
 			<?php while ( bp_event_membership_requests() ) : bp_event_the_membership_request(); ?>
@@ -333,14 +333,14 @@
 		<input type="submit" disabled="disabled" value="<?php _e( 'Delete Event', 'jet-event-system' ) ?> &rarr;" id="delete-event-button" name="delete-event-button" />
 	</div>
 
-	<input type="hidden" name="event-id" id="event-id" value="<?php bp_event_id() ?>" />
+	<input type="hidden" name="event-id" id="event-id" value="<?php jes_bp_event_id() ?>" />
 
 	<?php wp_nonce_field( 'events_delete_event' ) ?>
 
 <?php endif; ?>
 
 <?php /* This is important, don't forget it */ ?>
-	<input type="hidden" name="event-id" id="event-id" value="<?php bp_event_id() ?>" />
+	<input type="hidden" name="event-id" id="event-id" value="<?php jes_bp_event_id() ?>" />
 
 <?php do_action( 'bp_after_event_admin_content' ) ?>
 

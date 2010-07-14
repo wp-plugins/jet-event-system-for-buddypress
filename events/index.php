@@ -14,13 +14,13 @@
 
 			<div class="item-list-tabs">
 				<ul>
-					<li class="selected" id="events-all"><a href="<?php echo bp_get_root_domain() . '/' . BP_EVENTS_SLUG ?>"><?php printf( __( 'All Events (%s)', 'jet-event-system' ), bp_get_total_event_count() ) ?></a></li>
+					<li class="selected" id="events-all"><a href="<?php echo bp_get_root_domain() . '/' . BP_EVENTS_SLUG ?>"><?php printf( __( 'All Events (%s)', 'jet-event-system' ), bp_jes_get_jes_total_event_count() ) ?></a></li>
 
-					<?php if ( is_user_logged_in() && bp_get_total_event_count_for_user( bp_loggedin_user_id() ) ) : ?>
-						<li id="events-personal"><a href="<?php echo bp_loggedin_user_domain() . BP_EVENTS_SLUG . '/my-events/' ?>"><?php printf( __( 'My Events (%s)', 'jet-event-system' ), bp_get_total_event_count_for_user( bp_loggedin_user_id() ) ) ?></a></li>
+					<?php if ( is_user_logged_in() && bp_jes_get_jes_total_event_count_for_user( bp_loggedin_user_id() ) ) : ?>
+						<li id="events-personal"><a href="<?php echo bp_loggedin_user_domain() . BP_EVENTS_SLUG . '/my-events/' ?>"><?php printf( __( 'My Events (%s)', 'jet-event-system' ), bp_jes_get_jes_total_event_count_for_user( bp_loggedin_user_id() ) ) ?></a></li>
 					<?php endif; ?>
 
-					<?php do_action( 'bp_events_directory_event_types' ) ?>
+					<?php do_action( 'jes_bp_events_directory_event_types' ) ?>
 
 					<li id="events-order-select" class="last filter">
 
@@ -31,7 +31,7 @@
 							<option value="newest"><?php _e( 'Newly Created', 'jet-event-system' ) ?></option>
 							<option value="alphabetical"><?php _e( 'Alphabetical', 'jet-event-system' ) ?></option>
 							<option value="Soon"><?php _e( 'Soon', 'jet-event-system' ) ?></option>
-							<?php do_action( 'bp_events_directory_order_options' ) ?>
+							<?php do_action( 'jes_bp_events_directory_order_options' ) ?>
 						</select>
 					</li>
 				</ul>

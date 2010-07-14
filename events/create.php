@@ -93,7 +93,7 @@
 						<label><input type="checkbox" name="event-show-wire" id="event-show-wire" value="1"<?php if ( jet_get_new_event_enable_wire() ) { ?> checked="checked"<?php } ?> /> <?php _e('Enable comment wire', 'jet-event-system') ?></label>
 					</div>
 					<?php endif; ?>
-
+<?php /*
 					<?php if ( function_exists('bp_forums_is_installed_correctly') ) : ?>
 						<?php if ( bp_forums_is_installed_correctly() ) : ?>
 							<div class="checkbox">
@@ -109,7 +109,7 @@
 					<?php endif; ?>
 
 					<hr />
-
+*/ ?>
 					<h4><?php _e( 'Privacy Options', 'jet-event-system' ); ?></h4>
 
 					<div class="radio">

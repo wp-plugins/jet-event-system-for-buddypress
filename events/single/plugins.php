@@ -2,7 +2,7 @@
 
 	<div id="content">
 		<div class="padder">
-			<?php if ( bp_has_events() ) : while ( bp_events() ) : bp_the_event(); ?>
+			<?php if ( bp_jes_has_events() ) : while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 
 			<?php do_action( 'bp_before_event_plugin_template' ) ?>
 

@@ -3,10 +3,10 @@
 function events_notification_event_updated( $event_id ) {
 	global $bp;
 
-	$event = new BP_Events_Event( $event_id );
+	$event = new JES_Events_Event( $event_id );
 	$subject = '[' . get_blog_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . __( 'Event Details Updated', 'jet-event-system' );
 
-	$user_ids = BP_Events_Member::get_event_member_ids( $event->id );
+	$user_ids = JES_Events_Member::jes_get_event_member_ids( $event->id );
 	foreach ( (array)$user_ids as $user_id ) {
 		if ( 'no' == get_usermeta( $user_id, 'notification_events_event_updated' ) ) continue;
 
@@ -48,12 +48,12 @@ function events_notification_new_membership_request( $requesting_user_id, $admin
 		return false;
 
 	$requesting_user_name = bp_core_get_user_displayname( $requesting_user_id );
-	$event = new BP_Events_Event( $event_id );
+	$event = new JES_Events_Event( $event_id );
 
 	$ud = bp_core_get_core_userdata($admin_id);
 	$requesting_ud = bp_core_get_core_userdata($requesting_user_id);
 
-	$event_requests = bp_get_event_permalink( $event ) . 'admin/membership-requests';
+	$event_requests = jes_bp_get_event_permalink( $event ) . 'admin/membership-requests';
 	$profile_link = bp_core_get_user_domain( $requesting_user_id );
 	$settings_link = bp_core_get_user_domain( $requesting_user_id ) .  BP_SETTINGS_SLUG . '/notifications/';
 
@@ -96,11 +96,11 @@ function events_notification_membership_request_completed( $requesting_user_id, 
 	if ( 'no' == get_usermeta( $requesting_user_id, 'notification_membership_request_completed' ) )
 		return false;
 
-	$event = new BP_Events_Event( $event_id );
+	$event = new JES_Events_Event( $event_id );
 
 	$ud = bp_core_get_core_userdata($requesting_user_id);
 
-	$event_link = bp_get_event_permalink( $event );
+	$event_link = jes_bp_get_event_permalink( $event );
 	$settings_link = bp_core_get_user_domain( $requesting_user_id ) .  BP_SETTINGS_SLUG . '/notifications/';
 
 	// Set up and send the message
@@ -154,10 +154,10 @@ function events_notification_promoted_member( $user_id, $event_id ) {
 	if ( 'no' == get_usermeta( $user_id, 'notification_events_admin_promotion' ) )
 		return false;
 
-	$event = new BP_Events_Event( $event_id );
+	$event = new JES_Events_Event( $event_id );
 	$ud = bp_core_get_core_userdata($user_id);
 
-	$event_link = bp_get_event_permalink( $event );
+	$event_link = jes_bp_get_event_permalink( $event );
 	$settings_link = bp_core_get_user_domain( $user_id ) .  BP_SETTINGS_SLUG . '/notifications/';
 
 	// Set up and send the message
@@ -191,7 +191,7 @@ function events_notification_event_invites( &$event, &$member, $inviter_user_id 
 	$inviter_name = bp_core_get_userlink( $inviter_user_id, true, false, true );
 	$inviter_link = bp_core_get_user_domain( $inviter_user_id );
 
-	$event_link = bp_get_event_permalink( $event );
+	$event_link = jes_bp_get_event_permalink( $event );
 
 	if ( !$member->invite_sent ) {
 		$invited_user_id = $member->user_id;
@@ -247,7 +247,7 @@ function events_at_message_notification( $content, $poster_user_id, $event_id, $
 	if ( !$usernames = array_unique( $usernames[1] ) )
 		return false;
 
-	$event = new BP_Events_Event( $event_id );
+	$event = new JES_Events_Event( $event_id );
 
 	foreach( (array)$usernames as $username ) {
 		if ( !$receiver_user_id = bp_core_get_userid($username) )
@@ -265,7 +265,7 @@ function events_at_message_notification( $content, $poster_user_id, $event_id, $
 			$settings_link = bp_core_get_user_domain( $receiver_user_id ) .  BP_SETTINGS_SLUG . '/notifications/';
 
 			$poster_name = stripslashes( $poster_name );
-			$content = bp_events_filter_kses( stripslashes( $content ) );
+			$content = jes_bp_events_filter_kses( stripslashes( $content ) );
 
 			// Set up and send the message
 			$ud = bp_core_get_core_userdata( $receiver_user_id );
@@ -293,7 +293,7 @@ To view and respond to the message, log in and visit: %s
 		}
 	}
 }
-add_action( 'bp_events_posted_update', 'events_at_message_notification', 10, 4 );
+add_action( 'jes_bp_events_posted_update', 'events_at_message_notification', 10, 4 );
 
 
 ?>

@@ -63,7 +63,7 @@
 		<?php wp_nonce_field( 'events_send_invites', '_wpnonce_send_invites') ?>
 
 		<?php /* This is important, don't forget it */ ?>
-		<input type="hidden" name="event_id" id="event_id" value="<?php bp_event_id() ?>" />
+		<input type="hidden" name="event_id" id="event_id" value="<?php jes_bp_event_id() ?>" />
 
 	</form><!-- #send-invite-form -->
 
