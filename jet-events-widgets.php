@@ -44,7 +44,7 @@ $data = get_option( 'jes_events' ); ?>
 						<div class="item-avatar">
 							<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar_thumb() ?></a>
 							<div class="item-title">
-								<a href="<?php jes_bp_event_permalink() ?> title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
+								<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
 							</div>							
 						</div>
 
