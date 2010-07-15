@@ -2,6 +2,7 @@
 
 	<div id="content">
 		<div class="padder">
+<?php $edata = get_option( 'jes_events' ); ?>
 
 		<form action="<?php bp_event_creation_form_action() ?>" method="post" id="create-event-form" class="standard-form" enctype="multipart/form-data">
 			<h3><?php _e( 'Create a Event', 'jet-event-system' ) ?> &nbsp;<a class="button" href="<?php echo bp_get_root_domain() . '/' . BP_EVENTS_SLUG . '/' ?>"><?php _e( 'Events Directory', 'jet-event-system' ) ?></a></h3>
@@ -16,6 +17,8 @@
 
 			<?php do_action( 'template_notices' ) ?>
 
+		
+			
 			<div class="item-body" id="event-create-body">
 
 				<?php /* Event creation step 1: Basic event details */ ?>
@@ -30,7 +33,17 @@
 					<input type="text" name="event-name" id="event-name" value="<?php bp_new_event_name() ?>" />
 
 					<label for="event-etype"><?php _e('* Event classification', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
-					<input type="text" name="event-etype" id="event-etype" value="<?php bp_new_event_etype() ?>" />					
+					
+<?php if (!$edata[ 'jes_events_class_enable' ])  { ?>					
+					<input type="text" name="event-etype" id="event-etype" value="<?php bp_new_event_etype() ?>" />	
+<?php } else { ?>
+<select name="event-etype" id="event-etype" size = "1">
+<option value="<?php echo $edata['jes_events_text_one' ] ?>"><?php echo $edata['jes_events_text_one' ] ?></option> 
+<option value="<?php echo $edata['jes_events_text_two' ] ?>"><?php echo $edata['jes_events_text_two' ] ?></option>
+<option value="<?php echo $edata['jes_events_text_three' ] ?>"><?php echo $edata['jes_events_text_three' ] ?></option>
+<option value="<?php echo $edata['jes_events_text_four' ] ?>"><?php echo $edata['jes_events_text_four' ] ?></option>
+</select>
+<?php } ?>					
 					
 					<label for="event-desc"><?php _e('* Event Description', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<textarea name="event-desc" id="event-desc"><?php bp_new_event_description() ?></textarea>

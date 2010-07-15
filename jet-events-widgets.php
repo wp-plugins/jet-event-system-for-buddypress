@@ -24,24 +24,27 @@ class JES_BP_Events_Widget extends WP_Widget {
 		echo $before_widget;
 		echo $before_title
 		   . $widget_name
-		   . $after_title; ?>
-
+		   . $after_title; 
+$data = get_option( 'jes_events' ); ?>
+<?php if (!$data[ 'jes_events_code_index' ]) { ?>
+<noindex>
+<?php } ?>
 		<?php if ( bp_jes_has_events( 'type=popular&per_page=' . $instance['max_events'] . '&max=' . $instance['max_events'] ) ) : ?>
 			<div class="item-options" id="events-list-options">
 				<span class="ajax-loader" id="ajax-loader-events"></span>
-				<a href="<?php echo site_url() . '/' . $bp->events->slug ?>" id="soon-events"><?php _e("Soon", 'jet-event-system') ?></a> |
-				<a href="<?php echo site_url() . '/' . $bp->events->slug ?>" id="newest-events"><?php _e("Newest", 'jet-event-system') ?></a> |
-				<a href="<?php echo site_url() . '/' . $bp->events->slug ?>" id="recently-active-events"><?php _e("Active", 'jet-event-system') ?></a> |
-				<a href="<?php echo site_url() . '/' . $bp->events->slug ?>" id="popular-events" class="selected"><?php _e("Popular", 'jet-event-system') ?></a>
+				<a href="<?php echo site_url() . '/' . $bp->jes_events->slug ?>" id="soon-events"><?php _e("Soon", 'jet-event-system') ?></a> |
+				<a href="<?php echo site_url() . '/' . $bp->jes_events->slug ?>" id="newest-events"><?php _e("Newest", 'jet-event-system') ?></a> |
+				<a href="<?php echo site_url() . '/' . $bp->jes_events->slug ?>" id="recently-active-events"><?php _e("Active", 'jet-event-system') ?></a> |
+				<a href="<?php echo site_url() . '/' . $bp->jes_events->slug ?>" id="popular-events" class="selected"><?php _e("Popular", 'jet-event-system') ?></a>
 			</div>
 
 			<ul id="events-list" class="item-list">
 				<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 					<li>
 						<div class="item-avatar">
-							<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar_thumb() ?></a>
+							<a href="<?php jes_bp_event_permalink() ?>" <?php if (!$data[ 'jes_events_code_index' ]) { ?>rel="nofollow"<?php } ?>><?php jes_bp_event_avatar_thumb() ?></a>
 							<div class="item-title">
-								<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
+								<a href="<?php jes_bp_event_permalink() ?> <?php if (!$data[ 'jes_events_code_index' ]) { ?>rel="nofollow"<?php } ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
 							</div>							
 						</div>
 
@@ -65,7 +68,9 @@ class JES_BP_Events_Widget extends WP_Widget {
 			</div>
 
 		<?php endif; ?>
-
+<?php if (!$data[ 'jes_events_code_index' ]) { ?>
+</noindex>
+<?php } ?>
 		<?php echo $after_widget; ?>
 	<?php
 	}

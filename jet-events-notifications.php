@@ -15,7 +15,7 @@ function events_notification_event_updated( $event_id ) {
 		// Set up and send the message
 		$to = $ud->user_email;
 
-		$event_link = site_url( $bp->events->slug . '/' . $event->slug );
+		$event_link = site_url( $bp->jes_events->slug . '/' . $event->slug );
 		$settings_link = bp_core_get_user_domain( $user_id ) .  BP_SETTINGS_SLUG . '/notifications/';
 
 		$message = sprintf( __(
@@ -206,7 +206,7 @@ function events_notification_event_invites( &$event, &$member, $inviter_user_id 
 
 		$settings_link = bp_core_get_user_domain( $invited_user_id ) .  BP_SETTINGS_SLUG . '/notifications/';
 		$invited_link = bp_core_get_user_domain( $invited_user_id );
-		$invites_link = $invited_link . $bp->events->slug . '/invites';
+		$invites_link = $invited_link . $bp->jes_events->slug . '/invites';
 
 		// Set up and send the message
 		$to = $invited_ud->user_email;

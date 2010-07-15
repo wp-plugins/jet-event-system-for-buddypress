@@ -151,9 +151,9 @@ function bp_jes_has_events( $args = '' ) {
 			$type = 'alphabetical';
 	} else if ( 'invites' == $bp->current_action ) {
 		$type = 'invites';
-	} else if ( $bp->events->current_event->slug ) {
+	} else if ( $bp->jes_events->current_event->slug ) {
 		$type = 'single-event';
-		$slug = $bp->events->current_event->slug;
+		$slug = $bp->jes_events->current_event->slug;
 	}
 
 	if ( isset( $_REQUEST['event-filter-box'] ) || isset( $_REQUEST['s'] ) )
@@ -346,7 +346,7 @@ function jes_bp_event_permalink() {
 		if ( !$event )
 			$event =& $events_template->event;
 
-		return apply_filters( 'jes_bp_get_event_permalink', $bp->root_domain . '/' . $bp->events->slug . '/' . $event->slug . '/' );
+		return apply_filters( 'jes_bp_get_event_permalink', $bp->root_domain . '/' . $bp->jes_events->slug . '/' . $event->slug . '/' );
 	}
 
 function jes_bp_event_admin_permalink() {
@@ -358,7 +358,7 @@ function jes_bp_event_admin_permalink() {
 		if ( !$event )
 			$event =& $events_template->event;
 
-		return apply_filters( 'jes_bp_get_event_admin_permalink', $bp->root_domain . '/' . $bp->events->slug . '/' . $event->slug . '/admin' );
+		return apply_filters( 'jes_bp_get_event_admin_permalink', $bp->root_domain . '/' . $bp->jes_events->slug . '/' . $event->slug . '/admin' );
 	}
 
 function jes_bp_event_slug() {
@@ -698,7 +698,7 @@ function jes_bp_event_all_members_permalink() {
 function jes_bp_event_search_form() {
 	global $events_template, $bp;
 
-	$action = $bp->displayed_user->domain . $bp->events->slug . '/my-events/search/';
+	$action = $bp->displayed_user->domain . $bp->jes_events->slug . '/my-events/search/';
 	$label = __('Filter Events', 'jet-event-system');
 	$name = 'event-filter-box';
 
@@ -724,7 +724,7 @@ function jes_bp_event_show_no_events_message() {
 function jes_bp_event_is_activity_permalink() {
 	global $bp;
 
-	if ( !$bp->is_single_item || $bp->current_component != $bp->events->slug || $bp->current_action != $bp->activity->slug )
+	if ( !$bp->is_single_item || $bp->current_component != $bp->jes_events->slug || $bp->current_action != $bp->activity->slug )
 		return false;
 
 	return true;
@@ -979,29 +979,29 @@ function bp_event_admin_tabs( $event = false ) {
 	global $bp, $events_template;
 
 	if ( !$event )
-		$event = ( $events_template->event ) ? $events_template->event : $bp->events->current_event;
+		$event = ( $events_template->event ) ? $events_template->event : $bp->jes_events->current_event;
 
 	$current_tab = $bp->action_variables[0];
 ?>
 	<?php if ( $bp->is_item_admin || $bp->is_item_mod ) { ?>
-		<li<?php if ( 'edit-details' == $current_tab || empty( $current_tab ) ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->root_domain . '/' . $bp->events->slug ?>/<?php echo $event->slug ?>/admin/edit-details"><?php _e('Edit Details', 'jet-event-system') ?></a></li>
+		<li<?php if ( 'edit-details' == $current_tab || empty( $current_tab ) ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->root_domain . '/' . $bp->jes_events->slug ?>/<?php echo $event->slug ?>/admin/edit-details"><?php _e('Edit Details', 'jet-event-system') ?></a></li>
 	<?php } ?>
 
 	<?php
 		if ( !$bp->is_item_admin )
 			return false;
 	?>
-	<li<?php if ( 'event-settings' == $current_tab ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->root_domain . '/' . $bp->events->slug ?>/<?php echo $event->slug ?>/admin/event-settings"><?php _e('Event Settings', 'jet-event-system') ?></a></li>
-	<li<?php if ( 'event-avatar' == $current_tab ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->root_domain . '/' . $bp->events->slug ?>/<?php echo $event->slug ?>/admin/event-avatar"><?php _e('Event Avatar', 'jet-event-system') ?></a></li>
-	<li<?php if ( 'manage-members' == $current_tab ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->root_domain . '/' . $bp->events->slug ?>/<?php echo $event->slug ?>/admin/manage-members"><?php _e('Manage Members', 'jet-event-system') ?></a></li>
+	<li<?php if ( 'event-settings' == $current_tab ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->root_domain . '/' . $bp->jes_events->slug ?>/<?php echo $event->slug ?>/admin/event-settings"><?php _e('Event Settings', 'jet-event-system') ?></a></li>
+	<li<?php if ( 'event-avatar' == $current_tab ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->root_domain . '/' . $bp->jes_events->slug ?>/<?php echo $event->slug ?>/admin/event-avatar"><?php _e('Event Avatar', 'jet-event-system') ?></a></li>
+	<li<?php if ( 'manage-members' == $current_tab ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->root_domain . '/' . $bp->jes_events->slug ?>/<?php echo $event->slug ?>/admin/manage-members"><?php _e('Manage Members', 'jet-event-system') ?></a></li>
 
 	<?php if ( $events_template->event->status == 'private' ) : ?>
-		<li<?php if ( 'membership-requests' == $current_tab ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->root_domain . '/' . $bp->events->slug ?>/<?php echo $event->slug ?>/admin/membership-requests"><?php _e('Membership Requests', 'jet-event-system') ?></a></li>
+		<li<?php if ( 'membership-requests' == $current_tab ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->root_domain . '/' . $bp->jes_events->slug ?>/<?php echo $event->slug ?>/admin/membership-requests"><?php _e('Membership Requests', 'jet-event-system') ?></a></li>
 	<?php endif; ?>
 
 	<?php do_action( 'events_admin_tabs', $current_tab, $event->slug ) ?>
 
-	<li<?php if ( 'delete-event' == $current_tab ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->root_domain . '/' . $bp->events->slug ?>/<?php echo $event->slug ?>/admin/delete-event"><?php _e('Delete Event', 'jet-event-system') ?></a></li>
+	<li<?php if ( 'delete-event' == $current_tab ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->root_domain . '/' . $bp->jes_events->slug ?>/<?php echo $event->slug ?>/admin/delete-event"><?php _e('Delete Event', 'jet-event-system') ?></a></li>
 <?php
 }
 
@@ -1094,7 +1094,7 @@ function bp_event_jes_accept_invite_link() {
 		if ( !$event )
 			$event =& $events_template->event;
 
-		return apply_filters( 'bp_get_event_jes_accept_invite_link', wp_nonce_url( $bp->loggedin_user->domain . $bp->events->slug . '/invites/accept/' . $event->id, 'events_jes_accept_invite' ) );
+		return apply_filters( 'bp_get_event_jes_accept_invite_link', wp_nonce_url( $bp->loggedin_user->domain . $bp->jes_events->slug . '/invites/accept/' . $event->id, 'events_jes_accept_invite' ) );
 	}
 
 function bp_event_reject_invite_link() {
@@ -1106,7 +1106,7 @@ function bp_event_reject_invite_link() {
 		if ( !$event )
 			$event =& $events_template->event;
 
-		return apply_filters( 'bp_get_event_reject_invite_link', wp_nonce_url( $bp->loggedin_user->domain . $bp->events->slug . '/invites/reject/' . $event->id, 'events_reject_invite' ) );
+		return apply_filters( 'bp_get_event_reject_invite_link', wp_nonce_url( $bp->loggedin_user->domain . $bp->jes_events->slug . '/invites/reject/' . $event->id, 'events_reject_invite' ) );
 	}
 
 function bp_event_leave_confirm_link() {
@@ -1357,7 +1357,7 @@ function bp_event_jes_has_members( $args = '' ) {
 	global $bp, $members_template;
 
 	$defaults = array(
-		'event_id' => $bp->events->current_event->id,
+		'event_id' => $bp->jes_events->current_event->id,
 		'per_page' => 20,
 		'max' => false,
 		'exclude_admins_mods' => 1,
@@ -1546,18 +1546,18 @@ function bp_event_member_admin_pagination() {
 function bp_event_creation_tabs() {
 	global $bp;
 
-	if ( !is_array( $bp->events->event_creation_steps ) )
+	if ( !is_array( $bp->jes_events->event_creation_steps ) )
 		return false;
 
-	if ( !$bp->events->current_create_step )
-		$bp->events->current_create_step = array_shift( array_keys( $bp->events->event_creation_steps ) );
+	if ( !$bp->jes_events->current_create_step )
+		$bp->jes_events->current_create_step = array_shift( array_keys( $bp->jes_events->event_creation_steps ) );
 
 	$counter = 1;
 
-	foreach ( (array)$bp->events->event_creation_steps as $slug => $step ) {
+	foreach ( (array)$bp->jes_events->event_creation_steps as $slug => $step ) {
 		$is_enabled = bp_are_previous_event_creation_steps_complete( $slug ); ?>
 
-		<li<?php if ( $bp->events->current_create_step == $slug ) : ?> class="current"<?php endif; ?>><?php if ( $is_enabled ) : ?><a href="<?php echo $bp->root_domain . '/' . $bp->events->slug ?>/create/step/<?php echo $slug ?>/"><?php else: ?><span><?php endif; ?><?php echo $counter ?>. <?php echo $step['name'] ?><?php if ( $is_enabled ) : ?></a><?php else: ?></span><?php endif ?></li><?php
+		<li<?php if ( $bp->jes_events->current_create_step == $slug ) : ?> class="current"<?php endif; ?>><?php if ( $is_enabled ) : ?><a href="<?php echo $bp->root_domain . '/' . $bp->jes_events->slug ?>/create/step/<?php echo $slug ?>/"><?php else: ?><span><?php endif; ?><?php echo $counter ?>. <?php echo $step['name'] ?><?php if ( $is_enabled ) : ?></a><?php else: ?></span><?php endif ?></li><?php
 		$counter++;
 	}
 
@@ -1569,7 +1569,7 @@ function bp_event_creation_tabs() {
 function bp_event_creation_stage_title() {
 	global $bp;
 
-	echo apply_filters( 'bp_event_creation_stage_title', '<span>&mdash; ' . $bp->events->event_creation_steps[$bp->events->current_create_step]['name'] . '</span>' );
+	echo apply_filters( 'bp_event_creation_stage_title', '<span>&mdash; ' . $bp->jes_events->event_creation_steps[$bp->jes_events->current_create_step]['name'] . '</span>' );
 }
 
 function bp_event_creation_form_action() {
@@ -1579,9 +1579,9 @@ function bp_event_creation_form_action() {
 		global $bp;
 
 		if ( empty( $bp->action_variables[1] ) )
-			$bp->action_variables[1] = array_shift( array_keys( $bp->events->event_creation_steps ) );
+			$bp->action_variables[1] = array_shift( array_keys( $bp->jes_events->event_creation_steps ) );
 
-		return apply_filters( 'bp_get_event_creation_form_action', $bp->root_domain . '/' . $bp->events->slug . '/create/step/' . $bp->action_variables[1] );
+		return apply_filters( 'bp_get_event_creation_form_action', $bp->root_domain . '/' . $bp->jes_events->slug . '/create/step/' . $bp->action_variables[1] );
 	}
 
 function bp_is_event_creation_step( $step_slug ) {
@@ -1592,7 +1592,7 @@ function bp_is_event_creation_step( $step_slug ) {
 		return false;
 
 	/* If this the first step, we can just accept and return true */
-	if ( !$bp->action_variables[1] && array_shift( array_keys( $bp->events->event_creation_steps ) ) == $step_slug )
+	if ( !$bp->action_variables[1] && array_shift( array_keys( $bp->jes_events->event_creation_steps ) ) == $step_slug )
 		return true;
 
 	/* Before allowing a user to see a event creation step we must make sure previous steps are completed */
@@ -1611,20 +1611,20 @@ function bp_is_event_creation_step( $step_slug ) {
 function bp_is_event_creation_step_complete( $step_slugs ) {
 	global $bp;
 
-	if ( !$bp->events->completed_create_steps )
+	if ( !$bp->jes_events->completed_create_steps )
 		return false;
 
 	if ( is_array( $step_slugs ) ) {
 		$found = true;
 
 		foreach ( (array)$step_slugs as $step_slug ) {
-			if ( !in_array( $step_slug, $bp->events->completed_create_steps ) )
+			if ( !in_array( $step_slug, $bp->jes_events->completed_create_steps ) )
 				$found = false;
 		}
 
 		return $found;
 	} else {
-		return in_array( $step_slugs, $bp->events->completed_create_steps );
+		return in_array( $step_slugs, $bp->jes_events->completed_create_steps );
 	}
 
 	return true;
@@ -1634,14 +1634,14 @@ function bp_are_previous_event_creation_steps_complete( $step_slug ) {
 	global $bp;
 
 	/* If this is the first event creation step, return true */
-	if ( array_shift( array_keys( $bp->events->event_creation_steps ) ) == $step_slug )
+	if ( array_shift( array_keys( $bp->jes_events->event_creation_steps ) ) == $step_slug )
 		return true;
 
-	reset( $bp->events->event_creation_steps );
+	reset( $bp->jes_events->event_creation_steps );
 	unset( $previous_steps );
 
 	/* Get previous steps */
-	foreach ( (array)$bp->events->event_creation_steps as $slug => $name ) {
+	foreach ( (array)$bp->jes_events->event_creation_steps as $slug => $name ) {
 		if ( $slug == $step_slug )
 			break;
 
@@ -1656,7 +1656,7 @@ function bp_new_event_id() {
 }
 	function bp_get_new_event_id() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_id', $bp->events->new_event_id );
+		return apply_filters( 'bp_get_new_event_id', $bp->jes_events->new_event_id );
 	}
 
 function bp_new_event_name() {
@@ -1664,7 +1664,7 @@ function bp_new_event_name() {
 }
 	function bp_get_new_event_name() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_name', $bp->events->current_event->name );
+		return apply_filters( 'bp_get_new_event_name', $bp->jes_events->current_event->name );
 	}
 
 function bp_new_event_etype() {
@@ -1672,7 +1672,7 @@ function bp_new_event_etype() {
 }
 	function bp_get_new_event_etype() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_etype', $bp->events->current_event->etype );
+		return apply_filters( 'bp_get_new_event_etype', $bp->jes_events->current_event->etype );
 	}
 	
 	
@@ -1681,7 +1681,7 @@ function bp_new_event_description() {
 }
 	function bp_get_new_event_description() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_description', $bp->events->current_event->description );
+		return apply_filters( 'bp_get_new_event_description', $bp->jes_events->current_event->description );
 	}
 
 function bp_new_event_eventterms() {
@@ -1689,7 +1689,7 @@ function bp_new_event_eventterms() {
 }
 	function bp_get_new_event_eventterms() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_eventterms', $bp->events->current_event->eventterms );
+		return apply_filters( 'bp_get_new_event_eventterms', $bp->jes_events->current_event->eventterms );
 	}
 
 		
@@ -1699,7 +1699,7 @@ function bp_new_event_placedcity() {
 }
 	function bp_get_new_event_placedcity() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_placedcity', $bp->events->current_event->placedcity );
+		return apply_filters( 'bp_get_new_event_placedcity', $bp->jes_events->current_event->placedcity );
 	}
 	
 function bp_new_event_placedaddress() {
@@ -1707,7 +1707,7 @@ function bp_new_event_placedaddress() {
 }
 	function bp_get_new_event_placedaddress() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_placedaddress', $bp->events->current_event->placedaddress );
+		return apply_filters( 'bp_get_new_event_placedaddress', $bp->jes_events->current_event->placedaddress );
 	}
 	
 	
@@ -1716,7 +1716,7 @@ function bp_new_event_newspublic() {
 }
 	function bp_get_new_event_newspublic() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_newspublic', $bp->events->current_event->newspublic );
+		return apply_filters( 'bp_get_new_event_newspublic', $bp->jes_events->current_event->newspublic );
 	}
 
 
@@ -1725,7 +1725,7 @@ function bp_new_event_newsprivate() {
 }
 	function bp_get_new_event_newsprivate() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_newsprivate', $bp->events->current_event->newsprivate );
+		return apply_filters( 'bp_get_new_event_newsprivate', $bp->jes_events->current_event->newsprivate );
 	}
 	
 function bp_new_event_edtsd() {
@@ -1733,7 +1733,7 @@ function bp_new_event_edtsd() {
 }
 	function bp_get_new_event_edtsd() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_edtsd', $bp->events->current_event->edtsd );
+		return apply_filters( 'bp_get_new_event_edtsd', $bp->jes_events->current_event->edtsd );
 	}
 
 function bp_new_event_edted() {
@@ -1741,7 +1741,7 @@ function bp_new_event_edted() {
 }
 	function bp_get_new_event_edted() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_edted', $bp->events->current_event->edted );
+		return apply_filters( 'bp_get_new_event_edted', $bp->jes_events->current_event->edted );
 	}
 	
 	
@@ -1750,7 +1750,7 @@ function bp_new_event_allday() {
 }
 	function bp_get_new_event_allday() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_allday', $bp->events->current_event->allday );
+		return apply_filters( 'bp_get_new_event_allday', $bp->jes_events->current_event->allday );
 	}
 	
 function bp_new_event_weekly() {
@@ -1758,7 +1758,7 @@ function bp_new_event_weekly() {
 }
 	function bp_get_new_event_weekly() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_weekly', $bp->events->current_event->weekly );
+		return apply_filters( 'bp_get_new_event_weekly', $bp->jes_events->current_event->weekly );
 	}
 	
 		
@@ -1767,7 +1767,7 @@ function bp_new_event_status() {
 }
 	function bp_get_new_event_status() {
 		global $bp;
-		return apply_filters( 'bp_get_new_event_status', $bp->events->current_event->status );
+		return apply_filters( 'bp_get_new_event_status', $bp->jes_events->current_event->status );
 	}
 
 function bp_new_event_avatar( $args = '' ) {
@@ -1789,7 +1789,7 @@ function bp_new_event_avatar( $args = '' ) {
 		$r = wp_parse_args( $args, $defaults );
 		extract( $r, EXTR_SKIP );
 
-		return apply_filters( 'bp_get_new_event_avatar', bp_core_fetch_avatar( array( 'item_id' => $bp->events->current_event->id, 'object' => 'event', 'type' => $type, 'avatar_dir' => 'event-avatars', 'alt' => $alt, 'width' => $width, 'height' => $height, 'class' => $class, 'no_grav' => $no_grav ) ) );
+		return apply_filters( 'bp_get_new_event_avatar', bp_core_fetch_avatar( array( 'item_id' => $bp->jes_events->current_event->id, 'object' => 'event', 'type' => $type, 'avatar_dir' => 'event-avatars', 'alt' => $alt, 'width' => $width, 'height' => $height, 'class' => $class, 'no_grav' => $no_grav ) ) );
 	}
 
 function bp_event_creation_previous_link() {
@@ -1798,22 +1798,22 @@ function bp_event_creation_previous_link() {
 	function bp_get_event_creation_previous_link() {
 		global $bp;
 
-		foreach ( (array)$bp->events->event_creation_steps as $slug => $name ) {
+		foreach ( (array)$bp->jes_events->event_creation_steps as $slug => $name ) {
 			if ( $slug == $bp->action_variables[1] )
 				break;
 
 			$previous_steps[] = $slug;
 		}
 
-		return apply_filters( 'bp_get_event_creation_previous_link', $bp->loggedin_user->domain . $bp->events->slug . '/create/step/' . array_pop( $previous_steps ) );
+		return apply_filters( 'bp_get_event_creation_previous_link', $bp->loggedin_user->domain . $bp->jes_events->slug . '/create/step/' . array_pop( $previous_steps ) );
 	}
 
 function bp_is_last_event_creation_step() {
 	global $bp;
 
-	$last_step = array_pop( array_keys( $bp->events->event_creation_steps ) );
+	$last_step = array_pop( array_keys( $bp->jes_events->event_creation_steps ) );
 
-	if ( $last_step == $bp->events->current_create_step )
+	if ( $last_step == $bp->jes_events->current_create_step )
 		return true;
 
 	return false;
@@ -1822,9 +1822,9 @@ function bp_is_last_event_creation_step() {
 function bp_is_first_event_creation_step() {
 	global $bp;
 
-	$first_step = array_shift( array_keys( $bp->events->event_creation_steps ) );
+	$first_step = array_shift( array_keys( $bp->jes_events->event_creation_steps ) );
 
-	if ( $first_step == $bp->events->current_create_step )
+	if ( $first_step == $bp->jes_events->current_create_step )
 		return true;
 
 	return false;
@@ -1848,7 +1848,7 @@ function bp_new_event_invite_friend_list() {
 		extract( $r, EXTR_SKIP );
 
 		if ( !$event_id )
-			$event_id = ( $bp->events->new_event_id ) ? $bp->events->new_event_id : $bp->events->current_event->id;
+			$event_id = ( $bp->jes_events->new_event_id ) ? $bp->jes_events->new_event_id : $bp->jes_events->current_event->id;
 
 		$friends = friends_get_friends_invite_list( $bp->loggedin_user->id, $event_id );
 
@@ -1889,12 +1889,12 @@ function bp_directory_events_search_form() {
 function jes_bp_events_header_tabs() {
 	global $bp, $create_event_step, $completed_to_step;
 ?>
-	<li<?php if ( !isset($bp->action_variables[0]) || 'recently-active' == $bp->action_variables[0] ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->displayed_user->domain . $bp->events->slug ?>/my-events/recently-active"><?php _e( 'Recently Active', 'jet-event-system' ) ?></a></li>
-	<li<?php if ( 'recently-joined' == $bp->action_variables[0] ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->displayed_user->domain . $bp->events->slug ?>/my-events/recently-joined"><?php _e( 'Recently Joined', 'jet-event-system' ) ?></a></li>
-	<li<?php if ( 'most-popular' == $bp->action_variables[0] ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->displayed_user->domain . $bp->events->slug ?>/my-events/most-popular""><?php _e( 'Most Popular', 'jet-event-system' ) ?></a></li>
-	<li<?php if ( 'admin-of' == $bp->action_variables[0] ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->displayed_user->domain . $bp->events->slug ?>/my-events/admin-of""><?php _e( 'Administrator Of', 'jet-event-system' ) ?></a></li>
-	<li<?php if ( 'mod-of' == $bp->action_variables[0] ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->displayed_user->domain . $bp->events->slug ?>/my-events/mod-of""><?php _e( 'Moderator Of', 'jet-event-system' ) ?></a></li>
-	<li<?php if ( 'alphabetically' == $bp->action_variables[0] ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->displayed_user->domain . $bp->events->slug ?>/my-events/alphabetically""><?php _e( 'Alphabetically', 'jet-event-system' ) ?></a></li>
+	<li<?php if ( !isset($bp->action_variables[0]) || 'recently-active' == $bp->action_variables[0] ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->displayed_user->domain . $bp->jes_events->slug ?>/my-events/recently-active"><?php _e( 'Recently Active', 'jet-event-system' ) ?></a></li>
+	<li<?php if ( 'recently-joined' == $bp->action_variables[0] ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->displayed_user->domain . $bp->jes_events->slug ?>/my-events/recently-joined"><?php _e( 'Recently Joined', 'jet-event-system' ) ?></a></li>
+	<li<?php if ( 'most-popular' == $bp->action_variables[0] ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->displayed_user->domain . $bp->jes_events->slug ?>/my-events/most-popular""><?php _e( 'Most Popular', 'jet-event-system' ) ?></a></li>
+	<li<?php if ( 'admin-of' == $bp->action_variables[0] ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->displayed_user->domain . $bp->jes_events->slug ?>/my-events/admin-of""><?php _e( 'Administrator Of', 'jet-event-system' ) ?></a></li>
+	<li<?php if ( 'mod-of' == $bp->action_variables[0] ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->displayed_user->domain . $bp->jes_events->slug ?>/my-events/mod-of""><?php _e( 'Moderator Of', 'jet-event-system' ) ?></a></li>
+	<li<?php if ( 'alphabetically' == $bp->action_variables[0] ) : ?> class="current"<?php endif; ?>><a href="<?php echo $bp->displayed_user->domain . $bp->jes_events->slug ?>/my-events/alphabetically""><?php _e( 'Alphabetically', 'jet-event-system' ) ?></a></li>
 <?php
 	do_action( 'events_header_tabs' );
 }
@@ -1946,17 +1946,17 @@ function bp_is_event_admin_screen( $slug ) {
 function bp_event_current_avatar() {
 	global $bp;
 
-	if ( $bp->events->current_event->avatar_full ) { ?>
-		<img src="<?php echo attribute_escape( $bp->events->current_event->avatar_full ) ?>" alt="<?php _e( 'Event Avatar', 'jet-event-system' ) ?>" class="avatar" />
+	if ( $bp->jes_events->current_event->avatar_full ) { ?>
+		<img src="<?php echo attribute_escape( $bp->jes_events->current_event->avatar_full ) ?>" alt="<?php _e( 'Event Avatar', 'jet-event-system' ) ?>" class="avatar" />
 	<?php } else { ?>
-		<img src="<?php echo $bp->events->image_base . '/none.gif' ?>" alt="<?php _e( 'No Event Avatar', 'jet-event-system' ) ?>" class="avatar" />
+		<img src="<?php echo $bp->jes_events->image_base . '/none.gif' ?>" alt="<?php _e( 'No Event Avatar', 'jet-event-system' ) ?>" class="avatar" />
 	<?php }
 }
 
 function bp_get_event_has_avatar() {
 	global $bp;
 
-	if ( !empty( $_FILES ) || !bp_core_fetch_avatar( array( 'item_id' => $bp->events->current_event->id, 'object' => 'event', 'no_grav' => true ) ) )
+	if ( !empty( $_FILES ) || !bp_core_fetch_avatar( array( 'item_id' => $bp->jes_events->current_event->id, 'object' => 'event', 'no_grav' => true ) ) )
 		return false;
 
 	return true;
@@ -1968,7 +1968,7 @@ function jes_bp_event_avatar_delete_link() {
 	function jes_bp_get_event_avatar_delete_link() {
 		global $bp;
 
-		return apply_filters( 'jes_bp_get_event_avatar_delete_link', wp_nonce_url( jes_bp_get_event_permalink( $bp->events->current_event ) . '/admin/event-avatar/delete', 'jes_bp_event_avatar_delete' ) );
+		return apply_filters( 'jes_bp_get_event_avatar_delete_link', wp_nonce_url( jes_bp_get_event_permalink( $bp->jes_events->current_event ) . '/admin/event-avatar/delete', 'jes_bp_event_avatar_delete' ) );
 	}
 
 function jes_bp_event_avatar_edit_form() {
@@ -2240,8 +2240,8 @@ function bp_event_has_invites( $args = '' ) {
 
 	if ( !$event_id ) {
 		/* Backwards compatibility */
-		if ( $bp->events->current_event ) $event_id = $bp->events->current_event->id;
-		if ( $bp->events->new_event_id ) $event_id = $bp->events->new_event_id;
+		if ( $bp->jes_events->current_event ) $event_id = $bp->jes_events->current_event->id;
+		if ( $bp->jes_events->new_event_id ) $event_id = $bp->jes_events->new_event_id;
 	}
 
 	if ( !$event_id )
@@ -2318,14 +2318,14 @@ function bp_event_activity_feed_link() {
 	function bp_get_event_activity_feed_link() {
 		global $bp;
 
-		return apply_filters( 'bp_get_event_activity_feed_link', jes_bp_get_event_permalink( $bp->events->current_event ) . 'feed/' );
+		return apply_filters( 'bp_get_event_activity_feed_link', jes_bp_get_event_permalink( $bp->jes_events->current_event ) . 'feed/' );
 	}
 
 	
 function bp_is_event() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->events->current_event )
+	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->jes_events->current_event )
 		return true;
 
 	return false;
@@ -2365,7 +2365,7 @@ function bp_current_event_name() {
 	function bp_get_current_event_name() {
 		global $bp;
 
-		$name = apply_filters( 'jes_bp_get_event_name', $bp->events->current_event->name );
+		$name = apply_filters( 'jes_bp_get_event_name', $bp->jes_events->current_event->name );
 		return apply_filters( 'bp_get_current_event_name', $name );
 	}
 	
@@ -2446,7 +2446,7 @@ function jet_new_event_enable_forum() {
 }
 	function jet_get_new_event_enable_forum() {
 		global $bp;
-		return (int) apply_filters( 'bp_get_new_event_enable_forum', $bp->events->current_event->enable_forum );
+		return (int) apply_filters( 'bp_get_new_event_enable_forum', $bp->jes_events->current_event->enable_forum );
 	}
 
 function bp_is_event_forum() {

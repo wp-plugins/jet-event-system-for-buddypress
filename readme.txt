@@ -7,7 +7,8 @@ Requires at least: Wordpress MU 3.0, BuddyPress 1.2.5
 Tested up to: Wordpress MU 3.0, BuddyPress 1.2.5.2
 Stable tag: trunk
 
-System events for your social network. Ability to attract members of the network to the ongoing activities.
+System events for your social network. Ability to attract members of the network to the ongoing activities. <a href="http://jes.milordk.ru">Jes Dev</a>
+
 
 == Description ==
 
@@ -20,7 +21,7 @@ ru: Система событий для Вашей социальной сет�
 Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://volks-wagen-club.ru">Volkswagen Club</a>
 
 
-<a href="http://jet.milordk.ru">Official website of the plugin</a>
+<a href="http://jes.milordk.ru">Official website of the plugin</a>
 
 
 == Installation ==
@@ -45,6 +46,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+= 1.0.6 =
+* Fix problem with deleting users in Site Admin. 
+* Ability to manage the indexing of the widget, the ability to set predefined classifiers 
 
 = 1.0.5 =
 * Fixed Widget
