@@ -101,8 +101,9 @@ if (stripos($blogversion, 'MU') > 0) {
 <?php
 }
 
-if (stripos($blogversion, 'MU') > 0) {
+/* if (stripos($blogversion, 'MU') > 0) {
 add_action( 'wpmu_new_blog', 'jes_events_new_blogs_options', 10, 2 );
 } else {
 add_action( 'admin_menu','jes_events_new_blogs_options');
-}
+}*/
+?>
