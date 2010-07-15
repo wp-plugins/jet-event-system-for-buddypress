@@ -46,6 +46,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.0.7 =
+* Fix Widget link to event
+
 = 1.0.6 =
 * Fix problem with deleting users in Site Admin. 
 * Ability to manage the indexing of the widget, the ability to set predefined classifiers 

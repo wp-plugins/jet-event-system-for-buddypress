@@ -42,9 +42,9 @@ $data = get_option( 'jes_events' ); ?>
 				<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 					<li>
 						<div class="item-avatar">
-							<a href="<?php jes_bp_event_permalink() ?>" <?php if (!$data[ 'jes_events_code_index' ]) { ?>rel="nofollow"<?php } ?>><?php jes_bp_event_avatar_thumb() ?></a>
+							<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar_thumb() ?></a>
 							<div class="item-title">
-								<a href="<?php jes_bp_event_permalink() ?> <?php if (!$data[ 'jes_events_code_index' ]) { ?>rel="nofollow"<?php } ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
+								<a href="<?php jes_bp_event_permalink() ?> title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
 							</div>							
 						</div>
 
