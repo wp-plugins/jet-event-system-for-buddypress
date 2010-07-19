@@ -4,7 +4,7 @@
 		<div class="padder">
 
 		<form action="" method="post" id="events-directory-form" class="dir-form">
-			<h3><?php _e( 'Events Directory', 'jet-event-system' ) ?><?php if ( is_user_logged_in() ) : ?> &nbsp;<a class="button" href="<?php echo bp_get_root_domain() . '/' . BP_EVENTS_SLUG . '/create/' ?>"><?php _e( 'Create a Event', 'jet-event-system' ) ?></a><?php endif; ?></h3>
+			<h3><?php _e( 'Events Directory', 'jet-event-system' ) ?><?php if ( is_user_logged_in() ) : ?> &nbsp;<a class="button" href="<?php echo bp_get_root_domain() . '/' . JES_SLUG . '/create/' ?>"><?php _e( 'Create a Event', 'jet-event-system' ) ?></a><?php endif; ?></h3>
 
 			<?php do_action( 'bp_before_directory_events_content' ) ?>
 
@@ -14,10 +14,10 @@
 
 			<div class="item-list-tabs">
 				<ul>
-					<li class="selected" id="events-all"><a href="<?php echo bp_get_root_domain() . '/' . BP_EVENTS_SLUG ?>"><?php printf( __( 'All Events (%s)', 'jet-event-system' ), bp_jes_get_jes_total_event_count() ) ?></a></li>
+					<li class="selected" id="events-all"><a href="<?php echo bp_get_root_domain() . '/' . JES_SLUG ?>"><?php printf( __( 'All Events (%s)', 'jet-event-system' ), bp_jes_get_jes_total_event_count() ) ?></a></li>
 
 					<?php if ( is_user_logged_in() && bp_jes_get_jes_total_event_count_for_user( bp_loggedin_user_id() ) ) : ?>
-						<li id="events-personal"><a href="<?php echo bp_loggedin_user_domain() . BP_EVENTS_SLUG . '/my-events/' ?>"><?php printf( __( 'My Events (%s)', 'jet-event-system' ), bp_jes_get_jes_total_event_count_for_user( bp_loggedin_user_id() ) ) ?></a></li>
+						<li id="events-personal"><a href="<?php echo bp_loggedin_user_domain() . JES_SLUG . '/my-events/' ?>"><?php printf( __( 'My Events (%s)', 'jet-event-system' ), bp_jes_get_jes_total_event_count_for_user( bp_loggedin_user_id() ) ) ?></a></li>
 					<?php endif; ?>
 
 					<?php do_action( 'jes_bp_events_directory_event_types' ) ?>
@@ -41,7 +41,7 @@
 				<?php locate_template( array( 'events/events-loop.php' ), true ) ?>
 			</div><!-- #events-dir-list -->
 			<div>
-				<span><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html">Support this system</a></span>
+				<span><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html"><?php _e('Support this system','jet-event-system') ?></a></span>
 			</div>
 			<?php do_action( 'bp_directory_events_content' ) ?>
 

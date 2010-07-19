@@ -3,31 +3,21 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.0.7
+Version: 1.0.8
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
 Network: true
 */
 
-define('Jet Events System', '1.0.7');
+define('Jet Events System', '1.0.8');
 define ('JES_EVENTS_DB_VERSION', '1.0');
-/* Define the slug for the component */
-if ( !defined( 'BP_EVENTS_SLUG' ) )
-	define ( 'BP_EVENTS_SLUG', 'events' );
 
-/* Admin */
-/*	
-	register_activation_hook( __FILE__, 'jes_activation' );
-register_deactivation_hook( __FILE__, 'jes_deactivation' );
-function jes_activation() {
-	$jet_event[ 'classifier' ] = 'yes';
-	add_option( 'jet_event', $jet_event, '', 'yes' );
-}
-function jes_deactivation() { delete_option( 'jet_event' ); }
-*/	
-	
-	
+/* Define the slug for the component */
+if ( !defined( 'JES_SLUG' ) )
+	define ( 'JES_SLUG', 'events' );
+
+
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-classes.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-templatetags.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-widgets.php' );
@@ -64,7 +54,7 @@ function jet_events_add_js() {
 }
 add_action( 'template_redirect', 'jet_events_add_js', 1 );	
 	
-function jes_events_install() {
+function jes_events_init_jesdb() {
 	global $wpdb, $bp;
 
 	if ( !empty($wpdb->charset) )
@@ -128,9 +118,9 @@ function jes_events_install() {
 	require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
 	dbDelta($sql);
 
-	do_action( 'jes_events_install' );
+	do_action( 'jes_events_init_jesdb' );
 
-	update_site_option( 'bp-events-db-version', JES_EVENTS_DB_VERSION );	
+	update_site_option( 'jes-db-version', JES_EVENTS_DB_VERSION );	
 	
 }
 
@@ -144,12 +134,11 @@ function jes_events_setup_globals() {
 	$bp->jes_events->table_name_members = $wpdb->base_prefix . 'jet_events_members';
 	$bp->jes_events->table_name_eventmeta = $wpdb->base_prefix . 'jet_events_eventmeta';
 	$bp->jes_events->format_notification_function = 'events_format_notifications';
-	$bp->jes_events->slug = BP_EVENTS_SLUG;
-	//jes_events_install();
+	$bp->jes_events->slug = JES_SLUG;
 	/* Register this in the active components array */
 	$bp->active_components[$bp->jes_events->slug] = $bp->jes_events->id;
 
-	$bp->jes_events->forbidden_names = apply_filters( 'events_forbidden_names', array( 'my-events', 'create', 'invites', 'send-invites', 'forum', 'delete', 'add', 'admin', 'request-membership', 'members', 'settings', 'avatar', BP_EVENTS_SLUG ) );
+	$bp->jes_events->forbidden_names = apply_filters( 'events_forbidden_names', array( 'my-events', 'create', 'invites', 'send-invites', 'forum', 'delete', 'add', 'admin', 'request-membership', 'members', 'settings', 'avatar', JES_SLUG ) );
 
 	$bp->jes_events->event_creation_steps = apply_filters( 'events_create_event_steps', array(
 		'event-details' => array( 'name' => __( 'Details', 'jet-event-system' ), 'position' => 0 ),
@@ -168,14 +157,14 @@ add_action( 'wp_ajax_events_filter', 'bp_dtheme_object_template_loader' );
 
 function events_setup_root_component() {
 	/* Register 'events' as a root component */
-	bp_core_add_root_component( BP_EVENTS_SLUG );
+	bp_core_add_root_component( JES_SLUG );
 }
 add_action( 'bp_setup_root_components', 'events_setup_root_component' );
 
 function events_check_installed() {
 	/* Need to check db tables exist, activate hook no-worky in mu-plugins folder. */
-	//if ( get_site_option( 'bp-events-db-version' ) < JES_EVENTS_DB_VERSION )
-	//	jes_events_install();
+	if ( get_site_option( 'jes-db-version' ) < JES_EVENTS_DB_VERSION )
+		jes_events_init_jesdb();
 }
 add_action( 'admin_menu', 'events_check_installed' );
 
@@ -499,7 +488,7 @@ add_action( 'wp', 'events_screen_event_activity_permalink', 3 );
 function events_screen_event_admin() {
 	global $bp;
 
-	if ( $bp->current_component != BP_EVENTS_SLUG || 'admin' != $bp->current_action )
+	if ( $bp->current_component != JES_SLUG || 'admin' != $bp->current_action )
 		return false;
 
 	if ( !empty( $bp->action_variables[0] ) )
@@ -1107,7 +1096,7 @@ add_action( 'wp', 'events_action_leave_event', 3 );
 function events_action_sort_creation_steps() {
 	global $bp;
 
-	if ( $bp->current_component != BP_EVENTS_SLUG && $bp->current_action != 'create' )
+	if ( $bp->current_component != JES_SLUG && $bp->current_action != 'create' )
 		return false;
 
 	if ( !is_array( $bp->jes_events->event_creation_steps ) )

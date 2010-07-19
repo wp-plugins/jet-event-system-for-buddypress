@@ -5,7 +5,7 @@
 <?php $edata = get_option( 'jes_events' ); ?>
 
 		<form action="<?php bp_event_creation_form_action() ?>" method="post" id="create-event-form" class="standard-form" enctype="multipart/form-data">
-			<h3><?php _e( 'Create a Event', 'jet-event-system' ) ?> &nbsp;<a class="button" href="<?php echo bp_get_root_domain() . '/' . BP_EVENTS_SLUG . '/' ?>"><?php _e( 'Events Directory', 'jet-event-system' ) ?></a></h3>
+			<h3><?php _e( 'Create a Event', 'jet-event-system' ) ?> &nbsp;<a class="button" href="<?php echo bp_get_root_domain() . '/' . JES_SLUG . '/' ?>"><?php _e( 'Events Directory', 'jet-event-system' ) ?></a></h3>
 
 			<?php do_action( 'bp_before_create_event' ) ?>
 

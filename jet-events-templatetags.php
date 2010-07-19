@@ -1588,7 +1588,7 @@ function bp_is_event_creation_step( $step_slug ) {
 	global $bp;
 
 	/* Make sure we are in the events component */
-	if ( $bp->current_component != BP_EVENTS_SLUG || 'create' != $bp->current_action )
+	if ( $bp->current_component != JES_SLUG || 'create' != $bp->current_action )
 		return false;
 
 	/* If this the first step, we can just accept and return true */
@@ -1930,7 +1930,7 @@ function jes_bp_events_filter_title() {
 function bp_is_event_admin_screen( $slug ) {
 	global $bp;
 
-	if ( $bp->current_component != BP_EVENTS_SLUG || 'admin' != $bp->current_action )
+	if ( $bp->current_component != JES_SLUG || 'admin' != $bp->current_action )
 		return false;
 
 	if ( $bp->action_variables[0] == $slug )
@@ -2305,7 +2305,7 @@ function bp_event_invite_user_remove_invite_url() {
 	function bp_get_event_invite_user_remove_invite_url() {
 		global $invites_template;
 
-		return wp_nonce_url( site_url( BP_EVENTS_SLUG . '/' . $invites_template->invite->event_id . '/invites/remove/' . $invites_template->invite->user->id ), 'events_invite_uninvite_user' );
+		return wp_nonce_url( site_url( JES_SLUG . '/' . $invites_template->invite->event_id . '/invites/remove/' . $invites_template->invite->user->id ), 'events_invite_uninvite_user' );
 	}
 
 /***
@@ -2325,7 +2325,7 @@ function bp_event_activity_feed_link() {
 function bp_is_event() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->jes_events->current_event )
+	if ( JES_SLUG == $bp->current_component && $bp->jes_events->current_event )
 		return true;
 
 	return false;
@@ -2334,7 +2334,7 @@ function bp_is_event() {
 function bp_is_event_home() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && ( !$bp->current_action || 'home' == $bp->current_action ) )
+	if ( JES_SLUG == $bp->current_component && $bp->is_single_item && ( !$bp->current_action || 'home' == $bp->current_action ) )
 		return true;
 
 	return false;
@@ -2343,7 +2343,7 @@ function bp_is_event_home() {
 function bp_is_event_create() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && 'create' == $bp->current_action )
+	if ( JES_SLUG == $bp->current_component && 'create' == $bp->current_action )
 		return true;
 
 	return false;
@@ -2353,7 +2353,7 @@ function bp_is_event_create() {
 function bp_is_event_admin_page() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && 'admin' == $bp->current_action )
+	if ( JES_SLUG == $bp->current_component && $bp->is_single_item && 'admin' == $bp->current_action )
 		return true;
 
 	return false;
@@ -2372,7 +2372,7 @@ function bp_current_event_name() {
 function bp_is_event_activity() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && 'activity' == $bp->current_action )
+	if ( JES_SLUG == $bp->current_component && $bp->is_single_item && 'activity' == $bp->current_action )
 		return true;
 
 	return false;
@@ -2381,7 +2381,7 @@ function bp_is_event_activity() {
 function bp_is_event_forum_topic() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && 'forum' == $bp->current_action && 'topic' == $bp->action_variables[0] )
+	if ( JES_SLUG == $bp->current_component && $bp->is_single_item && 'forum' == $bp->current_action && 'topic' == $bp->action_variables[0] )
 		return true;
 
 	return false;
@@ -2391,7 +2391,7 @@ function bp_is_event_forum_topic() {
 function bp_is_event_members() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && 'members' == $bp->current_action )
+	if ( JES_SLUG == $bp->current_component && $bp->is_single_item && 'members' == $bp->current_action )
 		return true;
 
 	return false;
@@ -2400,7 +2400,7 @@ function bp_is_event_members() {
 function bp_is_event_invites() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && 'send-invites' == $bp->current_action )
+	if ( JES_SLUG == $bp->current_component && 'send-invites' == $bp->current_action )
 		return true;
 
 	return false;
@@ -2409,7 +2409,7 @@ function bp_is_event_invites() {
 function bp_is_event_membership_request() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && 'request-membership' == $bp->current_action )
+	if ( JES_SLUG == $bp->current_component && 'request-membership' == $bp->current_action )
 		return true;
 
 	return false;
@@ -2418,7 +2418,7 @@ function bp_is_event_membership_request() {
 function bp_is_event_leave() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && 'leave-event' == $bp->current_action )
+	if ( JES_SLUG == $bp->current_component && $bp->is_single_item && 'leave-event' == $bp->current_action )
 		return true;
 
 	return false;
@@ -2427,7 +2427,7 @@ function bp_is_event_leave() {
 function bp_is_event_single() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item )
+	if ( JES_SLUG == $bp->current_component && $bp->is_single_item )
 		return true;
 
 	return false;
@@ -2436,7 +2436,7 @@ function bp_is_event_single() {
 function bp_is_user_events() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component )
+	if ( JES_SLUG == $bp->current_component )
 		return true;
 
 	return false;
@@ -2452,7 +2452,7 @@ function jet_new_event_enable_forum() {
 function bp_is_event_forum() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && 'forum' == $bp->current_action )
+	if ( JES_SLUG == $bp->current_component && $bp->is_single_item && 'forum' == $bp->current_action )
 		return true;
 
 	return false;
@@ -2471,7 +2471,7 @@ function jes_is_event_forum_topic() {
 function jes_is_event_forum_topic_edit() {
 	global $bp;
 
-	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && 'forum' == $bp->current_action && 'topic' == $bp->action_variables[0] && 'edit' == $bp->action_variables[2] )
+	if ( JES_SLUG == $bp->current_component && $bp->is_single_item && 'forum' == $bp->current_action && 'topic' == $bp->action_variables[0] && 'edit' == $bp->action_variables[2] )
 		return true;
 
 	return false;

@@ -155,5 +155,6 @@ function events_ajax_widget_events_list() {
 	<?php endif;
 
 }
+
 add_action( 'wp_ajax_widget_events_list', 'events_ajax_widget_events_list' );
 ?>

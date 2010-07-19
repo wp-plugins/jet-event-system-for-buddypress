@@ -27,10 +27,10 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://v
 == Installation ==
 
 1. Upload `jet-event-system-for-buddypress` folder to the `/wp-content/plugins/` directory
-2. Upload <b>`events`</b> folder to the `/wp-content/themes/<you work theme>` directory ! (/wp-content/themes/bp-default ?)
+2. Upload `events` folder to the `/wp-content/themes/<you work theme>` directory ! (/wp-content/themes/bp-default ?)
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Add widget to site (if needed)
-5. See Events Caralog: http://<yousite>/events
+5. See Events Catalog: http://<yousite>/events
 
 
 == Screenshots ==
@@ -46,6 +46,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.0.8 =
+* Fixed a problem when you first install the plugin (not created the database)
 
 = 1.0.7 =
 * Fix Widget link to event
