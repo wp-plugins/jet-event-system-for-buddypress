@@ -27,11 +27,12 @@
 			<div class="item">
 				<div class="item-title"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a></div>
 				<div class="item-meta">
+					<span class="meta"><em><?php jes_bp_event_type() ?></em></span><br>
 					<?php _e('Short description:','jet-event-system') ?> <?php jes_bp_event_description_excerpt() ?>				
 				</div>				
 				<div class="item-desc">
 					<span><?php _e('The event will be held in the city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?><?php if ( jes_bp_event_is_visible() ) { ?>, <?php _e('at ','jet-event-system') ?><?php jes_bp_event_placedaddress() ?><? } ?></span><br />				
-					<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?></span> <?php _e('to: ','jet-event-system') ?> <span class="meta"><?php jes_bp_event_edted() ?></span>
+					<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?></span> <?php _e('to: ','jet-event-system') ?> <span><?php jes_bp_event_edted() ?></span>
 				</div>
 
 				<?php do_action( 'bp_directory_events_item' ) ?>
@@ -41,7 +42,7 @@
 				<?php bp_event_join_button() ?>
 
 				<div class="meta">
-					<?php jes_bp_event_type() ?> / <?php jes_bp_event_etype() ?>
+					<?php _e('Classification:','jet-event-system') ?>: <?php jes_bp_event_etype() ?><br />
 					<?php jes_bp_event_member_count() ?><br />
 					<span class="activity"><?php printf( __( 'Last activity:<br /> %s ago', 'jet-event-system' ), jes_bp_get_event_last_active() ) ?></span>
 				</div>

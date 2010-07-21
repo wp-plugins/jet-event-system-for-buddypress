@@ -39,7 +39,6 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://v
 
 == Plans ==
 
-* In version 1.1 will be added to customize the widget
 * In version 1.2 will be added ability to display current events as a widget and the directory
 * In version 1.3 will be added to the possibility of tying the event to a group
 * In version 1.5 will be added to the possibility of tying the event to your blog (s) 
@@ -52,6 +51,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+= 1.1 =
+* Added setup into a widget
+* Made adjustments to display the events directory
 
 = 1.0.8 =
 * Fixed a problem when you first install the plugin (not created the database)
