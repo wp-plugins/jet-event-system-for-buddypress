@@ -42,7 +42,7 @@
 				<?php bp_event_join_button() ?>
 
 				<div class="meta">
-					<?php _e('Classification:','jet-event-system') ?>: <?php jes_bp_event_etype() ?><br />
+					<?php _e('Classification:','jet-event-system') ?>: <br /><?php jes_bp_event_etype() ?><br />
 					<?php jes_bp_event_member_count() ?><br />
 					<span class="activity"><?php printf( __( 'Last activity:<br /> %s ago', 'jet-event-system' ), jes_bp_get_event_last_active() ) ?></span>
 				</div>
