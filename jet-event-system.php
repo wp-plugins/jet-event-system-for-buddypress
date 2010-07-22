@@ -3,7 +3,7 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1
+Version: 1.1.1
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
@@ -85,7 +85,7 @@ function jes_events_init_jesdb() {
 			KEY placedcity (placedcity)
 	 	   ) {$charset_collate};";
 
-	$sql[] = "CREATE TABLE {$bp->jes_events->table_name_members} (
+	$sql[] = "CREATE TABLE {$bp->jes_events->jes_table_name_members} (
 	  		id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 			event_id bigint(20) NOT NULL,
 			user_id bigint(20) NOT NULL,
@@ -131,7 +131,7 @@ function jes_events_setup_globals() {
 	$bp->jes_events->id = 'events';
 
 	$bp->jes_events->table_name = $wpdb->base_prefix . 'jet_events';
-	$bp->jes_events->table_name_members = $wpdb->base_prefix . 'jet_events_members';
+	$bp->jes_events->jes_table_name_members = $wpdb->base_prefix . 'jet_events_members';
 	$bp->jes_events->table_name_eventmeta = $wpdb->base_prefix . 'jet_events_eventmeta';
 	$bp->jes_events->format_notification_function = 'events_format_notifications';
 	$bp->jes_events->slug = JES_SLUG;
@@ -2232,7 +2232,7 @@ function jes_events_remove_data_for_user( $user_id ) {
 }
 // add_action( 'wpmu_delete_user', 'jes_events_remove_data_for_user' );
 // add_action( 'delete_user', 'jes_events_remove_data_for_user' );
-add_action( 'make_spam_user', 'jes_events_remove_data_for_user' );
+// add_action( 'make_spam_user', 'jes_events_remove_data_for_user' );
 
 
 /********************************************************************************

@@ -51,6 +51,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+= 1.1.1 =
+* Fix problem when makr user as spamer
+
 = 1.1 =
 * Added setup into a widget
 * Made adjustments to display the events directory

@@ -55,7 +55,7 @@ Class JES_Events_Event {
 			$this->is_member = JES_Events_Member::jes_check_is_member( $bp->loggedin_user->id, $this->id );
 
 			/* Get event admins and mods */
-			$admin_mods = $wpdb->get_results( $wpdb->prepare( "SELECT u.ID as user_id, u.user_login, u.user_email, u.user_nicename, m.is_admin, m.is_mod FROM {$wpdb->users} u, {$bp->jes_events->table_name_members} m WHERE u.ID = m.user_id AND m.event_id = %d AND ( m.is_admin = 1 OR m.is_mod = 1 )", $this->id ) );
+			$admin_mods = $wpdb->get_results( $wpdb->prepare( "SELECT u.ID as user_id, u.user_login, u.user_email, u.user_nicename, m.is_admin, m.is_mod FROM {$wpdb->users} u, {$bp->jes_events->jes_table_name_members} m WHERE u.ID = m.user_id AND m.event_id = %d AND ( m.is_admin = 1 OR m.is_mod = 1 )", $this->id ) );
 			foreach( (array)$admin_mods as $user ) {
 				if ( (int)$user->is_admin )
 					$this->admins[] = $user;
@@ -230,7 +230,7 @@ Class JES_Events_Event {
 
 	function jes_get_invites( $user_id, $event_id ) {
 		global $wpdb, $bp;
-		return $wpdb->get_col( $wpdb->prepare( "SELECT user_id FROM {$bp->jes_events->table_name_members} WHERE event_id = %d and is_confirmed = 0 AND inviter_id = %d", $event_id, $user_id ) );
+		return $wpdb->get_col( $wpdb->prepare( "SELECT user_id FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d and is_confirmed = 0 AND inviter_id = %d", $event_id, $user_id ) );
 	}
 
 	function jes_filter_user_events( $filter, $user_id = false, $order = false, $limit = null, $page = null ) {
@@ -242,7 +242,7 @@ Class JES_Events_Event {
 		$filter = like_escape( $wpdb->escape( $filter ) );
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		// Get all the event ids for the current user's events.
 		$gids = JES_Events_Member::jes_get_event_ids( $user_id );
@@ -252,7 +252,7 @@ Class JES_Events_Event {
 
 		$gids = implode( ',', $gids['events'] );
 
-		$paged_events = $wpdb->get_results( $wpdb->prepare( "SELECT id as event_id FROM {$bp->jes_events->table_name} WHERE ( name LIKE '{$filter}%%' OR description LIKE '{$filter}%%' ) AND id IN ({$gids}) {$pag_sql}" ) );
+		$paged_events = $wpdb->get_results( $wpdb->prepare( "SELECT id as event_id FROM {$bp->jes_events->table_name} WHERE ( name LIKE '{$filter}%%' OR description LIKE '{$filter}%%' ) AND id IN ({$gids}) {$pag_sqle}" ) );
 		$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->jes_events->table_name} WHERE ( name LIKE '{$filter}%%' OR description LIKE '{$filter}%%' ) AND id IN ({$gids})" ) );
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
@@ -264,7 +264,7 @@ Class JES_Events_Event {
 		$filter = like_escape( $wpdb->escape( $filter ) );
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		if ( $sort_by && $order ) {
 			$sort_by = $wpdb->escape( $sort_by );
@@ -275,7 +275,7 @@ Class JES_Events_Event {
 		if ( !is_site_admin() )
 			$hidden_sql = "AND status != 'hidden'";
 
-		$paged_events = $wpdb->get_results( "SELECT id as event_id FROM {$bp->jes_events->table_name} WHERE ( name LIKE '%%$filter%%' OR description LIKE '%%$filter%%' ) {$hidden_sql} {$order_sql} {$pag_sql}" );
+		$paged_events = $wpdb->get_results( "SELECT id as event_id FROM {$bp->jes_events->table_name} WHERE ( name LIKE '%%$filter%%' OR description LIKE '%%$filter%%' ) {$hidden_sql} {$order_sql} {$pag_sqle}" );
 		$total_events = $wpdb->get_var( "SELECT COUNT(id) FROM {$bp->jes_events->table_name} WHERE ( name LIKE '%%$filter%%' OR description LIKE '%%$filter%%' ) {$hidden_sq}" );
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
@@ -296,7 +296,7 @@ Class JES_Events_Event {
 	function jes_has_members( $event_id ) {
 		global $wpdb, $bp;
 
-		$members = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->jes_events->table_name_members} WHERE event_id = %d", $event_id ) );
+		$members = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d", $event_id ) );
 
 		if ( !$members )
 			return false;
@@ -307,18 +307,18 @@ Class JES_Events_Event {
 	function jes_has_membership_requests( $event_id ) {
 		global $wpdb, $bp;
 
-		return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->jes_events->table_name_members} WHERE event_id = %d AND is_confirmed = 0", $event_id ) );
+		return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d AND is_confirmed = 0", $event_id ) );
 	}
 
 	function get_membership_requests( $event_id, $limit = null, $page = null ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page ) {
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 		}
 
-		$paged_requests = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$bp->jes_events->table_name_members} WHERE event_id = %d AND is_confirmed = 0 AND inviter_id = 0{$pag_sql}", $event_id ) );
-		$total_requests = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->jes_events->table_name_members} WHERE event_id = %d AND is_confirmed = 0 AND inviter_id = 0", $event_id ) );
+		$paged_requests = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d AND is_confirmed = 0 AND inviter_id = 0{$pag_sqle}", $event_id ) );
+		$total_requests = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d AND is_confirmed = 0 AND inviter_id = 0", $event_id ) );
 
 		return array( 'requests' => $paged_requests, 'total' => $total_requests );
 	}
@@ -329,7 +329,7 @@ Class JES_Events_Event {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		if ( !is_user_logged_in() || ( !is_site_admin() && ( $user_id != $bp->loggedin_user->id ) ) )
 			$hidden_sql = "AND g.status != 'hidden'";
@@ -341,10 +341,10 @@ Class JES_Events_Event {
 
 		if ( $user_id ) {
 			$user_id = $wpdb->escape( $user_id );
-			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY g.date_created DESC {$pag_sql}" );
-			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->table_name_members} m LEFT JOIN {$bp->jes_events->table_name_eventmeta} gm ON m.event_id = gm.event_id INNER JOIN {$bp->jes_events->table_name} g ON m.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY g.date_created DESC {$pag_sqle}" );
+			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->jes_table_name_members} m LEFT JOIN {$bp->jes_events->table_name_eventmeta} gm ON m.event_id = gm.event_id INNER JOIN {$bp->jes_events->table_name} g ON m.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
 		} else {
-			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} ORDER BY g.date_created DESC {$pag_sql}" );
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} ORDER BY g.date_created DESC {$pag_sqle}" );
 			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT g.id) FROM {$bp->jes_events->table_name_eventmeta} gm INNER JOIN {$bp->jes_events->table_name} g ON gm.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql}" );
 		}
 
@@ -362,7 +362,7 @@ Class JES_Events_Event {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		if ( !is_user_logged_in() || ( !is_site_admin() && ( $user_id != $bp->loggedin_user->id ) ) )
 			$hidden_sql = "AND g.status != 'hidden'";
@@ -374,10 +374,10 @@ Class JES_Events_Event {
 
 		if ( $user_id ) {
 			$user_id = $wpdb->escape( $user_id );
-			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY g.edtsdunix DESC {$pag_sql}" );
-			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->table_name_members} m LEFT JOIN {$bp->jes_events->table_name_eventmeta} gm ON m.event_id = gm.event_id INNER JOIN {$bp->jes_events->table_name} g ON m.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY g.edtsdunix DESC {$pag_sqle}" );
+			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->jes_table_name_members} m LEFT JOIN {$bp->jes_events->table_name_eventmeta} gm ON m.event_id = gm.event_id INNER JOIN {$bp->jes_events->table_name} g ON m.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
 		} else {
-			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} ORDER BY g.edtsdunix DESC {$pag_sql}" );
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} ORDER BY g.edtsdunix DESC {$pag_sqle}" );
 			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT g.id) FROM {$bp->jes_events->table_name_eventmeta} gm INNER JOIN {$bp->jes_events->table_name} g ON gm.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql}" );
 		}
 
@@ -395,7 +395,7 @@ Class JES_Events_Event {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		if ( !is_user_logged_in() || ( !is_site_admin() && ( $user_id != $bp->loggedin_user->id ) ) )
 			$hidden_sql = "AND g.status != 'hidden'";
@@ -407,10 +407,10 @@ Class JES_Events_Event {
 
 		if ( $user_id ) {
 			$user_id = $wpdb->escape( $user_id );
-			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY last_activity DESC {$pag_sql}" );
-			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->table_name_members} m LEFT JOIN {$bp->jes_events->table_name_eventmeta} gm ON m.event_id = gm.event_id INNER JOIN {$bp->jes_events->table_name} g ON m.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY last_activity DESC {$pag_sqle}" );
+			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->jes_table_name_members} m LEFT JOIN {$bp->jes_events->table_name_eventmeta} gm ON m.event_id = gm.event_id INNER JOIN {$bp->jes_events->table_name} g ON m.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
 		} else {
-			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} ORDER BY last_activity DESC {$pag_sql}" );
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} ORDER BY last_activity DESC {$pag_sqle}" );
 			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT g.id) FROM {$bp->jes_events->table_name_eventmeta} gm INNER JOIN {$bp->jes_events->table_name} g ON gm.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql}" );
 		}
 
@@ -427,7 +427,7 @@ Class JES_Events_Event {
 		global $wpdb, $bp;
 
 		if ( $limit && $page ) {
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 		}
 
 		if ( !is_user_logged_in() || ( !is_site_admin() && ( $user_id != $bp->loggedin_user->id ) ) )
@@ -440,10 +440,10 @@ Class JES_Events_Event {
 
 		if ( $user_id ) {
 			$user_id = $wpdb->escape( $user_id );
-			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY CONVERT(gm1.meta_value, SIGNED) DESC {$pag_sql}" );
-			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->table_name_members} m LEFT JOIN {$bp->jes_events->table_name_eventmeta} gm ON m.event_id = gm.event_id INNER JOIN {$bp->jes_events->table_name} g ON m.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY CONVERT(gm1.meta_value, SIGNED) DESC {$pag_sqle}" );
+			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->jes_table_name_members} m LEFT JOIN {$bp->jes_events->table_name_eventmeta} gm ON m.event_id = gm.event_id INNER JOIN {$bp->jes_events->table_name} g ON m.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
 		} else {
-			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} ORDER BY CONVERT(gm1.meta_value, SIGNED) DESC {$pag_sql}" );
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} ORDER BY CONVERT(gm1.meta_value, SIGNED) DESC {$pag_sqle}" );
 			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT g.id) FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql}" );
 		}
 
@@ -460,7 +460,7 @@ Class JES_Events_Event {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		if ( !is_user_logged_in() || ( !is_site_admin() && ( $user_id != $bp->loggedin_user->id ) ) )
 			$hidden_sql = " AND g.status != 'hidden'";
@@ -472,10 +472,10 @@ Class JES_Events_Event {
 
 		if ( $user_id ) {
 			$user_id = $wpdb->escape( $user_id );
-			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY g.name ASC {$pag_sql}" );
-			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->table_name_members} m LEFT JOIN {$bp->jes_events->table_name_eventmeta} gm ON m.event_id = gm.event_id INNER JOIN {$bp->jes_events->table_name} g ON m.event_id = g.id WHERE gm.meta_key = 'last_activity' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY g.name ASC {$pag_sqle}" );
+			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->jes_table_name_members} m LEFT JOIN {$bp->jes_events->table_name_eventmeta} gm ON m.event_id = gm.event_id INNER JOIN {$bp->jes_events->table_name} g ON m.event_id = g.id WHERE gm.meta_key = 'last_activity' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
 		} else {
-			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} ORDER BY g.name ASC {$pag_sql}" );
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} ORDER BY g.name ASC {$pag_sqle}" );
 			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT g.id) FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql}" );
 		}
 
@@ -507,7 +507,7 @@ Class JES_Events_Event {
 			$where_sql = 'WHERE ' . join( ' AND ', $where_conditions );
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		if ( $sort_by && $order ) {
 			$sort_by = $wpdb->escape( $sort_by );
@@ -516,17 +516,17 @@ Class JES_Events_Event {
 
 			switch ( $sort_by ) {
 				default:
-					$sql = $wpdb->prepare( "SELECT * FROM {$bp->jes_events->table_name} g {$where_sql} {$order_sql} {$pag_sql}" );
+					$sql = $wpdb->prepare( "SELECT * FROM {$bp->jes_events->table_name} g {$where_sql} {$order_sql} {$pag_sqle}" );
 					break;
 				case 'members':
-					$sql = $wpdb->prepare( "SELECT * FROM {$bp->jes_events->table_name} g, {$bp->jes_events->table_name_eventmeta} gm WHERE g.id = gm.event_id AND gm.meta_key = 'total_member_count' {$hidden_sql} {$public_sql} ORDER BY CONVERT(gm.meta_value, SIGNED) {$order} {$pag_sql}" );
+					$sql = $wpdb->prepare( "SELECT * FROM {$bp->jes_events->table_name} g, {$bp->jes_events->table_name_eventmeta} gm WHERE g.id = gm.event_id AND gm.meta_key = 'total_member_count' {$hidden_sql} {$public_sql} ORDER BY CONVERT(gm.meta_value, SIGNED) {$order} {$pag_sqle}" );
 					break;
 				case 'last_active':
-					$sql = $wpdb->prepare( "SELECT * FROM {$bp->jes_events->table_name} g, {$bp->jes_events->table_name_eventmeta} gm WHERE g.id = gm.event_id AND gm.meta_key = 'last_activity' {$hidden_sql} {$public_sql} ORDER BY CONVERT(gm.meta_value, SIGNED) {$order} {$pag_sql}" );
+					$sql = $wpdb->prepare( "SELECT * FROM {$bp->jes_events->table_name} g, {$bp->jes_events->table_name_eventmeta} gm WHERE g.id = gm.event_id AND gm.meta_key = 'last_activity' {$hidden_sql} {$public_sql} ORDER BY CONVERT(gm.meta_value, SIGNED) {$order} {$pag_sqle}" );
 					break;
 			}
 		} else {
-			$sql = $wpdb->prepare( "SELECT * FROM {$bp->jes_events->table_name} g {$where_sql} {$order_sql} {$pag_sql}" );
+			$sql = $wpdb->prepare( "SELECT * FROM {$bp->jes_events->table_name} g {$where_sql} {$order_sql} {$pag_sqle}" );
 		}
 
 		return $wpdb->get_results($sql);
@@ -544,11 +544,11 @@ Class JES_Events_Event {
 		$letter = like_escape( $wpdb->escape( $letter ) );
 
 		if ( $limit && $page ) {
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 			$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT g.id) FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND g.name LIKE '$letter%%' {$hidden_sql} {$search_sql}" ) );
 		}
 
-		$paged_events = $wpdb->get_results( $wpdb->prepare( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND g.name LIKE '$letter%%' {$hidden_sql} {$search_sql} ORDER BY g.name ASC {$pag_sql}"  ) );
+		$paged_events = $wpdb->get_results( $wpdb->prepare( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND g.name LIKE '$letter%%' {$hidden_sql} {$search_sql} ORDER BY g.name ASC {$pag_sqle}"  ) );
 
 		if ( !empty( $populate_extras ) ) {
 			foreach ( (array)$paged_events as $event ) $jes_event_ids[] = $event->id;
@@ -563,7 +563,7 @@ Class JES_Events_Event {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		if ( !is_user_logged_in() || ( !is_site_admin() && ( $user_id != $bp->loggedin_user->id ) ) )
 			$hidden_sql = "AND g.status != 'hidden'";
@@ -575,10 +575,10 @@ Class JES_Events_Event {
 
 		if ( $user_id ) {
 			$user_id = $wpdb->escape( $user_id );
-			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY rand() {$pag_sql}" );
-			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->table_name_members} m LEFT JOIN {$bp->jes_events->table_name_eventmeta} gm ON m.event_id = gm.event_id INNER JOIN {$bp->jes_events->table_name} g ON m.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY rand() {$pag_sqle}" );
+			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->jes_table_name_members} m LEFT JOIN {$bp->jes_events->table_name_eventmeta} gm ON m.event_id = gm.event_id INNER JOIN {$bp->jes_events->table_name} g ON m.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql} AND m.user_id = {$user_id} AND m.is_confirmed = 1 AND m.is_banned = 0" );
 		} else {
-			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} ORDER BY rand() {$pag_sql}" );
+			$paged_events = $wpdb->get_results( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name} g WHERE g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' {$hidden_sql} {$search_sql} ORDER BY rand() {$pag_sqle}" );
 			$total_events = $wpdb->get_var( "SELECT COUNT(DISTINCT g.id) FROM {$bp->jes_events->table_name_eventmeta} gm INNER JOIN {$bp->jes_events->table_name} g ON gm.event_id = g.id WHERE gm.meta_key = 'last_activity'{$hidden_sql} {$search_sql}" );
 		}
 
@@ -598,7 +598,7 @@ Class JES_Events_Event {
 			return $paged_events;
 
 		/* Fetch the logged in users status within each event */
-		$user_status = $wpdb->get_col( $wpdb->prepare( "SELECT event_id FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND event_id IN ( {$jes_event_ids} ) AND is_confirmed = 1 AND is_banned = 0", $bp->loggedin_user->id ) );
+		$user_status = $wpdb->get_col( $wpdb->prepare( "SELECT event_id FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND event_id IN ( {$jes_event_ids} ) AND is_confirmed = 1 AND is_banned = 0", $bp->loggedin_user->id ) );
 		for ( $i = 0; $i < count( $paged_events ); $i++ ) {
 			foreach ( (array)$user_status as $event_id ) {
 				if ( $event_id == $paged_events[$i]->id )
@@ -606,7 +606,7 @@ Class JES_Events_Event {
 			}
 		}
 
-		$user_banned = $wpdb->get_col( $wpdb->prepare( "SELECT event_id FROM {$bp->jes_events->table_name_members} WHERE is_banned = 1 AND user_id = %d AND event_id IN ( {$jes_event_ids} )", $bp->loggedin_user->id ) );
+		$user_banned = $wpdb->get_col( $wpdb->prepare( "SELECT event_id FROM {$bp->jes_events->jes_table_name_members} WHERE is_banned = 1 AND user_id = %d AND event_id IN ( {$jes_event_ids} )", $bp->loggedin_user->id ) );
 		for ( $i = 0; $i < count( $paged_events ); $i++ ) {
 			foreach ( (array)$user_banned as $event_id ) {
 				if ( $event_id == $paged_events[$i]->id )
@@ -620,7 +620,7 @@ Class JES_Events_Event {
 	function jes_jes_delete_all_invites( $event_id ) {
 		global $wpdb, $bp;
 
-		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->jes_events->table_name_members} WHERE event_id = %d AND invite_sent = 1", $event_id ) );
+		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d AND invite_sent = 1", $event_id ) );
 	}
 
 	function jes_get_jes_total_event_count() {
@@ -636,7 +636,7 @@ Class JES_Events_Event {
 	function jes_get_total_member_count( $event_id ) {
 		global $wpdb, $bp;
 
-		return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->jes_events->table_name_members} WHERE event_id = %d AND is_confirmed = 1 AND is_banned = 0", $event_id ) );
+		return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(id) FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d AND is_confirmed = 1 AND is_banned = 0", $event_id ) );
 	}
 }
 
@@ -677,10 +677,10 @@ Class JES_Events_Member {
 		global $wpdb, $bp;
 
 		if ( $this->user_id && $this->event_id && !$this->id )
-			$sql = $wpdb->prepare( "SELECT * FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND event_id = %d", $this->user_id, $this->event_id );
+			$sql = $wpdb->prepare( "SELECT * FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND event_id = %d", $this->user_id, $this->event_id );
 
 		if ( $this->id )
-			$sql = $wpdb->prepare( "SELECT * FROM {$bp->jes_events->table_name_members} WHERE id = %d", $this->id );
+			$sql = $wpdb->prepare( "SELECT * FROM {$bp->jes_events->jes_table_name_members} WHERE id = %d", $this->id );
 
 		$member = $wpdb->get_row($sql);
 
@@ -720,9 +720,9 @@ Class JES_Events_Member {
 		do_action( 'events_member_before_save', $this );
 
 		if ( $this->id ) {
-			$sql = $wpdb->prepare( "UPDATE {$bp->jes_events->table_name_members} SET inviter_id = %d, is_admin = %d, is_mod = %d, is_banned = %d, user_title = %s, date_modified = %s, is_confirmed = %d, comments = %s, invite_sent = %d WHERE id = %d", $this->inviter_id, $this->is_admin, $this->is_mod, $this->is_banned, $this->user_title, $this->date_modified, $this->is_confirmed, $this->comments, $this->invite_sent, $this->id );
+			$sql = $wpdb->prepare( "UPDATE {$bp->jes_events->jes_table_name_members} SET inviter_id = %d, is_admin = %d, is_mod = %d, is_banned = %d, user_title = %s, date_modified = %s, is_confirmed = %d, comments = %s, invite_sent = %d WHERE id = %d", $this->inviter_id, $this->is_admin, $this->is_mod, $this->is_banned, $this->user_title, $this->date_modified, $this->is_confirmed, $this->comments, $this->invite_sent, $this->id );
 		} else {
-			$sql = $wpdb->prepare( "INSERT INTO {$bp->jes_events->table_name_members} ( user_id, event_id, inviter_id, is_admin, is_mod, is_banned, user_title, date_modified, is_confirmed, comments, invite_sent ) VALUES ( %d, %d, %d, %d, %d, %d, %s, %s, %d, %s, %d )", $this->user_id, $this->event_id, $this->inviter_id, $this->is_admin, $this->is_mod, $this->is_banned, $this->user_title, $this->date_modified, $this->is_confirmed, $this->comments, $this->invite_sent );
+			$sql = $wpdb->prepare( "INSERT INTO {$bp->jes_events->jes_table_name_members} ( user_id, event_id, inviter_id, is_admin, is_mod, is_banned, user_title, date_modified, is_confirmed, comments, invite_sent ) VALUES ( %d, %d, %d, %d, %d, %d, %s, %s, %d, %s, %d )", $this->user_id, $this->event_id, $this->inviter_id, $this->is_admin, $this->is_mod, $this->is_banned, $this->user_title, $this->date_modified, $this->is_confirmed, $this->comments, $this->invite_sent );
 		}
 
 		if ( !$wpdb->query($sql) )
@@ -803,22 +803,22 @@ Class JES_Events_Member {
 	function delete( $user_id, $event_id ) {
 		global $wpdb, $bp;
 
-		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND event_id = %d", $user_id, $event_id ) );
+		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND event_id = %d", $user_id, $event_id ) );
 	}
 
 	function jes_get_event_ids( $user_id, $limit = false, $page = false ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		// If the user is logged in and viewing their own events, we can show hidden and private events
 		if ( $user_id != $bp->loggedin_user->id ) {
-			$event_sql = $wpdb->prepare( "SELECT DISTINCT m.event_id FROM {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE g.status != 'hidden' AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0{$pag_sql}", $user_id );
-			$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE g.status != 'hidden' AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0", $user_id ) );
+			$event_sql = $wpdb->prepare( "SELECT DISTINCT m.event_id FROM {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE g.status != 'hidden' AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0{$pag_sqle}", $user_id );
+			$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE g.status != 'hidden' AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0", $user_id ) );
 		} else {
-			$event_sql = $wpdb->prepare( "SELECT DISTINCT event_id FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND is_confirmed = 1 AND is_banned = 0{$pag_sql}", $user_id );
-			$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT event_id) FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND is_confirmed = 1 AND is_banned = 0", $user_id ) );
+			$event_sql = $wpdb->prepare( "SELECT DISTINCT event_id FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND is_confirmed = 1 AND is_banned = 0{$pag_sqle}", $user_id );
+			$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT event_id) FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND is_confirmed = 1 AND is_banned = 0", $user_id ) );
 		}
 
 		$events = $wpdb->get_col( $event_sql );
@@ -830,7 +830,7 @@ Class JES_Events_Member {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		if ( $filter ) {
 			$filter = like_escape( $wpdb->escape( $filter ) );
@@ -840,8 +840,8 @@ Class JES_Events_Member {
 		if ( $user_id != $bp->loggedin_user->id )
 			$hidden_sql = " AND g.status != 'hidden'";
 
-		$paged_events = $wpdb->get_results( $wpdb->prepare( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count'{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY m.date_modified DESC {$pag_sql}", $user_id ) );
-		$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.is_banned = 0 AND m.is_confirmed = 1 ORDER BY m.date_modified DESC", $user_id ) );
+		$paged_events = $wpdb->get_results( $wpdb->prepare( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count'{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY m.date_modified DESC {$pag_sqle}", $user_id ) );
+		$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.is_banned = 0 AND m.is_confirmed = 1 ORDER BY m.date_modified DESC", $user_id ) );
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
@@ -850,7 +850,7 @@ Class JES_Events_Member {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		if ( $filter ) {
 			$filter = like_escape( $wpdb->escape( $filter ) );
@@ -860,8 +860,8 @@ Class JES_Events_Member {
 		if ( $user_id != $bp->loggedin_user->id )
 			$hidden_sql = " AND g.status != 'hidden'";
 
-		$paged_events = $wpdb->get_results( $wpdb->prepare( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count'{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0 AND m.is_admin = 1 ORDER BY m.date_modified ASC {$pag_sql}", $user_id ) );
-		$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0 AND m.is_admin = 1 ORDER BY date_modified ASC", $user_id ) );
+		$paged_events = $wpdb->get_results( $wpdb->prepare( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count'{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0 AND m.is_admin = 1 ORDER BY m.date_modified ASC {$pag_sqle}", $user_id ) );
+		$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0 AND m.is_admin = 1 ORDER BY date_modified ASC", $user_id ) );
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
@@ -870,7 +870,7 @@ Class JES_Events_Member {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		if ( $filter ) {
 			$filter = like_escape( $wpdb->escape( $filter ) );
@@ -880,8 +880,8 @@ Class JES_Events_Member {
 		if ( $user_id != $bp->loggedin_user->id )
 			$hidden_sql = " AND g.status != 'hidden'";
 
-		$paged_events = $wpdb->get_results( $wpdb->prepare( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count'{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0 AND m.is_mod = 1 ORDER BY m.date_modified ASC {$pag_sql}", $user_id ) );
-		$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0 AND m.is_mod = 1 ORDER BY date_modified ASC", $user_id ) );
+		$paged_events = $wpdb->get_results( $wpdb->prepare( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count'{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0 AND m.is_mod = 1 ORDER BY m.date_modified ASC {$pag_sqle}", $user_id ) );
+		$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id{$hidden_sql}{$filter_sql} AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0 AND m.is_mod = 1 ORDER BY date_modified ASC", $user_id ) );
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
@@ -893,9 +893,9 @@ Class JES_Events_Member {
 			$user_id = $bp->displayed_user->id;
 
 		if ( $user_id != $bp->loggedin_user->id && !is_site_admin() ) {
-			return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id AND g.status != 'hidden' AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0", $user_id ) );
+			return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id AND g.status != 'hidden' AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0", $user_id ) );
 		} else {
-			return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0", $user_id ) );
+			return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0", $user_id ) );
 		}
 	}
 
@@ -903,10 +903,10 @@ Class JES_Events_Member {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
-		$paged_events = $wpdb->get_results( $wpdb->prepare( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND m.is_confirmed = 0 AND m.inviter_id != 0 AND m.invite_sent = 1 AND m.user_id = %d ORDER BY m.date_modified ASC {$pag_sql}", $user_id ) );
-		$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id AND m.is_confirmed = 0 AND m.inviter_id != 0 AND m.invite_sent = 1 AND m.user_id = %d ORDER BY date_modified ASC", $user_id ) );
+		$paged_events = $wpdb->get_results( $wpdb->prepare( "SELECT g.*, gm1.meta_value as total_member_count, gm2.meta_value as last_activity FROM {$bp->jes_events->table_name_eventmeta} gm1, {$bp->jes_events->table_name_eventmeta} gm2, {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE g.id = m.event_id AND g.id = gm1.event_id AND g.id = gm2.event_id AND gm2.meta_key = 'last_activity' AND gm1.meta_key = 'total_member_count' AND m.is_confirmed = 0 AND m.inviter_id != 0 AND m.invite_sent = 1 AND m.user_id = %d ORDER BY m.date_modified ASC {$pag_sqle}", $user_id ) );
+		$total_events = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(DISTINCT m.event_id) FROM {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id AND m.is_confirmed = 0 AND m.inviter_id != 0 AND m.invite_sent = 1 AND m.user_id = %d ORDER BY date_modified ASC", $user_id ) );
 
 		return array( 'events' => $paged_events, 'total' => $total_events );
 	}
@@ -917,7 +917,7 @@ Class JES_Events_Member {
 		if ( !$user_id )
 			return false;
 
-		return $wpdb->get_var( $wpdb->prepare( "SELECT id FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND inviter_id != 0 AND invite_sent = 1", $user_id, $event_id ) );
+		return $wpdb->get_var( $wpdb->prepare( "SELECT id FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND inviter_id != 0 AND invite_sent = 1", $user_id, $event_id ) );
 	}
 
 	function jes_delete_invite( $user_id, $event_id ) {
@@ -926,7 +926,7 @@ Class JES_Events_Member {
 		if ( !$user_id )
 			return false;
 
-		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND inviter_id != 0 AND invite_sent = 1", $user_id, $event_id ) );
+		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND inviter_id != 0 AND invite_sent = 1", $user_id, $event_id ) );
 	}
 
 	function jes_delete_request( $user_id, $event_id ) {
@@ -935,7 +935,7 @@ Class JES_Events_Member {
 		if ( !$user_id )
 			return false;
 
- 		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND inviter_id = 0 AND invite_sent = 0", $user_id, $event_id ) );
+ 		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND inviter_id = 0 AND invite_sent = 0", $user_id, $event_id ) );
 	}
 
 	function jes_check_is_admin( $user_id, $event_id ) {
@@ -944,7 +944,7 @@ Class JES_Events_Member {
 		if ( !$user_id )
 			return false;
 
-		return $wpdb->query( $wpdb->prepare( "SELECT id FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_admin = 1 AND is_banned = 0", $user_id, $event_id ) );
+		return $wpdb->query( $wpdb->prepare( "SELECT id FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND event_id = %d AND is_admin = 1 AND is_banned = 0", $user_id, $event_id ) );
 	}
 
 	function jes_check_is_mod( $user_id, $event_id ) {
@@ -953,7 +953,7 @@ Class JES_Events_Member {
 		if ( !$user_id )
 			return false;
 
-		return $wpdb->query( $wpdb->prepare( "SELECT id FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_mod = 1 AND is_banned = 0", $user_id, $event_id ) );
+		return $wpdb->query( $wpdb->prepare( "SELECT id FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND event_id = %d AND is_mod = 1 AND is_banned = 0", $user_id, $event_id ) );
 	}
 
 	function jes_check_is_member( $user_id, $event_id ) {
@@ -962,7 +962,7 @@ Class JES_Events_Member {
 		if ( !$user_id )
 			return false;
 
-		return $wpdb->query( $wpdb->prepare( "SELECT id FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 1 AND is_banned = 0", $user_id, $event_id ) );
+		return $wpdb->query( $wpdb->prepare( "SELECT id FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 1 AND is_banned = 0", $user_id, $event_id ) );
 	}
 
 	function jes_check_is_banned( $user_id, $event_id ) {
@@ -971,7 +971,7 @@ Class JES_Events_Member {
 		if ( !$user_id )
 			return false;
 
-		return $wpdb->get_var( $wpdb->prepare( "SELECT is_banned FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND event_id = %d", $user_id, $event_id ) );
+		return $wpdb->get_var( $wpdb->prepare( "SELECT is_banned FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND event_id = %d", $user_id, $event_id ) );
 	}
 
 	function jes_check_for_membership_request( $user_id, $event_id ) {
@@ -980,7 +980,7 @@ Class JES_Events_Member {
 		if ( !$user_id )
 			return false;
 
-		return $wpdb->query( $wpdb->prepare( "SELECT id FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND is_banned = 0 AND inviter_id = 0", $user_id, $event_id ) );
+		return $wpdb->query( $wpdb->prepare( "SELECT id FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND is_banned = 0 AND inviter_id = 0", $user_id, $event_id ) );
 	}
 
 	function jes_get_random_events( $user_id, $total_events = 5 ) {
@@ -988,41 +988,41 @@ Class JES_Events_Member {
 
 		// If the user is logged in and viewing their random events, we can show hidden and private events
 		if ( bp_is_my_profile() ) {
-			return $wpdb->get_col( $wpdb->prepare( "SELECT DISTINCT event_id FROM {$bp->jes_events->table_name_members} WHERE user_id = %d AND is_confirmed = 1 AND is_banned = 0 ORDER BY rand() LIMIT $total_events", $user_id ) );
+			return $wpdb->get_col( $wpdb->prepare( "SELECT DISTINCT event_id FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d AND is_confirmed = 1 AND is_banned = 0 ORDER BY rand() LIMIT $total_events", $user_id ) );
 		} else {
-			return $wpdb->get_col( $wpdb->prepare( "SELECT DISTINCT m.event_id FROM {$bp->jes_events->table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id AND g.status != 'hidden' AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY rand() LIMIT $total_events", $user_id ) );
+			return $wpdb->get_col( $wpdb->prepare( "SELECT DISTINCT m.event_id FROM {$bp->jes_events->jes_table_name_members} m, {$bp->jes_events->table_name} g WHERE m.event_id = g.id AND g.status != 'hidden' AND m.user_id = %d AND m.is_confirmed = 1 AND m.is_banned = 0 ORDER BY rand() LIMIT $total_events", $user_id ) );
 		}
 	}
 
 	function jes_get_event_member_ids( $event_id ) {
 		global $bp, $wpdb;
 
-		return $wpdb->get_col( $wpdb->prepare( "SELECT user_id FROM {$bp->jes_events->table_name_members} WHERE event_id = %d AND is_confirmed = 1 AND is_banned = 0", $event_id ) );
+		return $wpdb->get_col( $wpdb->prepare( "SELECT user_id FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d AND is_confirmed = 1 AND is_banned = 0", $event_id ) );
 	}
 
 	function jes_get_event_administrator_ids( $event_id ) {
 		global $bp, $wpdb;
 
-		return $wpdb->get_results( $wpdb->prepare( "SELECT user_id, date_modified FROM {$bp->jes_events->table_name_members} WHERE event_id = %d AND is_admin = 1 AND is_banned = 0", $event_id ) );
+		return $wpdb->get_results( $wpdb->prepare( "SELECT user_id, date_modified FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d AND is_admin = 1 AND is_banned = 0", $event_id ) );
 	}
 
 	function get_event_moderator_ids( $event_id ) {
 		global $bp, $wpdb;
 
-		return $wpdb->get_results( $wpdb->prepare( "SELECT user_id, date_modified FROM {$bp->jes_events->table_name_members} WHERE event_id = %d AND is_mod = 1 AND is_banned = 0", $event_id ) );
+		return $wpdb->get_results( $wpdb->prepare( "SELECT user_id, date_modified FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d AND is_mod = 1 AND is_banned = 0", $event_id ) );
 	}
 
 	function jes_get_all_membership_request_user_ids( $event_id ) {
 		global $bp, $wpdb;
 
-		return $wpdb->get_col( $wpdb->prepare( "SELECT user_id FROM {$bp->jes_events->table_name_members} WHERE event_id = %d AND is_confirmed = 0 AND inviter_id = 0", $event_id ) );
+		return $wpdb->get_col( $wpdb->prepare( "SELECT user_id FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d AND is_confirmed = 0 AND inviter_id = 0", $event_id ) );
 	}
 
 	function jes_get_all_for_event( $event_id, $limit = false, $page = false, $exclude_admins_mods = true, $exclude_banned = true ) {
 		global $bp, $wpdb;
 
 		if ( $limit && $page )
-			$pag_sql = $wpdb->prepare( "LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
+			$pag_sqle = $wpdb->prepare( "LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
 
 		if ( $exclude_admins_mods )
 			$exclude_sql = $wpdb->prepare( "AND is_admin = 0 AND is_mod = 0" );
@@ -1031,17 +1031,17 @@ Class JES_Events_Member {
 			$banned_sql = $wpdb->prepare( " AND is_banned = 0" );
 
 		if ( bp_is_active( 'xprofile' ) )
-			$members = $wpdb->get_results( $wpdb->prepare( "SELECT m.user_id, m.date_modified, m.is_banned, u.user_login, u.user_nicename, u.user_email, pd.value as display_name FROM {$bp->jes_events->table_name_members} m, {$wpdb->users} u, {$bp->profile->table_name_data} pd WHERE u.ID = m.user_id AND u.ID = pd.user_id AND pd.field_id = 1 AND event_id = %d AND is_confirmed = 1 {$banned_sql} {$exclude_sql} ORDER BY m.date_modified DESC {$pag_sql}", $event_id ) );
+			$members = $wpdb->get_results( $wpdb->prepare( "SELECT m.user_id, m.date_modified, m.is_banned, u.user_login, u.user_nicename, u.user_email, pd.value as display_name FROM {$bp->jes_events->jes_table_name_members} m, {$wpdb->users} u, {$bp->profile->table_name_data} pd WHERE u.ID = m.user_id AND u.ID = pd.user_id AND pd.field_id = 1 AND event_id = %d AND is_confirmed = 1 {$banned_sql} {$exclude_sql} ORDER BY m.date_modified DESC {$pag_sqle}", $event_id ) );
 		else
-			$members = $wpdb->get_results( $wpdb->prepare( "SELECT m.user_id, m.date_modified, m.is_banned, u.user_login, u.user_nicename, u.user_email, u.display_name FROM {$bp->jes_events->table_name_members} m, {$wpdb->users} u WHERE u.ID = m.user_id AND event_id = %d AND is_confirmed = 1 {$banned_sql} {$exclude_sql} ORDER BY m.date_modified DESC {$pag_sql}", $event_id ) );
+			$members = $wpdb->get_results( $wpdb->prepare( "SELECT m.user_id, m.date_modified, m.is_banned, u.user_login, u.user_nicename, u.user_email, u.display_name FROM {$bp->jes_events->jes_table_name_members} m, {$wpdb->users} u WHERE u.ID = m.user_id AND event_id = %d AND is_confirmed = 1 {$banned_sql} {$exclude_sql} ORDER BY m.date_modified DESC {$pag_sqle}", $event_id ) );
 
 		if ( !$members )
 			return false;
 
-		if ( !isset($pag_sql) )
+		if ( !isset($pag_sqle) )
 			$total_member_count = count($members);
 		else
-			$total_member_count = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(user_id) FROM {$bp->jes_events->table_name_members} WHERE event_id = %d AND is_confirmed = 1 {$banned_sql} {$exclude_sql}", $event_id ) );
+			$total_member_count = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(user_id) FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d AND is_confirmed = 1 {$banned_sql} {$exclude_sql}", $event_id ) );
 
 		/* Fetch whether or not the user is a friend */
 		foreach ( (array)$members as $user ) $user_ids[] = $user->user_id;
@@ -1063,7 +1063,7 @@ Class JES_Events_Member {
 	function jes_delete_all( $event_id ) {
 		global $wpdb, $bp;
 
-		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->jes_events->table_name_members} WHERE event_id = %d", $event_id ) );
+		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d", $event_id ) );
 	}
 
 	function jes_delete_all_for_user( $user_id ) {
@@ -1071,12 +1071,14 @@ Class JES_Events_Member {
 
 		// Get all the event ids for the current user's events and update counts
 		$jes_event_ids = $this->jes_get_event_ids( $user_id );
+		// fdd
 		foreach ( $jes_event_ids->events as $event_id ) {
 			events_update_eventmeta( $event_id, 'total_member_count', events_jes_get_total_member_count( $event_id ) - 1 );
 		}
 
-		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->jes_events->table_name_members} WHERE user_id = %d", $user_id ) );
+		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->jes_events->jes_table_name_members} WHERE user_id = %d", $user_id ) );
 	}
+	
 }
 
 /**
