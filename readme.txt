@@ -51,6 +51,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+= 1.1.3 =
+* Added ability to hide the events for unregistered users
+
 = 1.1.2 =
 * Added database creation to implement the "activity" (in the future)
 * Added ability to change SLUG from admin panel

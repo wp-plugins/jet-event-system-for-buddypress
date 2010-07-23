@@ -3,7 +3,7 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1.2
+Version: 1.1.3
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
@@ -25,6 +25,22 @@ if (!$edata[ 'jes_events_costumslug_enable' ])  {
 	}
 }
 
+function hidden_events()
+{
+global $bp;
+if ( ! (bp_is_page(JES_SLUG) ) ) {
+	return;
+}
+	else
+{
+	if ( ! is_user_logged_in())
+		bp_core_redirect($bp->root_domain.'/'.BP_REGISTER_SLUG);
+	}
+} 
+$edata = get_option( 'jes_events' );
+if (!$edata[ 'jes_events_addnavi_disable' ]) {
+add_action('get_header','hidden_events');
+}
 
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-classes.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-templatetags.php' );
@@ -195,7 +211,9 @@ function add_events_to_main_menu() {
 	echo  '<li ' . $class. '><a href="' . get_option('home') . '/'.JES_SLUG.'" title="' . __( 'Events', 'jet-event-system' ) .'">' .  __( 'Events', 'jet-event-system' ) .'</a></li>';
 
 }
+
 add_action('bp_nav_items','add_events_to_main_menu');
+
 
 function events_setup_nav() {
 	global $bp;

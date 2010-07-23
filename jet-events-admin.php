@@ -8,6 +8,7 @@ function jes_event_admin() {
 		$jes_events[ 'jes_events_class_enable' ] = 0;
 		$jes_events[ 'jes_events_code_index' ] = 0;
 		$jes_events[ 'jes_events_costumslug_enable' ] = 0;
+		$jes_events[ 'jes_events_addnavi_disable' ] = 0;
 		
 		if ( $_POST[ 'jes_events_class_enable' ] == 1 ) 
 			$jes_events[ 'jes_events_class_enable' ] = 1;
@@ -18,6 +19,9 @@ function jes_event_admin() {
 		if ( $_POST[ 'jes_events_costumslug_enable' ] == 1 ) 
 			$jes_events[ 'jes_events_costumslug_enable' ] = 1;	
 
+		if ( $_POST[ 'jes_events_addnavi_disable' ] == 1 ) 
+			$jes_events[ 'jes_events_addnavi_disable' ] = 1;	
+			
 			
 		if ( $_POST[ 'jes_events_costumslug' ] != null ) {
 			$jes_events[ 'jes_events_costumslug' ] = stripslashes($_POST[ 'jes_events_costumslug' ]);
@@ -87,6 +91,12 @@ if (stripos($blogversion, 'MU') > 0) {
 				</td>
 			</tr>				
 
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_addnavi_disable"><?php _e( 'Deny access to events for unregistered users', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_addnavi_disable" type="checkbox" id="jes_events_addnavi_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_addnavi_disable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>			
 		
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_class_enable"><?php _e( 'Allow the use of classifiers through an administrative panel', 'jet-event-system' ) ?></label></th>
@@ -98,25 +108,25 @@ if (stripos($blogversion, 'MU') > 0) {
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_text_one"><?php _e( 'Classification - 1', 'jet-event-system' ) ?></label></th>
 				<td>
-					<input name="jes_events_text_one" type="text" id="jes_events_text_one" value="<?php echo $jes_events[ 'jes_events_text_one' ]; ?>" />
+					<input name="jes_events_text_one" type="text" size="40"id="jes_events_text_one" value="<?php echo $jes_events[ 'jes_events_text_one' ]; ?>" />
 				</td>
 			</tr>					
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_text_two"><?php _e( 'Classification - 2', 'jet-event-system' ) ?></label></th>
 				<td>
-					<input name="jes_events_text_two" type="text" id="jes_events_text_two" value="<?php echo $jes_events[ 'jes_events_text_two' ]; ?>" />
+					<input name="jes_events_text_two" type="text" size="40" id="jes_events_text_two" value="<?php echo $jes_events[ 'jes_events_text_two' ]; ?>" />
 				</td>
 			</tr>	
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_text_three"><?php _e( 'Classification - 3', 'jet-event-system' ) ?></label></th>
 				<td>
-					<input name="jes_events_text_three" type="text" id="jes_events_text_three" value="<?php echo $jes_events[ 'jes_events_text_three' ]; ?>" />
+					<input name="jes_events_text_three" type="text"size="40" id="jes_events_text_three" value="<?php echo $jes_events[ 'jes_events_text_three' ]; ?>" />
 				</td>
 			</tr>
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_text_four"><?php _e( 'Classification - 4', 'jet-event-system' ) ?></label></th>
 				<td>
-					<input name="jes_events_text_four" type="text" id="jes_events_text_four" value="<?php echo $jes_events[ 'jes_events_text_four' ]; ?>" />
+					<input name="jes_events_text_four" type="text"size="40" id="jes_events_text_four" value="<?php echo $jes_events[ 'jes_events_text_four' ]; ?>" />
 				</td>
 			</tr>
 			
