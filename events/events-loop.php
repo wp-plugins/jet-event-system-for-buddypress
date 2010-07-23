@@ -24,7 +24,7 @@
 				<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width=50&height=50' ) ?></a>
 			</div>
 
-			<div class="item">
+			<div class="item" style="width:80%;">
 				<div class="item-title"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a></div>
 				<div class="item-meta">
 					<span class="meta"><em><?php jes_bp_event_type() ?></em></span><br>
