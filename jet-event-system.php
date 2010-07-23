@@ -3,19 +3,27 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1.1
+Version: 1.1.2
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
 Network: true
 */
 
-define('Jet Events System', '1.0.8');
-define ('JES_EVENTS_DB_VERSION', '1.0');
+define('Jet Events System', '1.1.2');
+define ('JES_EVENTS_DB_VERSION', '1.1');
 
 /* Define the slug for the component */
-if ( !defined( 'JES_SLUG' ) )
+if ( !defined( 'JES_SLUG' ) ) {
+$edata = get_option( 'jes_events' );
+if (!$edata[ 'jes_events_costumslug_enable' ])  {
 	define ( 'JES_SLUG', 'events' );
+	}
+	else
+	{
+	define ( 'JES_SLUG', $edata[ 'jes_events_costumslug' ] );	
+	}
+}
 
 
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-classes.php' );
@@ -114,6 +122,17 @@ function jes_events_init_jesdb() {
 			KEY event_id (event_id),
 			KEY meta_key (meta_key)
 		   ) {$charset_collate};";
+		   
+	$sql[] = "CREATE TABLE {$bp->jes_events->table_name_activity} (
+	  		id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+			creator_id bigint(20) NOT NULL,
+	  		description longtext NOT NULL,
+			a_datetime varchar(18) NOT NULL,
+			a_datetime_unix varchar(18) NOT NULL,
+		    KEY creator_id (creator_id),
+			KEY a_datetime_unix (a_datetime_unix)
+	 	   ) {$charset_collate};";
+		   
 
 	require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
 	dbDelta($sql);
@@ -131,6 +150,7 @@ function jes_events_setup_globals() {
 	$bp->jes_events->id = 'events';
 
 	$bp->jes_events->table_name = $wpdb->base_prefix . 'jet_events';
+	$bp->jes_events->table_name_activity = $wpdb->base_prefix . 'jet_events_activity';	
 	$bp->jes_events->jes_table_name_members = $wpdb->base_prefix . 'jet_events_members';
 	$bp->jes_events->table_name_eventmeta = $wpdb->base_prefix . 'jet_events_eventmeta';
 	$bp->jes_events->format_notification_function = 'events_format_notifications';
@@ -172,7 +192,7 @@ function add_events_to_main_menu() {
 
 	$class = (bp_is_page('events')) ? ' class="selected" ' : '';
 
-	echo  '<li ' . $class. '><a href="' . get_option('home') . '/events" title="' . __( 'Events', 'jet-event-system' ) .'">' .  __( 'Events', 'jet-event-system' ) .'</a></li>';
+	echo  '<li ' . $class. '><a href="' . get_option('home') . '/'.JES_SLUG.'" title="' . __( 'Events', 'jet-event-system' ) .'">' .  __( 'Events', 'jet-event-system' ) .'</a></li>';
 
 }
 add_action('bp_nav_items','add_events_to_main_menu');

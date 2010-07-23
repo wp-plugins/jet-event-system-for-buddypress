@@ -7,7 +7,7 @@ Requires at least: Wordpress MU 3.0, BuddyPress 1.2.5
 Tested up to: Wordpress MU 3.0, BuddyPress 1.2.5.2
 Stable tag: trunk
 
-System events for your social network. Ability to attract members of the network to the ongoing activities. <a href="http://jes.milordk.ru">Jes Dev</a>
+System events for your social network. Ability to attract members of the network to the ongoing activities. <a href="http://jes.milordk.ru">Jes Dev Site</a>. <strong>SEE README file</strong>!
 
 
 == Description ==
@@ -51,6 +51,11 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+= 1.1.2 =
+* Added database creation to implement the "activity" (in the future)
+* Added ability to change SLUG from admin panel
+* Alterations to the theme! Please update the folder 'events' in the theme you are using
+
 = 1.1.1 =
 * Fix problem when makr user as spamer
 

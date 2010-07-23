@@ -7,12 +7,23 @@ function jes_event_admin() {
 		// save all inputed data
 		$jes_events[ 'jes_events_class_enable' ] = 0;
 		$jes_events[ 'jes_events_code_index' ] = 0;
+		$jes_events[ 'jes_events_costumslug_enable' ] = 0;
 		
 		if ( $_POST[ 'jes_events_class_enable' ] == 1 ) 
 			$jes_events[ 'jes_events_class_enable' ] = 1;
 			
 		if ( $_POST[ 'jes_events_code_index' ] == 1 ) 
 			$jes_events[ 'jes_events_code_index' ] = 1;		
+
+		if ( $_POST[ 'jes_events_costumslug_enable' ] == 1 ) 
+			$jes_events[ 'jes_events_costumslug_enable' ] = 1;	
+
+			
+		if ( $_POST[ 'jes_events_costumslug' ] != null ) {
+			$jes_events[ 'jes_events_costumslug' ] = stripslashes($_POST[ 'jes_events_costumslug' ]);
+		}else{
+			$jes_events[ 'jes_events_costumslug' ] = 'events';
+		}
 			
 		if ( $_POST[ 'jes_events_text_one' ] != null ) {
 			$jes_events[ 'jes_events_text_one' ] = stripslashes($_POST[ 'jes_events_text_one' ]);
@@ -61,7 +72,22 @@ if (stripos($blogversion, 'MU') > 0) {
 					<input name="jes_events_code_index" type="checkbox" id="jes_events_code_index" value="1"<?php echo( '1' == $jes_events[ 'jes_events_code_index' ] ? ' checked="checked"' : '' ); ?> />
 				</td>
 			</tr>
-			
+
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_costumslug_enable"><?php _e( 'Allow costum slug', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_costumslug_enable" type="checkbox" id="jes_events_costumslug_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_costumslug_enable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_costumslug"><?php _e( 'Slug:', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_costumslug" type="text" id="jes_events_costumslug" value="<?php echo $jes_events[ 'jes_events_costumslug' ]; ?>" />
+				</td>
+			</tr>				
+
+		
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_class_enable"><?php _e( 'Allow the use of classifiers through an administrative panel', 'jet-event-system' ) ?></label></th>
 				<td>
@@ -101,9 +127,4 @@ if (stripos($blogversion, 'MU') > 0) {
 <?php
 }
 
-/* if (stripos($blogversion, 'MU') > 0) {
-add_action( 'wpmu_new_blog', 'jes_events_new_blogs_options', 10, 2 );
-} else {
-add_action( 'admin_menu','jes_events_new_blogs_options');
-}*/
 ?>
