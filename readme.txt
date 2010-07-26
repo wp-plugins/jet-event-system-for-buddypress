@@ -51,6 +51,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+= 1.1.4 =
+* Archived events stand out for the widget added the ability to customize the color
+
 = 1.1.3 =
 * Added ability to hide the events for unregistered users
 

@@ -23,7 +23,11 @@
 			<div class="item-avatar">
 				<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width=50&height=50' ) ?></a>
 			</div>
-
+<?php if ( datetounix(date("j/m/Y H:i")) > datetounix(jes_bp_get_event_edted())) { ?>
+				<div style="background-color : #FFFF66;">
+<?php } else { ?>
+				<div>
+<?php } ?>
 			<div class="item" style="width:80%;">
 				<div class="item-title"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a></div>
 				<div class="item-meta">
@@ -37,7 +41,7 @@
 
 				<?php do_action( 'bp_directory_events_item' ) ?>
 			</div>
-
+</div>
 			<div class="action">
 				<?php bp_event_join_button() ?>
 

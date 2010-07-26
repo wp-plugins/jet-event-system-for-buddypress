@@ -26,7 +26,9 @@ class JES_BP_Events_Widget extends WP_Widget {
 		   . $widget_name
 		   . $after_title; 
 $data = get_option( 'jes_events' );
-$show_navi = $instance['show_navi']; ?>
+$show_navi = $instance['show_navi'];
+$archive_color = $instance['archive_color'];  ?>
+
 <?php if (!$data[ 'jes_events_code_index' ]) { ?>
 <noindex>
 <?php } ?>
@@ -43,8 +45,14 @@ $show_navi = $instance['show_navi']; ?>
 <?php } ?>
 			<ul id="events-list" class="item-list">
 				<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
-					<li>
-						<div class="item-avatar">
+				<li>
+
+<?php if ( datetounix(date("j/m/Y H:i")) > datetounix(jes_bp_get_event_edted())) { ?>
+				<div style="background-color : #<?php echo $archive_color ?>;">
+<?php } else { ?>
+				<div>
+<?php } ?>
+					<div class="item-avatar">
 							<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar_thumb() ?></a>
 							<div class="item-title">
 								<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
@@ -57,6 +65,7 @@ $show_navi = $instance['show_navi']; ?>
 								<span><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>, <?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?> <?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?></span>
 							</div>
 						</div>
+					</div>
 					</li>
 
 				<?php endwhile; ?>
@@ -82,19 +91,23 @@ $show_navi = $instance['show_navi']; ?>
 		$instance = $old_instance;
 		$instance['max_events'] = strip_tags( $new_instance['max_events'] );
 		$instance['show_navi'] = strip_tags( $new_instance['show_navi'] );
+		$instance['archive_color'] = strip_tags( $new_instance['archive_color'] );
 		return $instance;
 	}
 
 	function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance, array( 'max_events' => 5 ) );
 		$max_events = strip_tags( $instance['max_events'] );
-		$show_navi = strip_tags( $instance['show_navi'] );		
+		$show_navi = strip_tags( $instance['show_navi'] );	
+		$archive_color = strip_tags( $instance['archive_color'] );		
 		?>
 
 		<p><label for="bp-events-widget-events-max"><?php _e('Max events to show:', 'jet-event-system'); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'max_events' ); ?>" name="<?php echo $this->get_field_name( 'max_events' ); ?>" type="text" value="<?php echo attribute_escape( $max_events ); ?>" style="width: 30%" /></label></p>
 <p><label for="jes-events-show-navi"><?php _e('Show navigation:', 'jet-event-system'); ?>
 		<input class="checkbox" type="checkbox" <?php if ($show_navi) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('show_navi'); ?>" name="<?php echo $this->get_field_name('show_navi'); ?>" value="1" /></p>	
-</p>		
+
+		<p><label for="bp-events-widget-archive_color"><?php _e('Color to archive events:', 'jet-event-system'); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'archive_color' ); ?>" name="<?php echo $this->get_field_name( 'archive_color' ); ?>" type="text" value="<?php echo attribute_escape( $archive_color ); ?>" style="width: 30%" /></label></p>		
+
 	<?php
 	}
 }
