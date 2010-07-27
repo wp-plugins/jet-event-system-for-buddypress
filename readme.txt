@@ -18,10 +18,10 @@ The plugin is in testing, may not operate some features! Please give your sugges
 ru: Система событий для Вашей социальной сети. Возможность привлекать участников сети к проводимым мероприятиям. 
 Плагин находится в стадии тестирования, могут не работать некоторые функции! Просьба высказывать свои предложения по новым функциям и улучшению уже существующих. Просьба не удалять ссылки на разработчика (для статистики установок)
 
-Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://volks-wagen-club.ru">Volkswagen Club</a>
+Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://volks-wagen-club.ru">Volkswagen Club</a> (Please do not create events on these sites! Use the jes.milordk.ru)
 
 
-<a href="http://jes.milordk.ru">Official website of the plugin</a>
+<a href="http://jes.milordk.ru">Official website of the plugin</a> (You can register and create events, thereby testing the latest version of plug-ins under development)
 
 
 == Installation ==

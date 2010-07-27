@@ -72,9 +72,9 @@ $archive_color = $instance['archive_color'];  ?>
 								<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
 							</div>
 <?php if ( $keydate ) { ?>
-				<em><span style="color : #<?php echo $archive_color ?>;"><?php _e('Archive','jet-event-system') ?></span></em>
+				<em><span style="color : #<?php echo $archive_color ?>;"><?php _e('Archive event','jet-event-system') ?></span></em>
 <?php } else { ?>
-				<em><span style="color : #33CC00;"><?php _e('Active','jet-event-system') ?></span></em>
+				<em><span style="color : #33CC00;"><?php _e('Active event','jet-event-system') ?></span></em>
 <?php } ?>				
 						</div>
 

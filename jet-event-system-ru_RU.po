@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jet Event System\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-27 19:54+0300\n"
+"POT-Creation-Date: 2010-07-27 21:58+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Alexandr\n"
 "Language-Team: Jettochkin <milord_k@mail.ru>\n"
@@ -428,29 +428,24 @@ msgid "Allow the use of classifiers through an administrative panel"
 msgstr "Разрешить использование классификатора настроенного в административной панели"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:109
-#, fuzzy
 msgid "Classification - 1"
-msgstr "Классификатор события"
+msgstr "Классификатор события - 1"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:115
-#, fuzzy
 msgid "Classification - 2"
-msgstr "Классификатор события"
+msgstr "Классификатор события - 2"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:121
-#, fuzzy
 msgid "Classification - 3"
-msgstr "Классификатор события"
+msgstr "Классификатор события - 3"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:127
-#, fuzzy
 msgid "Classification - 4"
-msgstr "Классификатор события"
+msgstr "Классификатор события - 4"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:134
-#, fuzzy
 msgid "Save Settings"
-msgstr "Настройки события"
+msgstr "Сохранить настройки"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-classes.php:742
 msgid "Event Mod"
@@ -781,8 +776,6 @@ msgid "Newest"
 msgstr "Новые"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:43
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:77
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:33
 msgid "Active"
 msgstr "Активные"
 
@@ -792,8 +785,13 @@ msgstr "Популярные"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:75
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:31
-msgid "Archive"
-msgstr "Архивное"
+msgid "Archive event"
+msgstr "Прошедшее событие"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:77
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:33
+msgid "Active event"
+msgstr "Активное событие"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:84
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:181
@@ -823,13 +821,12 @@ msgid "Show navigation:"
 msgstr "Показывать навигацию:"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:129
-#, fuzzy
 msgid "Show archived events only for administrator:"
-msgstr "Данное событие без администраторов"
+msgstr "Показывать устаревшие события только администратору:"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:132
 msgid "Color to archive events:"
-msgstr ""
+msgstr "Цвет текста для архивных событий:"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:174
 #, php-format
@@ -1028,15 +1025,13 @@ msgstr "Обрезать аватар события"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:192
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:180
-#, fuzzy
 msgid "Avatar to crop"
-msgstr "Аватар"
+msgstr "Обрезать аватар"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:195
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:183
-#, fuzzy
 msgid "Avatar preview"
-msgstr "Аватар"
+msgstr "Предпрсмотр аватара"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:198
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:186
@@ -1048,9 +1043,8 @@ msgid "Select people to invite from your friends list."
 msgstr ""
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:252
-#, fuzzy
 msgid "Remove Invite"
-msgstr "Приглашения на событие"
+msgstr "Удалить приглашение"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:267
 msgid "Once you have built up friend connections you will be able to invite others to your event. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new event."
@@ -1093,14 +1087,13 @@ msgid "to: "
 msgstr "по: "
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:49
-#, fuzzy
 msgid "Classification:"
-msgstr "Классификатор события"
+msgstr "Классификатор события:"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:51
-#, fuzzy, php-format
+#, php-format
 msgid "Last activity:<br /> %s ago"
-msgstr "Последняя активность: %s назад"
+msgstr "Последняя активность:<br /> %s назад"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:68
 msgid "There were no events found."
@@ -1212,14 +1205,12 @@ msgid "Kick &amp; Ban"
 msgstr "Удалить и в бан"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:254
-#, fuzzy
 msgid "Promote to Mod"
-msgstr "Повысить до администратора"
+msgstr "Повысить до модератора"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:267
-#, fuzzy
 msgid "This event has no members."
-msgstr "Данное событие без модераторов"
+msgstr "Данное событие без участников."
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:298
 msgid "Accept"
@@ -1328,9 +1319,8 @@ msgstr "Форум события"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/edit.php:9
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:21
-#, fuzzy
 msgid "Event Forum Directory"
-msgstr "Каталог событий"
+msgstr "Каталог форумов события"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/edit.php:24
 msgid "Edit Topic:"
@@ -1345,9 +1335,9 @@ msgid "This topic does not exist."
 msgstr ""
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:42
-#, fuzzy, php-format
+#, php-format
 msgid "%s said %s ago:"
-msgstr "активно %s назад"
+msgstr "%s сказал %s назад:"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:56
 msgid "Permanent link to this post"
