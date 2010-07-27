@@ -25,14 +25,13 @@
 			</div>
 
 			<div class="item" style="width:80%;">
-				<div class="item-title"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a></div>
-				
-	<?php	if ( datetounix(date("d/m/Y H:i")) > datetounix(jes_bp_get_event_edted())) { ?>
-				<em><span style="color : #CCFF00;"><?php _e('Archive','jet-event-system') ?></span></em>
-<?php } else { ?>
-				<em><span style="color : #33CC00;"><?php _e('Active','jet-event-system') ?></span></em>
-<?php } ?>			
+				<div class="item-title"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a></div>			
 				<div class="item-meta">
+	<?php	if ( datetounix(date("d/m/Y H:i")) > datetounix(jes_bp_get_event_edted())) { ?>
+				<em><span style="color : #CCFF00;"><?php _e('Archive','jet-event-system') ?></span></em> , 
+	<?php } else { ?>
+				<em><span style="color : #33CC00;"><?php _e('Active','jet-event-system') ?></span></em> , 
+	<?php } ?>				
 					<span class="meta"><em><?php jes_bp_event_type() ?></em></span><br>
 					<?php _e('Short description:','jet-event-system') ?> <?php jes_bp_event_description_excerpt() ?>				
 				</div>				
