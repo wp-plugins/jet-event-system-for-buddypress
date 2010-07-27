@@ -51,6 +51,12 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.1.5 =
+* Changing the sorting events in the widget (correction)
+* Added an option in the settings of the widget - show archived events only for the administrator or for all
+* Small changes in the code
+
 = 1.1.4 =
 * Archived events stand out for the widget added the ability to customize the color
 
