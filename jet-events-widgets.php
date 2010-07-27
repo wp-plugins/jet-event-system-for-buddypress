@@ -47,7 +47,7 @@ $archive_color = $instance['archive_color'];  ?>
 			<ul id="events-list" class="item-list">
 				<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 <?php
-		if ( datetounix(date("j/m/Y H:i")) > datetounix(jes_bp_get_event_edted()))
+		if ( datetounix(date("d/m/Y H:i")) > datetounix(jes_bp_get_event_edted()))
 			{
 				$keydate = 1;
 			}

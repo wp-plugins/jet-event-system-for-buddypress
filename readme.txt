@@ -52,6 +52,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.1.6 =
+* Fixed error in determining the status of events (active / archive)
+
 = 1.1.5 =
 * Changing the sorting events in the widget (correction)
 * Added an option in the settings of the widget - show archived events only for the administrator or for all

@@ -3,7 +3,7 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1.5
+Version: 1.1.6
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
@@ -2297,12 +2297,12 @@ add_action( 'events_event_avatar_updated', 'events_clear_event_object_cache' );
 add_action( 'events_create_event_step_complete', 'events_clear_event_object_cache' );
 
 function datetounix($inputdate) {
-	$ev_day = substr($inputdate,1,2);
-	$ev_month = substr($inputdate,4,2);
-	$ev_year = substr($inputdate,7,4);
+	$ev_day = substr($inputdate,0,2);
+	$ev_month = substr($inputdate,3,2);
+	$ev_year = substr($inputdate,6,4);
 
-	$ev_h = substr($inputdate,12,2);
-	$ev_m = substr($inputdate,15,2);
+	$ev_h = substr($inputdate,11,2);
+	$ev_m = substr($inputdate,14,2);
 
 	$ev_dres = mktime ($ev_h,$ev_m,0,$ev_month,$ev_day,$ev_year);
 return $ev_dres;
