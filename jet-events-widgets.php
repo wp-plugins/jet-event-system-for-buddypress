@@ -80,8 +80,8 @@ $archive_color = $instance['archive_color'];  ?>
 
 						<div class="item">
 
-							<div class="item-meta">
-								<span><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>, <?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?> <?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?></span>
+							<div style="font-size:80%;">
+								<span><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>,<br /><?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?><br /><?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?></span>
 							</div>
 						</div>
 					</li>
