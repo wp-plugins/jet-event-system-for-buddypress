@@ -49,6 +49,12 @@ function jes_event_admin() {
 		}else{
 			$jes_events[ 'jes_events_text_four' ] = _('Club','jet-event-system');
 		}
+		if ( $_POST[ 'jes_events_text_five' ] != null ) {
+			$jes_events[ 'jes_events_text_five' ] = stripslashes($_POST[ 'jes_events_text_five' ]);
+		}else{
+			$jes_events[ 'jes_events_text_five' ] = _('Club','jet-event-system');
+		}
+
 		
 if (stripos($blogversion, 'MU') > 0) {			
 		$blogs_ids = get_blog_list( 0, 'all' );
@@ -63,7 +69,9 @@ if (stripos($blogversion, 'MU') > 0) {
 ?>
 <div class="wrap">
 	<h2><?php _e('JES. Jet Event System', 'jet-event-system' ) ?></h2>
-
+<table>
+<tr>
+<td width="70%">
 	<form action="<?php echo site_url() . '/wp-admin/admin.php?page=jes-event-admin' ?>" name="jes_events_form" id="jes_events_form" method="post">
 	<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y" />
 
@@ -129,12 +137,25 @@ if (stripos($blogversion, 'MU') > 0) {
 					<input name="jes_events_text_four" type="text"size="40" id="jes_events_text_four" value="<?php echo $jes_events[ 'jes_events_text_four' ]; ?>" />
 				</td>
 			</tr>
-			
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_text_five"><?php _e( 'Classification - 5', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_text_four" type="text"size="40" id="jes_events_text_five" value="<?php echo $jes_events[ 'jes_events_text_five' ]; ?>" />
+				</td>
+			</tr>			
 		</table>
-	<p class="submit"><input type="submit" name="submit" value="<?php _e( 'Save Settings', 'jes-event-system' ) ?>"/></p>
+	<p align="center" class="submit"><input type="submit" name="submit" value="<?php _e( 'Save Settings', 'jes-event-system' ) ?>"/></p>
 	</form>
+</td>
+<td>
+<p><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html">About</a><br />
+<a href="http://jes.milordk.ru">Website Developer</a><br />
+<strong>Donations:</strong><br />
+WMZ: Z113010060388 / WMR: R144831580346 (please specify in the designation of the site and name:) )</p>
+</td>
+</tr>
+</table>
 </div>
 <?php
 }
-
 ?>

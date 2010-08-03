@@ -41,7 +41,7 @@
 				<?php locate_template( array( 'events/events-loop.php' ), true ) ?>
 			</div><!-- #events-dir-list -->
 			<div>
-				<span><a href="http://jes.milordk.ru"><?php _e('Support this system','jet-event-system') ?></a></span>
+				<span><a href="http://milordk.ru">Milordk Studio</a></span>
 			</div>
 			<?php do_action( 'bp_directory_events_content' ) ?>
 
