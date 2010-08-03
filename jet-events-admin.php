@@ -70,7 +70,7 @@ if (stripos($blogversion, 'MU') > 0) {
 <div class="wrap">
 	<h2><?php _e('JES. Jet Event System', 'jet-event-system' ) ?></h2>
 <table>
-<tr>
+<tr valign="top">
 <td width="70%">
 	<form action="<?php echo site_url() . '/wp-admin/admin.php?page=jes-event-admin' ?>" name="jes_events_form" id="jes_events_form" method="post">
 	<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y" />
