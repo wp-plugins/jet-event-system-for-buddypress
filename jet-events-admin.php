@@ -149,10 +149,16 @@ if (stripos($blogversion, 'MU') > 0) {
 	</form>
 </td>
 <td>
+<h4>Support</h4>
 <p><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html">About</a><br />
 <a href="http://jes.milordk.ru">Website Developer</a><br />
-<strong>Donations:</strong><br />
-WMZ: Z113010060388 / WMR: R144831580346 (please specify in the designation of the site and name:) )</p>
+<h4>Donations:</h4>
+WMZ: Z113010060388 / WMR: R144831580346<br />(please specify in the designation of the site and name:) )<br /><br /></p>
+<h4>Future</h4>
+<p>* In version 1.2 will be added ability to display current events as a widget and the directory</p>
+* In version 1.3 will be added to the possibility of tying the event to a group<br />
++ Ability to limit the list of participants are allowed to create events</p>
+<p>* In version 1.5 will be added to the possibility of tying the event to your blog (s)</p> 
 </td>
 </tr>
 </table>
