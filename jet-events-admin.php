@@ -69,6 +69,7 @@ if (stripos($blogversion, 'MU') > 0) {
 ?>
 <div class="wrap">
 	<h2><?php _e('JES. Jet Event System', 'jet-event-system' ) ?></h2>
+	<h4>version 1.1 build 7</h4>
 <table>
 <tr valign="top">
 <td width="70%">

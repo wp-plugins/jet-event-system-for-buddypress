@@ -39,10 +39,19 @@
 <?php } else { ?>
 <select name="event-etype" id="event-etype" size = "1">
 <option value="<?php echo $edata['jes_events_text_one' ] ?>"><?php echo $edata['jes_events_text_one' ] ?></option> 
+<?php if ($edata['jes_events_text_two' ] != null) { ?>
 <option value="<?php echo $edata['jes_events_text_two' ] ?>"><?php echo $edata['jes_events_text_two' ] ?></option>
+<?php } ?>
+<?php if ($edata['jes_events_text_three' ] != null) { ?>
 <option value="<?php echo $edata['jes_events_text_three' ] ?>"><?php echo $edata['jes_events_text_three' ] ?></option>
+<?php } ?>
+<?php if ($edata['jes_events_text_four' ] != null) { ?>
 <option value="<?php echo $edata['jes_events_text_four' ] ?>"><?php echo $edata['jes_events_text_four' ] ?></option>
+<?php } ?>
+<?php if ($edata['jes_events_text_five' ] != null) { ?>
+<option value="<?php echo $edata['jes_events_text_five' ] ?>"><?php echo $edata['jes_events_text_five' ] ?></option>
 </select>
+<?php } ?>
 <?php } ?>					
 					
 					<label for="event-desc"><?php _e('* Event Description', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>

@@ -52,7 +52,7 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
-= 1.1.7 =
+= 1.1.7.1 =
 * Small changes in the administrative panel (expanding the number of classifiers to 5)
 
 = 1.1.6 =
