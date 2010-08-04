@@ -141,7 +141,7 @@ if (stripos($blogversion, 'MU') > 0) {
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_text_five"><?php _e( 'Classification - 5', 'jet-event-system' ) ?></label></th>
 				<td>
-					<input name="jes_events_text_four" type="text"size="40" id="jes_events_text_five" value="<?php echo $jes_events[ 'jes_events_text_five' ]; ?>" />
+					<input name="jes_events_text_five" type="text"size="40" id="jes_events_text_five" value="<?php echo $jes_events[ 'jes_events_text_five' ]; ?>" />
 				</td>
 			</tr>			
 		</table>
