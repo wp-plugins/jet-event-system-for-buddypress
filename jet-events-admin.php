@@ -88,13 +88,7 @@ if (stripos($blogversion, 'MU') > 0) {
 
 		<h3><?php _e( "Let's make some changes:", 'jet-event-system' ) ?></h3>
 		<table class="form-table">
-
-			<tr valign="top">
-				<th scope="row"><label for="jes_events_code_index"><?php _e( 'Allow indexing of events search engines', 'jet-event-system' ) ?></label></th>
-				<td>
-					<input name="jes_events_code_index" type="checkbox" id="jes_events_code_index" value="1"<?php echo( '1' == $jes_events[ 'jes_events_code_index' ] ? ' checked="checked"' : '' ); ?> />
-				</td>
-			</tr>
+		<tr valign="top"><td><h4>Base options</h4></td></tr>
 
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_costumslug_enable"><?php _e( 'Allow costum slug', 'jet-event-system' ) ?></label></th>
@@ -111,19 +105,12 @@ if (stripos($blogversion, 'MU') > 0) {
 			</tr>				
 
 			<tr valign="top">
-				<th scope="row"><label for="jes_events_addnavi_disable"><?php _e( 'Deny access to events for unregistered users', 'jet-event-system' ) ?></label></th>
-				<td>
-					<input name="jes_events_addnavi_disable" type="checkbox" id="jes_events_addnavi_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_addnavi_disable' ] ? ' checked="checked"' : '' ); ?> />
-				</td>
-			</tr>			
-		
-			<tr valign="top">
 				<th scope="row"><label for="jes_events_class_enable"><?php _e( 'Allow the use of classifiers through an administrative panel', 'jet-event-system' ) ?></label></th>
 				<td>
 					<input name="jes_events_class_enable" type="checkbox" id="jes_events_class_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_class_enable' ] ? ' checked="checked"' : '' ); ?> />
 				</td>
-			</tr>			
-////////////////
+			</tr>	
+			
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_createnonadmin_disable"><?php _e( 'Prohibit non-administrators to create events (available since version 1.1.9)', 'jet-event-system' ) ?></label></th>
 				<td>
@@ -167,7 +154,22 @@ if (stripos($blogversion, 'MU') > 0) {
 				<td>
 					<input name="jes_events_text_five" type="text"size="40" id="jes_events_text_five" value="<?php echo $jes_events[ 'jes_events_text_five' ]; ?>" />
 				</td>
-			</tr>			
+			</tr>				
+		<tr valign="top"><td><h4>Privacy options</h4></td></tr>
+
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_code_index"><?php _e( 'Allow indexing of events search engines', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_code_index" type="checkbox" id="jes_events_code_index" value="1"<?php echo( '1' == $jes_events[ 'jes_events_code_index' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>
+			
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_addnavi_disable"><?php _e( 'Deny access to events for unregistered users', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_addnavi_disable" type="checkbox" id="jes_events_addnavi_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_addnavi_disable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>					
 		</table>
 	<p align="center" class="submit"><input type="submit" name="submit" value="<?php _e( 'Save Settings', 'jes-event-system' ) ?>"/></p>
 	</form>
