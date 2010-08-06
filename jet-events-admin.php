@@ -9,7 +9,9 @@ function jes_event_admin() {
 		$jes_events[ 'jes_events_code_index' ] = 0;
 		$jes_events[ 'jes_events_costumslug_enable' ] = 0;
 		$jes_events[ 'jes_events_addnavi_disable' ] = 0;
-		
+		$jes_events[ 'jes_events_createnonadmin_disable' ] = 0;
+		$jes_events[ 'jes_events_adminapprove_enable' ] = 0;
+
 		if ( $_POST[ 'jes_events_class_enable' ] == 1 ) 
 			$jes_events[ 'jes_events_class_enable' ] = 1;
 			
@@ -22,6 +24,14 @@ function jes_event_admin() {
 		if ( $_POST[ 'jes_events_addnavi_disable' ] == 1 ) 
 			$jes_events[ 'jes_events_addnavi_disable' ] = 1;	
 			
+		if ( $_POST[ 'jes_events_createnonadmin_disable' ] == 1 ) 
+			$jes_events[ 'jes_events_createnonadmin_disable' ] = 1;
+
+		if ( $_POST[ 'jes_events_createnonadmin_disable' ] == 1 ) 
+			$jes_events[ 'jes_events_createnonadmin_disable' ] = 1;
+
+		if ( $_POST[ 'jes_events_adminapprove_enable' ] == 1 ) 
+			$jes_events[ 'jes_events_adminapprove_enable' ] = 1;			
 			
 		if ( $_POST[ 'jes_events_costumslug' ] != null ) {
 			$jes_events[ 'jes_events_costumslug' ] = stripslashes($_POST[ 'jes_events_costumslug' ]);
@@ -113,6 +123,20 @@ if (stripos($blogversion, 'MU') > 0) {
 					<input name="jes_events_class_enable" type="checkbox" id="jes_events_class_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_class_enable' ] ? ' checked="checked"' : '' ); ?> />
 				</td>
 			</tr>			
+////////////////
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_createnonadmin_disable"><?php _e( 'Prohibit non-administrators to create events (available since version 1.1.9)', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_createnonadmin_disable" type="checkbox" id="jes_events_createnonadmin_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_createnonadmin_disable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_adminapprove_enable"><?php _e( 'Allow verification of events by the administrator (available since version 1.1.9)', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_adminapprove_enable" type="checkbox" id="jes_events_adminapprove_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_adminapprove_enable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>
 			
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_text_one"><?php _e( 'Classification - 1', 'jet-event-system' ) ?></label></th>

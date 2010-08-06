@@ -52,6 +52,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.1.7.3 =
+* Fix widget: select archive/active, any small
+
 = 1.1.7.2 =
 * Small changes in the administrative panel (expanding the number of classifiers to 5)
 
