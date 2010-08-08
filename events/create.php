@@ -147,7 +147,7 @@
 						<label><input type="radio" name="event-status" value="private"<?php if ( 'private' == bp_get_new_event_status() ) { ?> checked="checked"<?php } ?> />
 							<strong><?php _e( 'This is a private event', 'jet-event-system' ) ?></strong>
 							<ul>
-								<li><?php _e( 'Only users who request membership and are accepted can join the event.', 'jet-event-system' ) ?></li>
+								<li><?php _e( 'Just send a request to join, users can join the event.', 'jet-event-system' ) ?></li>
 								<li><?php _e( 'This event will be listed in the events directory and in search results.', 'jet-event-system' ) ?></li>
 								<li><?php _e( 'Event content and activity will only be visible to members of the event.', 'jet-event-system' ) ?></li>
 							</ul>

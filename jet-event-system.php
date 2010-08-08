@@ -303,7 +303,7 @@ function events_setup_nav() {
 
 			// If this is a private event, and the user is not a member, show a "Request Membership" nav item.
 			if ( !is_site_admin() && is_user_logged_in() && !$bp->jes_events->current_event->is_user_member && !events_jes_check_for_membership_request( $bp->loggedin_user->id, $bp->jes_events->current_event->id ) && $bp->jes_events->current_event->status == 'private' )
-				bp_core_new_subnav_item( array( 'name' => __( 'Request Membership', 'jet-event-system' ), 'slug' => 'request-membership', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_request_membership', 'position' => 30 ) );
+				bp_core_new_subnav_item( array( 'name' => __( 'Request join to event', 'jet-event-system' ), 'slug' => 'request-membership', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_request_membership', 'position' => 30 ) );
 
 		/*	if ( $bp->jes_events->current_event->enable_forum && function_exists('bp_forums_setup') )
 				bp_core_new_subnav_item( array( 'name' => __( 'Forum', 'jet-event-system' ), 'slug' => 'forum', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_forum', 'position' => 40, 'user_has_access' => $bp->jes_events->current_event->user_has_access, 'item_css_id' => 'forums' ) );
@@ -1696,7 +1696,7 @@ function events_get_events( $args = '' ) {
 		'user_id' => false, // Pass a user_id to limit to only events that this user is a member of
 		'search_terms' => false, // Limit to events that match these search terms
 
-		'per_page' => 20, // The number of results to return per page
+		'per_page' => 10, // The number of results to return per page
 		'page' => 1, // The page to return if limiting per page
 		'populate_extras' => true, // Fetch meta such as is_banned and is_member
 	);
