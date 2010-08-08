@@ -3,7 +3,7 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1.7.4
+Version: 1.1.7.5
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
@@ -381,7 +381,7 @@ function events_screen_my_events() {
 	bp_core_load_template( apply_filters( 'events_template_my_events', 'members/single/home' ) );
 }
 
-function events_screen_event_invites() {
+function events_screen_event_invite_jes() {
 	global $bp;
 
 	$event_id = $bp->action_variables[1];
@@ -471,7 +471,7 @@ function events_screen_event_invite() {
 				return false;
 
 			// Send the invites.
-			events_send_invites( $bp->loggedin_user->id, $bp->jes_events->current_event->id );
+			events_send_invite_jes( $bp->loggedin_user->id, $bp->jes_events->current_event->id );
 
 			bp_core_add_message( __('Event invites sent.', 'jet-event-system') );
 
@@ -989,7 +989,7 @@ function events_action_create_event() {
 		}
 
 		if ( 'event-invites' == $bp->jes_events->current_create_step ) {
-			events_send_invites( $bp->loggedin_user->id, $bp->jes_events->new_event_id );
+			events_send_invite_jes( $bp->loggedin_user->id, $bp->jes_events->new_event_id );
 		}
 
 		do_action( 'events_create_event_step_save_' . $bp->jes_events->current_create_step );
@@ -1533,7 +1533,7 @@ function events_delete_event( $event_id ) {
 	}
 
 	// Remove all outstanding invites for this event
-	events_jes_delete_all_event_invites( $event_id );
+	events_jes_delete_all_event_invite_jes( $event_id );
 
 	// Remove all notifications for any user belonging to this event
 	bp_core_delete_all_notifications_by_type( $event_id, $bp->jes_events->slug );
@@ -1841,7 +1841,7 @@ function events_post_update( $args = '' ) {
 	) );
 
  	/* Require the notifications code so email notifications can be set on the 'bp_activity_posted_update' action. */
-	require_once( BP_PLUGIN_DIR . '/bp-events/bp-events-notifications.php' );
+	require_once( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-notifications.php' );
 
 	events_update_eventmeta( $event_id, 'last_activity', gmdate( "Y-m-d H:i:s" ) );
 	do_action( 'jes_bp_events_posted_update', $content, $user_id, $event_id, $activity_id );
@@ -1857,7 +1857,7 @@ function events_jes_get_invites_for_user( $user_id = false, $limit = false, $pag
 	if ( !$user_id )
 		$user_id = $bp->loggedin_user->id;
 
-	return JES_Events_Member::jes_get_invites( $user_id, $limit, $page );
+	return JES_Events_Member::jes_get_invite_jes( $user_id, $limit, $page );
 }
 
 function events_invite_user( $args = '' ) {
@@ -1951,7 +1951,7 @@ function events_jes_delete_invite( $user_id, $event_id ) {
 	return $delete;
 }
 
-function events_send_invites( $user_id, $event_id ) {
+function events_send_invite_jes( $user_id, $event_id ) {
 	global $bp;
 
 	require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-notifications.php' );
@@ -1967,7 +1967,7 @@ function events_send_invites( $user_id, $event_id ) {
 		$member = new JES_Events_Member( $invited_users[$i], $event_id );
 
 		// Send the actual invite
-		events_notification_event_invites( $event, $member, $user_id );
+		events_notification_event_invite_jes( $event, $member, $user_id );
 
 		$member->invite_sent = 1;
 		$member->save();
@@ -1977,15 +1977,15 @@ function events_send_invites( $user_id, $event_id ) {
 }
 
 function events_jes_get_invites_for_event( $user_id, $event_id ) {
-	return JES_Events_Event::jes_get_invites( $user_id, $event_id );
+	return JES_Events_Event::jes_get_invite_jes( $user_id, $event_id );
 }
 
 function events_check_user_has_invite( $user_id, $event_id ) {
 	return JES_Events_Member::jes_check_has_invite( $user_id, $event_id );
 }
 
-function events_jes_delete_all_event_invites( $event_id ) {
-	return JES_Events_Event::jes_jes_delete_all_invites( $event_id );
+function events_jes_delete_all_event_invite_jes( $event_id ) {
+	return JES_Events_Event::jes_jes_delete_all_invite_jes( $event_id );
 }
 
 /*** Event Promotion & Banning *************************************************/
@@ -2068,7 +2068,7 @@ function events_send_membership_request( $requesting_user_id, $event_id ) {
 	if ( $requesting_user->save() ) {
 		$admins = events_get_event_admins( $event_id );
 
-		require_once ( BP_PLUGIN_DIR . '/bp-events/bp-events-notifications.php' );
+		require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-notifications.php' );
 
 		for ( $i = 0; $i < count( $admins ); $i++ ) {
 			// Saved okay, now send the email notification
@@ -2114,7 +2114,7 @@ function events_accept_membership_request( $membership_id, $user_id = false, $ev
 	) );
 
 	/* Send a notification to the user. */
-	require_once ( BP_PLUGIN_DIR . '/bp-events/bp-events-notifications.php' );
+	require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-notifications.php' );
 	events_notification_membership_request_completed( $membership->user_id, $membership->event_id, true );
 
 	do_action( 'events_membership_accepted', $membership->user_id, $membership->event_id );
@@ -2127,7 +2127,7 @@ function events_reject_membership_request( $membership_id, $user_id = false, $ev
 		return false;
 
 	// Send a notification to the user.
-	require_once ( BP_PLUGIN_DIR . '/bp-events/bp-events-notifications.php' );
+	require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-notifications.php' );
 	events_notification_membership_request_completed( $membership->user_id, $membership->event_id, false );
 
 	do_action( 'events_membership_rejected', $membership->user_id, $membership->event_id );

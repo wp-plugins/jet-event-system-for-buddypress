@@ -29,7 +29,7 @@
 				<?php elseif ( bp_is_event_members() && jes_bp_event_is_visible() ) : ?>
 					<?php locate_template( array( 'events/single/members.php' ), true ) ?>
 
-				<?php elseif ( bp_is_event_invites() && jes_bp_event_is_visible() ) : ?>
+				<?php elseif ( bp_is_event_invite_jes() && jes_bp_event_is_visible() ) : ?>
 					<?php locate_template( array( 'events/single/send-invites.php' ), true ) ?>
 
 				<?php elseif ( bp_is_event_forum() && jes_bp_event_is_visible() ) : ?>

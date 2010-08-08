@@ -228,7 +228,7 @@ Class JES_Events_Event {
 		return JES_Events_Event::jes_event_exists( $slug );
 	}
 
-	function jes_get_invites( $user_id, $event_id ) {
+	function jes_get_invite_jes( $user_id, $event_id ) {
 		global $wpdb, $bp;
 		return $wpdb->get_col( $wpdb->prepare( "SELECT user_id FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d and is_confirmed = 0 AND inviter_id = %d", $event_id, $user_id ) );
 	}
@@ -617,7 +617,7 @@ Class JES_Events_Event {
 		return $paged_events;
 	}
 
-	function jes_jes_delete_all_invites( $event_id ) {
+	function jes_jes_delete_all_invite_jes( $event_id ) {
 		global $wpdb, $bp;
 
 		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d AND invite_sent = 1", $event_id ) );
@@ -899,7 +899,7 @@ Class JES_Events_Member {
 		}
 	}
 
-	function jes_get_invites( $user_id, $limit = false, $page = false ) {
+	function jes_get_invite_jes( $user_id, $limit = false, $page = false ) {
 		global $wpdb, $bp;
 
 		if ( $limit && $page )

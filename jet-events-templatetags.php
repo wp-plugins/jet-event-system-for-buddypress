@@ -1864,7 +1864,7 @@ function bp_new_event_invite_friend_list() {
 					}
 				}
 
-				$items[] = '<' . $separator . '><input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . $friends[$i]['full_name'] . '</' . $separator . '>';
+				$items[] = '<' . $separator . '>'.$friends[$i]['avatar'].'><input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . $friends[$i]['full_name'] . '</' . $separator . '>';
 			}
 		}
 
@@ -2178,7 +2178,7 @@ class BP_Events_Invite_Template {
 		$this->invite_count = count( $this->invites );
 	}
 
-	function has_invites() {
+	function has_invite_jes() {
 		if ( $this->invite_count )
 			return true;
 
@@ -2192,20 +2192,20 @@ class BP_Events_Invite_Template {
 		return $this->invite;
 	}
 
-	function rewind_invites() {
+	function rewind_invite_jes() {
 		$this->current_invite = -1;
 		if ( $this->invite_count > 0 ) {
 			$this->invite = $this->invites[0];
 		}
 	}
 
-	function invites() {
+	function invite_jes() {
 		if ( $this->current_invite + 1 < $this->invite_count ) {
 			return true;
 		} elseif ( $this->current_invite + 1 == $this->invite_count ) {
 			do_action('loop_end');
 			// Do some cleaning up after the loop
-			$this->rewind_invites();
+			$this->rewind_invite_jes();
 		}
 
 		$this->in_the_loop = false;
@@ -2220,14 +2220,14 @@ class BP_Events_Invite_Template {
 
 		$this->invite = new stdClass;
 		$this->invite->user = new BP_Core_User( $user_id );
-		$this->invite->event_id = $event_id; // Globaled in bp_event_has_invites()
+		$this->invite->event_id = $event_id; // Globaled in bp_event_has_invite_jes()
 
 		if ( 0 == $this->current_invite ) // loop has just started
 			do_action('loop_start');
 	}
 }
 
-function bp_event_has_invites( $args = '' ) {
+function bp_event_has_invite_jes( $args = '' ) {
 	global $bp, $invites_template, $event_id;
 
 	$defaults = array(
@@ -2248,13 +2248,13 @@ function bp_event_has_invites( $args = '' ) {
 		return false;
 
 	$invites_template = new BP_Events_Invite_Template( $user_id, $event_id );
-	return apply_filters( 'bp_event_has_invites', $invites_template->has_invites(), &$invites_template );
+	return apply_filters( 'bp_event_has_invites', $invites_template->has_invite_jes(), &$invites_template );
 }
 
-function bp_event_invites() {
+function bp_event_invite_jes() {
 	global $invites_template;
 
-	return $invites_template->invites();
+	return $invites_template->invite_jes();
 }
 
 function bp_event_the_invite() {
@@ -2397,7 +2397,7 @@ function bp_is_event_members() {
 	return false;
 }
 
-function bp_is_event_invites() {
+function bp_is_event_invite_jes() {
 	global $bp;
 
 	if ( JES_SLUG == $bp->current_component && 'send-invites' == $bp->current_action )

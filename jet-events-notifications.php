@@ -184,7 +184,7 @@ To view the event please visit: %s
 }
 add_action( 'events_promoted_member', 'events_notification_promoted_member', 10, 2 );
 
-function events_notification_event_invites( &$event, &$member, $inviter_user_id ) {
+function events_notification_event_invite_jes( &$event, &$member, $inviter_user_id ) {
 	global $bp;
 
 	$inviter_ud = bp_core_get_core_userdata( $inviter_user_id );

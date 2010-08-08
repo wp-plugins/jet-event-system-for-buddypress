@@ -26,9 +26,9 @@
 
 			<?php /* The ID 'friend-list' is important for AJAX support. */ ?>
 			<ul id="friend-list" class="item-list">
-			<?php if ( bp_event_has_invites() ) : ?>
+			<?php if ( bp_event_has_invite_jes() ) : ?>
 
-				<?php while ( bp_event_invites() ) : bp_event_the_invite(); ?>
+				<?php while ( bp_event_invite_jes() ) : bp_event_the_invite(); ?>
 
 					<li id="<?php bp_event_invite_item_id() ?>">
 						<?php bp_event_invite_user_avatar() ?>
