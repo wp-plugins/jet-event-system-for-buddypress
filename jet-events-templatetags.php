@@ -134,7 +134,7 @@ function bp_jes_has_events( $args = '' ) {
 	 * if arguments are directly passed into the loop. Custom plugins should always
 	 * pass their parameters directly to the loop.
 	 */
-	$type = 'active';
+	$type = 'soon';
 	$user_id = false;
 	$search_terms = false;
 	$slug = false;
