@@ -4,11 +4,12 @@
 		<div class="padder">
 
 		<form action="" method="post" id="events-directory-form" class="dir-form">
-			<h3><?php _e( 'Events Directory', 'jet-event-system' ) ?><br /><?php if ( is_user_logged_in() ) : ?> &nbsp;<a class="button" href="<?php echo bp_get_root_domain() . '/' . JES_SLUG . '/create/' ?>"><?php _e( 'Create a Event', 'jet-event-system' ) ?></a><?php endif; ?></h3>
+			<h3><?php _e( 'Events Directory', 'jet-event-system' ) ?></h3>
 
 			<?php do_action( 'bp_before_directory_events_content' ) ?>
 
 			<div id="event-dir-search" class="dir-search">
+			<?php if ( is_user_logged_in() ) : ?><a class="button" href="<?php echo bp_get_root_domain() . '/' . JES_SLUG . '/create/' ?>"><?php _e( 'Create a Event', 'jet-event-system' ) ?></a><?php endif; ?>
 				<?php bp_directory_events_search_form() ?>
 			</div><!-- #event-dir-search -->
 

@@ -112,20 +112,6 @@ if (stripos($blogversion, 'MU') > 0) {
 			</tr>	
 			
 			<tr valign="top">
-				<th scope="row"><label for="jes_events_createnonadmin_disable"><?php _e( 'Prohibit non-administrators to create events (available since version 1.1.9)', 'jet-event-system' ) ?></label></th>
-				<td>
-					<input name="jes_events_createnonadmin_disable" type="checkbox" id="jes_events_createnonadmin_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_createnonadmin_disable' ] ? ' checked="checked"' : '' ); ?> />
-				</td>
-			</tr>
-
-			<tr valign="top">
-				<th scope="row"><label for="jes_events_adminapprove_enable"><?php _e( 'Allow verification of events by the administrator (available since version 1.1.9)', 'jet-event-system' ) ?></label></th>
-				<td>
-					<input name="jes_events_adminapprove_enable" type="checkbox" id="jes_events_adminapprove_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_adminapprove_enable' ] ? ' checked="checked"' : '' ); ?> />
-				</td>
-			</tr>
-			
-			<tr valign="top">
 				<th scope="row"><label for="jes_events_text_one"><?php _e( 'Classification - 1', 'jet-event-system' ) ?></label></th>
 				<td>
 					<input name="jes_events_text_one" type="text" size="40"id="jes_events_text_one" value="<?php echo $jes_events[ 'jes_events_text_one' ]; ?>" />
@@ -154,7 +140,24 @@ if (stripos($blogversion, 'MU') > 0) {
 				<td>
 					<input name="jes_events_text_five" type="text"size="40" id="jes_events_text_five" value="<?php echo $jes_events[ 'jes_events_text_five' ]; ?>" />
 				</td>
-			</tr>				
+			</tr>	
+
+		<tr valign="top"><td><h4>Restrict options</h4></td></tr>
+		
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_createnonadmin_disable"><?php _e( 'Prohibit non-administrators to create events (available since version 1.1.9)', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_createnonadmin_disable" type="checkbox" id="jes_events_createnonadmin_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_createnonadmin_disable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_adminapprove_enable"><?php _e( 'Allow verification of events by the administrator (available since version 1.1.9)', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_adminapprove_enable" type="checkbox" id="jes_events_adminapprove_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_adminapprove_enable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>
+			
 		<tr valign="top"><td><h4>Privacy options</h4></td></tr>
 
 			<tr valign="top">
@@ -179,7 +182,7 @@ if (stripos($blogversion, 'MU') > 0) {
 <p><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html">About</a><br />
 <a href="http://jes.milordk.ru">Website Developer</a><br />
 <h4>Donations:</h4>
-WMZ: Z113010060388 / WMR: R144831580346<br />(please specify in the designation of the site and name:) )<br /><br /></p>
+<em>WMZ</em>: <strong>Z113010060388</strong> / <em>WMR</em>: <strong>R144831580346</strong><br />(please specify in the designation of the site and name:) All who have made a contribution to the development of plug-in will be included in honor roll, as well as gain access to additional modules!)<br /><br /></p>
 <h4>Future</h4>
 <p>* In version 1.2 will be added ability to display current events as a widget and the directory</p>
 * In version 1.3 will be added to the possibility of tying the event to a group<br />
