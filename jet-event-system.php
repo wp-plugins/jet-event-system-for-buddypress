@@ -1692,7 +1692,7 @@ function events_get_events( $args = '' ) {
 	global $bp;
 
 	$defaults = array(
-		'type' => 'active', // active, newest, alphabetical, random, popular, most-forum-topics or most-forum-posts
+		'type' => 'soon', // active, newest, alphabetical, random, popular, most-forum-topics or most-forum-posts
 		'user_id' => false, // Pass a user_id to limit to only events that this user is a member of
 		'search_terms' => false, // Limit to events that match these search terms
 

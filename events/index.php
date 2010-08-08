@@ -27,11 +27,11 @@
 
 						<?php _e( 'Order By:', 'jet-event-system' ) ?>
 						<select>
+							<option value="soon"><?php _e( 'Soon', 'jet-event-system' ) ?></option>
 							<option value="active"><?php _e( 'Last Active', 'jet-event-system' ) ?></option>
 							<option value="popular"><?php _e( 'Most Members', 'jet-event-system' ) ?></option>
 							<option value="newest"><?php _e( 'Newly Created', 'jet-event-system' ) ?></option>
 							<option value="alphabetical"><?php _e( 'Alphabetical', 'jet-event-system' ) ?></option>
-							<option value="Soon"><?php _e( 'Soon', 'jet-event-system' ) ?></option>
 							<?php do_action( 'jes_bp_events_directory_order_options' ) ?>
 						</select>
 					</li>
