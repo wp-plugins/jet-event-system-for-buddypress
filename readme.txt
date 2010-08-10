@@ -27,7 +27,7 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://v
 == Installation ==
 
 1. Upload `jet-event-system-for-buddypress` folder to the `/wp-content/plugins/` directory
-2. Upload `events` folder to the `/wp-content/themes/<you work theme>` directory ! (/wp-content/themes/bp-default ?)
+2. Transfer the contents of the folder Templates (events, members) in the folder you are using threads (default: / plugins / buddypress / bp-themes / bp-default) - MUST!
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Add widget to site (if needed)
 5. See Events Catalog: http://<yousite>/events
@@ -51,6 +51,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.1.7.6 =
+* Ability to view your events in the profile
+* Changed plugin folder! : Transfer the contents of the folder Templates (events, members) in the folder you are using threads (default: / plugins / buddypress / bp-themes / bp-default) - MUST!
 
 = 1.1.7.5 =
 * Fixed problem with user request to join a private event
