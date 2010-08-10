@@ -51,6 +51,8 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+= 1.1.7.7 = 
+* Small changes in the subject and in the administrative part
 
 = 1.1.7.6 =
 * Ability to view your events in the profile

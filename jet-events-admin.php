@@ -87,8 +87,9 @@ if (stripos($blogversion, 'MU') > 0) {
 	<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y" />
 
 		<h3><?php _e( "Let's make some changes:", 'jet-event-system' ) ?></h3>
+		<p><a href="#base-options">Base Options</a> , <a href="#restrict-options">Restrict options</a> , <a href="#privacy-options">Privacy options</a> , <a href="#support">Support</a> , <a href="#translate">Translate</a></p>
 		<table class="form-table">
-		<tr valign="top"><td><h4>Base options</h4></td></tr>
+		<tr valign="top"><td><a name="base-options"><h4>Base options</h4></a></td></tr>
 
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_costumslug_enable"><?php _e( 'Allow costum slug', 'jet-event-system' ) ?></label></th>
@@ -142,7 +143,7 @@ if (stripos($blogversion, 'MU') > 0) {
 				</td>
 			</tr>	
 
-		<tr valign="top"><td><h4>Restrict options</h4></td></tr>
+		<tr valign="top"><td><a name="restrict-options"><h4>Restrict options</h4></a></td></tr>
 		
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_createnonadmin_disable"><?php _e( 'Prohibit non-administrators to create events (available since version 1.1.9)', 'jet-event-system' ) ?></label></th>
@@ -158,7 +159,7 @@ if (stripos($blogversion, 'MU') > 0) {
 				</td>
 			</tr>
 			
-		<tr valign="top"><td><h4>Privacy options</h4></td></tr>
+		<tr valign="top"><td><a name="privacy-options"><h4>Privacy options</h4></a></td></tr>
 
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_code_index"><?php _e( 'Allow indexing of events search engines', 'jet-event-system' ) ?></label></th>
@@ -178,7 +179,7 @@ if (stripos($blogversion, 'MU') > 0) {
 	</form>
 </td>
 <td>
-<h4>Support</h4>
+<a name="support"><h4>Support</h4></a>
 <p><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html">About</a><br />
 <a href="http://jes.milordk.ru">Website Developer</a><br />
 <h4>Donations:</h4>
@@ -188,6 +189,18 @@ if (stripos($blogversion, 'MU') > 0) {
 * In version 1.3 will be added to the possibility of tying the event to a group<br />
 + Ability to limit the list of participants are allowed to create events</p>
 <p>* In version 1.5 will be added to the possibility of tying the event to your blog (s)</p> 
+</td>
+</tr>
+<tr>
+<td>
+<a name="translate"><h4>Translate</h4></a>
+<ol>
+<li><strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru">http://milordk.ru</a></li>
+</ol>
+<p>To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>
+<p>Please send your translations to milord_k @ mail.ru</p>
+</td>
+<td>
 </td>
 </tr>
 </table>

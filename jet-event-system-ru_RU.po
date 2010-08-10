@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jet Event System\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-06 16:08+0300\n"
+"POT-Creation-Date: 2010-08-10 17:04+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Alexandr\n"
 "Language-Team: Jettochkin <milord_k@mail.ru>\n"
@@ -67,9 +67,9 @@ msgid "Admin"
 msgstr "Управление"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:306
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1196
-msgid "Request Membership"
-msgstr "Запросы дружбы"
+#, fuzzy
+msgid "Request join to event"
+msgstr "Вы присоединились к событию!"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:311
 #, php-format
@@ -82,7 +82,7 @@ msgstr "Административные опции"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:350
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1004
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:343
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:343
 msgid "Delete Event"
 msgstr "Удалить событие"
 
@@ -408,56 +408,56 @@ msgstr ""
 msgid "Let's make some changes:"
 msgstr "Настройте Вашу систему:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:93
-msgid "Allow indexing of events search engines"
-msgstr "Разрешить индексмирование событий поисковыми системами"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:100
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:95
 msgid "Allow costum slug"
 msgstr "Разрешить настраиваемый slug"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:107
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:102
 msgid "Slug:"
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:114
-msgid "Deny access to events for unregistered users"
-msgstr "Запретить доступ к событиям для незарегистрированных пользователей"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:121
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:109
 msgid "Allow the use of classifiers through an administrative panel"
 msgstr "Разрешить использование классификатора настроенного в административной панели"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:128
-msgid "Prohibit non-administrators to create events (available since version 1.1.9)"
-msgstr "Запретить создание событий не администраторам (доступно с версии 1.1.9)"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:135
-msgid "Allow verification of events by the administrator (available since version 1.1.9)"
-msgstr "Разрешить подтверждения событий администратором (доступно с версии 1.1.9)"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:142
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:116
 msgid "Classification - 1"
 msgstr "Классификатор события - 1"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:148
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:122
 msgid "Classification - 2"
 msgstr "Классификатор события - 2"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:154
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:128
 msgid "Classification - 3"
 msgstr "Классификатор события - 3"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:160
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:134
 msgid "Classification - 4"
 msgstr "Классификатор события - 4"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:166
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:140
 #, fuzzy
 msgid "Classification - 5"
 msgstr "Классификатор события - 1"
 
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:149
+msgid "Prohibit non-administrators to create events (available since version 1.1.9)"
+msgstr "Запретить создание событий не администраторам (доступно с версии 1.1.9)"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:156
+msgid "Allow verification of events by the administrator (available since version 1.1.9)"
+msgstr "Разрешить подтверждения событий администратором (доступно с версии 1.1.9)"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:165
+msgid "Allow indexing of events search engines"
+msgstr "Разрешить индексмирование событий поисковыми системами"
+
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:172
+msgid "Deny access to events for unregistered users"
+msgstr "Запретить доступ к событиям для незарегистрированных пользователей"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:178
 msgid "Save Settings"
 msgstr "Сохранить настройки"
 
@@ -478,6 +478,11 @@ msgid ""
 "\n"
 "---------------------\n"
 msgstr ""
+"Детали события \"%s\" обновлены!\n"
+"\n"
+"Посмотреть событие: %s\n"
+"\n"
+"---------------------\n"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:29
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:77
@@ -508,11 +513,21 @@ msgid ""
 "\n"
 "---------------------\n"
 msgstr ""
+"%s хочет присоединиться к событию \"%s\".\n"
+"\n"
+"Так как Вы администратор события, требуется Ваше рассмотрение запроса.\n"
+"\n"
+"Для просмотра всех запросов, вы можете перейти по ссылке:\n"
+"%s\n"
+"\n"
+"Для просмотра профиля %s's: %s\n"
+"\n"
+"---------------------\n"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:110
 #, php-format
 msgid "Membership request for event \"%s\" accepted"
-msgstr ""
+msgstr "Запрос на присоединение к событию \"%s\" подтвержден"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:112
 #, php-format
@@ -523,11 +538,16 @@ msgid ""
 "\n"
 "---------------------\n"
 msgstr ""
+"Ваш запрос на присоединение к событию \"%s\" подтвержден.\n"
+"\n"
+"Для просмотра события пожалуйста зайдите и посетите: %s\n"
+"\n"
+"---------------------\n"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:120
 #, php-format
 msgid "Membership request for event \"%s\" rejected"
-msgstr ""
+msgstr "Запрос на присоединение к событию \"%s\" отклонен"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:122
 #, php-format
@@ -565,7 +585,7 @@ msgstr ""
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:214
 #, php-format
 msgid "You have an invitation to the event: \"%s\""
-msgstr ""
+msgstr "Вы имеете приглашение к участию в событии: \"%s\""
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-notifications.php:217
 #, php-format
@@ -673,7 +693,7 @@ msgid "This event has no administrators"
 msgstr "Данное событие без администраторов"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:854
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:254
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:254
 msgid "Promote to Admin"
 msgstr "Повысить до администратора"
 
@@ -707,25 +727,30 @@ msgstr "Покинуть событие"
 msgid "Join Event"
 msgstr "Присоединиться к событию"
 
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1196
+#, fuzzy
+msgid "Request join to Event"
+msgstr "Запрос отправлен"
+
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1198
 msgid "Request Sent"
 msgstr "Запрос отправлен"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1220
 msgid "This is a private event and you must request event membership in order to join."
-msgstr ""
+msgstr "Это приватное событие, Вы должны отправить запрос для присоединения"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1222
 msgid "This is a private event. To join you must be a registered site member and request event membership."
-msgstr ""
+msgstr "Это приватное событие. Вы должны быть зарегистрированным пользователем и отправить запрос для присоединения к событию"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1224
 msgid "This is a private event. Your membership request is awaiting approval from the event administrator."
-msgstr ""
+msgstr "Это приватное событие. Ваш запрос на участие в событии отправлен и ожидает рассмотрение со стороны администратора"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1226
 msgid "This is a hidden event and only invited members can join."
-msgstr ""
+msgstr "Это скрытое событие и только приглашенные пользователи могут к нему присоединиться"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:1528
 #, php-format
@@ -781,7 +806,7 @@ msgid "requested %s ago"
 msgstr "запрошено %s назад"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:31
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:33
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:30
 msgid "Soon"
 msgstr "Ближайшие"
 
@@ -798,12 +823,12 @@ msgid "Popular"
 msgstr "Популярные"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:73
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:31
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:31
 msgid "Archive event"
 msgstr "Прошедшее событие"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:75
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:33
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:33
 msgid "Active event"
 msgstr "Активное событие"
 
@@ -848,7 +873,7 @@ msgid "created %s ago"
 msgstr "создано %s назад"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:175
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/event-header.php:31
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/event-header.php:31
 #, php-format
 msgid "active %s ago"
 msgstr "активно %s назад"
@@ -857,522 +882,526 @@ msgstr "активно %s назад"
 msgid "No events matched the current filter."
 msgstr "Не найдены события с заданным фильтром"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:8
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:7
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:8
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:12
 msgid "Create a Event"
 msgstr "Создать событие"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:8
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:7
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:8
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:7
 msgid "Events Directory"
 msgstr "Каталог событий"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:31
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:20
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:7
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:31
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:20
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:7
 msgid "Base event details"
 msgstr "Основные детали события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:32
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:21
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:32
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:21
 msgid "* Event Name"
 msgstr "* Название события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:32
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:35
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:57
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:60
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:86
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:91
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:21
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:24
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:36
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:39
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:64
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:69
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:32
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:35
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:57
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:60
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:86
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:91
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:21
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:24
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:36
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:39
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:64
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:69
 msgid "(required)"
 msgstr "(обязательно)"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:35
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:24
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:35
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:24
 msgid "* Event classification"
 msgstr "* Классификатор события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:57
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:36
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:57
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:36
 msgid "* Event Description"
 msgstr "* Описание события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:60
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:39
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:60
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:39
 msgid "* Event Placed City"
 msgstr "* Город проведения события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:63
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:42
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:16
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:63
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:42
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:16
 msgid "Event Placed address"
 msgstr "Адрес проведения события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:67
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:46
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:21
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:67
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:46
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:21
 msgid "Special Conditions"
 msgstr "Специальные условия"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:69
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:48
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:23
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:69
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:48
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:23
 msgid "News for event"
 msgstr "Новости"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:70
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:49
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:24
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:70
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:49
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:24
 msgid "Event Public news"
 msgstr "Публичные новости"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:73
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:51
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:26
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:73
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:51
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:26
 msgid "Event Private news"
 msgstr "Новости для участников"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:85
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:63
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:32
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:85
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:63
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:32
 msgid "Date event"
 msgstr "Дата события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:86
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:64
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:86
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:64
 msgid "* Event Start date"
 msgstr "Дата время начала события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:91
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:69
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:91
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:69
 msgid "* Event End date"
 msgstr "Дата время окончания события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:115
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:91
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:115
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:91
 msgid "Enable comment wire"
 msgstr "Разрешить комментарии в сети"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:135
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:110
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:135
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:110
 msgid "Privacy Options"
 msgstr "Приватные опции"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:139
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:115
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:139
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:115
 msgid "This is a public event"
 msgstr "Это публичное событие"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:141
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:117
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:141
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:117
 msgid "Any site member can join this event."
 msgstr "Любой пользователь может присоединиться к этому событию"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:142
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:151
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:118
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:128
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:142
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:151
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:118
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:128
 msgid "This event will be listed in the events directory and in search results."
-msgstr ""
+msgstr "Данное событие показывается в Каталоге событий и участвует в поиске"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:143
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:119
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:143
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:119
 msgid "Event content and activity will be visible to any site member."
-msgstr ""
+msgstr "Контент события и его активность видны всем пользователям сайта"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:148
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:125
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:148
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:125
 msgid "This is a private event"
 msgstr "Это приватное событие"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:150
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:127
-msgid "Only users who request membership and are accepted can join the event."
-msgstr ""
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:150
+#, fuzzy
+msgid "Just send a request to join, users can join the event."
+msgstr "Любой пользователь может присоединиться к этому событию"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:152
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:161
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:129
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:139
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:152
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:161
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:129
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:139
 msgid "Event content and activity will only be visible to members of the event."
-msgstr ""
+msgstr "Контент события и активность видны только участникам события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:157
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:135
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:157
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:135
 msgid "This is a hidden event"
 msgstr "Это скрытое событие"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:159
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:137
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:159
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:137
 #, fuzzy
 msgid "Only users who are invited can join the event."
 msgstr "Любой пользователь может присоединиться к этому событию"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:160
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:138
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:160
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:138
 msgid "This event will not be listed in the events directory or search results."
-msgstr ""
+msgstr "Данное событие не показывается в Каталоге событий и не участвует в поиске"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:184
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:156
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:184
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:156
 msgid "Upload an image to use as an avatar for this event. The image will be shown on the main event page, and in search results."
 msgstr "Загрузить изображение для использования в качестве аватара для этого события. Изображение будет показано на главной странице события, и в результатах поиска."
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:188
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:160
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:188
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:160
 msgid "Upload Image"
 msgstr "Загрузить изображение"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:192
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:192
 msgid "To skip the avatar upload process, hit the \"Next Step\" button."
 msgstr "Для пропуска загрузки аватара, нажмите \"Следующий шаг\"."
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:199
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:199
 msgid "Crop Event Avatar"
 msgstr "Обрезать аватар события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:201
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:180
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:201
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:180
 msgid "Avatar to crop"
 msgstr "Обрезать аватар"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:204
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:183
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:204
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:183
 msgid "Avatar preview"
 msgstr "Предпрсмотр аватара"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:207
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:186
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:207
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:186
 msgid "Crop Image"
 msgstr "Обрезать изображение"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:245
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:245
 msgid "Select people to invite from your friends list."
-msgstr ""
+msgstr "Выберите людей для приглашения к событию из числа друзей"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:261
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:261
 msgid "Remove Invite"
 msgstr "Удалить приглашение"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:276
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:276
 msgid "Once you have built up friend connections you will be able to invite others to your event. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new event."
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:294
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:294
 msgid "Previous Step"
 msgstr "Предыдущий шаг"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:299
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:299
 msgid "Next Step"
 msgstr "Следующий шаг"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:304
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:304
 msgid "Create Event and Continue"
 msgstr "Создать событие и продолжить"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/create.php:309
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:309
 msgid "Finish"
 msgstr "Закончить"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:36
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:36
 msgid "Short description:"
 msgstr "Краткое описание"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:39
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:39
 msgid "The event will be held in the city:"
 msgstr "Событие будет проходить в городе: "
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:39
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:39
 msgid "at "
 msgstr "по адресу "
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:40
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:40
 msgid "From: "
 msgstr "C: "
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:40
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:40
 msgid "to: "
 msgstr "по: "
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:49
-msgid "Classification:"
-msgstr "Классификатор события:"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:51
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:51
 #, php-format
 msgid "Last activity:<br /> %s ago"
 msgstr "Последняя активность:<br /> %s назад"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/events-loop.php:68
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:68
 msgid "There were no events found."
 msgstr "Не найдены события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:17
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:18
 #, php-format
 msgid "All Events (%s)"
 msgstr "Все события (%s)"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:20
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:21
 #, php-format
 msgid "My Events (%s)"
 msgstr "Мои события (%s)"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:27
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:28
 msgid "Order By:"
 msgstr "Сортировка:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:29
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:31
 msgid "Last Active"
 msgstr "Последняя активность"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:30
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:32
 msgid "Most Members"
 msgstr "По количеству пользователей"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:31
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:33
 msgid "Newly Created"
 msgstr "Недавно созданные"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/index.php:32
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:34
 msgid "Alphabetical"
 msgstr "По алфавиту"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/activity.php:3
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/activity.php:3
 msgid "RSS"
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/activity.php:9
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/activity.php:9
 msgid "No Filter"
 msgstr "Без фильтра"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/activity.php:10
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/activity.php:10
 msgid "Show Updates"
 msgstr "Показать обновления"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/activity.php:13
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/activity.php:13
 msgid "Show New Forum Topics"
 msgstr "Показать новые топики форума"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/activity.php:14
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/activity.php:14
 msgid "Show Forum Replies"
 msgstr "Показать ответы"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/activity.php:17
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/activity.php:17
 #, fuzzy
 msgid "Show New Event Memberships"
 msgstr "Запросы дружбы"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:78
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:146
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:78
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:146
 msgid "Save Changes"
 msgstr "Сохранить изменения"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:165
-msgid "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button."
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:127
+msgid "Only users who request membership and are accepted can join the event."
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:168
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:165
+msgid "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button."
+msgstr "Если Вы хотите удалить существующий аватар и не добавлять новый, пожалуйста нажмите кнопку \"Delete avatar\""
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:168
 msgid "Delete Avatar"
 msgstr "Удалить аватар"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:178
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:178
 msgid "Crop Avatar"
 msgstr "Обрезать аватар"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:206
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:206
 msgid "Administrators"
 msgstr "Администраторы"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:213
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:213
 msgid "Moderators"
 msgstr "Модераторы"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:220
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:220
 msgid "Members"
 msgstr "Пользователя"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:248
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:248
 msgid "(banned)"
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:248
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:254
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:248
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:254
 msgid "Kick and ban this member"
 msgstr "Удалить и забанить пользователя"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:248
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:248
 msgid "Remove Ban"
 msgstr "Удалить бан"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:254
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:254
 msgid "Kick &amp; Ban"
 msgstr "Удалить и в бан"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:254
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:254
 msgid "Promote to Mod"
 msgstr "Повысить до модератора"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:267
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:267
 msgid "This event has no members."
 msgstr "Данное событие без участников."
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:298
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:298
 msgid "Accept"
 msgstr "Подтвердить"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:304
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:304
 msgid "Reject"
 msgstr "Отклонить"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:318
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:318
 #, fuzzy
 msgid "There are no pending membership requests."
 msgstr "Ошибка отправки приглашения, повторите"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:335
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:335
 msgid "WARNING: Deleting this event will completely remove ALL content associated with it. There is no way back, please be careful with this option."
 msgstr "ВНИМАНИЕ: Удаление этого события полностью удалит все содержание, связанное с ним. Пути назад не будет, пожалуйста, будьте осторожны с этой опцией!"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/admin.php:338
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:338
 msgid "I understand the consequences of deleting this event."
 msgstr "Я понимаю, последствия удаления этого события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:8
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:8
 msgid "Event Name"
 msgstr "Название события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:10
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:10
 msgid "Event classification"
 msgstr "Классификатор события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:12
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:12
 msgid "Event Description"
 msgstr "Описание события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:14
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:14
 msgid "Event Placed City"
 msgstr "Событие будет проходить в городе"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:33
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:33
 msgid "Event Start date"
 msgstr "Дата время начала события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/details.php:36
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:36
 msgid "Event End date"
 msgstr "Дата время окончания события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/event-header.php:6
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/event-header.php:6
 msgid "Event Admins"
 msgstr "Администраторы события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/event-header.php:14
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/event-header.php:14
 #, fuzzy
 msgid "Event Mods"
 msgstr "Модератор события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/event-header.php:37
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/event-header.php:37
 msgid "New Topic"
 msgstr "Новый топик"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum.php:29
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum.php:29
 msgid "You will auto join this event when you start a new topic."
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum.php:33
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum.php:33
 msgid "Post a New Topic:"
 msgstr "Разместить новый топик: "
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum.php:35
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum.php:35
 msgid "Title:"
 msgstr "Заголовок:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum.php:38
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum.php:38
 msgid "Content:"
 msgstr "Контент:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum.php:41
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum.php:41
 msgid "Tags (comma separated):"
 msgstr "Метки (через запятую):"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum.php:47
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum.php:47
 #, fuzzy
 msgid "Post Topic"
 msgstr "Разместить новый топик: "
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/request-membership.php:4
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/request-membership.php:4
 #, fuzzy, php-format
 msgid "You are requesting to become a member of the event '%s'."
 msgstr "%s запросов для события \"%s\""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/request-membership.php:7
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/request-membership.php:7
 msgid "Comments (optional)"
 msgstr "Комментарии (опционально)"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/request-membership.php:12
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/request-membership.php:12
 msgid "Send Request"
 msgstr "Отправить запрос"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/send-invites.php:60
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/send-invites.php:60
 msgid "Send Invites"
 msgstr "Отправить приглашения"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/edit.php:9
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:21
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/edit.php:9
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/topic.php:21
 msgid "Event Forum"
 msgstr "Форум события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/edit.php:9
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:21
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/edit.php:9
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/topic.php:21
 msgid "Event Forum Directory"
 msgstr "Каталог форумов события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/edit.php:24
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/edit.php:24
 msgid "Edit Topic:"
 msgstr "Редактировать топик:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/edit.php:46
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/edit.php:46
 msgid "Edit Post:"
 msgstr "Редактировать пост:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/edit.php:67
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/edit.php:67
 msgid "This topic does not exist."
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:42
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/topic.php:42
 #, php-format
 msgid "%s said %s ago:"
 msgstr "%s сказал %s назад:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:56
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/topic.php:56
 msgid "Permanent link to this post"
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:87
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/topic.php:87
 msgid "You will auto join this event when you reply to this topic."
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:92
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/topic.php:92
 msgid "Add a reply:"
 msgstr "Добавить ответ"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:97
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/topic.php:97
 msgid "Post Reply"
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:108
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/topic.php:108
 msgid "This topic is closed, replies are no longer accepted."
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/events/single/forum/topic.php:121
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/forum/topic.php:121
 msgid "There are no posts for this topic."
 msgstr "Отсутствуют записи для данного топика"
 
+#~ msgid "Classification:"
+#~ msgstr "Классификатор события:"
+#~ msgid "Request Membership"
+#~ msgstr "Запросы дружбы"
 #~ msgid "Support this system"
 #~ msgstr "Поддержка"
 #~ msgid "Enable discussion forum"
