@@ -87,7 +87,7 @@ if (stripos($blogversion, 'MU') > 0) {
 	<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y" />
 
 		<h3><?php _e( "Let's make some changes:", 'jet-event-system' ) ?></h3>
-		<p><a href="#base-options">Base Options</a> , <a href="#restrict-options">Restrict options</a> , <a href="#privacy-options">Privacy options</a> , <a href="#support">Support</a> , <a href="#translate">Translate</a> , <a href="#future">Future</a> , <a href="#donations">Donations</a></p>
+		<p><a href="#base-options" class="button">Base Options</a> <a href="#restrict-options" class="button">Restrict options</a> <a href="#privacy-options" class="button">Privacy options</a> <a href="#support" class="button">Support</a> <a href="#translate" class="button">Translate</a> <a href="#future" class="button">Future</a> <a href="#donations" class="button">Donations</a></p>
 		<table class="form-table">
 		<tr valign="top"><td><a name="base-options"><h4>Base options</h4></a></td></tr>
 
