@@ -87,7 +87,7 @@ if (stripos($blogversion, 'MU') > 0) {
 	<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y" />
 
 		<h3><?php _e( "Let's make some changes:", 'jet-event-system' ) ?></h3>
-		<p><a href="#base-options">Base Options</a> , <a href="#restrict-options">Restrict options</a> , <a href="#privacy-options">Privacy options</a> , <a href="#support">Support</a> , <a href="#translate">Translate</a></p>
+		<p><a href="#base-options">Base Options</a> , <a href="#restrict-options">Restrict options</a> , <a href="#privacy-options">Privacy options</a> , <a href="#support">Support</a> , <a href="#translate">Translate</a> , <a href="#future">Future</a> , <a href="#donations">Donations</a></p>
 		<table class="form-table">
 		<tr valign="top"><td><a name="base-options"><h4>Base options</h4></a></td></tr>
 
@@ -182,9 +182,9 @@ if (stripos($blogversion, 'MU') > 0) {
 <a name="support"><h4>Support</h4></a>
 <p><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html">About</a><br />
 <a href="http://jes.milordk.ru">Website Developer</a><br />
-<h4>Donations:</h4>
+<a name="donations"><h4>Donations:</h4></a>
 <em>WMZ</em>: <strong>Z113010060388</strong> / <em>WMR</em>: <strong>R144831580346</strong><br />(please specify in the designation of the site and name:) All who have made a contribution to the development of plug-in will be included in honor roll, as well as gain access to additional modules!)<br /><br /></p>
-<h4>Future</h4>
+<a name="future"><h4>Future</h4></a>
 <p>* In version 1.2 will be added ability to display current events as a widget and the directory</p>
 * In version 1.3 will be added to the possibility of tying the event to a group<br />
 + Ability to limit the list of participants are allowed to create events</p>
@@ -197,7 +197,7 @@ if (stripos($blogversion, 'MU') > 0) {
 <ol>
 <li><strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru">http://milordk.ru</a></li>
 </ol>
-<p>To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>
+<p><br />To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>
 <p>Please send your translations to milord_k @ mail.ru</p>
 </td>
 <td>
