@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jet Event System\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-10 17:04+0300\n"
+"POT-Creation-Date: 2010-08-10 17:23+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Alexandr\n"
 "Language-Team: Jettochkin <milord_k@mail.ru>\n"
@@ -417,8 +417,8 @@ msgid "Slug:"
 msgstr ""
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:109
-msgid "Allow the use of classifiers through an administrative panel"
-msgstr "Разрешить использование классификатора настроенного в административной панели"
+msgid "Allow the use of classifiers through an administrative panel (unless you want to use some or classifier - leave his field blank)"
+msgstr "Разрешить использование классификатора настроенного в административной панели (если не хотите использовать какой либо классификатор - оставьте его поле пустым)"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:116
 msgid "Classification - 1"
