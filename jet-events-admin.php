@@ -201,18 +201,13 @@ if (stripos($blogversion, 'MU') > 0) {
 * In version 1.3 will be added to the possibility of tying the event to a group<br />
 + Ability to limit the list of participants are allowed to create events</p>
 <p>* In version 1.5 will be added to the possibility of tying the event to your blog (s)</p> 
-</td>
-</tr>
-<tr>
-<td>
+
 <a name="translate"><h4>Translate</h4></a>
 <ol>
 <li><strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru">http://milordk.ru</a></li>
 </ol>
 <p><br />To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>
 <p>Please send your translations to milord_k @ mail.ru</p>
-</td>
-<td>
 </td>
 </tr>
 </table>
