@@ -19,7 +19,7 @@
 		$showevent = 1;
 		$edata = get_option( 'jes_events' );
 		$eshowevent = $edata[ 'jes_events_addnavicatalog_disable' ];
-		if ( $eshowevent )
+		if ( !$eshowevent )
 				{ ?>
 			<div id="message" class="info">
 				<p><?php _e('Private events are not shown, register to view','jet-event-system'); ?></p>
