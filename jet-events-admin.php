@@ -9,6 +9,7 @@ function jes_event_admin() {
 		$jes_events[ 'jes_events_code_index' ] = 0;
 		$jes_events[ 'jes_events_costumslug_enable' ] = 0;
 		$jes_events[ 'jes_events_addnavi_disable' ] = 0;
+		$jes_events[ 'jes_events_addnavicatalog_disable' ] = 0;
 		$jes_events[ 'jes_events_createnonadmin_disable' ] = 0;
 		$jes_events[ 'jes_events_adminapprove_enable' ] = 0;
 
@@ -23,6 +24,9 @@ function jes_event_admin() {
 
 		if ( $_POST[ 'jes_events_addnavi_disable' ] == 1 ) 
 			$jes_events[ 'jes_events_addnavi_disable' ] = 1;	
+
+		if ( $_POST[ 'jes_events_addnavicatalog_disable' ] == 1 ) 
+			$jes_events[ 'jes_events_addnavicatalog_disable' ] = 1;
 			
 		if ( $_POST[ 'jes_events_createnonadmin_disable' ] == 1 ) 
 			$jes_events[ 'jes_events_createnonadmin_disable' ] = 1;
@@ -173,8 +177,16 @@ if (stripos($blogversion, 'MU') > 0) {
 				<td>
 					<input name="jes_events_addnavi_disable" type="checkbox" id="jes_events_addnavi_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_addnavi_disable' ] ? ' checked="checked"' : '' ); ?> />
 				</td>
-			</tr>					
-		</table>
+			</tr>
+			
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_addnavi_disable"><?php _e( 'Show private events in the catalog for unregistered users (in the cases allow access to events)', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_addnavicatalog_disable" type="checkbox" id="jes_events_addnavicatalog_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_addnavicatalog_disable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>
+			
+</table>
 	<p align="center" class="submit"><input type="submit" name="submit" value="<?php _e( 'Save Settings', 'jes-event-system' ) ?>"/></p>
 	</form>
 </td>

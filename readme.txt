@@ -1,9 +1,10 @@
 === Jet Event System for BuddyPress ===
 Contributors: Jettochkin
 Donate link: http://milordk.ru/uslugi.html
-Plugin link: http://milordk.ru/
+Plugin link: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
+Authoe link: http://milordk.ru/
 Tags: BuddyPress, Wordpress MU, meta, members, widget
-Requires at least: Wordpress MU 3.0, BuddyPress 1.2.5
+Requires at least: Wordpress 3.0, BuddyPress 1.2.5
 Tested up to: Wordpress 3.0.1, BuddyPress 1.2.5.2
 Stable tag: trunk
 
@@ -51,6 +52,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+= 1.1.7.8 =
+* Fixed problem barring access to events for unregistered users (the settings in the admin panel worked the other way around).  (Thank lolodev)
+* Added ability to restrict viewing of private events in the catalog for unregistered users.
+
 = 1.1.7.7 = 
 * Small changes in the subject and in the administrative part
 

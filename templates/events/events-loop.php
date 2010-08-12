@@ -15,10 +15,24 @@
 		</div>
 
 	</div>
-
+<?php 
+		$showevent = 1;
+		$edata = get_option( 'jes_events' );
+		$eshowevent = $edata[ 'jes_events_addnavicatalog_disable' ];
+		if ( $eshowevent )
+				{ ?>
+			<div id="message" class="info">
+				<p><?php _e('Private events are not shown, register to view','jet-event-system'); ?></p>
+			</div>
+		<?php	} ?>	
 	<ul id="events-list" class="item-list">
-	<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 
+	<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
+	<?php 
+		$er = jes_bp_get_event_type();
+		if ( ( !is_user_logged_in() and !$eshowevent and $er == 'Private Event' ) { $showevent = 0; } else { $showevent = 1; } ?>
+	<?php if ( $showevent )
+				{ ?>
 		<li>
 			<div class="item-avatar">
 				<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width=50&height=50' ) ?></a>
@@ -56,7 +70,7 @@
 
 			<div class="clear"></div>
 		</li>
-
+<?php } ?>
 	<?php endwhile; ?>
 	</ul>
 
