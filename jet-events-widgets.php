@@ -76,7 +76,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 				<em><span style="color : #33CC00; font-size: 80%;"><?php _e('Active event','jet-event-system') ?></span></em>
 <?php } ?>	
 <?php if ($show_type) { ?>
-<span style="font-size:80%;"><?php jes_bp_event_type ?>, <strong><?php jes_bp_event_etype() ?></strong></span>
+<br /><span style="font-size:80%;"><?php jes_bp_event_type() ?>, <strong><?php jes_bp_event_etype() ?></strong></span>
 <?php } ?>
 					</div>
 
