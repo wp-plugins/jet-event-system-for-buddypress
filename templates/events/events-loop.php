@@ -30,7 +30,7 @@
 	<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 	<?php 
 		$er = jes_bp_get_event_type();
-		if ( ( !is_user_logged_in() and !$eshowevent and $er == 'Private Event' ) { $showevent = 0; } else { $showevent = 1; } ?>
+		if ( !is_user_logged_in() and !$eshowevent and $er == 'Private Event' ) { $showevent = 0; } else { $showevent = 1; } ?>
 	<?php if ( $showevent )
 				{ ?>
 		<li>

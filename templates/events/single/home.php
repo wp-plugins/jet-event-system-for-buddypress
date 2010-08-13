@@ -36,7 +36,7 @@
 					<?php locate_template( array( 'events/single/forum.php' ), true ) ?>
 
 				<?php elseif ( bp_is_event_membership_request() ) : ?>
-					<?php locate_template( array( 'events/single/request-membership.php' ), true ) ?>
+					<?php locate_template( array( 'events/single/request-join-to-event.php' ), true ) ?>
 
 				<?php elseif ( jes_bp_event_is_visible() && bp_is_active( 'activity' ) ) : ?>
 					<?php locate_template( array( 'events/single/details.php' ), true ) ?>

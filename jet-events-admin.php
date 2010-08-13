@@ -205,6 +205,7 @@ if (stripos($blogversion, 'MU') > 0) {
 <a name="translate"><h4>Translate</h4></a>
 <ol>
 <li><strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru">http://milordk.ru</a></li>
+<li><strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/">http://www.paysterresdelorraine.com/</a></li>
 </ol>
 <p><br />To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>
 <p>Please send your translations to milord_k @ mail.ru</p>

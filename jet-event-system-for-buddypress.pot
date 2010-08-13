@@ -1308,16 +1308,16 @@ msgstr ""
 msgid "There are no posts for this topic."
 msgstr ""
 
-#: templates/events/single/request-membership.php:4
+#: templates/events/single/request-join-to-event.php:4
 #, php-format
 msgid "You are requesting to become a member of the event '%s'."
 msgstr ""
 
-#: templates/events/single/request-membership.php:7
+#: templates/events/single/request-join-to-event.php:7
 msgid "Comments (optional)"
 msgstr ""
 
-#: templates/events/single/request-membership.php:12
+#: templates/events/single/request-join-to-event.php:12
 msgid "Send Request"
 msgstr ""
 

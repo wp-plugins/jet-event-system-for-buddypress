@@ -3,7 +3,7 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1.7.8
+Version: 1.1.7.9
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
@@ -175,7 +175,7 @@ function jes_events_setup_globals() {
 	/* Register this in the active components array */
 	$bp->active_components[$bp->jes_events->slug] = $bp->jes_events->id;
 
-	$bp->jes_events->forbidden_names = apply_filters( 'events_forbidden_names', array( 'my-events', 'create', 'invites', 'send-invites', 'forum', 'delete', 'add', 'admin', 'request-membership', 'members', 'settings', 'avatar', JES_SLUG ) );
+	$bp->jes_events->forbidden_names = apply_filters( 'events_forbidden_names', array( 'my-events', 'create', 'invites', 'send-invites', 'forum', 'delete', 'add', 'admin', 'request-join-to-event', 'members', 'settings', 'avatar', JES_SLUG ) );
 
 	$bp->jes_events->event_creation_steps = apply_filters( 'events_create_event_steps', array(
 		'event-details' => array( 'name' => __( 'Details', 'jet-event-system' ), 'position' => 0 ),
@@ -303,7 +303,7 @@ function events_setup_nav() {
 
 			// If this is a private event, and the user is not a member, show a "Request Membership" nav item.
 			if ( !is_site_admin() && is_user_logged_in() && !$bp->jes_events->current_event->is_user_member && !events_jes_check_for_membership_request( $bp->loggedin_user->id, $bp->jes_events->current_event->id ) && $bp->jes_events->current_event->status == 'private' )
-				bp_core_new_subnav_item( array( 'name' => __( 'Request join to event', 'jet-event-system' ), 'slug' => 'request-membership', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_request_membership', 'position' => 30 ) );
+				bp_core_new_subnav_item( array( 'name' => __( 'Request join to event', 'jet-event-system' ), 'slug' => 'request-join-to-event', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_request_membership', 'position' => 30, 'item_css_id' => 'request-join-to-event'  ) );
 
 		/*	if ( $bp->jes_events->current_event->enable_forum && function_exists('bp_forums_setup') )
 				bp_core_new_subnav_item( array( 'name' => __( 'Forum', 'jet-event-system' ), 'slug' => 'forum', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_forum', 'position' => 40, 'user_has_access' => $bp->jes_events->current_event->user_has_access, 'item_css_id' => 'forums' ) );
@@ -2063,7 +2063,7 @@ function events_send_membership_request( $requesting_user_id, $event_id ) {
 	$requesting_user->user_title = '';
 	$requesting_user->date_modified = gmdate( "Y-m-d H:i:s" );
 	$requesting_user->is_confirmed = 0;
-	$requesting_user->comments = $_POST['event-request-membership-comments'];
+	$requesting_user->comments = $_POST['event-request-join-to-event-comments'];
 
 	if ( $requesting_user->save() ) {
 		$admins = events_get_event_admins( $event_id );

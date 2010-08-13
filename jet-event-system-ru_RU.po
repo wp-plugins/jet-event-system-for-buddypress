@@ -1330,16 +1330,16 @@ msgstr "Метки (через запятую):"
 msgid "Post Topic"
 msgstr "Разместить новый топик: "
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/request-membership.php:4
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/request-join-to-event.php:4
 #, fuzzy, php-format
 msgid "You are requesting to become a member of the event '%s'."
 msgstr "%s запросов для события \"%s\""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/request-membership.php:7
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/request-join-to-event.php:7
 msgid "Comments (optional)"
 msgstr "Комментарии (опционально)"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/request-membership.php:12
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/request-join-to-event.php:12
 msgid "Send Request"
 msgstr "Отправить запрос"
 

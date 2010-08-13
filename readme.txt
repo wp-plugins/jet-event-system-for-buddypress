@@ -19,7 +19,7 @@ The plugin is in testing, may not operate some features! Please give your sugges
 ru: Система событий для Вашей социальной сети. Возможность привлекать участников сети к проводимым мероприятиям. 
 Плагин находится в стадии тестирования, могут не работать некоторые функции! Просьба высказывать свои предложения по новым функциям и улучшению уже существующих. Просьба не удалять ссылки на разработчика (для статистики установок)
 
-Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://volks-wagen-club.ru">Volkswagen Club</a> (Please do not create events on these sites! Use the jes.milordk.ru)
+Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://volks-wagen-club.ru">Volkswagen Club</a> (Please do not create events on these sites! Use the <a href="http://jes.milordk.ru">jes.milordk.ru</a>)
 
 
 <a href="http://jes.milordk.ru">Official website of the plugin</a> (You can register and create events, thereby testing the latest version of plug-ins under development)
@@ -31,7 +31,7 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://v
 2. Transfer the contents of the folder Templates (events, members) in the folder you are using threads (default: / plugins / buddypress / bp-themes / bp-default) - MUST!
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Add widget to site (if needed)
-5. See Events Catalog: http://<yousite>/events
+5. See Events Catalog: http://<\yousite\>/events
 
 
 == Screenshots ==
@@ -52,6 +52,12 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.1.7.9 =
+* Fix Events Catalog template (need copy folders from templates!)
+* Small changes in the code
+* Added French translation, thanks Laurent Hermann
+
 = 1.1.7.8 =
 * Fixed problem barring access to events for unregistered users (the settings in the admin panel worked the other way around).  (Thank lolodev)
 * Added ability to restrict viewing of private events in the catalog for unregistered users.

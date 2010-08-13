@@ -1193,7 +1193,7 @@ function bp_event_join_button( $event = false ) {
 				echo '<a class="leave-event" href="' . wp_nonce_url( jes_bp_get_event_permalink( $event ) . 'leave-event', 'events_leave_event' ) . '">' . __( 'Leave Event', 'jet-event-system' ) . '</a>';
 			} else {
 				if ( !bp_event_has_requested_membership( $event ) )
-					echo '<a class="request-membership" href="' . wp_nonce_url( jes_bp_get_event_permalink( $event ) . 'request-membership', 'events_request_membership' ) . '">' . __('Request join to Event', 'jet-event-system') . '</a>';
+					echo '<a class="request-join-to-event" href="' . wp_nonce_url( jes_bp_get_event_permalink( $event ) . 'request-join-to-event', 'events_request_membership' ) . '">' . __('Request join to Event', 'jet-event-system') . '</a>';
 				else
 					echo '<a class="membership-requested" href="' . jes_bp_get_event_permalink( $event ) . '">' . __( 'Request Sent', 'jet-event-system' ) . '</a>';
 			}
@@ -2409,7 +2409,7 @@ function bp_is_event_invite_jes() {
 function bp_is_event_membership_request() {
 	global $bp;
 
-	if ( JES_SLUG == $bp->current_component && 'request-membership' == $bp->current_action )
+	if ( JES_SLUG == $bp->current_component && 'request-join-to-event' == $bp->current_action )
 		return true;
 
 	return false;
