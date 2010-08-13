@@ -495,7 +495,7 @@ function events_screen_event_request_membership() {
 		// If the user has submitted a request, send it.
 		if ( isset( $_POST['event-request-send']) ) {
 			/* Check the nonce first. */
-			if ( !check_admin_referer( 'events_request_membership' ) )
+			if ( !check_admin_referer( 'events_request_join_to_event' ) )
 				return false;
 
 			if ( !events_send_membership_request( $bp->loggedin_user->id, $bp->jes_events->current_event->id ) ) {

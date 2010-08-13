@@ -17,6 +17,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 		   . $after_title; 
 	$data = get_option( 'jes_events' );
 	$show_navi = $instance['show_navi'];
+	$show_type = $instance['show_type'];
 	$showonlyadmin = $instance['showonlyadmin'];
 	$archive_color = $instance['archive_color'];  ?>
 
@@ -70,19 +71,22 @@ class JES_BP_Events_Widget extends WP_Widget {
 								<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
 							</div>
 <?php if ( $check_keydate ) { ?>
-				<em><span style="color : #<?php echo $archive_color ?>;"><?php _e('Archive event','jet-event-system') ?></span></em>
+				<em><span style="color : #<?php echo $archive_color ?>; font-size: 80%;"><?php _e('Archive event','jet-event-system') ?></span></em>
 <?php } else { ?>
-				<em><span style="color : #33CC00;"><?php _e('Active event','jet-event-system') ?></span></em>
-<?php } ?>				
-						</div>
+				<em><span style="color : #33CC00; font-size: 80%;"><?php _e('Active event','jet-event-system') ?></span></em>
+<?php } ?>	
+<?php if ($show_type) {
+<span style="font-size:80%"><?php jes_bp_event_type ?>, <strong><?php jes_bp_event_etype() ?></strong></span>
+<?php } ?>
+					</div>
 
-						<div class="item">
+					<div class="item">
 
-							<div style="font-size:85%;">
+						<div style="font-size:85%;">
 								<span><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>,<br /><?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?><br /><?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?></span>
-							</div>
 						</div>
-					</li>
+					</div>
+				</li>
 			<?php } ?>
 				<?php endwhile; ?>
 			</ul>
@@ -107,6 +111,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 		$instance = $old_instance;
 		$instance['max_events'] = strip_tags( $new_instance['max_events'] );
 		$instance['show_navi'] = strip_tags( $new_instance['show_navi'] );
+		$instance['show_type'] = strip_tags( $new_instance['show_type'] );
 		$instance['showonlyadmin'] = strip_tags( $new_instance['showonlyadmin'] );		
 		$instance['archive_color'] = strip_tags( $new_instance['archive_color'] );
 		return $instance;
@@ -116,16 +121,21 @@ class JES_BP_Events_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array( 'max_events' => 5 ) );
 		$max_events = strip_tags( $instance['max_events'] );
 		$show_navi = $instance['show_navi'];
+		$show_navi = $instance['show_type'];
 		$showonlyadmin = $instance['showonlyadmin'];
 		$archive_color = strip_tags( $instance['archive_color'] );		
 		?>
 
 		<p><label for="<?php echo $this->get_field_id('max_events'); ?>"><?php _e('Max events to show:', 'jet-event-system'); ?> 
 		<input id="<?php echo $this->get_field_id( 'max_events' ); ?>" name="<?php echo $this->get_field_name( 'max_events' ); ?>" type="text" value="<?php echo attribute_escape( $max_events ); ?>" style="width: 30%" /></label></p>
-<p><label for="<?php echo $this->get_field_id('show_navi'); ?>"><?php _e('Show navigation:', 'jet-event-system'); ?>
+
+		<p><label for="<?php echo $this->get_field_id('show_navi'); ?>"><?php _e('Show navigation:', 'jet-event-system'); ?>
 		<input class="checkbox" type="checkbox" <?php if ($show_navi) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('show_navi'); ?>" name="<?php echo $this->get_field_name('show_navi'); ?>" value="1" /></label></p>	
+
+		<p><label for="<?php echo $this->get_field_id('show_type'); ?>"><?php _e('Show type of event and its Classification:', 'jet-event-system'); ?>
+		<input class="checkbox" type="checkbox" <?php if ($show_type) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('show_type'); ?>" name="<?php echo $this->get_field_name('show_type'); ?>" value="1" /></label></p>	
 		
-<p><label for="<?php echo $this->get_field_id('showonlyadmin'); ?>"><?php _e('Show archived events only for administrator:', 'jet-event-system'); ?>
+		<p><label for="<?php echo $this->get_field_id('showonlyadmin'); ?>"><?php _e('Show archived events only for administrator:', 'jet-event-system'); ?>
 		<input type="checkbox" <?php if ($showonlyadmin) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('showonlyadmin'); ?>" name="<?php echo $this->get_field_name('showonlyadmin'); ?>" value="1" /></label></p>	
 		
 		<p><label for="<?php echo $this->get_field_id('archive_color'); ?>"><?php _e('Color to archive events:', 'jet-event-system'); ?> <input id="<?php echo $this->get_field_id( 'archive_color' ); ?>" name="<?php echo $this->get_field_name( 'archive_color' ); ?>" type="text" value="<?php echo attribute_escape( $archive_color ); ?>" style="width: 30%" /></label></p>		

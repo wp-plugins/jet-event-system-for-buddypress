@@ -11,7 +11,7 @@
 
 		<p><input type="submit" name="event-request-send" id="event-request-send" value="<?php _e( 'Send Request', 'jet-event-system' ) ?> &rarr;" />
 
-		<?php wp_nonce_field( 'events_request_membership' ) ?>
+		<?php wp_nonce_field( 'events_request_join_to_event' ) ?>
 	</form><!-- #request-join-to-event-form -->
 <?php endif; ?>
 
