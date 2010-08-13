@@ -86,7 +86,7 @@ if (stripos($blogversion, 'MU') > 0) {
 	<h4>version 1.1 build 7</h4>
 <table>
 <tr valign="top">
-<td width="70%">
+<td width="60%">
 	<form action="<?php echo site_url() . '/wp-admin/admin.php?page=jes-event-admin' ?>" name="jes_events_form" id="jes_events_form" method="post">
 	<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y" />
 
