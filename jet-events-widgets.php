@@ -121,7 +121,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array( 'max_events' => 5 ) );
 		$max_events = strip_tags( $instance['max_events'] );
 		$show_navi = $instance['show_navi'];
-		$show_navi = $instance['show_type'];
+		$show_type = $instance['show_type'];
 		$showonlyadmin = $instance['showonlyadmin'];
 		$archive_color = strip_tags( $instance['archive_color'] );		
 		?>
