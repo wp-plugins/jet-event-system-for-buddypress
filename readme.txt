@@ -53,7 +53,7 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
-= 1.1.7.9 =
+= 1.1.8 =
 * Fix Events Catalog template (need copy folders from templates!)
 * Small changes in the code
 * Added French translation, thanks Laurent Hermann

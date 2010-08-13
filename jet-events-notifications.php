@@ -184,7 +184,7 @@ To view the event please visit: %s
 }
 add_action( 'events_promoted_member', 'events_notification_promoted_member', 10, 2 );
 
-function events_notification_event_invite_jes( &$event, &$member, $inviter_user_id ) {
+function events_notification_jes_event_invite_jes( &$event, &$member, $inviter_user_id ) {
 	global $bp;
 
 	$inviter_ud = bp_core_get_core_userdata( $inviter_user_id );
@@ -197,7 +197,7 @@ function events_notification_event_invite_jes( &$event, &$member, $inviter_user_
 		$invited_user_id = $member->user_id;
 
 		// Post a screen notification first.
-		bp_core_add_notification( $event->id, $invited_user_id, 'events', 'event_invite' );
+		bp_core_add_notification( $event->id, $invited_user_id, 'events', 'jes_event_invite' );
 
 		if ( 'no' == get_usermeta( $invited_user_id, 'notification_events_invite' ) )
 			return false;
@@ -228,9 +228,9 @@ To view %s\'s profile visit: %s
 		$message .= sprintf( __( 'To disable these notifications please log in and go to: %s', 'jet-event-system' ), $settings_link );
 
 		/* Send the message */
-		$to = apply_filters( 'events_notification_event_invites_to', $to );
-		$subject = apply_filters( 'events_notification_event_invites_subject', $subject, &$event );
-		$message = apply_filters( 'events_notification_event_invites_message', $message, &$event, $inviter_name, $inviter_link, $invites_link, $event_link );
+		$to = apply_filters( 'events_notification_jes_event_invites_to', $to );
+		$subject = apply_filters( 'events_notification_jes_event_invites_subject', $subject, &$event );
+		$message = apply_filters( 'events_notification_jes_event_invites_message', $message, &$event, $inviter_name, $inviter_link, $invites_link, $event_link );
 
 		wp_mail( $to, $subject, $message );
 	}

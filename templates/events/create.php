@@ -224,14 +224,14 @@
 				<?php /* Event creation step 4: Invite friends to event */ ?>
 				<?php if ( bp_is_event_creation_step( 'event-invites' ) ) : ?>
 
-					<?php do_action( 'bp_before_event_invites_creation_step' ); ?>
+					<?php do_action( 'bp_before_jes_event_invites_creation_step' ); ?>
 
 					<?php if ( function_exists( 'bp_get_total_friend_count' ) && bp_get_total_friend_count( bp_loggedin_user_id() ) ) : ?>
 						<div class="left-menu">
 
 							<div id="invite-list">
 								<ul>
-									<?php bp_new_event_invite_friend_list() ?>
+									<?php bp_new_jes_event_invite_friend_list() ?>
 								</ul>
 
 								<?php wp_nonce_field( 'events_invite_uninvite_user', '_wpnonce_invite_uninvite_user' ) ?>
@@ -249,16 +249,16 @@
 							<ul id="friend-list" class="item-list">
 							<?php if ( bp_event_has_invite_jes() ) : ?>
 
-								<?php while ( bp_event_invite_jes() ) : bp_event_the_invite(); ?>
+								<?php while ( bp_jes_event_invite_jes() ) : bp_event_the_invite(); ?>
 
-									<li id="<?php bp_event_invite_item_id() ?>">
-										<?php bp_event_invite_user_avatar() ?>
+									<li id="<?php bp_jes_event_invite_item_id() ?>">
+										<?php bp_jes_event_invite_user_avatar() ?>
 
-										<h4><?php bp_event_invite_user_link() ?></h4>
-										<span class="activity"><?php bp_event_invite_user_last_active() ?></span>
+										<h4><?php bp_jes_event_invite_user_link() ?></h4>
+										<span class="activity"><?php bp_jes_event_invite_user_last_active() ?></span>
 
 										<div class="action">
-											<a class="remove" href="<?php bp_event_invite_user_remove_invite_url() ?>" id="<?php bp_event_invite_item_id() ?>"><?php _e( 'Remove Invite', 'jet-event-system' ) ?></a>
+											<a class="remove" href="<?php bp_jes_event_invite_user_remove_invite_url() ?>" id="<?php bp_jes_event_invite_item_id() ?>"><?php _e( 'Remove Invite', 'jet-event-system' ) ?></a>
 										</div>
 									</li>
 
@@ -279,7 +279,7 @@
 					<?php endif; ?>
 
 					<?php wp_nonce_field( 'events_create_save_event-invites' ) ?>
-					<?php do_action( 'bp_after_event_invites_creation_step' ); ?>
+					<?php do_action( 'bp_after_jes_event_invites_creation_step' ); ?>
 
 				<?php endif; ?>
 

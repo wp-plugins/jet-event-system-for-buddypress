@@ -3,14 +3,14 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1.7.9
+Version: 1.1.8
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
 Network: true
 */
 
-define('Jet Events System', '1.1.7');
+define('Jet Events System', '1.1.8');
 define ('JES_EVENTS_DB_VERSION', '1.2');
 
 /* Define the slug for the component */
@@ -310,10 +310,10 @@ function events_setup_nav() {
 */
 			bp_core_new_subnav_item( array( 'name' => sprintf( __( 'Members (%s)', 'jet-event-system' ), number_format( $bp->jes_events->current_event->total_member_count ) ), 'slug' => 'members', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_members', 'position' => 60, 'user_has_access' => $bp->jes_events->current_event->user_has_access, 'item_css_id' => 'members'  ) );
 
-//			if ( is_user_logged_in() && events_is_user_member( $bp->loggedin_user->id, $bp->jes_events->current_event->id ) ) {
-//				if ( function_exists('friends_install') )
-//					bp_core_new_subnav_item( array( 'name' => __( 'Send Invites', 'jet-event-system' ), 'slug' => 'send-invites', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_invite', 'item_css_id' => 'invite', 'position' => 70, 'user_has_access' => $bp->jes_events->current_event->user_has_access ) );
-//			}
+			if ( is_user_logged_in() && events_is_user_member( $bp->loggedin_user->id, $bp->jes_events->current_event->id ) ) {
+				if ( function_exists('friends_install') )
+					bp_core_new_subnav_item( array( 'name' => __( 'Send Invites', 'jet-event-system' ), 'slug' => 'send-invites', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_jes_event_invite', 'item_css_id' => 'invite', 'position' => 70, 'user_has_access' => $bp->jes_events->current_event->user_has_access ) );
+			}
 		}
 	}
 
@@ -381,7 +381,7 @@ function events_screen_my_events() {
 	bp_core_load_template( apply_filters( 'events_template_my_events', 'members/single/home' ) );
 }
 
-function events_screen_event_invite_jes() {
+function events_screen_jes_event_invite_jes() {
 	global $bp;
 
 	$event_id = $bp->action_variables[1];
@@ -423,11 +423,11 @@ function events_screen_event_invite_jes() {
 	}
 
 	// Remove notifications
-	bp_core_delete_notifications_for_user_by_type( $bp->loggedin_user->id, $bp->jes_events->id, 'event_invite' );
+	bp_core_delete_notifications_for_user_by_type( $bp->loggedin_user->id, $bp->jes_events->id, 'jes_event_invite' );
 
-	do_action( 'events_screen_event_invites', $event_id );
+	do_action( 'events_screen_jes_event_invites', $event_id );
 
-	bp_core_load_template( apply_filters( 'events_template_event_invites', 'members/single/home' ) );
+	bp_core_load_template( apply_filters( 'events_template_jes_event_invites', 'members/single/home' ) );
 }
 
 function events_screen_event_home() {
@@ -461,7 +461,7 @@ function events_screen_event_members() {
 	}
 }
 
-function events_screen_event_invite() {
+function events_screen_jes_event_invite() {
 	global $bp;
 
 	if ( $bp->is_single_item ) {
@@ -475,12 +475,12 @@ function events_screen_event_invite() {
 
 			bp_core_add_message( __('Event invites sent.', 'jet-event-system') );
 
-			do_action( 'events_screen_event_invite', $bp->jes_events->current_event->id );
+			do_action( 'events_screen_jes_event_invite', $bp->jes_events->current_event->id );
 
 			bp_core_redirect( jes_bp_get_event_permalink( $bp->jes_events->current_event ) );
 		} else {
 			// Show send invite page
-			bp_core_load_template( apply_filters( 'events_template_event_invite', 'events/single/home' ) );
+			bp_core_load_template( apply_filters( 'events_template_jes_event_invite', 'events/single/home' ) );
 		}
 	}
 }
@@ -499,9 +499,9 @@ function events_screen_event_request_membership() {
 				return false;
 
 			if ( !events_send_membership_request( $bp->loggedin_user->id, $bp->jes_events->current_event->id ) ) {
-				bp_core_add_message( __( 'There was an error sending your event membership request, please try again.', 'jet-event-system' ), 'error' );
+				bp_core_add_message( __( 'There was an error sending your join event request, please try again.', 'jet-event-system' ), 'error' );
 			} else {
-				bp_core_add_message( __( 'Your membership request was sent to the event administrator successfully. You will be notified when the event administrator responds to your request.', 'jet-event-system' ) );
+				bp_core_add_message( __( 'Your request to join was sent to the event administrator successfully. You will be notified when the event administrator responds to your request.', 'jet-event-system' ) );
 			}
 			bp_core_redirect( jes_bp_get_event_permalink( $bp->jes_events->current_event ) );
 		}
@@ -1321,16 +1321,16 @@ function events_format_notifications( $action, $item_id, $secondary_item_id, $to
 
 		break;
 
-		case 'event_invite':
+		case 'jes_event_invite':
 			$event_id = $item_id;
 
 			$event = new JES_Events_Event( $event_id );
 			$user_url = bp_core_get_user_domain( $user_id );
 
 			if ( (int)$total_items > 1 )
-				return apply_filters( 'jes_bp_events_multiple_event_invite_notification', '<a href="' . $bp->loggedin_user->domain . $bp->jes_events->slug . '/invites/?n=1" title="' . __( 'Event Invites', 'jet-event-system' ) . '">' . sprintf( __( 'You have %d new event invitations', 'jet-event-system' ), (int)$total_items ) . '</a>', $total_items );
+				return apply_filters( 'jes_bp_events_multiple_jes_event_invite_notification', '<a href="' . $bp->loggedin_user->domain . $bp->jes_events->slug . '/invites/?n=1" title="' . __( 'Event Invites', 'jet-event-system' ) . '">' . sprintf( __( 'You have %d new event invitations', 'jet-event-system' ), (int)$total_items ) . '</a>', $total_items );
 			else
-				return apply_filters( 'jes_bp_events_single_event_invite_notification', '<a href="' . $bp->loggedin_user->domain . $bp->jes_events->slug . '/invites/?n=1" title="' . __( 'Event Invites', 'jet-event-system' ) . '">' . sprintf( __( 'You have an invitation to the event: %s', 'jet-event-system' ), $event->name ) . '</a>', $event->name );
+				return apply_filters( 'jes_bp_events_single_jes_event_invite_notification', '<a href="' . $bp->loggedin_user->domain . $bp->jes_events->slug . '/invites/?n=1" title="' . __( 'Event Invites', 'jet-event-system' ) . '">' . sprintf( __( 'You have an invitation to the event: %s', 'jet-event-system' ), $event->name ) . '</a>', $event->name );
 
 		break;
 	}
@@ -1533,7 +1533,7 @@ function events_delete_event( $event_id ) {
 	}
 
 	// Remove all outstanding invites for this event
-	events_jes_delete_all_event_invite_jes( $event_id );
+	events_jes_delete_all_jes_event_invite_jes( $event_id );
 
 	// Remove all notifications for any user belonging to this event
 	bp_core_delete_all_notifications_by_type( $event_id, $bp->jes_events->slug );
@@ -1925,7 +1925,7 @@ function events_jes_accept_invite( $user_id, $event_id ) {
 	events_update_eventmeta( $event_id, 'total_member_count', (int) events_get_eventmeta( $event_id, 'total_member_count') + 1 );
 	events_update_eventmeta( $event_id, 'last_activity', gmdate( "Y-m-d H:i:s" ) );
 
-	bp_core_delete_notifications_for_user_by_item_id( $user_id, $event_id, $bp->jes_events->id, 'event_invite' );
+	bp_core_delete_notifications_for_user_by_item_id( $user_id, $event_id, $bp->jes_events->id, 'jes_event_invite' );
 
 	do_action( 'events_jes_accept_invite', $user_id, $event_id );
 	return true;
@@ -1946,7 +1946,7 @@ function events_jes_delete_invite( $user_id, $event_id ) {
 	$delete = JES_Events_Member::jes_delete_invite( $user_id, $event_id );
 
 	if ( $delete )
-		bp_core_delete_notifications_for_user_by_item_id( $user_id, $event_id, $bp->jes_events->id, 'event_invite' );
+		bp_core_delete_notifications_for_user_by_item_id( $user_id, $event_id, $bp->jes_events->id, 'jes_event_invite' );
 
 	return $delete;
 }
@@ -1967,7 +1967,7 @@ function events_send_invite_jes( $user_id, $event_id ) {
 		$member = new JES_Events_Member( $invited_users[$i], $event_id );
 
 		// Send the actual invite
-		events_notification_event_invite_jes( $event, $member, $user_id );
+		events_notification_jes_event_invite_jes( $event, $member, $user_id );
 
 		$member->invite_sent = 1;
 		$member->save();
@@ -1984,7 +1984,7 @@ function events_check_user_has_invite( $user_id, $event_id ) {
 	return JES_Events_Member::jes_check_has_invite( $user_id, $event_id );
 }
 
-function events_jes_delete_all_event_invite_jes( $event_id ) {
+function events_jes_delete_all_jes_event_invite_jes( $event_id ) {
 	return JES_Events_Event::jes_jes_delete_all_invite_jes( $event_id );
 }
 

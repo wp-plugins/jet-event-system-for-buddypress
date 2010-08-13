@@ -1830,10 +1830,10 @@ function bp_is_first_event_creation_step() {
 	return false;
 }
 
-function bp_new_event_invite_friend_list() {
-	echo bp_get_new_event_invite_friend_list();
+function bp_new_jes_event_invite_friend_list() {
+	echo bp_get_new_jes_event_invite_friend_list();
 }
-	function bp_get_new_event_invite_friend_list( $args = '' ) {
+	function bp_get_new_jes_event_invite_friend_list( $args = '' ) {
 		global $bp;
 
 		if ( !function_exists('friends_install') )
@@ -1864,7 +1864,7 @@ function bp_new_event_invite_friend_list() {
 					}
 				}
 
-				$items[] = '<' . $separator . '>'.$friends[$i]['avatar'].'><input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . $friends[$i]['full_name'] . '</' . $separator . '>';
+				$items[] = '<' . $separator . '>'.attribute_escape( $friends[$i]['avatar'] ).'><input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . $friends[$i]['full_name'] . '</' . $separator . '>';
 			}
 		}
 
@@ -2251,7 +2251,7 @@ function bp_event_has_invite_jes( $args = '' ) {
 	return apply_filters( 'bp_event_has_invites', $invites_template->has_invite_jes(), &$invites_template );
 }
 
-function bp_event_invite_jes() {
+function bp_jes_event_invite_jes() {
 	global $invites_template;
 
 	return $invites_template->invite_jes();
@@ -2263,46 +2263,46 @@ function bp_event_the_invite() {
 	return $invites_template->the_invite();
 }
 
-function bp_event_invite_item_id() {
-	echo bp_get_event_invite_item_id();
+function bp_jes_event_invite_item_id() {
+	echo bp_get_jes_event_invite_item_id();
 }
-	function bp_get_event_invite_item_id() {
+	function bp_get_jes_event_invite_item_id() {
 		global $invites_template;
 
-		return apply_filters( 'bp_get_event_invite_item_id', 'uid-' . $invites_template->invite->user->id );
+		return apply_filters( 'bp_get_jes_event_invite_item_id', 'uid-' . $invites_template->invite->user->id );
 	}
 
-function bp_event_invite_user_avatar() {
-	echo bp_get_event_invite_user_avatar();
+function bp_jes_event_invite_user_avatar() {
+	echo bp_get_jes_event_invite_user_avatar();
 }
-	function bp_get_event_invite_user_avatar() {
+	function bp_get_jes_event_invite_user_avatar() {
 		global $invites_template;
 
-		return apply_filters( 'bp_get_event_invite_user_avatar', $invites_template->invite->user->avatar_thumb );
+		return apply_filters( 'bp_get_jes_event_invite_user_avatar', $invites_template->invite->user->avatar_thumb );
 	}
 
-function bp_event_invite_user_link() {
-	echo bp_get_event_invite_user_link();
+function bp_jes_event_invite_user_link() {
+	echo bp_get_jes_event_invite_user_link();
 }
-	function bp_get_event_invite_user_link() {
+	function bp_get_jes_event_invite_user_link() {
 		global $invites_template;
 
-		return apply_filters( 'bp_get_event_invite_user_link', bp_core_get_userlink( $invites_template->invite->user->id ) );
+		return apply_filters( 'bp_get_jes_event_invite_user_link', bp_core_get_userlink( $invites_template->invite->user->id ) );
 	}
 
-function bp_event_invite_user_last_active() {
-	echo bp_get_event_invite_user_last_active();
+function bp_jes_event_invite_user_last_active() {
+	echo bp_get_jes_event_invite_user_last_active();
 }
-	function bp_get_event_invite_user_last_active() {
+	function bp_get_jes_event_invite_user_last_active() {
 		global $invites_template;
 
-		return apply_filters( 'bp_get_event_invite_user_last_active', $invites_template->invite->user->last_active );
+		return apply_filters( 'bp_get_jes_event_invite_user_last_active', $invites_template->invite->user->last_active );
 	}
 
-function bp_event_invite_user_remove_invite_url() {
-	echo bp_get_event_invite_user_remove_invite_url();
+function bp_jes_event_invite_user_remove_invite_url() {
+	echo bp_get_jes_event_invite_user_remove_invite_url();
 }
-	function bp_get_event_invite_user_remove_invite_url() {
+	function bp_get_jes_event_invite_user_remove_invite_url() {
 		global $invites_template;
 
 		return wp_nonce_url( site_url( JES_SLUG . '/' . $invites_template->invite->event_id . '/invites/remove/' . $invites_template->invite->user->id ), 'events_invite_uninvite_user' );
@@ -2397,7 +2397,7 @@ function bp_is_event_members() {
 	return false;
 }
 
-function bp_is_event_invite_jes() {
+function bp_is_jes_event_invite_jes() {
 	global $bp;
 
 	if ( JES_SLUG == $bp->current_component && 'send-invites' == $bp->current_action )
