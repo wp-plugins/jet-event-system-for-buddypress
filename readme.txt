@@ -53,6 +53,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.1.8.3 =
+* Add Spanish (Alex_Mx) and German (Manuel MЭller) translation
+
 = 1.1.8 =
 * Fix Events Catalog template (need copy folders from templates!)
 * Small changes in the code

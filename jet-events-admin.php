@@ -83,15 +83,15 @@ if (stripos($blogversion, 'MU') > 0) {
 ?>
 <div class="wrap">
 	<h2><?php _e('JES. Jet Event System', 'jet-event-system' ) ?></h2>
-	<h4>version 1.1 build 7</h4>
-<table>
-<tr valign="top">
-<td width="60%">
+	<h4>version 1.1 build 8</h4>
 	<form action="<?php echo site_url() . '/wp-admin/admin.php?page=jes-event-admin' ?>" name="jes_events_form" id="jes_events_form" method="post">
 	<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y" />
 
 		<h3><?php _e( "Let's make some changes:", 'jet-event-system' ) ?></h3>
 		<p><a href="#base-options" class="button">Base Options</a> <a href="#restrict-options" class="button">Restrict options</a> <a href="#privacy-options" class="button">Privacy options</a> <a href="#support" class="button">Support</a> <a href="#translate" class="button">Translate</a> <a href="#future" class="button">Future</a> <a href="#donations" class="button">Donations</a></p>
+<table>
+<tr valign="top">
+<td width="70%">
 		<table class="form-table">
 		<tr valign="top"><td><a name="base-options"><h4>Base options</h4></a></td></tr>
 
@@ -204,11 +204,15 @@ if (stripos($blogversion, 'MU') > 0) {
 
 <a name="translate"><h4>Translate</h4></a>
 <ol>
-<li><strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru">http://milordk.ru</a></li>
-<li><strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/">http://www.paysterresdelorraine.com/</a></li>
+<li><strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru" target="_blank">http://milordk.ru</a></li>
+<li><strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">http://www.paysterresdelorraine.com/</a></li>
+<li><strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="www.pixelartist.de" target="_blank">www.pixelartist.de</a></li>
+<li><strong>es_ES</strong> - <em>Alex_Mx</em></li>
 </ol>
 <p><br />To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>
-<p>Please send your translations to milord_k @ mail.ru</p>
+<p><em>Please send your translations to milord_k @ mail.ru ()</em></p>
+<p>Do not forget to include links to your sites (for accommodation options in the list of translators)</p>
+<p>Translates can be discussed at the forum on the official website of the plugin: <a href="http://jes.milordk.ru/groups/translates/">Group</a></p>
 </td>
 </tr>
 </table>
