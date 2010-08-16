@@ -30,7 +30,22 @@
 	<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 	<?php 
 		$er = jes_bp_get_event_type();
-		if ( !is_user_logged_in() and !$eshowevent and $er == 'Private Event' ) { $showevent = 0; } else { $showevent = 1; } ?>
+	// Admin Approve
+	$shiftcan = 0;
+	$showeventnona = $edata[ 'jes_events_adminapprove_enable' ];
+		if ( !is_user_logged_in() and !$eshowevent and $er == 'Private Event' ) { $showevent = 0; } else { $showevent = 1; }
+		if ( !jes_bp_get_event_eventapproved() and $showeventnona ) {
+		if ( current_user_can('manage_options') )
+			{ 
+				$showevent = 1;
+				$shiftcan = 1;
+			}
+				else
+			{
+				$showevent = 0;
+				$shiftcan = 0;
+			} 
+		} ?>
 	<?php if ( $showevent )
 				{ ?>
 		<li>
@@ -46,7 +61,7 @@
 	<?php } else { ?>
 				<em><span style="color : #33CC00;"><?php _e('Active event','jet-event-system') ?></span></em> , 
 	<?php } ?>				
-					<span class="meta"><em><?php jes_bp_event_type() ?></em></span><br>
+					<span class="meta"><em><?php jes_bp_event_type() ?></em></span><br />
 					<?php _e('Short description:','jet-event-system') ?> <?php jes_bp_event_description_excerpt() ?>				
 				</div>				
 				<div class="item-desc">
@@ -60,6 +75,11 @@
 				<?php bp_event_join_button() ?>
 
 				<div class="meta">
+					<?php if ( $shiftcan ) 
+								{ ?>
+									<span class="meta"><em><?php _e('Need aprrove event!','jet-event-system'); ?></em></span>
+								<?php }
+					?>
 					<strong><?php jes_bp_event_etype() ?></strong><br />
 					<?php jes_bp_event_member_count() ?><br />
 					<span class="activity"><?php printf( __( 'Last activity:<br /> %s ago', 'jet-event-system' ), jes_bp_get_event_last_active() ) ?></span>

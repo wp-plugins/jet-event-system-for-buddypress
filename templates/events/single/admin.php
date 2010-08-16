@@ -21,6 +21,17 @@
 					<label for="event-name"><?php _e('* Event Name', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-name" id="event-name" value="<?php jes_bp_event_name() ?>" />
 
+	<?php
+	$showeventnona = $edata[ 'jes_events_adminapprove_enable' ];
+	if ( current_user_can('manage_options') and $showeventnona)
+		{ ?>
+			<label for="event-eventapproved"><?php _e('Approve Event?', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
+<select name="event-eventapproved" id="event-eventapproved" size = "1">
+<option <?php if (jes_bp_get_event_eventapproved() == 1) { ?>selected<?php } ?> value="1">Approve</option> 
+<option <?php if (jes_bp_get_event_eventapproved() == 0) { ?>selected<?php } ?> value="0">Not Approve</option> 
+</select>					
+		<?php } ?>
+					
 					<label for="event-etype"><?php _e('* Event classification', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 <?php if (!$edata[ 'jes_events_class_enable' ])  { ?>					
 					<input type="text" name="event-etype" id="event-etype" value="<?php jes_bp_event_etype() ?>" />	
@@ -30,6 +41,7 @@
 <option <?php if (jes_bp_get_event_etype() == $edata['jes_events_text_two' ]) { ?>selected<?php } ?> value="<?php echo $edata['jes_events_text_two' ] ?>"><?php echo $edata['jes_events_text_two' ] ?></option>
 <option <?php if (jes_bp_get_event_etype() == $edata['jes_events_text_three' ]) { ?>selected<?php } ?> value="<?php echo $edata['jes_events_text_three' ] ?>"><?php echo $edata['jes_events_text_three' ] ?></option>
 <option <?php if (jes_bp_get_event_etype() == $edata['jes_events_text_four' ]) { ?>selected<?php } ?> value="<?php echo $edata['jes_events_text_four' ] ?>"><?php echo $edata['jes_events_text_four' ] ?></option>
+<option <?php if (jes_bp_get_event_etype() == $edata['jes_events_text_five' ]) { ?>selected<?php } ?> value="<?php echo $edata['jes_events_text_five' ] ?>"><?php echo $edata['jes_events_text_five' ] ?></option>
 </select>
 <?php } ?>						
 					

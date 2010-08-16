@@ -36,7 +36,7 @@ function jes_event_admin() {
 
 		if ( $_POST[ 'jes_events_adminapprove_enable' ] == 1 ) 
 			$jes_events[ 'jes_events_adminapprove_enable' ] = 1;			
-			
+		
 		if ( $_POST[ 'jes_events_costumslug' ] != null ) {
 			$jes_events[ 'jes_events_costumslug' ] = stripslashes($_POST[ 'jes_events_costumslug' ]);
 		}else{
@@ -46,27 +46,17 @@ function jes_event_admin() {
 		if ( $_POST[ 'jes_events_text_one' ] != null ) {
 			$jes_events[ 'jes_events_text_one' ] = stripslashes($_POST[ 'jes_events_text_one' ]);
 		}else{
-			$jes_events[ 'jes_events_text_one' ] = _('Public','jet-event-system');
+			$jes_events[ 'jes_events_text_one' ] = __('Public','jet-event-system');
 		}
 		if ( $_POST[ 'jes_events_text_two' ] != null ) {
 			$jes_events[ 'jes_events_text_two' ] = stripslashes($_POST[ 'jes_events_text_two' ]);
 		}else{
-			$jes_events[ 'jes_events_text_two' ] = _('Private','jet-event-system');
+			$jes_events[ 'jes_events_text_two' ] = __('Private','jet-event-system');
 		}		
 		if ( $_POST[ 'jes_events_text_three' ] != null ) {
 			$jes_events[ 'jes_events_text_three' ] = stripslashes($_POST[ 'jes_events_text_three' ]);
 		}else{
-			$jes_events[ 'jes_events_text_three' ] = _('Home','jet-event-system');
-		}
-		if ( $_POST[ 'jes_events_text_four' ] != null ) {
-			$jes_events[ 'jes_events_text_four' ] = stripslashes($_POST[ 'jes_events_text_four' ]);
-		}else{
-			$jes_events[ 'jes_events_text_four' ] = _('Club','jet-event-system');
-		}
-		if ( $_POST[ 'jes_events_text_five' ] != null ) {
-			$jes_events[ 'jes_events_text_five' ] = stripslashes($_POST[ 'jes_events_text_five' ]);
-		}else{
-			$jes_events[ 'jes_events_text_five' ] = _('Club','jet-event-system');
+			$jes_events[ 'jes_events_text_three' ] = __('Home','jet-event-system');
 		}
 
 		
@@ -83,7 +73,7 @@ if (stripos($blogversion, 'MU') > 0) {
 ?>
 <div class="wrap">
 	<h2><?php _e('JES. Jet Event System', 'jet-event-system' ) ?></h2>
-	<h4>version 1.1 build 8</h4>
+	<h4>version 1.1 build 9</h4>
 	<form action="<?php echo site_url() . '/wp-admin/admin.php?page=jes-event-admin' ?>" name="jes_events_form" id="jes_events_form" method="post">
 	<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y" />
 
@@ -150,14 +140,14 @@ if (stripos($blogversion, 'MU') > 0) {
 		<tr valign="top"><td><a name="restrict-options"><h4>Restrict options</h4></a></td></tr>
 		
 			<tr valign="top">
-				<th scope="row"><label for="jes_events_createnonadmin_disable"><?php _e( 'Prohibit non-administrators to create events (available since version 1.1.9)', 'jet-event-system' ) ?></label></th>
+				<th scope="row"><label for="jes_events_createnonadmin_disable"><?php _e( 'Prohibit non-administrators to create events', 'jet-event-system' ) ?></label></th>
 				<td>
 					<input name="jes_events_createnonadmin_disable" type="checkbox" id="jes_events_createnonadmin_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_createnonadmin_disable' ] ? ' checked="checked"' : '' ); ?> />
 				</td>
 			</tr>
 
 			<tr valign="top">
-				<th scope="row"><label for="jes_events_adminapprove_enable"><?php _e( 'Allow verification of events by the administrator (available since version 1.1.9)', 'jet-event-system' ) ?></label></th>
+				<th scope="row"><label for="jes_events_adminapprove_enable"><?php _e( 'Allow verification of events by the administrator', 'jet-event-system' ) ?></label></th>
 				<td>
 					<input name="jes_events_adminapprove_enable" type="checkbox" id="jes_events_adminapprove_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_adminapprove_enable' ] ? ' checked="checked"' : '' ); ?> />
 				</td>

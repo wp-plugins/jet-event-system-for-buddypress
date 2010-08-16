@@ -3,6 +3,9 @@
 	<div id="content">
 		<div class="padder">
 <?php $edata = get_option( 'jes_events' ); ?>
+	<?php 	$edata = get_option( 'jes_events' );
+			$createa = $edata[ 'jes_events_createnonadmin_disable' ];
+	?>
 
 		<form action="<?php bp_event_creation_form_action() ?>" method="post" id="create-event-form" class="standard-form" enctype="multipart/form-data">
 			<h3><?php _e( 'Create a Event', 'jet-event-system' ) ?> &nbsp;<a class="button" href="<?php echo bp_get_root_domain() . '/' . JES_SLUG . '/' ?>"><?php _e( 'Events Directory', 'jet-event-system' ) ?></a></h3>
@@ -32,6 +35,25 @@
 					<label for="event-name"><?php _e('* Event Name', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-name" id="event-name" value="<?php bp_new_event_name() ?>" />
 
+<?php 
+		$shifta = $edata[ 'jes_events_adminapprove_enable' ];
+		if ($shifta)
+			{
+				if ( current_user_can('manage_options') )
+					{ ?>
+						<input type="hidden" name="event-eventapproved" value="1">
+					<?php }
+						else
+					{ ?>
+						<input type="hidden" name="event-eventapproved" value="0">
+					<?php }
+					
+			} 
+				else
+			{ ?>
+				<input type="hidden" name="event-eventapproved" value="1">
+			<?php } ?>
+			
 					<label for="event-etype"><?php _e('* Event classification', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					
 <?php if (!$edata[ 'jes_events_class_enable' ])  { ?>					
@@ -85,12 +107,12 @@
 <h4><?php _e('Date event','jet-event-system') ?></h4>
 					<label for="event-edtsd"><?php _e('* Event Start date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-edtsd" id="event-edtsd" value="<?php bp_new_event_edtsd() ?>" />
-					<br /><span class="small">dd/mm/yyyy HH:mm</span>
+					<br /><span class="small"><?php _e('dd/mm/yyyy HH:mm','jet-event-system'); ?></span>
 </td>
 <td width="50%" style="vertical-align:bottom;">
 					<label for="event-edtsd"><?php _e('* Event End date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-edted" id="event-edted" value="<?php bp_new_event_edted() ?>" />	
-					<br /><span class="small">dd/mm/yyyy HH:mm</span>
+					<br /><span class="small"><?php _e('dd/mm/yyyy HH:mm','jet-event-system'); ?></span>
 </td>
 </tr>
 </table>					

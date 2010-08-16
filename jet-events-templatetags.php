@@ -540,6 +540,18 @@ function jes_bp_event_etype() {
 
 		return apply_filters( 'jes_bp_get_event_etype', stripslashes($event->etype) );
 	}	
+
+function jes_bp_event_eventapproved() {
+	echo jes_bp_get_event_eventapproved();
+}
+	function jes_bp_get_event_eventapproved( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_eventapproved', stripslashes($event->eventapproved) );
+	}	
 	
 function jes_bp_event_edtsd() {
 	echo jes_bp_get_event_edtsd();
@@ -1675,7 +1687,14 @@ function bp_new_event_etype() {
 		return apply_filters( 'bp_get_new_event_etype', $bp->jes_events->current_event->etype );
 	}
 	
-	
+function bp_new_event_eventapproved() {
+	echo bp_get_new_event_eventapproved();
+}
+	function bp_get_new_event_eventapproved() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_eventapproved', $bp->jes_events->current_event->eventapproved );
+	}
+
 function bp_new_event_description() {
 	echo bp_get_new_event_description();
 }

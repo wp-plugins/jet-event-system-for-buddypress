@@ -62,6 +62,20 @@ class JES_BP_Events_Widget extends WP_Widget {
 				$keyvisible = 0;
 				}
 			}
+	$showeventnona = $data[ 'jes_events_adminapprove_enable' ];
+		if ( !jes_bp_get_event_eventapproved() and $showeventnona ) {
+		if ( current_user_can('manage_options') )
+			{ 
+				$keyvisible = 1;
+				$shiftcan = 1;
+			}
+				else
+			{
+				$keyvisible = 0;
+				$shiftcan = 0;
+			} 
+		} 
+			
 		if ($keyvisible)
 			{ ?>
 				<li>

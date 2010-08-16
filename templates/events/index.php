@@ -9,7 +9,22 @@
 			<?php do_action( 'bp_before_directory_events_content' ) ?>
 
 			<div id="event-dir-search" class="dir-search">
-			<?php if ( is_user_logged_in() ) : ?><a class="button" href="<?php echo bp_get_root_domain() . '/' . JES_SLUG . '/create/' ?>"><?php _e( 'Create a Event', 'jet-event-system' ) ?></a><?php endif; ?>
+			<?php if ( is_user_logged_in() ) : ?>
+	<?php 	$edata = get_option( 'jes_events' );
+			$createa = $edata[ 'jes_events_createnonadmin_disable' ];
+	?>
+		<?php if (!$createa )
+			{ ?>
+				<a class="button" href="<?php echo bp_get_root_domain() . '/' . JES_SLUG . '/create/' ?>"><?php _e( 'Create a Event', 'jet-event-system' ) ?></a>			
+			<?php }
+				else
+			{
+				if ( current_user_can('manage_options'))
+						{ ?>
+					<a class="button" href="<?php echo bp_get_root_domain() . '/' . JES_SLUG . '/create/' ?>"><?php _e( 'Create a Event', 'jet-event-system' ) ?></a>
+					<?php	}
+			}
+			endif; ?>
 				<?php bp_directory_events_search_form() ?>
 			</div><!-- #event-dir-search -->
 
@@ -42,7 +57,7 @@
 				<?php locate_template( array( 'events/events-loop.php' ), true ) ?>
 			</div><!-- #events-dir-list -->
 			<div>
-				<span><a href="http://milordk.ru">Milordk Studio</a></span>
+				<span style="font-size:80%; text-align:right;"><a href="http://milordk.ru">Milordk Studio</a></span>
 			</div>
 			<?php do_action( 'bp_directory_events_content' ) ?>
 

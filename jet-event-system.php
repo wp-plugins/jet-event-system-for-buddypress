@@ -3,14 +3,14 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1.8.3
+Version: 1.1.9
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
 Network: true
 */
 
-define('Jet Events System', '1.1.8');
+define('Jet Events System', '1.1.9');
 define ('JES_EVENTS_DB_VERSION', '1.2');
 
 /* Define the slug for the component */
@@ -89,6 +89,7 @@ function jes_events_init_jesdb() {
 			creator_id bigint(20) NOT NULL,
 	  		name varchar(100) NOT NULL,
 			etype varchar(20) NOT NULL,
+			eventapproved varchar(1),			
 	  		slug varchar(100) NOT NULL,
 	  		description longtext NOT NULL,
 	  		eventterms longtext NOT NULL,			
@@ -102,11 +103,11 @@ function jes_events_init_jesdb() {
 			edtedunix varchar(18) NOT NULL,			
 			status varchar(10) NOT NULL DEFAULT 'public',
 			enable_forum tinyint(1) NOT NULL DEFAULT '1',
-			eventapproved varchar(1),
 			date_created datetime NOT NULL,
 		    KEY creator_id (creator_id),
 		    KEY status (status),
 			KEY etype (etype),
+			KEY eventapproved (eventapproved),
 			KEY placedcity (placedcity)
 	 	   ) {$charset_collate};";
 
@@ -549,7 +550,7 @@ function events_screen_event_admin_edit_details() {
 				if ( !check_admin_referer( 'events_edit_event_details' ) )
 					return false;
 
-				if ( !events_edit_base_event_details( $_POST['event-id'], $_POST['event-name'], $_POST['event-etype'], $_POST['event-desc'], $_POST['event-placedcity'], $_POST['event-placedaddress'], $_POST['event-newspublic'], $_POST['event-newsprivate'], $_POST['event-edtsd'], $_POST['event-edted'], (int)$_POST['event-notify-members'] ) ) {
+				if ( !events_edit_base_event_details( $_POST['event-id'], $_POST['event-name'], $_POST['event-etype'], $_POST['event-eventapproved'], $_POST['event-desc'], $_POST['event-placedcity'], $_POST['event-placedaddress'], $_POST['event-newspublic'], $_POST['event-newsprivate'], $_POST['event-edtsd'], $_POST['event-edted'], (int)$_POST['event-notify-members'] ) ) {
 					bp_core_add_message( __( 'There was an error updating event details, please try again.', 'jet-event-system' ), 'error' );
 				} else {
 					bp_core_add_message( __( 'Event details were successfully updated.', 'jet-event-system' ) );
@@ -959,7 +960,7 @@ function events_action_create_event() {
 				bp_core_redirect( $bp->root_domain . '/' . $bp->jes_events->slug . '/create/step/' . $bp->jes_events->current_create_step . '/' );
 			}
 
-			if ( !$bp->jes_events->new_event_id = events_create_event( array( 'event_id' => $bp->jes_events->new_event_id, 'name' => $_POST['event-name'], 'etype' => $_POST['event-etype'], 'description' => $_POST['event-desc'], 'eventterms' => $_POST['event-eventterms'], 'placedcity' => $_POST['event-placedcity'], 'placedaddress' => $_POST['event-placedaddress'], 'newspublic' => $_POST['event-newspublic'], 'newsprivate' => $_POST['event-newsprivate'], 'edtsd' => $_POST['event-edtsd'], 'edted' => $_POST['event-edted'], 'slug' => events_jes_check_slug( sanitize_title( esc_attr( $_POST['event-name'] ) ) ), 'date_created' => gmdate( "Y-m-d H:i:s" ), 'status' => 'public' ) ) ) {
+			if ( !$bp->jes_events->new_event_id = events_create_event( array( 'event_id' => $bp->jes_events->new_event_id, 'name' => $_POST['event-name'], 'etype' => $_POST['event-etype'], 'eventapproved' => $_POST['event-eventapproved'], 'description' => $_POST['event-desc'], 'eventterms' => $_POST['event-eventterms'], 'placedcity' => $_POST['event-placedcity'], 'placedaddress' => $_POST['event-placedaddress'], 'newspublic' => $_POST['event-newspublic'], 'newsprivate' => $_POST['event-newsprivate'], 'edtsd' => $_POST['event-edtsd'], 'edted' => $_POST['event-edted'], 'slug' => events_jes_check_slug( sanitize_title( esc_attr( $_POST['event-name'] ) ) ), 'date_created' => gmdate( "Y-m-d H:i:s" ), 'status' => 'public' ) ) ) {
 				bp_core_add_message( __( 'There was an error saving event details, please try again.', 'jet-event-system' ), 'error' );
 				bp_core_redirect( $bp->root_domain . '/' . $bp->jes_events->slug . '/create/step/' . $bp->jes_events->current_create_step . '/' );
 			}
@@ -1396,6 +1397,9 @@ function events_create_event( $args = '' ) {
 
 	if ( isset( $etype ) )
 		$event->etype = $etype;		
+
+	if ( isset( $eventapproved ) )
+		$event->eventapproved = $eventapproved;	
 		
 	if ( isset( $description ) )
 		$event->description = $description;
@@ -1458,7 +1462,7 @@ function events_create_event( $args = '' ) {
 	return $event->id;
 }
 
-function events_edit_base_event_details( $event_id, $event_name, $event_etype, $event_desc, $event_placedcity, $event_placedaddress, $event_newspublic, $event_newsprivate, $event_edtsd, $event_edted, $notify_members ) {
+function events_edit_base_event_details( $event_id, $event_name, $event_etype, $event_eventapproved, $event_desc, $event_placedcity, $event_placedaddress, $event_newspublic, $event_newsprivate, $event_edtsd, $event_edted, $notify_members ) {
 	global $bp;
 
 	if ( empty( $event_name ) || empty( $event_desc ) || empty ( $event_placedcity) || empty ( $event_etype) || empty ( $event_edtsd) || empty ( $event_edted))
@@ -1467,6 +1471,7 @@ function events_edit_base_event_details( $event_id, $event_name, $event_etype, $
 	$event = new JES_Events_Event( $event_id );
 	$event->name = $event_name;
 	$event->etype = $event_etype;
+	$event->eventapproved = $event_eventapproved;
 	$event->description = $event_desc;
 	$event->eventerms = $event_eventterms;	
 	$event->placedcity = $event_placedcity;

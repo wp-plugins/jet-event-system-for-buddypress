@@ -5,6 +5,7 @@ Class JES_Events_Event {
 	var $creator_id;
 	var $name;
 	var $etype;
+	var $eventapproved;
 	var $slug;
 	var $description;
 	var $eventterms;
@@ -36,6 +37,7 @@ Class JES_Events_Event {
 			$this->creator_id = $event->creator_id;
 			$this->name = stripslashes($event->name);
 			$this->etype = stripslashes($event->etype);
+			$this->eventapproved = stripslashes($event->eventapproved);		
 			$this->slug = $event->slug;
 			$this->description = stripslashes($event->description);
 			$this->eventterms = stripslashes($event->eventterms);
@@ -71,6 +73,7 @@ Class JES_Events_Event {
 		$this->creator_id = apply_filters( 'events_event_creator_id_before_save', $this->creator_id, $this->id );
 		$this->name = apply_filters( 'events_event_name_before_save', $this->name, $this->id );
 		$this->etype = apply_filters( 'events_event_etype_before_save', $this->etype, $this->id );
+		$this->eventapproved = apply_filters( 'events_event_eventapproved_before_save', $this->eventapproved, $this->id );		
  		$this->slug = apply_filters( 'events_event_slug_before_save', $this->slug, $this->id );
 		$this->description = apply_filters( 'events_event_description_before_save', $this->description, $this->id );
 		$this->eventterms = apply_filters( 'events_event_eventterms_before_save', $this->eventterms, $this->id );
@@ -94,6 +97,7 @@ Class JES_Events_Event {
 					creator_id = %d,
 					name = %s,
 					etype = %s,
+					eventapproved = %s,
 					slug = %s,
 					description = %s,
 					eventterms = %s,
@@ -114,6 +118,7 @@ Class JES_Events_Event {
 					$this->creator_id,
 					$this->name,
 					$this->etype,
+					$this->eventapproved,
 					$this->slug,
 					$this->description,
 					$this->eventterms,
@@ -136,6 +141,7 @@ Class JES_Events_Event {
 					creator_id,
 					name,
 					etype,
+					eventapproved,
 					slug,
 					description,
 					eventterms,
@@ -151,11 +157,12 @@ Class JES_Events_Event {
 					enable_forum,
 					date_created
 				) VALUES (
-					%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %s
+					%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %s
 				)",
 					$this->creator_id,
 					$this->name,
 					$this->etype,
+					$this->eventapproved,
 					$this->slug,
 					$this->description,
 					$this->eventterms,

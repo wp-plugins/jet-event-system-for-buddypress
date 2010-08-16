@@ -52,6 +52,8 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+= 1.1.9 =
+* Activate Resctrict options: Prohibit non-administrators to create events, Allow verification of events by the administrator
 
 = 1.1.8.3 =
 * Add Spanish (Alex_Mx) and German (Manuel MЭller) translation
