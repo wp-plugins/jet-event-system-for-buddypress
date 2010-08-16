@@ -75,7 +75,10 @@ class JES_BP_Events_Widget extends WP_Widget {
 				$shiftcan = 0;
 			} 
 		} 
-			
+		if (jes_bp_event_is_admin() || jes_bp_event_is_mod() || $bp->jes_events->current_event->is_user_member)
+		{
+			$keyvisible = 1;		
+		}
 		if ($keyvisible)
 			{ ?>
 				<li>

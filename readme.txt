@@ -52,7 +52,7 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
-= 1.1.9 =
+= 1.1.9.1 =
 * Activate Resctrict options: Prohibit non-administrators to create events, Allow verification of events by the administrator
 * NOTE: Be sure to update folders and Events Members!
 
