@@ -44,11 +44,11 @@
 		?>
 						<?php _e( 'Order By:', 'jet-event-system' ) ?>
 						<select>
-							<option <?php if ($sortby == 'soon' ) { ?>selected<?php } ?>value="soon"><?php _e( 'Soon', 'jet-event-system' ) ?></option>
-							<option <?php if ($sortby == 'active' ) { ?>selected<?php } ?>value="active"><?php _e( 'Last Active', 'jet-event-system' ) ?></option>
-							<option <?php if ($sortby == 'popular' ) { ?>selected<?php } ?>value="popular"><?php _e( 'Most Members', 'jet-event-system' ) ?></option>
-							<option <?php if ($sortby == 'newest' ) { ?>selected<?php } ?>value="newest"><?php _e( 'Newly Created', 'jet-event-system' ) ?></option>
-							<option <?php if ($sortby == 'alphabetical' ) { ?>selected<?php } ?>value="alphabetical"><?php _e( 'Alphabetical', 'jet-event-system' ) ?></option>
+							<option <?php if ($sortby == 'soon' ) { ?>selected<?php } ?> value="soon"><?php _e( 'Soon', 'jet-event-system' ) ?></option>
+							<option <?php if ($sortby == 'active' ) { ?>selected<?php } ?> value="active"><?php _e( 'Last Active', 'jet-event-system' ) ?></option>
+							<option <?php if ($sortby == 'popular' ) { ?>selected<?php } ?> value="popular"><?php _e( 'Most Members', 'jet-event-system' ) ?></option>
+							<option <?php if ($sortby == 'newest' ) { ?>selected<?php } ?> value="newest"><?php _e( 'Newly Created', 'jet-event-system' ) ?></option>
+							<option <?php if ($sortby == 'alphabetical' ) { ?>selected<?php } ?> value="alphabetical"><?php _e( 'Alphabetical', 'jet-event-system' ) ?></option>
 							<?php do_action( 'jes_bp_events_directory_order_options' ) ?>
 						</select>
 					</li>
