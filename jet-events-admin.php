@@ -59,6 +59,16 @@ function jes_event_admin() {
 			$jes_events[ 'jes_events_text_three' ] = __('Home','jet-event-system');
 		}
 
+		if ( $_POST[ 'jes_events_sort_by' ] != null ) {
+			$jes_events[ 'jes_events_sort_by' ] = stripslashes($_POST[ 'jes_events_sort_by' ]);
+		}else{
+			$jes_events[ 'jes_events_sort_by' ] = 'soon';		
+		}
+		if ( $_POST[ 'jes_events_sort_by_ad' ] != null ) {
+			$jes_events[ 'jes_events_sort_by_ad' ] = stripslashes($_POST[ 'jes_events_sort_by_ad' ]);
+		}else{
+			$jes_events[ 'jes_events_sort_by' ] = 'ASC';			
+		}
 		
 if (stripos($blogversion, 'MU') > 0) {			
 		$blogs_ids = get_blog_list( 0, 'all' );
@@ -136,6 +146,24 @@ if (stripos($blogversion, 'MU') > 0) {
 					<input name="jes_events_text_five" type="text"size="40" id="jes_events_text_five" value="<?php echo $jes_events[ 'jes_events_text_five' ]; ?>" />
 				</td>
 			</tr>	
+			
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_sort_by"><?php _e( 'Sort of events in the directory (by default)', 'jet-event-system' ) ?></label></th>
+				<td>
+					<select name="jes_events_sort_by" id="jes_events_sort_by" size = "1">
+						<option <?php if ($jes_events[ 'jes_events_sort_by' ] == 'soon') { ?>selected<?php } ?> value="soon"><?php _e('Soon','jet-event-system'); ?></option> 
+						<option <?php if ($jes_events[ 'jes_events_sort_by' ] == 'last-active') { ?>selected<?php } ?> value="last-active"><?php _e('Last Active','jet-event-system'); ?></option> 
+						<option <?php if ($jes_events[ 'jes_events_sort_by' ] == 'popular') { ?>selected<?php } ?> value="popular"><?php _e('Most Members','jet-event-system'); ?></option> 
+						<option <?php if ($jes_events[ 'jes_events_sort_by' ] == 'newest') { ?>selected<?php } ?> value="newest"><?php _e('Newly Created','jet-event-system'); ?></option>  
+						<option <?php if ($jes_events[ 'jes_events_sort_by' ] == 'alphabetical') { ?>selected<?php } ?> value="alphabetical"><?php _e('Alphabetical','jet-event-system'); ?></option>
+					</select>
+				<label for="jes_events_sort_by_ad"><?php _e( 'By:', 'jet-event-system' ) ?></label>
+					<select name="jes_events_sort_by_ad" id="jes_events_sort_by_ad" size = "1">
+						<option <?php if ($jes_events[ 'jes_events_sort_by_ad' ] == 'ASC') { ?>selected<?php } ?> value="ASC"><?php _e('Ascending','jet-event-system'); ?></option> 
+						<option <?php if ($jes_events[ 'jes_events_sort_by_ad' ] == 'DESC') { ?>selected<?php } ?> value="DESC"><?php _e('Descending','jet-event-system'); ?></option> 
+					</select>	
+				</td>
+			</tr>						
 
 		<tr valign="top"><td><a name="restrict-options"><h4>Restrict options</h4></a></td></tr>
 		

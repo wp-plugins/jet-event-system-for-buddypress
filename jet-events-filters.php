@@ -2,7 +2,6 @@
 
 /* Apply WordPress defined filters */
 add_filter( 'jes_bp_get_event_description', 'wptexturize' );
-add_filter( 'jes_bp_get_event_eventterms', 'wptexturize' );
 add_filter( 'jes_bp_get_event_description_excerpt', 'wptexturize' );
 add_filter( 'jes_bp_get_event_name', 'wptexturize' );
 
@@ -11,12 +10,10 @@ add_filter( 'jes_bp_get_event_eventterms', 'convert_smilies' );
 add_filter( 'jes_bp_get_event_description_excerpt', 'convert_smilies' );
 
 add_filter( 'jes_bp_get_event_description', 'convert_chars' );
-add_filter( 'jes_bp_get_event_eventterms', 'convert_chars' );
 add_filter( 'jes_bp_get_event_description_excerpt', 'convert_chars' );
 add_filter( 'jes_bp_get_event_name', 'convert_chars' );
 
 add_filter( 'jes_bp_get_event_description', 'wpautop' );
-add_filter( 'jes_bp_get_event_eventterms', 'wpautop' );
 add_filter( 'jes_bp_get_event_description_excerpt', 'wpautop' );
 
 add_filter( 'jes_bp_get_event_description', 'make_clickable' );

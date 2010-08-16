@@ -3,7 +3,7 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1.9.1
+Version: 1.1.9.2
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
@@ -92,7 +92,7 @@ function jes_events_init_jesdb() {
 			eventapproved varchar(1),			
 	  		slug varchar(100) NOT NULL,
 	  		description longtext NOT NULL,
-	  		eventterms longtext NOT NULL,			
+	  		eventterms longtext,			
 			placedcity varchar(20) NOT NULL,
 			placedaddress varchar(80) NOT NULL,			
 			newspublic longtext,			
@@ -550,7 +550,7 @@ function events_screen_event_admin_edit_details() {
 				if ( !check_admin_referer( 'events_edit_event_details' ) )
 					return false;
 
-				if ( !events_edit_base_event_details( $_POST['event-id'], $_POST['event-name'], $_POST['event-etype'], $_POST['event-eventapproved'], $_POST['event-desc'], $_POST['event-placedcity'], $_POST['event-placedaddress'], $_POST['event-newspublic'], $_POST['event-newsprivate'], $_POST['event-edtsd'], $_POST['event-edted'], (int)$_POST['event-notify-members'] ) ) {
+				if ( !events_edit_base_event_details( $_POST['event-id'], $_POST['event-name'], $_POST['event-etype'], $_POST['event-eventapproved'], $_POST['event-desc'], $_POST['event-eventterms'], $_POST['event-placedcity'], $_POST['event-placedaddress'], $_POST['event-newspublic'], $_POST['event-newsprivate'], $_POST['event-edtsd'], $_POST['event-edted'], (int)$_POST['event-notify-members'] ) ) {
 					bp_core_add_message( __( 'There was an error updating event details, please try again.', 'jet-event-system' ), 'error' );
 				} else {
 					bp_core_add_message( __( 'Event details were successfully updated.', 'jet-event-system' ) );
@@ -1462,7 +1462,7 @@ function events_create_event( $args = '' ) {
 	return $event->id;
 }
 
-function events_edit_base_event_details( $event_id, $event_name, $event_etype, $event_eventapproved, $event_desc, $event_placedcity, $event_placedaddress, $event_newspublic, $event_newsprivate, $event_edtsd, $event_edted, $notify_members ) {
+function events_edit_base_event_details( $event_id, $event_name, $event_etype, $event_eventapproved, $event_desc, $event_eventterms, $event_placedcity, $event_placedaddress, $event_newspublic, $event_newsprivate, $event_edtsd, $event_edted, $notify_members ) {
 	global $bp;
 
 	if ( empty( $event_name ) || empty( $event_desc ) || empty ( $event_placedcity) || empty ( $event_etype) || empty ( $event_edtsd) || empty ( $event_edted))
@@ -1473,7 +1473,7 @@ function events_edit_base_event_details( $event_id, $event_name, $event_etype, $
 	$event->etype = $event_etype;
 	$event->eventapproved = $event_eventapproved;
 	$event->description = $event_desc;
-	$event->eventerms = $event_eventterms;	
+	$event->eventterms = $event_eventterms;	
 	$event->placedcity = $event_placedcity;
 	$event->placedaddress = $event_placedaddress;
 	$event->newspublic = $event_newspublic;
@@ -1696,8 +1696,12 @@ function events_jes_get_total_member_count( $event_id ) {
 function events_get_events( $args = '' ) {
 	global $bp;
 
+	$sdata = get_option( 'jes_events' );
+	$sortby = $sdata[ 'jes_events_sort_by' ];
+	$sortby_ad = $sdata[ 'jes_events_sort_by_ad' ];
+	
 	$defaults = array(
-		'type' => 'soon', // active, newest, alphabetical, random, popular, most-forum-topics or most-forum-posts
+		'type' => $sortby, // active, newest, alphabetical, random, popular, most-forum-topics or most-forum-posts
 		'user_id' => false, // Pass a user_id to limit to only events that this user is a member of
 		'search_terms' => false, // Limit to events that match these search terms
 
@@ -1708,7 +1712,6 @@ function events_get_events( $args = '' ) {
 
 	$params = wp_parse_args( $args, $defaults );
 	extract( $params, EXTR_SKIP );
-
 	switch ( $type ) {
 		case 'active': default:
 			$events = JES_Events_Event::jes_get_active( $per_page, $page, $user_id, $search_terms, $populate_extras );

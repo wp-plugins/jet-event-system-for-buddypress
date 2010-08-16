@@ -2,7 +2,12 @@
 
 <?php do_action( 'bp_before_events_loop' ) ?>
 
-<?php if ( bp_jes_has_events( bp_ajax_querystring( 'events' ) ) ) : ?>
+<?php	$showevent = 1;
+		$edata = get_option( 'jes_events' );
+		$eshowevent = $edata[ 'jes_events_addnavicatalog_disable' ];
+		$sortby = $edata[ 'jes_events_sort_by' ]; ?>
+
+<?php if ( bp_jes_has_events( bp_ajax_querystring( 'events' )) ) : ?>
 
 	<div class="pagination">
 
@@ -16,9 +21,7 @@
 
 	</div>
 <?php 
-		$showevent = 1;
-		$edata = get_option( 'jes_events' );
-		$eshowevent = $edata[ 'jes_events_addnavicatalog_disable' ];
+
 		if ( !is_user_logged_in() and !$eshowevent )
 				{ ?>
 			<div id="message" class="info">
@@ -28,6 +31,7 @@
 	<ul id="events-list" class="item-list">
 
 	<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
+	
 	<?php 
 		$er = jes_bp_get_event_type();
 	// Admin Approve
@@ -91,7 +95,7 @@
 			<div class="clear"></div>
 		</li>
 <?php } ?>
-	<?php endwhile; ?>
+	<?php  endwhile; ?>
 	</ul>
 
 	<?php do_action( 'bp_after_events_loop' ) ?>

@@ -52,6 +52,14 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.1.9.2 =
+* Added ability to customize the filter by default for a directory of events and widget administration panel (in debug mode)
+* Small changes in appearance
+* NOTE:
+- Custom Slug only in Latin! (cyrillic support is not guaranteed!)
+- In the archive there is a previous version of the plugin (1.1.9.1)
+
 = 1.1.9.1 =
 * Activate Resctrict options: Prohibit non-administrators to create events, Allow verification of events by the administrator
 * NOTE: Be sure to update folders and Events Members!

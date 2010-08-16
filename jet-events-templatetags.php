@@ -129,12 +129,16 @@ class JES_Events_Template {
 function bp_jes_has_events( $args = '' ) {
 	global $events_template, $bp;
 
+	$sdata = get_option( 'jes_events' );
+	$sortby = $sdata[ 'jes_events_sort_by' ];
+	$sortby_ad = $sdata[ 'jes_events_sort_by_ad' ];	
+	
 	/***
 	 * Set the defaults based on the current page. Any of these will be overridden
 	 * if arguments are directly passed into the loop. Custom plugins should always
 	 * pass their parameters directly to the loop.
 	 */
-	$type = 'soon';
+	$type = $sortby;
 	$user_id = false;
 	$search_terms = false;
 	$slug = false;
@@ -424,7 +428,7 @@ function jes_bp_event_eventterms() {
 		return apply_filters( 'jes_bp_get_event_eventterms', stripslashes($event->eventterms) );
 	}
 
-function jes_bp_event_deventterms_editable() {
+function jes_bp_event_eventterms_editable() {
 	echo jes_bp_get_event_eventterms_editable();
 }
 	function jes_bp_get_event_eventterms_editable( $event = false ) {
