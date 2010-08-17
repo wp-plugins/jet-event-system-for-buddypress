@@ -198,9 +198,9 @@ if (stripos($blogversion, 'MU') > 0) {
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_countryopt_def"><?php _e( 'Name of the country by default:', 'jet-event-system' ) ?></label></th>
 				<td>
-					<input name="jes_events_countryopt_def" type="hidden" id="jes_events_countryopt_def" value="<?php echo $jes_events[ 'jes_events_countryopt_def' ]; ?>" />	
+					<input name="jes_events_countryopt_def" type="text" id="jes_events_countryopt_def" value="<?php echo $jes_events[ 'jes_events_countryopt_def' ]; ?>" />	
 				</td>
-			</tr>				
+			</tr>			
 			
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_stateopt_enable"><?php _e( 'Allow State', 'jet-event-system' ) ?></label></th>

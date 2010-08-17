@@ -43,9 +43,9 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://v
 
 == Plans ==
 
-* In version 1.2 will be added ability to display current events as a widget and the directory
+* In version 1.2 will ensure compatibility of the system with the new version of BP
 * In version 1.3 will be added to the possibility of tying the event to a group
-* In version 1.5 will be added to the possibility of tying the event to your blog (s) 
+* In version 1.4 will be added to the possibility of tying the event to your blog (s) 
 
 == Contact ==
 
@@ -55,6 +55,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.1.9.3.1 =
+* Adjusted to show details of events: if you did not fill the "Special Conditions", "Public News" or "Private News", the earlier they appear in the details as headers. Now they are displayed only if they fill
+* Note: The release does not bear any significant changes
 
 = 1.1.9.3 =
 * Ability to use field "Country" and "State"

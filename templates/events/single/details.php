@@ -32,14 +32,20 @@
 					
 </td>
 <td width="50%" style="vertical-align:top;">
+	<?php if ( jes_bp_get_event_eventterms() != null ) { ?>
 			<h4><?php _e('Special Conditions', 'jet-event-system') ?>:</h4>
 				<?php jes_bp_event_eventterms() ?>
+	<?php } ?>
 			<h4><?php _e('News for event','jet-event-system') ?></h4>	
+	<?php if ( jes_bp_get_event_newspublic() != null ) { ?>
 			<h5><strong><?php _e('Event Public news', 'jet-event-system') ?>:</strong></h5>
 				<p><?php jes_bp_event_newspublic() ?></p>
+	<?php } ?>
 			<?php if (bp_is_user_events()) { ?>
+	<?php if ( jes_bp_get_event_newsprivate() != null ) { ?>
 			<h5><strong><?php _e('Event Private news', 'jet-event-system') ?>:</strong></h5>
 				<p><?php jes_bp_event_newsprivate() ?></p>
+	<?php } ?>
 			<?php } ?>					
 </td>
 </tr>
