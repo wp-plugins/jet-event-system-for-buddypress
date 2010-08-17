@@ -4,8 +4,8 @@ Donate link: http://milordk.ru/uslugi.html
 Plugin link: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Authoe link: http://milordk.ru/
 Tags: BuddyPress, Wordpress MU, meta, members, widget
-Requires at least: Wordpress 3.0, BuddyPress 1.2.5
-Tested up to: Wordpress 3.0.1, BuddyPress 1.2.5.2
+Requires at least: 3.0, BuddyPress 1.2.5
+Tested up to: 3.0.1, BuddyPress 1.2.5.2
 Stable tag: trunk
 
 System events for your social network. Ability to attract members of the network to the ongoing activities. <a href="http://jes.milordk.ru">Jes Dev Site</a>. <strong>SEE README file</strong>!
