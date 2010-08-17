@@ -31,12 +31,15 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://v
 2. Transfer the contents of the folder Templates (events, members) in the folder you are using threads (default: / plugins / buddypress / bp-themes / bp-default) - MUST!
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Add widget to site (if needed)
-5. See Events Catalog: http://<\yousite\>/events
+5. See Events Catalog: http://yousite/events
 
 
 == Screenshots ==
 
-1. Screenshot Wide Site
+1. **Event catalog**
+2. **Create Event Screen**
+3. **Event Setting**
+4. **Widget on Site Wide**
 
 == Plans ==
 
@@ -52,6 +55,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.1.9.3 =
+* Ability to use field "Country" and "State"
+* NOTE: Update Events and Members folders
 
 = 1.1.9.2 =
 * Added ability to customize the filter by default for a directory of events and widget administration panel (in debug mode)

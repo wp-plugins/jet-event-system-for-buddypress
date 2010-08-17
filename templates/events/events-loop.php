@@ -69,7 +69,18 @@
 					<?php _e('Short description:','jet-event-system') ?> <?php jes_bp_event_description_excerpt() ?>				
 				</div>				
 				<div class="item-desc">
-					<span><?php _e('The event will be held in the city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?><?php if ( jes_bp_event_is_visible() ) { ?>, <?php _e('at ','jet-event-system') ?><?php jes_bp_event_placedaddress() ?><? } ?></span><br />				
+					<span><?php _e('The event will take place:','jet-event-system'); ?>
+							<?php
+								if ( $edata[ 'jes_events_countryopt_enable' ] )
+									{
+										jes_bp_event_placedcountry(); ?> ,
+								<?php } ?>
+						<?php	if ( $edata[ 'jes_events_stateopt_enable' ] )
+									{
+										jes_bp_event_placedstate(); ?> ,
+								<?php } ?></span>
+											
+					<span><?php _e('in city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?><?php if ( jes_bp_event_is_visible() ) { ?>, <?php _e('at ','jet-event-system') ?><?php jes_bp_event_placedaddress() ?><? } ?></span><br />				
 					<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?></span> <?php _e('to: ','jet-event-system') ?> <span><?php jes_bp_event_edted() ?></span>
 				</div>
 

@@ -9,6 +9,8 @@ Class JES_Events_Event {
 	var $slug;
 	var $description;
 	var $eventterms;
+	var $placedcountry;
+	var $placedstate;
 	var $placedcity;
 	var $placedaddress;
 	var $newspublic;
@@ -41,6 +43,8 @@ Class JES_Events_Event {
 			$this->slug = $event->slug;
 			$this->description = stripslashes($event->description);
 			$this->eventterms = stripslashes($event->eventterms);
+			$this->placedcountry = stripslashes($event->placedcountry);			
+			$this->placedstate = stripslashes($event->placedstate);			
 			$this->placedcity = stripslashes($event->placedcity);
 			$this->placedaddress = stripslashes($event->placedaddress);
 			$this->newspublic = stripslashes($event->newspublic);
@@ -77,6 +81,8 @@ Class JES_Events_Event {
  		$this->slug = apply_filters( 'events_event_slug_before_save', $this->slug, $this->id );
 		$this->description = apply_filters( 'events_event_description_before_save', $this->description, $this->id );
 		$this->eventterms = apply_filters( 'events_event_eventterms_before_save', $this->eventterms, $this->id );
+		$this->placedcountry = apply_filters( 'events_event_placedcountry_before_save', $this->placedcountry, $this->id );
+		$this->placedstate = apply_filters( 'events_event_placedstate_before_save', $this->placedstate, $this->id );
 		$this->placedcity = apply_filters( 'events_event_placedcity_before_save', $this->placedcity, $this->id );
 		$this->placedaddress = apply_filters( 'events_event_placedaddress_before_save', $this->placedaddress, $this->id );		
 		$this->newspublic = apply_filters( 'events_event_newspublic_before_save', $this->newspublic, $this->id );
@@ -101,6 +107,8 @@ Class JES_Events_Event {
 					slug = %s,
 					description = %s,
 					eventterms = %s,
+					placedcountry = %s,
+					placedstate = %s,
 					placedcity = %s,
 					placedaddress = %s,
 					newspublic = %s,
@@ -122,6 +130,8 @@ Class JES_Events_Event {
 					$this->slug,
 					$this->description,
 					$this->eventterms,
+					$this->placedcountry,
+					$this->placedstate,
 					$this->placedcity,
 					$this->placedaddress,
 					$this->newspublic,
@@ -145,6 +155,8 @@ Class JES_Events_Event {
 					slug,
 					description,
 					eventterms,
+					placedcountry,
+					placedstate,
 					placedcity,
 					placedaddress,
 					newspublic,
@@ -157,7 +169,7 @@ Class JES_Events_Event {
 					enable_forum,
 					date_created
 				) VALUES (
-					%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %s
+					%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %s
 				)",
 					$this->creator_id,
 					$this->name,
@@ -166,6 +178,8 @@ Class JES_Events_Event {
 					$this->slug,
 					$this->description,
 					$this->eventterms,
+					$this->placedcountry,
+					$this->placedstate,
 					$this->placedcity,
 					$this->placedaddress,
 					$this->newspublic,

@@ -1,6 +1,8 @@
 
 	<?php do_action( 'bp_before_event_details_admin' ); ?>
 
+	<?php $edata = get_option( 'jes_events' ); ?>
+
 <table valign="top">
 <tr>
 <td width="50%" style="vertical-align:top;">
@@ -11,11 +13,21 @@
 				<p><?php jes_bp_event_etype() ?></p>				
 			<h5><strong><?php _e('Event Description', 'jet-event-system') ?>:</strong></h5>
 				<?php jes_bp_event_description() ?>
-			<h5><strong><?php _e('Event Placed City', 'jet-event-system') ?>:</strong></h5>
-				<p><?php jes_bp_event_placedcity() ?></p>
+			<h5><strong><?php _e('Event Placed:', 'jet-event-system') ?></strong></h5>
+				<span><strong><?php _e('The event will take place:','jet-event-system'); ?></strong><br />
+						<?php
+							if ( $edata[ 'jes_events_countryopt_enable' ] )
+								{
+									jes_bp_event_placedcountry(); ?> ,
+							<?php } ?>
+					<?php	if ( $edata[ 'jes_events_stateopt_enable' ] )
+								{
+									jes_bp_event_placedstate(); ?> ,
+							<?php } ?>
+					<strong> <?php _e('in city:','jet-event-system') ?></strong> <?php jes_bp_event_placedcity() ?></span>
+					
 <?php if ( jes_bp_event_is_visible() ) { ?>
-			<h5><strong><?php _e('Event Placed address', 'jet-event-system') ?>:</strong></h5>
-				<p><?php jes_bp_event_placedaddress() ?></p>
+			<br /><strong><?php _e('Event Placed address', 'jet-event-system') ?>:</strong> <?php jes_bp_event_placedaddress() ?>
 <?php } ?>
 					
 </td>

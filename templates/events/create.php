@@ -79,6 +79,22 @@
 					<label for="event-desc"><?php _e('* Event Description', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<textarea name="event-desc" id="event-desc"><?php bp_new_event_description() ?></textarea>
 
+<?php if ($edata[ 'jes_events_countryopt_enable' ])
+		{ ?>
+					<label for="event-placedcountry"><?php _e('* Event Placed Country', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
+					<input type="text" name="event-placedcountry" id="event-placedcountry" value="<?php bp_new_event_placedcountry() ?>" />
+		<?php } else { ?>
+					<input type="hidden" name="event-placedcountry" id="event-placedcountry" value="<?php $edata[ 'jes_events_countryopt_def' ] ?>" />		
+		<?php } ?>
+
+<?php if ($edata[ 'jes_events_stateopt_enable' ])
+		{ ?>
+					<label for="event-placedstate"><?php _e('* Event Placed State', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
+					<input type="text" name="event-placedstate" id="event-placedstate" value="<?php bp_new_event_placedstate() ?>" />
+		<?php } else { ?>
+					<input type="hidden" name="event-placedstate" id="event-placedstate" value="<?php $edata[ 'jes_events_stateopt_def' ] ?>" />		
+		<?php } ?>		
+					
 					<label for="event-placedcity"><?php _e('* Event Placed City', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-placedcity" id="event-placedcity" value="<?php bp_new_event_placedcity() ?>" />					
 

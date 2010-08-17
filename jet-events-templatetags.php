@@ -454,8 +454,57 @@ function jes_bp_event_eventterms_excerpt() {
 	
 	
 /* Placed */
+// Country
+function jes_bp_event_placedcountry() {
+	echo jes_bp_get_event_placedcountry();
+}
+	function jes_bp_get_event_placedcountry( $event = false ) {
+		global $events_template;
 
+		if ( !$event )
+			$event =& $events_template->event;
 
+		return apply_filters( 'jes_bp_get_event_placedcountry', stripslashes($event->placedcountry) );
+	}
+
+function jes_bp_event_placedcountry_editable() {
+	echo jes_bp_get_event_placedcountry_editable();
+}
+	function jes_bp_get_event_placedcountry_editable( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_placedcountry_editable', $event->placedcountry );
+	}
+
+// State
+function jes_bp_event_placedstate() {
+	echo jes_bp_get_event_placedstate();
+}
+	function jes_bp_get_event_placedstate( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_placedstate', stripslashes($event->placedstate) );
+	}
+
+function jes_bp_event_placedstate_editable() {
+	echo jes_bp_get_event_placedstate_editable();
+}
+	function jes_bp_get_event_placedstate_editable( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_placedstate_editable', $event->placedstate );
+	}
+
+// City
 function jes_bp_event_placedcity() {
 	echo jes_bp_get_event_placedcity();
 }
@@ -1715,8 +1764,27 @@ function bp_new_event_eventterms() {
 		return apply_filters( 'bp_get_new_event_eventterms', $bp->jes_events->current_event->eventterms );
 	}
 
-		
+
+/* Placed */
+// Country
+function bp_new_event_placedcountry() {
+	echo bp_get_new_event_placedcountry();
+}
+	function bp_get_new_event_placedcountry() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_placedcountry', $bp->jes_events->current_event->placedcountry );
+	}
 	
+// State
+function bp_new_event_placedstate() {
+	echo bp_get_new_event_placedstate();
+}
+	function bp_get_new_event_placedstate() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_placedcity', $bp->jes_events->current_event->placedstate );
+	}
+	
+// City	
 function bp_new_event_placedcity() {
 	echo bp_get_new_event_placedcity();
 }
@@ -1724,7 +1792,8 @@ function bp_new_event_placedcity() {
 		global $bp;
 		return apply_filters( 'bp_get_new_event_placedcity', $bp->jes_events->current_event->placedcity );
 	}
-	
+
+// Address	
 function bp_new_event_placedaddress() {
 	echo bp_get_new_event_placedaddress();
 }

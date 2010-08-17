@@ -35,7 +35,13 @@ function jes_event_admin() {
 			$jes_events[ 'jes_events_createnonadmin_disable' ] = 1;
 
 		if ( $_POST[ 'jes_events_adminapprove_enable' ] == 1 ) 
-			$jes_events[ 'jes_events_adminapprove_enable' ] = 1;			
+			$jes_events[ 'jes_events_adminapprove_enable' ] = 1;	
+
+		if ( $_POST[ 'jes_events_countryopt_enable' ] == 1 ) 
+			$jes_events[ 'jes_events_countryopt_enable' ] = 1;			
+			
+		if ( $_POST[ 'jes_events_stateopt_enable' ] == 1 ) 
+			$jes_events[ 'jes_events_stateopt_enable' ] = 1;			
 		
 		if ( $_POST[ 'jes_events_costumslug' ] != null ) {
 			$jes_events[ 'jes_events_costumslug' ] = stripslashes($_POST[ 'jes_events_costumslug' ]);
@@ -69,6 +75,19 @@ function jes_event_admin() {
 		}else{
 			$jes_events[ 'jes_events_sort_by' ] = 'ASC';			
 		}
+
+		if ( $_POST[ 'jes_events_countryopt_def' ] != null ) {
+			$jes_events[ 'jes_events_countryopt_def' ] = stripslashes($_POST[ 'jes_events_countryopt_def' ]);
+		}else{
+			$jes_events[ 'jes_events_countryopt_def' ] = __('Russia','jet-event-system');
+		}	
+		
+		if ( $_POST[ 'jes_events_stateopt_def' ] != null ) {
+			$jes_events[ 'jes_events_stateopt_def' ] = stripslashes($_POST[ 'jes_events_stateopt_def' ]);
+		}else{
+			$jes_events[ 'jes_events_stateopt_def' ] = __('State','jet-event-system');
+		}		
+	
 		
 if (stripos($blogversion, 'MU') > 0) {			
 		$blogs_ids = get_blog_list( 0, 'all' );
@@ -89,26 +108,27 @@ if (stripos($blogversion, 'MU') > 0) {
 
 		<h3><?php _e( "Let's make some changes:", 'jet-event-system' ) ?></h3>
 		<p><a href="#base-options" class="button">Base Options</a> <a href="#restrict-options" class="button">Restrict options</a> <a href="#privacy-options" class="button">Privacy options</a> <a href="#support" class="button">Support</a> <a href="#translate" class="button">Translate</a> <a href="#future" class="button">Future</a> <a href="#donations" class="button">Donations</a></p>
-<table>
+<table width="100%">
 <tr valign="top">
-<td width="70%">
+<td width="60%">
 		<table class="form-table">
 		<tr valign="top"><td><a name="base-options"><h4>Base options</h4></a></td></tr>
 
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_costumslug_enable"><?php _e( 'Allow costum slug', 'jet-event-system' ) ?></label></th>
 				<td>
-					<input name="jes_events_costumslug_enable" type="checkbox" id="jes_events_costumslug_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_costumslug_enable' ] ? ' checked="checked"' : '' ); ?> />
+					<input name="jes_events_costumslug_enable" type="checkbox" id="jes_events_costumslug_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_costumslug_enable' ] ? ' checked="checked"' : '' ); ?> /><br />
+				
 				</td>
 			</tr>
 
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_costumslug"><?php _e( 'Slug:', 'jet-event-system' ) ?></label></th>
 				<td>
-					<input name="jes_events_costumslug" type="text" id="jes_events_costumslug" value="<?php echo $jes_events[ 'jes_events_costumslug' ]; ?>" />
+					<input name="jes_events_costumslug" type="text" id="jes_events_costumslug" value="<?php echo $jes_events[ 'jes_events_costumslug' ]; ?>" />	
 				</td>
-			</tr>				
-
+			</tr>			
+			
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_class_enable"><?php _e( 'Allow the use of classifiers through an administrative panel (unless you want to use some or classifier - leave his field blank)', 'jet-event-system' ) ?></label></th>
 				<td>
@@ -163,8 +183,39 @@ if (stripos($blogversion, 'MU') > 0) {
 						<option <?php if ($jes_events[ 'jes_events_sort_by_ad' ] == 'DESC') { ?>selected<?php } ?> value="DESC"><?php _e('Descending','jet-event-system'); ?></option> 
 					</select>	
 				</td>
-			</tr>						
+			</tr>	
+<?php
+// Country/State
+?>
+		<tr valign="top"><td><a name="countrystate-options"><h4>Country / State options</h4></a></td></tr>
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_countryopt_enable"><?php _e( 'Allow Country', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_countryopt_enable" type="checkbox" id="jes_events_countryopt_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_countryopt_enable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>			
 
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_countryopt_def"><?php _e( 'Name of the country by default:', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_countryopt_def" type="hidden" id="jes_events_countryopt_def" value="<?php echo $jes_events[ 'jes_events_countryopt_def' ]; ?>" />	
+				</td>
+			</tr>				
+			
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_stateopt_enable"><?php _e( 'Allow State', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_stateopt_enable" type="checkbox" id="jes_events_stateopt_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_stateopt_enable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>
+			
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_stateopt_def"><?php _e( 'Name of the state by default:', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_stateopt_def" type="text" id="jes_events_stateopt_def" value="<?php echo $jes_events[ 'jes_events_stateopt_def' ]; ?>" />	
+				</td>
+			</tr>			
+			
 		<tr valign="top"><td><a name="restrict-options"><h4>Restrict options</h4></a></td></tr>
 		
 			<tr valign="top">
