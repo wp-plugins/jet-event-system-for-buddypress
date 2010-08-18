@@ -8,7 +8,8 @@ Requires at least: 3.0, BuddyPress 1.2.5
 Tested up to: 3.0.1, BuddyPress 1.2.5.2
 Stable tag: trunk
 
-System events for your social network. Ability to attract members of the network to the ongoing activities. <a href="http://jes.milordk.ru">Jes Dev Site</a>. <strong>SEE README file</strong>!
+System events for your social network. Ability to attract members of the network to the ongoing activities.
+<a href="http://jes.milordk.ru">JES DEV Site</a>. <strong>Before you install or upgrade sure to read the Readme file!</strong>!
 
 
 == Description ==
@@ -19,6 +20,12 @@ The plugin is in testing, may not operate some features! Please give your sugges
 ru: Система событий для Вашей социальной сети. Возможность привлекать участников сети к проводимым мероприятиям. 
 Плагин находится в стадии тестирования, могут не работать некоторые функции! Просьба высказывать свои предложения по новым функциям и улучшению уже существующих. Просьба не удалять ссылки на разработчика (для статистики установок)
 
+
+<strong>Before you install or upgrade sure to read the Readme file!</strong>!
+
+<strong>Перед установкой или обновлением обязательно прочтите Readme файл!</strong>
+
+
 Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://volks-wagen-club.ru">Volkswagen Club</a> (Please do not create events on these sites! Use the <a href="http://jes.milordk.ru">jes.milordk.ru</a>)
 
 
@@ -28,7 +35,7 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://v
 == Installation ==
 
 1. Upload `jet-event-system-for-buddypress` folder to the `/wp-content/plugins/` directory
-2. Transfer the contents of the folder Templates (events, members) in the folder you are using threads (default: / plugins / buddypress / bp-themes / bp-default) - MUST!
+2. Be sure to transfer the contents of the folder from the Templates folder (Events, Members) in the root of the plugin you are using themes BP (default: / plugins / buddypress / bp-themes / bp-default)
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Add widget to site (if needed)
 5. See Events Catalog: http://yousite/events
@@ -40,6 +47,19 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://v
 2. **Create Event Screen**
 3. **Event Setting**
 4. **Widget on Site Wide**
+
+== Special Note ==
+
+Used your theme should be based on the default theme BP (styles and functions)! The efficiency of the plug can only be guaranteed on these topics!
+As one of the options for addressing emerging problems with other themes - connection functions.php from a default theme to your BP
+
+
+Your wishes for the development of plug-in you can leave: http://jes.milordk.ru/groups/proposals-for-the-future/
+
+Discuss the issues of localization plugin, you can: http://jes.milordk.ru/groups/translates/
+
+Tell about problems with the plugin and read the other comments you can: http://jes.milordk.ru/groups/test-group-16902666/
+
 
 == Plans ==
 
