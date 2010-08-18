@@ -2,7 +2,7 @@
 
 class JES_BP_Events_Widget extends WP_Widget {
 	function jes_bp_events_widget() {
-		parent::WP_Widget(false, $name = __( 'Events', 'jet-event-system' ) );
+		parent::WP_Widget(false, $name = __( 'JES Events', 'jet-event-system' ) );
 		if ( is_active_widget( false, false, $this->id_base ) )
 			wp_enqueue_script( 'events_widget_events_list-js', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/widget-events.js', array('jquery') );
 	}
@@ -18,6 +18,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 	$data = get_option( 'jes_events' );
 	$show_navi = $instance['show_navi'];
 	$show_type = $instance['show_type'];
+	$show_countrystate = $instance['show_countrystate'];
 	$showonlyadmin = $instance['showonlyadmin'];
 	$archive_color = $instance['archive_color'];  ?>
 
@@ -100,6 +101,23 @@ class JES_BP_Events_Widget extends WP_Widget {
 					<div class="item">
 
 						<div style="font-size:85%;">
+							<?php 
+								$kkey = 0;
+								if ( $show_countrystate ) { ?>
+								<?php if ( jes_bp_get_event_placedcountry() != null ) { 
+								$kkey = 1;
+								?>
+									<span><?php jes_bp_event_placedcountry() ?>, </span>
+								<?php } ?>
+								<?php if ( jes_bp_get_event_placedstate() != null ) {
+								$kkey = 1;
+								?>						
+									<span><?php jes_bp_get_event_placedstate() ?></span>
+								<?php } ?>
+							<?php if ( $kkey ) { ?>
+								<br />
+							<?php } ?>
+							<?php } ?>
 								<span><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>,<br /><?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?><br /><?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?></span>
 						</div>
 					</div>
@@ -129,6 +147,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 		$instance['max_events'] = strip_tags( $new_instance['max_events'] );
 		$instance['show_navi'] = strip_tags( $new_instance['show_navi'] );
 		$instance['show_type'] = strip_tags( $new_instance['show_type'] );
+		$instance['show_countrystate'] = strip_tags( $new_instance['show_countrystate'] );
 		$instance['showonlyadmin'] = strip_tags( $new_instance['showonlyadmin'] );		
 		$instance['archive_color'] = strip_tags( $new_instance['archive_color'] );
 		return $instance;
@@ -139,6 +158,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 		$max_events = strip_tags( $instance['max_events'] );
 		$show_navi = $instance['show_navi'];
 		$show_type = $instance['show_type'];
+		$show_type = $instance['show_countrystate'];
 		$showonlyadmin = $instance['showonlyadmin'];
 		$archive_color = strip_tags( $instance['archive_color'] );		
 		?>
@@ -151,7 +171,10 @@ class JES_BP_Events_Widget extends WP_Widget {
 
 		<p><label for="<?php echo $this->get_field_id('show_type'); ?>"><?php _e('Show type of event and its Classification:', 'jet-event-system'); ?>
 		<input class="checkbox" type="checkbox" <?php if ($show_type) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('show_type'); ?>" name="<?php echo $this->get_field_name('show_type'); ?>" value="1" /></label></p>	
-		
+	
+		<p><label for="<?php echo $this->get_field_id('show_countrystate'); ?>"><?php _e('Show the country and state for the event (if allowed to use administrative panel):', 'jet-event-system'); ?>
+		<input class="checkbox" type="checkbox" <?php if ($show_countrystate) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('show_countrystate'); ?>" name="<?php echo $this->get_field_name('show_countrystate'); ?>" value="1" /></label></p>	
+	
 		<p><label for="<?php echo $this->get_field_id('showonlyadmin'); ?>"><?php _e('Show archived events only for administrator:', 'jet-event-system'); ?>
 		<input type="checkbox" <?php if ($showonlyadmin) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('showonlyadmin'); ?>" name="<?php echo $this->get_field_name('showonlyadmin'); ?>" value="1" /></label></p>	
 		

@@ -62,7 +62,7 @@ Discuss the issues of localization plugin, you can: http://jes.milordk.ru/groups
 Tell about problems with the plugin and read the other comments you can: http://jes.milordk.ru/groups/test-group-16902666/
 
 
-== Plans ==
+== Future ==
 
 * In version 1.2 will ensure compatibility of the system with the new version of BP
 * In version 1.3 will be added to the possibility of tying the event to a group
@@ -76,6 +76,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.1.9.3.2 =
+* Added ability to customize the widget showing the country and the state
+* Correction of administrative panel
 
 = 1.1.9.3.1 =
 * Adjusted to show details of events: if you did not fill the "Special Conditions", "Public News" or "Private News", the earlier they appear in the details as headers. Now they are displayed only if they fill
