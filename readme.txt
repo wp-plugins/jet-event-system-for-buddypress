@@ -47,6 +47,7 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://v
 2. **Create Event Screen**
 3. **Event Setting**
 4. **Widget on Site Wide**
+5. **Admin Panel**
 
 == Special Note ==
 
