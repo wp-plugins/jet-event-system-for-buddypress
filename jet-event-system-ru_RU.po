@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JES\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-18 18:03+0300\n"
-"PO-Revision-Date: 2010-08-18 18:03+0300\n"
+"POT-Creation-Date: 2010-08-18 18:22+0300\n"
+"PO-Revision-Date: 2010-08-18 18:23+0300\n"
 "Last-Translator: Jettochkin <milord_k@mail.ru>\n"
 "Language-Team: Jettochkin <milord_k@mail.ru>\n"
 "MIME-Version: 1.0\n"
@@ -871,7 +871,6 @@ msgid "requested %s ago"
 msgstr "запрошено %s назад"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:5
-#, fuzzy
 msgid "JES Events"
 msgstr "События"
 
