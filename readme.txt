@@ -77,7 +77,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
-= 1.1.9.4 =
+= 1.1.9.5 = 
+* Now you can choose the display style of Events Catalog: Standard or Twitter. The configuration is done via admin panel
+
+= 1.1.9.4.1 =
 * Implemented auto-update feature you are using themes! The update is available automatically via the administrative panel plugin. 
 * NOTE: You should check the permissions on all folders themes and plugin!
 
