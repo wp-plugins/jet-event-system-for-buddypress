@@ -226,8 +226,8 @@ if (stripos($blogversion, 'MU') > 0) {
 				<th scope="row"><label for="jes_events_style"><?php _e( 'Style for Event Catalog:', 'jet-event-system' ) ?></label></th>
 				<td>
 					<select name="jes_events_style" id="jes_events_style" size = "1">
-						<option if ($jes_events[ 'jes_events_style' ] == 'Standart') { ?>selected <?php } ?>value="Standart "><?php _e('Standart Style','jet-event-system'); ?></option>
-						<option if ($jes_events[ 'jes_events_style' ] == 'Twitter') { ?>selected <?php } ?>value="Twitter"><?php _e('Twitter Style','jet-event-system'); ?></option>
+						<option <?php if ($jes_events[ 'jes_events_style' ] == 'Standart') { ?>selected <?php } ?>value="Standart "><?php _e('Standart Style','jet-event-system'); ?></option>
+						<option <?php if ($jes_events[ 'jes_events_style' ] == 'Twitter') { ?>selected <?php } ?>value="Twitter"><?php _e('Twitter Style','jet-event-system'); ?></option>
 					</select>
 				</td>
 			</tr>
