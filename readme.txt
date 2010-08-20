@@ -77,6 +77,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.1.9.4 =
+* Implemented auto-update feature you are using themes! The update is available automatically via the administrative panel plugin. 
+* NOTE: You should check the permissions on all folders themes and plugin!
+
 = 1.1.9.3.2 =
 * Added ability to customize the widget showing the country and the state
 * Correction of administrative panel

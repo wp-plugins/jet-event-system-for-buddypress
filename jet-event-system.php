@@ -3,7 +3,7 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1.9.3.2
+Version: 1.1.9.4
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
@@ -11,7 +11,8 @@ Network: true
 */
 
 define('Jet Events System', '1.1.9');
-define ('JES_EVENTS_DB_VERSION', '2.0');
+define ('JES_EVENTS_DB_VERSION', 2 );
+define ('JES_EVENTS_TEMPLATE_VERSION', 5 );
 
 /* Define the slug for the component */
 if ( !defined( 'JES_SLUG' ) ) {
@@ -42,6 +43,7 @@ if ($edata[ 'jes_events_addnavi_disable' ]) {
 add_action('get_header','hidden_events');
 }
 
+require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-db.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-classes.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-templatetags.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-widgets.php' );
@@ -78,91 +80,6 @@ function jet_events_add_js() {
 }
 add_action( 'template_redirect', 'jet_events_add_js', 1 );	
 	
-function jes_events_init_jesdb() {
-	global $wpdb, $bp;
-
-	if ( !empty($wpdb->charset) )
-		$charset_collate = "DEFAULT CHARACTER SET $wpdb->charset";
-
-	$sql[] = "CREATE TABLE {$bp->jes_events->table_name} (
-	  		id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-			creator_id bigint(20) NOT NULL,
-	  		name varchar(100) NOT NULL,
-			etype varchar(20) NOT NULL,
-			eventapproved varchar(1),			
-	  		slug varchar(100) NOT NULL,
-	  		description longtext NOT NULL,
-	  		eventterms longtext,
-			placedcountry varchar(30),
-			placedstate varchar(40),			
-			placedcity varchar(25) NOT NULL,
-			placedaddress varchar(80) NOT NULL,			
-			newspublic longtext,			
-			newsprivate longtext,
-			edtsd varchar(18) NOT NULL,
-			edted varchar(18) NOT NULL,			
-			edtsdunix varchar(18) NOT NULL,
-			edtedunix varchar(18) NOT NULL,			
-			status varchar(10) NOT NULL DEFAULT 'public',
-			enable_forum tinyint(1) NOT NULL DEFAULT '1',
-			date_created datetime NOT NULL,
-		    KEY creator_id (creator_id),
-		    KEY status (status),
-			KEY etype (etype),
-			KEY eventapproved (eventapproved),
-			KEY placedcity (placedcity),
-			KEY placedcountry (placedcountry)
-	 	   ) {$charset_collate};";
-
-	$sql[] = "CREATE TABLE {$bp->jes_events->jes_table_name_members} (
-	  		id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-			event_id bigint(20) NOT NULL,
-			user_id bigint(20) NOT NULL,
-			inviter_id bigint(20) NOT NULL,
-			is_admin tinyint(1) NOT NULL DEFAULT '0',
-			is_mod tinyint(1) NOT NULL DEFAULT '0',
-			user_title varchar(100) NOT NULL,
-			date_modified datetime NOT NULL,
-			comments longtext NOT NULL,
-			is_confirmed tinyint(1) NOT NULL DEFAULT '0',
-			is_banned tinyint(1) NOT NULL DEFAULT '0',
-			invite_sent tinyint(1) NOT NULL DEFAULT '0',
-			KEY event_id (event_id),
-			KEY is_admin (is_admin),
-			KEY is_mod (is_mod),
-		 	KEY user_id (user_id),
-			KEY inviter_id (inviter_id),
-			KEY is_confirmed (is_confirmed)
-	 	   ) {$charset_collate};";
-
-	$sql[] = "CREATE TABLE {$bp->jes_events->table_name_eventmeta} (
-			id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-			event_id bigint(20) NOT NULL,
-			meta_key varchar(255) DEFAULT NULL,
-			meta_value longtext DEFAULT NULL,
-			KEY event_id (event_id),
-			KEY meta_key (meta_key)
-		   ) {$charset_collate};";
-		   
-	$sql[] = "CREATE TABLE {$bp->jes_events->table_name_activity} (
-	  		id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-			creator_id bigint(20) NOT NULL,
-	  		description longtext NOT NULL,
-			a_datetime varchar(18) NOT NULL,
-			a_datetime_unix varchar(18) NOT NULL,
-		    KEY creator_id (creator_id),
-			KEY a_datetime_unix (a_datetime_unix)
-	 	   ) {$charset_collate};";
-		   
-
-	require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
-	dbDelta($sql);
-
-	do_action( 'jes_events_init_jesdb' );
-
-	update_site_option( 'jes-db-version', JES_EVENTS_DB_VERSION );	
-	
-}
 
 function jes_events_setup_globals() {
 	global $bp, $wpdb;
@@ -195,6 +112,7 @@ add_action( 'bp_setup_globals', 'jes_events_setup_globals' );
 
 /* Ajax Tabs */
 add_action( 'wp_ajax_events_filter', 'bp_dtheme_object_template_loader' );
+
 
 function events_setup_root_component() {
 	/* Register 'events' as a root component */
