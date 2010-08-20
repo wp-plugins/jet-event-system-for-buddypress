@@ -17,6 +17,7 @@
 
 		<div class="pagination-links" id="event-dir-pag">
 			<?php jes_bp_events_pagination_links() ?>
+			<?php _e('Style:','jet-event-system'); ?> <?php _e($edata['jes_events_style'],'jet-event-system'); ?>
 		</div>
 
 	</div>
