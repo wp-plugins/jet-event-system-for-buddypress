@@ -105,7 +105,13 @@ function jes_event_admin() {
 		}else{
 			$jes_events[ 'jes_events_costumslug' ] = 'events';
 		}
-			
+
+		if ( $_POST[ 'jes_events_style' ] != null ) {
+			$jes_events[ 'jes_events_style' ] = stripslashes($_POST[ 'jes_events_style' ]);
+		}else{
+			$jes_events[ 'jes_events_style' ] = __('Standart','jet-event-system');
+		}
+		
 		if ( $_POST[ 'jes_events_text_one' ] != null ) {
 			$jes_events[ 'jes_events_text_one' ] = stripslashes($_POST[ 'jes_events_text_one' ]);
 		}else{
@@ -215,6 +221,16 @@ if (stripos($blogversion, 'MU') > 0) {
 					</select>	
 				</td>
 			</tr>				
+
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_style"><?php _e( 'Style for Event Catalog:', 'jet-event-system' ) ?></label></th>
+				<td>
+					<select name="jes_events_style" id="jes_events_style" size = "1">
+						<option if ($jes_events[ 'jes_events_style' ] == 'Standart') { ?>selected <?php } ?>value="Standart "><?php _e('Standart Style','jet-event-system'); ?></option>
+						<option if ($jes_events[ 'jes_events_style' ] == 'Twitter') { ?>selected <?php } ?>value="Twitter"><?php _e('Twitter Style','jet-event-system'); ?></option>
+					</select>
+				</td>
+			</tr>
 			
 		<tr valign="top"><td><a name="classification-options"><h4><?php _e('Classification options','jet-event-system'); ?></h4></a></td></tr>			
 
@@ -259,7 +275,7 @@ if (stripos($blogversion, 'MU') > 0) {
 <?php
 // Country/State
 ?>
-		<tr valign="top"><td><a name="country-state-options"><h4><?php _e('Country/State options','jet-event-system'); ?></h4></a></td></tr>
+		<tr valign="top"><td><a name="country-state-options"><h4><?php _e('Country/State Options','jet-event-system'); ?></h4></a></td></tr>
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_countryopt_enable"><?php _e( 'Allow Country', 'jet-event-system' ) ?></label></th>
 				<td>
