@@ -77,6 +77,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.1.9.5.1 =
+* Fixed problem with choice of style "Standard" for the catalog of events
+
 = 1.1.9.5 = 
 * Now you can choose the display style of Events Catalog: Standard or Twitter. The configuration is done via admin panel
 

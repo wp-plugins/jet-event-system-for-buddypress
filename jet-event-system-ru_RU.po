@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: JES\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-20 14:14+0300\n"
-"PO-Revision-Date: 2010-08-20 14:15+0300\n"
+"PO-Revision-Date: 2010-08-20 15:42+0300\n"
 "Last-Translator: Jettochkin <milord_k@mail.ru>\n"
 "Language-Team: Jettochkin <milord_k@mail.ru>\n"
 "MIME-Version: 1.0\n"
@@ -456,7 +456,7 @@ msgstr "Параметры конфиденциальности"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:189
 msgid "Classification Options"
-msgstr "Классификатор - 1"
+msgstr "Настройка классификаторов"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:189
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:278
