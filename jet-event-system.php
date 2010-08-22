@@ -3,7 +3,7 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1.9.5.3
+Version: 1.1.9.6
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
@@ -164,7 +164,7 @@ function events_setup_nav() {
 		$bp->jes_events->current_event->is_event_visible_to_member = ( 'public' == $bp->jes_events->current_event->status || $is_member ) ? true : false;
 	}
 
-	/* Add 'Events' to the main navigation */
+	/* Add 'Events' to the main navigation - Profile */
 	bp_core_new_nav_item( array( 'name' => sprintf( __( 'Events <span>(%d)</span>', 'jet-event-system' ), events_total_events_for_user() ), 'slug' => $bp->jes_events->slug, 'position' => 70, 'screen_function' => 'events_screen_my_events', 'default_subnav_slug' => 'my-events', 'item_css_id' => $bp->jes_events->id ) );
 
 	$events_link = $bp->loggedin_user->domain . $bp->jes_events->slug . '/';
@@ -300,7 +300,7 @@ function events_screen_my_events() {
 
 	do_action( 'events_screen_my_events' );
 
-	bp_core_load_template( apply_filters( 'events_template_my_events', 'members/single/home' ) );
+	bp_core_load_template( apply_filters( 'events_template_my_events', 'members/single/events' ) );
 }
 
 function events_screen_jes_event_invite_jes() {
