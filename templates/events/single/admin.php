@@ -71,13 +71,22 @@
 					<input type="text" name="event-placedaddress" id="event-placedaddress" value="<?php jes_bp_event_placedaddress() ?>" />						
 </td>
 <td width="50%" style="vertical-align:top;">
+<?php if ($edata['jes_events_specialconditions_enable']) { ?>
 					<label for="event-eventterms"><h4><?php _e('Special Conditions', 'jet-event-system') ?></h4></label>
 					<textarea name="event-eventterms" id="event-eventterms"><?php jes_bp_event_eventterms() ?></textarea>
+<?php } ?>
+
+<?php if ($edata['jes_events_publicnews_enable'] || $edata['jes_publicnews_enable']) { ?>					
 <h4><?php _e('News for event','jet-event-system') ?></h4>					
+<?php } ?>
+<?php if ($edata['jes_events_publicnews_enable']) { ?>
 					<label for="event-newspublic"><?php _e('Event Public news', 'jet-event-system') ?></label>
 					<textarea name="event-newspublic" id="event-newspublic"><?php jes_bp_event_newspublic() ?></textarea>
+<?php } ?>
+<?php if ($edata['jes_events_privatenews_enable']) { ?>
 					<label for="event-newsprivate"><?php _e('Event Private news', 'jet-event-system') ?></label>
 					<textarea name="event-newsprivate" id="event-newsprivate"><?php jes_bp_event_newsprivate() ?></textarea>					
+<?php } ?>
 </td>
 </tr>
 <tr>
@@ -88,17 +97,20 @@
 			$('#event-edtsd').mask('99/99/9999 99:99');
 			$('#event-edted').mask('99/99/9999 99:99');
 });</script>
+
+
 <h4><?php _e('Date event','jet-event-system') ?></h4>
 					<label for="event-edtsd"><?php _e('* Event Start date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-edtsd" id="event-edtsd" value="<?php jes_bp_event_edtsd() ?>" />
-					<br /><span class="small">dd/mm/yyyy HH:mm</span>
+					<br /><span class="small"><?php _e('dd/mm/yyyy HH:mm','jet-event-system'); ?></span>
 </td>
 <td width="50%" style="vertical-align:bottom;">
 					<label for="event-edtsd"><?php _e('* Event End date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-edted" id="event-edted" value="<?php jes_bp_event_edted() ?>" />	
-					<br /><span class="small">dd/mm/yyyy HH:mm</span>
+					<br /><span class="small"><?php _e('dd/mm/yyyy HH:mm','jet-event-system'); ?></span>
 </td>
 </tr>
+
 <tr>
 <td>
 	<label for="event-notify-members"><?php _e('Notify participants of the event to update the details?', 'jet-event-system') ?></label>

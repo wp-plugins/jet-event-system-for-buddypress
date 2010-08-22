@@ -101,15 +101,22 @@
 					<label for="event-placedaddress"><?php _e('Event Placed address', 'jet-event-system') ?></label>
 					<input type="text" name="event-placedaddress" id="event-placedaddress" value="<?php bp_new_event_placedaddress() ?>" />						
 </td>
-<td width="50%" style="vertical-align:top;">					
+<td width="50%" style="vertical-align:top;">	
+<?php if ($edata['jes_events_specialconditions_enable']) { ?> 				
 					<label for="event-eventterms"><h4><?php _e('Special Conditions', 'jet-event-system') ?></h4></label>
 					<textarea name="event-eventterms" id="event-eventterms"><?php bp_new_event_eventterms() ?></textarea>
+<?php } ?>
+<?php if ($edata['jes_events_publicnews_enable'] || $edata['jes_publicnews_enable']) { ?>	
 <h4><?php _e('News for event','jet-event-system') ?></h4>					
+<?php } ?>
+<?php if ($edata['jes_events_publicnews_enable']) { ?>
 					<label for="event-newspublic"><?php _e('Event Public news', 'jet-event-system') ?></label>
 					<textarea name="event-newspublic" id="event-newspublic"><?php bp_new_event_newspublic() ?></textarea>
-
+<?php } ?>
+<?php if ($edata['jes_events_privatenews_enable']) { ?>
 					<label for="event-newsprivate"><?php _e('Event Private news', 'jet-event-system') ?></label>
-					<textarea name="event-newsprivate" id="event-newsprivate"><?php bp_new_event_newsprivate() ?></textarea>					
+					<textarea name="event-newsprivate" id="event-newsprivate"><?php bp_new_event_newsprivate() ?></textarea>
+<?php } ?>					
 </td>
 </tr>
 <tr>

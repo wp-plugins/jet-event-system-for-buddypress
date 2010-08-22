@@ -77,6 +77,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.1.9.8 =
+* Added the ability to authorize or prohibit the following field events: Special Conditions, Public News, Private news. 
+* Note: Be sure to visit the settings page plugin!
+
 = 1.1.9.7.1 =
 * Ability to notify participants of the event changes
 

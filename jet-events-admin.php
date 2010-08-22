@@ -99,6 +99,15 @@ function jes_event_admin() {
 			
 		if ( $_POST[ 'jes_events_stateopt_enable' ] == 1 ) 
 			$jes_events[ 'jes_events_stateopt_enable' ] = 1;			
+
+		if ( $_POST[ 'jes_events_specialconditions_enable' ] == 1 ) 
+			$jes_events[ 'jes_events_specialconditions_enable' ] = 1;
+			
+		if ( $_POST[ 'jes_events_publicnews_enable' ] == 1 ) 
+			$jes_events[ 'jes_events_publicnews_enable' ] = 1;
+
+		if ( $_POST[ 'jes_events_privatenews_enable' ] == 1 ) 
+			$jes_events[ 'jes_events_privatenews_enable' ] = 1;			
 		
 		if ( $_POST[ 'jes_events_costumslug' ] != null ) {
 			$jes_events[ 'jes_events_costumslug' ] = stripslashes($_POST[ 'jes_events_costumslug' ]);
@@ -198,7 +207,8 @@ if (stripos($blogversion, 'MU') > 0) {
 	<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y" />
 
 		<h3><?php _e( "Let's make some changes:", 'jet-event-system' ) ?></h3>
-		<p><a href="#base-options" class="button"><?php _e('Base Options','jet-event-system'); ?></a> <a href="#style-options" class="button"><?php _e('Style Options','jet-event-system'); ?></a> <a href="#classification-options" class="button"><?php _e('Classification Options','jet-event-system'); ?></a> <a href="#country-state-options" class="button"><?php _e('Country/State Options','jet-event-system'); ?></a></p>
+
+		<p><a href="#base-options" class="button"><?php _e('Base Options','jet-event-system'); ?></a> <a href="#sbase-options" class="button"><?php _e('Setting up access to the fields events','jet-event-system'); ?></a> <a href="#style-options" class="button"><?php _e('Style Options','jet-event-system'); ?></a> <a href="#classification-options" class="button"><?php _e('Classification Options','jet-event-system'); ?></a> <a href="#country-state-options" class="button"><?php _e('Country/State Options','jet-event-system'); ?></a></p>
 		<p><a href="#restrict-options" class="button"><?php _e('Restrict options','jet-event-system'); ?></a> <a href="#privacy-options" class="button"><?php _e('Privacy options','jet-event-system'); ?></a></p>
 		<p><a href="#support" class="button"><?php _e('Support','jet-event-system'); ?></a> <a href="#translate" class="button"><?php _e('Translate','jet-event-system'); ?></a> <a href="#future" class="button"><?php _e('Future','jet-event-system'); ?></a> <a href="#donations" class="button"><?php _e('Donations','jet-event-system'); ?></a></p>
 <table width="100%">
@@ -235,6 +245,29 @@ if (stripos($blogversion, 'MU') > 0) {
 				</td>
 			</tr>				
 
+		<tr valign="top"><td><a name="sbase-options"><h4><?php _e('Setting up access to the fields events','jet-event-system'); ?></h4></a></td></tr>			
+			
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_specialconditions_enable"><?php _e( 'Allow Special Conditions', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_specialconditions_enable" type="checkbox" id="jes_events_specialconditions_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_specialconditions_enable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>			
+
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_publicnews_enable"><?php _e( 'Allow Public News', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_publicnews_enable" type="checkbox" id="jes_events_publicnews_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_publicnews_enable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>			
+
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_privatenews_enable"><?php _e( 'Allow Private News', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_privatenews_enable" type="checkbox" id="jes_events_privatenews_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_privatenews_enable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>	
+			
 		<tr valign="top"><td><a name="style-options"><h4><?php _e('Style Options','jet-event-system'); ?></h4></a></td></tr>			
 			
 			<tr valign="top">
@@ -354,9 +387,6 @@ if (stripos($blogversion, 'MU') > 0) {
 	</form>
 </td>
 <td>
-<a name="support"><h4><?php _e('Support','jet-event-system'); ?></h4></a>
-<p><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html">About</a><br />
-<a href="http://jes.milordk.ru">Website Developer</a><br />
 <a name="donations"><h4><?php _e('Donations','jet-event-system'); ?>:</h4></a>
 <em>WMZ</em>: <strong>Z113010060388</strong> / <em>WMR</em>: <strong>R144831580346</strong><br />
 
@@ -366,6 +396,7 @@ function chcount(form){
     return true;
 }
 </SCRIPT>
+
 <form name="sf" method="post" action= "https://www.paypal.com/cgi-bin/webscr">
 <input type="text" name="UCount" value="20" MAXLENGTH="3" SIZE="3" onChange="return chcount(this.form)">
 <input type="hidden" name="cmd" value="_xclick">
@@ -378,7 +409,10 @@ function chcount(form){
 <input type="submit" value="Donations with PayPal (USD)">
 </form>
 
-<br />(<?php _e('please specify in the designation of the site and name:) All who have made a contribution to the development of plug-in will be included in honor roll, as well as gain access to additional modules!','jet-event-system'); ?>)<br /><br /></p>
+<p>(<?php _e('please specify in the designation of the site and name:) All who have made a contribution to the development of plug-in will be included in honor roll, as well as gain access to additional modules!','jet-event-system'); ?>)<br /><br /></p>
+<a name="support"><h4><?php _e('Support','jet-event-system'); ?></h4></a>
+<p><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html">About</a><br />
+<a href="http://jes.milordk.ru">Website Developer</a><br /></p>
 <a name="future"><h4><?php _e('Future','jet-event-system'); ?></h4></a>
 <ul>
 <li>* In version 1.2 will ensure compatibility of the system with the new version of BP</li>
