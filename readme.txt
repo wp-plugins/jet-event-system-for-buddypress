@@ -77,6 +77,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.1.9.5.2 =
+* Starting with version 1.1.9 in the administrative console not saved the fourth and fifth classifiers.
+
 = 1.1.9.5.1 =
 * Fixed problem with choice of style "Standard" for the catalog of events
 

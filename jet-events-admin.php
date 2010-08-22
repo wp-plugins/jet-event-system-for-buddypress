@@ -128,6 +128,18 @@ function jes_event_admin() {
 			$jes_events[ 'jes_events_text_three' ] = __('Home','jet-event-system');
 		}
 
+		if ( $_POST[ 'jes_events_text_four' ] != null ) {
+			$jes_events[ 'jes_events_text_four' ] = stripslashes($_POST[ 'jes_events_text_four' ]);
+		}else{
+			$jes_events[ 'jes_events_text_four' ] = __('Home','jet-event-system');
+		}		
+
+		if ( $_POST[ 'jes_events_text_five' ] != null ) {
+			$jes_events[ 'jes_events_text_five' ] = stripslashes($_POST[ 'jes_events_text_five' ]);
+		}else{
+			$jes_events[ 'jes_events_text_five' ] = __('Home','jet-event-system');
+		}
+		
 		if ( $_POST[ 'jes_events_sort_by' ] != null ) {
 			$jes_events[ 'jes_events_sort_by' ] = stripslashes($_POST[ 'jes_events_sort_by' ]);
 		}else{
