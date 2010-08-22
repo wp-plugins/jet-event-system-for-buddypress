@@ -102,7 +102,7 @@
 <tr>
 <td>
 	<label for="event-notify-members"><?php _e('Notify participants of the event to update the details?', 'jet-event-system') ?></label>
-	<input type="checkbox" name="event-notify-members" id="event-notify-members" value="0" />
+	<input type="checkbox" name="event-notify-members" id="event-notify-members" value="1" />
 </td>
 <td></td>
 </tr>
