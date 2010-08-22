@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: JES\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-23 00:48+0300\n"
-"PO-Revision-Date: 2010-08-23 00:50+0300\n"
+"PO-Revision-Date: 2010-08-23 00:53+0300\n"
 "Last-Translator: Jettochkin <milord_k@mail.ru>\n"
 "Language-Team: Jettochkin <milord_k@mail.ru>\n"
 "MIME-Version: 1.0\n"
@@ -1439,7 +1439,7 @@ msgstr "Подтвердить событие?"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:116
 msgid "Notify participants of the event to update the details?"
-msgstr ""
+msgstr "Оповестить участников события об изменениях?"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:125
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:193
