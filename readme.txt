@@ -77,6 +77,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.1.9.5.3 =
+* Added a new style: Normal, showing a full description of the event
+
 = 1.1.9.5.2 =
 * Starting with version 1.1.9 in the administrative console not saved the fourth and fifth classifiers.
 

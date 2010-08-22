@@ -33,7 +33,7 @@
 <?php
 // Standart style Event Catalog 
 ?>
-<?php if ($edata['jes_events_style'] == 'Standart' ) 
+<?php if ( ($edata['jes_events_style'] == 'Standart') or ($edata['jes_events_style'] == 'Standart with Full Description') ) 
 			{ ?>
 	
 	<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
@@ -72,7 +72,11 @@
 				<em><span style="color : #33CC00;"><?php _e('Active event','jet-event-system') ?></span></em> , 
 	<?php } ?>				
 					<span class="meta"><em><?php jes_bp_event_type() ?></em></span><br />
-					<?php _e('Short description:','jet-event-system') ?> <?php jes_bp_event_description_excerpt() ?>				
+				<?php if ($edata['jes_events_style'] == 'Standart') { ?>
+					<?php _e('Short description:','jet-event-system') ?> <?php jes_bp_event_description_excerpt() ?>
+				<?php } else { ?>
+					<?php _e('Description:','jet-event-system') ?> <?php jes_bp_event_description() ?>
+				<?php } ?>
 				</div>				
 				<div class="item-desc">
 					<span><?php _e('The event will take place:','jet-event-system'); ?>

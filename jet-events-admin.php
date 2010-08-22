@@ -198,13 +198,14 @@ if (stripos($blogversion, 'MU') > 0) {
 	<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y" />
 
 		<h3><?php _e( "Let's make some changes:", 'jet-event-system' ) ?></h3>
-		<p><a href="#base-options" class="button"><?php _e('Base Options','jet-event-system'); ?></a> <a href="#classification-options" class="button"><?php _e('Classification Options','jet-event-system'); ?></a> <a href="#country-state-options" class="button"><?php _e('Country/State Options','jet-event-system'); ?></a> <a href="#restrict-options" class="button"><?php _e('Restrict options','jet-event-system'); ?></a> <a href="#privacy-options" class="button"><?php _e('Privacy options','jet-event-system'); ?></a></p>
+		<p><a href="#base-options" class="button"><?php _e('Base Options','jet-event-system'); ?></a> <a href="#style-options" class="button"><?php _e('Style Options','jet-event-system'); ?></a> <a href="#classification-options" class="button"><?php _e('Classification Options','jet-event-system'); ?></a> <a href="#country-state-options" class="button"><?php _e('Country/State Options','jet-event-system'); ?></a></p>
+		<p><a href="#restrict-options" class="button"><?php _e('Restrict options','jet-event-system'); ?></a> <a href="#privacy-options" class="button"><?php _e('Privacy options','jet-event-system'); ?></a></p>
 		<p><a href="#support" class="button"><?php _e('Support','jet-event-system'); ?></a> <a href="#translate" class="button"><?php _e('Translate','jet-event-system'); ?></a> <a href="#future" class="button"><?php _e('Future','jet-event-system'); ?></a> <a href="#donations" class="button"><?php _e('Donations','jet-event-system'); ?></a></p>
 <table width="100%">
 <tr valign="top">
 <td width="60%">
 		<table class="form-table">
-		<tr valign="top"><td><a name="base-options"><h4><?php _e('Base options','jet-event-system'); ?></h4></a></td></tr>
+		<tr valign="top"><td><a name="base-options"><h4><?php _e('Base Options','jet-event-system'); ?></h4></a></td></tr>
 
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_costumslug_enable"><?php _e( 'Allow costum slug', 'jet-event-system' ) ?></label></th>
@@ -234,16 +235,19 @@ if (stripos($blogversion, 'MU') > 0) {
 				</td>
 			</tr>				
 
+		<tr valign="top"><td><a name="style-options"><h4><?php _e('Style Options','jet-event-system'); ?></h4></a></td></tr>			
+			
 			<tr valign="top">
 				<th scope="row"><label for="jes_events_style"><?php _e( 'Style for Event Catalog:', 'jet-event-system' ) ?></label></th>
 				<td>
 					<select name="jes_events_style" id="jes_events_style" size = "1">
 						<option <?php if ($jes_events[ 'jes_events_style' ] == 'Standart') { ?>selected <?php } ?>value="Standart"><?php _e('Standart Style','jet-event-system'); ?></option>
+						<option <?php if ($jes_events[ 'jes_events_style' ] == 'Standart with Full Description') { ?>selected <?php } ?>value="Standart with Full Description"><?php _e('Standart with Full Description Style','jet-event-system'); ?></option>						
 						<option <?php if ($jes_events[ 'jes_events_style' ] == 'Twitter') { ?>selected <?php } ?>value="Twitter"><?php _e('Twitter Style','jet-event-system'); ?></option>
 					</select>
 				</td>
 			</tr>
-			
+		
 		<tr valign="top"><td><a name="classification-options"><h4><?php _e('Classification options','jet-event-system'); ?></h4></a></td></tr>			
 
 			<tr valign="top">
