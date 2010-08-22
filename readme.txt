@@ -77,6 +77,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.1.9.7 =
+* Ability to notify participants of the event changes
+
 = 1.1.9.6 =
 * Fixed: user profile does not display events
 

@@ -397,6 +397,11 @@ function chcount(form){
 <p><em><?php _e('Please send your translations to milord_k @ mail.ru','jet-event-system'); ?></em></p>
 <p>Do not forget to include links to your sites (for accommodation options in the list of translators)</p>
 <p><?php _e('Translates can be discussed at the forum on the official website of the plugin:','jet-event-system'); ?> <a href="http://jes.milordk.ru/groups/translates/">Group</a></p>
+
+<a name="plugins"><h4><?php _e('Recommended plugins','jet-event-system'); ?></h4></a>
+<ol>
+<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-site-unit-could-poleznye-vidzhety-dlya-vashej-socialnoj-seti.html" title="Jet Site Unit Could">Jet Site Unit Could</a></li>
+</ol>
 </td>
 </tr>
 </table>

@@ -99,6 +99,13 @@
 					<br /><span class="small">dd/mm/yyyy HH:mm</span>
 </td>
 </tr>
+<tr>
+<td>
+	<label for="event-notify-members"><?php _e('Notify participants of the event to update the details?', 'jet-event-system') ?></label>
+	<input type="checkbox" name="event-notify-members" id="event-notify-members" value="0" />
+</td>
+<td></td>
+</tr>
 </table>		
 
 	<?php do_action( 'bp_after_event_details_admin' ); ?>
