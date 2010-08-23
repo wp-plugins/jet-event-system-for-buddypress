@@ -69,7 +69,8 @@ function jes_event_admin() {
 		$jes_events[ 'jes_events_addnavicatalog_disable' ] = 0;
 		$jes_events[ 'jes_events_createnonadmin_disable' ] = 0;
 		$jes_events[ 'jes_events_adminapprove_enable' ] = 0;
-
+		$jes_events[ 'jes_events_show_avatar_invite_enable' ] = 0;
+		
 		if ( $_POST[ 'jes_events_class_enable' ] == 1 ) 
 			$jes_events[ 'jes_events_class_enable' ] = 1;
 			
@@ -107,8 +108,11 @@ function jes_event_admin() {
 			$jes_events[ 'jes_events_publicnews_enable' ] = 1;
 
 		if ( $_POST[ 'jes_events_privatenews_enable' ] == 1 ) 
-			$jes_events[ 'jes_events_privatenews_enable' ] = 1;			
-		
+			$jes_events[ 'jes_events_privatenews_enable' ] = 1;		
+
+		if ( $_POST[ 'jes_events_show_avatar_invite_enable' ] == 1 ) 
+			$jes_events[ 'jes_events_show_avatar_invite_enable' ] = 1;
+
 		if ( $_POST[ 'jes_events_costumslug' ] != null ) {
 			$jes_events[ 'jes_events_costumslug' ] = stripslashes($_POST[ 'jes_events_costumslug' ]);
 		}else{
@@ -274,6 +278,14 @@ if (stripos($blogversion, 'MU') > 0) {
 					</select>
 				</td>
 			</tr>
+		
+			<tr valign="top">
+				<th scope="row"><label for="jes_events_show_avatar_invite_enable"><?php _e( 'Show avatars in the list of invited friends', 'jet-event-system' ) ?></label></th>
+				<td>
+					<input name="jes_events_show_avatar_invite_enable" type="checkbox" id="jes_events_show_avatar_invite_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_show_avatar_invite_enable' ] ? ' checked="checked"' : '' ); ?> />
+				</td>
+			</tr>		
+jes_events_show_avatar_invite_enable
 		
 		<tr valign="top"><td><a name="classification-options"><h4><?php _e('Classification options','jet-event-system'); ?></h4></a></td></tr>			
 

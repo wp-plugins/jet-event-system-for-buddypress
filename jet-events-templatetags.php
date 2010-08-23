@@ -1969,6 +1969,9 @@ function bp_new_jes_event_invite_friend_list() {
 		$r = wp_parse_args( $args, $defaults );
 		extract( $r, EXTR_SKIP );
 
+		$edata = get_option( 'jes_events' );
+		$eshowavatar = $edata[ 'jes_events_show_avatar_invite_enable' ];		
+		
 		if ( !$event_id )
 			$event_id = ( $bp->jes_events->new_event_id ) ? $bp->jes_events->new_event_id : $bp->jes_events->current_event->id;
 
@@ -1985,8 +1988,11 @@ function bp_new_jes_event_invite_friend_list() {
 						$checked = '';
 					}
 				}
-
-				$items[] = '<' . $separator . '>'.attribute_escape( $friends[$i]['avatar'] ).'><input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . $friends[$i]['full_name'] . '</' . $separator . '>';
+			if ($eshowavatar) { 
+				$items[] = '<p><' . $separator . '>'.'<input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . jes_get_member_avatar('id='.$friends[$i]['id']). ' '. $friends[$i]['full_name'] . '</' . $separator . '><br /></p>';
+			} else {
+				$items[] = '<' . $separator . '>'.'<input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . $friends[$i]['full_name'] . '</' . $separator . '>';
+				}
 			}
 		}
 
@@ -2430,6 +2436,29 @@ function bp_jes_event_invite_user_remove_invite_url() {
 		return wp_nonce_url( site_url( JES_SLUG . '/' . $invites_template->invite->event_id . '/invites/remove/' . $invites_template->invite->user->id ), 'events_invite_uninvite_user' );
 	}
 
+function jes_member_avatar( $args = '' ) {
+	echo apply_filters( 'bp_member_avatar', jes_get_member_avatar( $args ) );
+}
+	function jes_get_member_avatar( $args = '' ) {
+		global $bp, $members_template;
+
+		$defaults = array(
+			'type' => 'thumb',
+			'width' => false,
+			'height' => false,
+			'class' => 'avatar',
+			'id' => false,
+			'alt' => __( 'Member avatar', 'buddypress' )
+		);
+
+		$r = wp_parse_args( $args, $defaults );
+		extract( $r, EXTR_SKIP );
+
+		return apply_filters( 'bp_get_member_avatar', bp_core_fetch_avatar( array( 'item_id' => $id, 'type' => $type, 'alt' => $alt, 'css_id' => $id, 'class' => $class, 'width' => $width, 'height' => $height, 'email' => $members_template->member->user_email ) ) );
+	}
+	
+	
+	
 /***
  * Events RSS Feed Template Tags
  */

@@ -78,6 +78,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.1.9.9.1 =
+* Added ability to display an avatar to your friends list to send invitations (convenient innovation for a large number of friends)
+
 = 1.1.9.9 =
 * Added ability to send invitations to events. (Send an email with information about the invitation to the event)
 * NOTE: Preliminary version
