@@ -51,7 +51,7 @@
 
 <?php else : ?>
 
-	<?php do_action( 'bp_before_member_groups_content' ) ?>
+	<?php do_action( 'bp_before_member_events_content' ) ?>
 
 	<div class="events myevents">
 		<?php locate_template( array( 'events/events-loop.php' ), true ) ?>

@@ -74,6 +74,36 @@ class JES_Events_Template {
 		));
 	}
 
+
+function bp_is_event_members() {
+	global $bp;
+
+	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && 'members' == $bp->current_action )
+		return true;
+
+	return false;
+}
+
+function bp_is_invite_invites() {
+	global $bp;
+
+	if ( BP_EVENTS_SLUG == $bp->current_component && 'send-invites' == $bp->current_action )
+		return true;
+
+	return false;
+}
+
+function bp_is_event_membership_request() {
+	global $bp;
+
+	if ( BP_EVENTS_SLUG == $bp->current_component && 'request-membership' == $bp->current_action )
+		return true;
+
+	return false;
+}
+
+	
+	
 	function jes_has_events() {
 		if ( $this->event_count )
 			return true;
@@ -2553,7 +2583,7 @@ function bp_is_event_forum() {
 function jes_is_event_forum_topic() {
 	global $bp;
 
-	if ( BP_GROUPS_SLUG == $bp->current_component && $bp->is_single_item && 'forum' == $bp->current_action && 'topic' == $bp->action_variables[0] )
+	if ( BP_EVENTS_SLUG == $bp->current_component && $bp->is_single_item && 'forum' == $bp->current_action && 'topic' == $bp->action_variables[0] )
 		return true;
 
 	return false;

@@ -3,7 +3,7 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1.9.8
+Version: 1.1.9.9
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
@@ -12,7 +12,7 @@ Network: true
 
 define('Jet Events System', '1.1.9');
 define ('JES_EVENTS_DB_VERSION', 4 );
-define ('JES_EVENTS_TEMPLATE_VERSION', 14 );
+define ('JES_EVENTS_TEMPLATE_VERSION', 15 );
 
 /* Define the slug for the component */
 if ( !defined( 'JES_SLUG' ) ) {
@@ -44,6 +44,7 @@ add_action('get_header','hidden_events');
 }
 
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-db.php' );
+require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-ajax.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-classes.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-templatetags.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-widgets.php' );

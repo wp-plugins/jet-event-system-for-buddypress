@@ -124,29 +124,23 @@ function jes_event_admin() {
 		if ( $_POST[ 'jes_events_text_one' ] != null ) {
 			$jes_events[ 'jes_events_text_one' ] = stripslashes($_POST[ 'jes_events_text_one' ]);
 		}else{
-			$jes_events[ 'jes_events_text_one' ] = __('Public','jet-event-system');
+			$jes_events[ 'jes_events_text_one' ] = __('Site','jet-event-system');
 		}
 		if ( $_POST[ 'jes_events_text_two' ] != null ) {
 			$jes_events[ 'jes_events_text_two' ] = stripslashes($_POST[ 'jes_events_text_two' ]);
 		}else{
-			$jes_events[ 'jes_events_text_two' ] = __('Private','jet-event-system');
+			$jes_events[ 'jes_events_text_two' ] = __('Personal','jet-event-system');
 		}		
 		if ( $_POST[ 'jes_events_text_three' ] != null ) {
 			$jes_events[ 'jes_events_text_three' ] = stripslashes($_POST[ 'jes_events_text_three' ]);
-		}else{
-			$jes_events[ 'jes_events_text_three' ] = __('Home','jet-event-system');
 		}
 
 		if ( $_POST[ 'jes_events_text_four' ] != null ) {
 			$jes_events[ 'jes_events_text_four' ] = stripslashes($_POST[ 'jes_events_text_four' ]);
-		}else{
-			$jes_events[ 'jes_events_text_four' ] = __('Home','jet-event-system');
 		}		
 
 		if ( $_POST[ 'jes_events_text_five' ] != null ) {
 			$jes_events[ 'jes_events_text_five' ] = stripslashes($_POST[ 'jes_events_text_five' ]);
-		}else{
-			$jes_events[ 'jes_events_text_five' ] = __('Home','jet-event-system');
 		}
 		
 		if ( $_POST[ 'jes_events_sort_by' ] != null ) {
@@ -424,7 +418,7 @@ function chcount(form){
 <ul>
 <li><strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru" target="_blank">http://milordk.ru</a></li>
 <li><strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">http://www.paysterresdelorraine.com/</a></li>
-<li><strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="www.pixelartist.de" target="_blank">www.pixelartist.de</a></li>
+<li><strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="http://www.pixelartist.de" target="_blank">www.pixelartist.de</a></li>
 <li><strong>es_ES</strong> - <em>Alex_Mx</em></li>
 </ul>
 <p><br />To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>

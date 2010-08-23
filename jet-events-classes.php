@@ -254,6 +254,28 @@ Class JES_Events_Event {
 		return $wpdb->get_col( $wpdb->prepare( "SELECT user_id FROM {$bp->jes_events->jes_table_name_members} WHERE event_id = %d and is_confirmed = 0 AND inviter_id = %d", $event_id, $user_id ) );
 	}
 
+	
+	function get_invitable_friend_count( $user_id, $event_id ) {
+		global $wpdb, $bp;
+
+		$friend_ids = BP_Friends_Friendship::get_friend_user_ids( $user_id );
+
+		$invitable_count = 0;
+		for ( $i = 0; $i < count($friend_ids); $i++ ) {
+
+			if ( BP_Events_Member::check_is_member( (int)$friend_ids[$i], $event_id ) )
+				continue;
+
+			if ( BP_Events_Member::check_has_invite( (int)$friend_ids[$i], $event_id )  )
+				continue;
+
+			$invitable_count++;
+		}
+
+		return $invitable_count;
+	}	
+	
+	
 	function jes_filter_user_events( $filter, $user_id = false, $order = false, $limit = null, $page = null ) {
 		global $wpdb, $bp;
 
@@ -344,6 +366,41 @@ Class JES_Events_Event {
 		return array( 'requests' => $paged_requests, 'total' => $total_requests );
 	}
 
+	
+	function get_invites( $user_id, $event_id ) {
+		global $wpdb, $bp;
+		return $wpdb->get_col( $wpdb->prepare( "SELECT user_id FROM {$bp->events->table_name_members} WHERE event_id = %d and is_confirmed = 0 AND inviter_id = %d", $event_id, $user_id ) );
+	}	
+
+	function check_has_invite( $user_id, $event_id ) {
+		global $wpdb, $bp;
+
+		if ( !$user_id )
+			return false;
+
+		return $wpdb->get_var( $wpdb->prepare( "SELECT id FROM {$bp->events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND inviter_id != 0 AND invite_sent = 1", $user_id, $event_id ) );
+	}
+
+	function delete_invite( $user_id, $event_id ) {
+		global $wpdb, $bp;
+
+		if ( !$user_id )
+			return false;
+
+		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND inviter_id != 0 AND invite_sent = 1", $user_id, $event_id ) );
+	}
+
+	function delete_request( $user_id, $event_id ) {
+		global $wpdb, $bp;
+
+		if ( !$user_id )
+			return false;
+
+ 		return $wpdb->query( $wpdb->prepare( "DELETE FROM {$bp->events->table_name_members} WHERE user_id = %d AND event_id = %d AND is_confirmed = 0 AND inviter_id = 0 AND invite_sent = 0", $user_id, $event_id ) );
+	}
+
+
+	
 	/* TODO: Merge all these get_() functions into one. */
 
 	function jes_get_newest( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {

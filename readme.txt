@@ -78,6 +78,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.1.9.9 =
+* Added ability to send invitations to events. (Send an email with information about the invitation to the event)
+* NOTE: Preliminary version
+
 = 1.1.9.8 =
 * Added the ability to authorize or prohibit the following field events: Special Conditions, Public News, Private news. 
 * Note: Be sure to visit the settings page plugin!

@@ -101,9 +101,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 					<div class="item">
 
 						<div style="font-size:85%;">
-							<?php 
-								$kkey = 0;
-								if ( $show_countrystate ) { ?>
+							<?php if ( $show_countrystate ) { ?>
 								<?php if ( jes_bp_get_event_placedcountry() != null ) { 
 								$kkey = 1;
 								?>
