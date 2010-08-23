@@ -54,6 +54,7 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://v
 Used your theme should be based on the default theme BP (styles and functions)! The efficiency of the plug can only be guaranteed on these topics!
 As one of the options for addressing emerging problems with other themes - connection functions.php from a default theme to your BP
 
+<strong>If you are using a theme different from the BP-Default, be sure to install and activate</strong> - <a href="http://wordpress.org/extend/plugins/bp-template-pack/">BP Template Pack</a>
 
 Your wishes for the development of plug-in you can leave: http://jes.milordk.ru/groups/proposals-for-the-future/
 
