@@ -53,6 +53,7 @@ function update_template()
 	echo move_template( 'events/single','send-invites.php');
 	echo move_template( 'events/js','datepacker.js');
 	echo move_template( 'members/single','events.php');
+	echo move_template( 'members/single/events','invites.php');	
 return true;
 }
 

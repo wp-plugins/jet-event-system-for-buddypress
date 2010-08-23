@@ -3,7 +3,7 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1.9.9.1
+Version: 1.1.9.9.5
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
@@ -12,7 +12,7 @@ Network: true
 
 define('Jet Events System', '1.1.9');
 define ('JES_EVENTS_DB_VERSION', 4 );
-define ('JES_EVENTS_TEMPLATE_VERSION', 16 );
+define ('JES_EVENTS_TEMPLATE_VERSION', 18 );
 
 /* Define the slug for the component */
 if ( !defined( 'JES_SLUG' ) ) {
@@ -172,6 +172,10 @@ function events_setup_nav() {
 	/* Add the subnav items to the events nav item */
 	bp_core_new_subnav_item( array( 'name' => __( 'My Events', 'jet-event-system' ), 'slug' => 'my-events', 'parent_url' => $events_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_my_events', 'position' => 10, 'item_css_id' => 'events-my-events' ) );
 
+	/* Add the subnav items to the events nav item */
+
+	bp_core_new_subnav_item( array( 'name' => __( 'Invites to Event', 'jet-event-system' ), 'slug' => 'invites', 'parent_url' => $events_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_jes_event_invite_jes', 'position' => 30, 'user_has_access' => bp_is_my_profile() ) );
+	
 	if ( $bp->current_component == $bp->jes_events->slug ) {
 
 		if ( bp_is_my_profile() && !$bp->is_single_item ) {
@@ -349,7 +353,7 @@ function events_screen_jes_event_invite_jes() {
 
 	do_action( 'events_screen_jes_event_invites', $event_id );
 
-	bp_core_load_template( apply_filters( 'events_template_jes_event_invites', 'members/single/home' ) );
+	bp_core_load_template( apply_filters( 'events_template_jes_event_invites', 'members/single/events' ) );
 }
 
 function events_screen_event_home() {

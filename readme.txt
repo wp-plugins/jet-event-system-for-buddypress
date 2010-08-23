@@ -78,6 +78,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.1.9.9.5 =
+* Fully completed work on the system of invitations
+* NOTE: Please fully implement the testing
+
 = 1.1.9.9.1 =
 * Added ability to display an avatar to your friends list to send invitations (convenient innovation for a large number of friends)
 
