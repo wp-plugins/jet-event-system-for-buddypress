@@ -197,7 +197,7 @@ if (stripos($blogversion, 'MU') > 0) {
 		}
 ?>
 	
-<?php	if ( get_site_option( 'jes-template-version' ) < JES_EVENTS_THEME_VERSION )
+<?php	if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION )
 			{
 				_e('There were changes in the theme file!','jet-event-system');
 				echo '<br />';
