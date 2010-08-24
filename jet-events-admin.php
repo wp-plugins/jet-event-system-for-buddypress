@@ -185,16 +185,26 @@ if (stripos($blogversion, 'MU') > 0) {
 ?>
 <div class="wrap">
 	<h2><?php _e('JES. Jet Event System', 'jet-event-system' ) ?></h2>
-	<h4><?php _e('version','jet-event-system'); ?> 1.2 <?php _e('build','jet-event-system'); ?> 0
+	<h4><?php _e('version','jet-event-system'); ?> 1.2 <?php _e('build','jet-event-system'); ?> 1
 - <?php _e('Template version:','jet-event-system');?> <?php if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION ) { echo "<span style='color:#CC0033;'"; } else { echo '<span>'; } ?><?php echo get_site_option( 'jes-theme-version' ); ?></span><?php echo '('.JES_EVENTS_THEME_VERSION.')'; ?>
 - <?php _e('DB version:','jet-event-system'); ?> <?php if ( get_site_option( 'jes-events-db-version' ) < JES_EVENTS_DB_VERSION ) { echo "<span style='color:#CC0033;'"; } else { echo '<span>'; } ?><?php echo get_site_option( 'jes-events-db-version' );?></span> <?php echo '('.JES_EVENTS_DB_VERSION.')'; ?></h4>
 
+	<form action="" name="jes_events_update_component" id="jes_events_update_component" method="post">
 <?php
 	if ( get_site_option( 'jes-events-db-version' ) < JES_EVENTS_DB_VERSION )
 		{
 			jes_events_init_jesdb();
-			echo 'DB Updated!<br />';
-		}
+			echo 'The database is updated!<br />';
+		} else { ?>
+<SCRIPT LANGUAGE="JavaScript">
+function updateDB(form){
+var code="<?php jes_events_init_jesdb(); ?>";
+alert('The database is updated!');
+     return true;
+}
+</SCRIPT>
+	<input type="button" value="<?php _e('Update Database','jet-event-system'); ?> (<?php echo JES_EVENTS_DB_VERSION; ?>)" onClick="return updateDB(this.form)"> 
+		<?php }
 ?>
 	
 <?php	if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION )
@@ -209,8 +219,18 @@ if (stripos($blogversion, 'MU') > 0) {
 					} else {
 					_e('An error occurred while updating the files! (check the folder themes)','jet-event-system');
 					}
-			}	
+			} else { ?>
+<SCRIPT LANGUAGE="JavaScript">
+function updateTHEME(form){
+var code="<?php update_template(); ?>";
+alert('Templates is updated!');
+     return true;
+}
+</SCRIPT>			
+	<input type="button" value="<?php _e('Update Templates','jet-event-system'); ?> (<?php echo JES_EVENTS_THEME_VERSION ?>)" onClick="return updateTHEME(this.form)"> 
+			<?php }
 	?>
+	</form>	
 	
 	<form action="<?php echo site_url() . '/wp-admin/admin.php?page=jes-event-admin' ?>" name="jes_events_form" id="jes_events_form" method="post">
 	<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y" />

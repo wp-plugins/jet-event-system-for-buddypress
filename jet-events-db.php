@@ -85,6 +85,5 @@ function jes_events_init_jesdb() {
 	do_action( 'jes_events_init_jesdb' );
 
 	update_site_option( 'jes-events-db-version', JES_EVENTS_DB_VERSION );	
-	
 }
 ?>
