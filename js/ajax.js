@@ -2,7 +2,7 @@
 var jq = jQuery;
 
 // Global variable to prevent multiple AJAX requests
-var bp_ajax_request = null;
+// var bp_ajax_request = null;
 
 jq(document).ready( function() {
 	/** Invite Friends Interface ****************************************/

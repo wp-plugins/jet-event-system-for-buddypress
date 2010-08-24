@@ -83,6 +83,9 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.2.1.2 =
+*Fixed problem when you have activated the plugin at the invitation of the group is not list of selected users.
+
 = 1.2.1.1 =
 * Correction of templates and update the administrative panel plugin
 
