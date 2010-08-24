@@ -25,6 +25,8 @@ function jes_events_init_jesdb() {
 			edtsdunix varchar(18) NOT NULL,
 			edtedunix varchar(18) NOT NULL,			
 			status varchar(10) NOT NULL DEFAULT 'public',
+			grouplink varchar(5) NOT NULL DEFAULT '0',
+			forumlink varchar(5) NOT NULL DEFAULT '0',
 			enable_forum tinyint(1) NOT NULL DEFAULT '1',
 			date_created datetime NOT NULL,
 		    KEY creator_id (creator_id),
@@ -32,7 +34,8 @@ function jes_events_init_jesdb() {
 			KEY etype (etype),
 			KEY eventapproved (eventapproved),
 			KEY placedcity (placedcity),
-			KEY placedcountry (placedcountry)
+			KEY placedcountry (placedcountry),
+			KEY grouplink (grouplink)			
 	 	   ) {$charset_collate};";
 
 	$sql[] = "CREATE TABLE {$bp->jes_events->jes_table_name_members} (
@@ -81,7 +84,7 @@ function jes_events_init_jesdb() {
 
 	do_action( 'jes_events_init_jesdb' );
 
-	update_site_option( 'jes-db-version', JES_EVENTS_DB_VERSION );	
+	update_site_option( 'jes-events-db-version', JES_EVENTS_DB_VERSION );	
 	
 }
 ?>

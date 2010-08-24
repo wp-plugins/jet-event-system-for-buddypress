@@ -2,27 +2,27 @@
 
 function move_template($fpatch, $fname)
 {
-	$stringtoreturn = '> Copy: '.$fname.' on '.$fpatch.'<BR />';
+	$stringtoreturn = '> '.$fname.' .. '.$fpatch.'<BR />';
 	$filename1 = WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/templates/'.$fpatch.'/'.$fname;
 	$filename2 = TEMPLATEPATH . '/'.$fpatch.'/'.$fname;
 	if ( file_exists($filename1) )
 	    {
-		$stringtoreturn = $stringtoreturn.'files theme plugin found, ';
+		$stringtoreturn = $stringtoreturn.'ok=ft, ';
 	    }
 		else
 	    {
-		$stringtoreturn = $stringtoreturn.'files theme plugin not found!, ';
+		$stringtoreturn = $stringtoreturn.'err=ft!, ';
 	    }
 
 	if ( !rename ($filename1,$filename2) )
 	    {
-		$stringtoreturn = $stringtoreturn.'opps.. error when copy templates files.. please check permission!';
+		$stringtoreturn = $stringtoreturn.'opps.. permission!';
 	    }
 		else
 	    {
-		$stringtoreturn = $stringtoreturn.'ok, templates file copied!';
+		$stringtoreturn = $stringtoreturn.'ok, copied!';
 	    }
-	$stringtoreturn = $stringtoreturn.'<br />';
+	$stringtoreturn = $stringtoreturn.'=';
 	$fresult = $stringtoreturn;
 return $fresult;
 }
@@ -31,12 +31,12 @@ return $fresult;
 function update_template()
 {
 // Create Dir
-	if ( !mkdir( TEMPLATEPATH . '/events', 0777, 1 ) ) { echo 'error when create dir /events<br />'; } else { echo 'ok, created dir /events<br />'; }
-	if ( !mkdir( TEMPLATEPATH . '/events/single', 0777, 1 ) ) { echo 'error when create dir /events/single<br />'; } else { echo 'ok, create dir /events/single<br />'; }
-	if ( !mkdir( TEMPLATEPATH . '/events/js', 0777, 1 ) ) { echo 'error when create dir /events/js<br />'; } else { echo 'ok, create dir /events/js<br />'; }
-	if ( !mkdir( TEMPLATEPATH . '/members', 0777, 1 ) ) { echo 'error when create dir /members<br />'; } else { echo 'ok, create dir /members<br />'; }
-	if ( !mkdir( TEMPLATEPATH . '/members/single', 0777, 1 ) ) { echo 'error when create dir /members/single<br />'; } else { echo 'ok, create dir /members/single<br />'; }
-
+	if ( !mkdir( TEMPLATEPATH . '/events', 0777, 1 ) ) { echo 'error when create dir /events, '; } else { echo 'ok, created dir /events, '; }
+	if ( !mkdir( TEMPLATEPATH . '/events/single', 0777, 1 ) ) { echo 'error when create dir /events/single, '; } else { echo 'ok, create dir /events/single, '; }
+	if ( !mkdir( TEMPLATEPATH . '/events/js', 0777, 1 ) ) { echo 'error when create dir /events/js, '; } else { echo 'ok, create dir /events/js, '; }
+	if ( !mkdir( TEMPLATEPATH . '/members', 0777, 1 ) ) { echo 'error when create dir /members, '; } else { echo 'ok, create dir /members, '; }
+	if ( !mkdir( TEMPLATEPATH . '/members/single', 0777, 1 ) ) { echo 'error when create dir /members/single, '; } else { echo 'ok, create dir /members/single, '; }
+echo '<br />';
 // Copy files
 	echo move_template( 'events','create.php');
 	echo move_template( 'events','events-loop.php');
@@ -185,9 +185,19 @@ if (stripos($blogversion, 'MU') > 0) {
 ?>
 <div class="wrap">
 	<h2><?php _e('JES. Jet Event System', 'jet-event-system' ) ?></h2>
-	<h4><?php _e('version','jet-event-system'); ?> 1.1 <?php _e('build','jet-event-system'); ?> 9 - <?php _e('Template version:','jet-event-system');?> <?php echo get_site_option( 'jes-template-version' ); ?> - <?php _e('DB version:','jet-event-system'); ?> <?php echo get_site_option( 'jes-db-version' ); ?></h4>
+	<h4><?php _e('version','jet-event-system'); ?> 1.2 <?php _e('build','jet-event-system'); ?> 0
+- <?php _e('Template version:','jet-event-system');?> <?php if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION ) { echo "<span style='color:#CC0033;'"; } else { echo '<span>'; } ?><?php echo get_site_option( 'jes-theme-version' ); ?></span><?php echo '('.JES_EVENTS_THEME_VERSION.')'; ?>
+- <?php _e('DB version:','jet-event-system'); ?> <?php if ( get_site_option( 'jes-events-db-version' ) < JES_EVENTS_DB_VERSION ) { echo "<span style='color:#CC0033;'"; } else { echo '<span>'; } ?><?php echo get_site_option( 'jes-events-db-version' );?></span> <?php echo '('.JES_EVENTS_DB_VERSION.')'; ?></h4>
+
+<?php
+	if ( get_site_option( 'jes-events-db-version' ) < JES_EVENTS_DB_VERSION )
+		{
+			jes_events_init_jesdb();
+			echo 'DB Updated!<br />';
+		}
+?>
 	
-<?php	if ( get_site_option( 'jes-template-version' ) < JES_EVENTS_TEMPLATE_VERSION )
+<?php	if ( get_site_option( 'jes-template-version' ) < JES_EVENTS_THEME_VERSION )
 			{
 				_e('There were changes in the theme file!','jet-event-system');
 				echo '<br />';
@@ -195,7 +205,7 @@ if (stripos($blogversion, 'MU') > 0) {
 					{
 					_e('Theme files successfully updated!','jet-event-system');
 					echo '<br />';
-					update_site_option( 'jes-template-version', JES_EVENTS_TEMPLATE_VERSION );
+					update_site_option( 'jes-theme-version', JES_EVENTS_THEME_VERSION );
 					} else {
 					_e('An error occurred while updating the files! (check the folder themes)','jet-event-system');
 					}
@@ -286,7 +296,6 @@ if (stripos($blogversion, 'MU') > 0) {
 					<input name="jes_events_show_avatar_invite_enable" type="checkbox" id="jes_events_show_avatar_invite_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_show_avatar_invite_enable' ] ? ' checked="checked"' : '' ); ?> />
 				</td>
 			</tr>		
-jes_events_show_avatar_invite_enable
 		
 		<tr valign="top"><td><a name="classification-options"><h4><?php _e('Classification options','jet-event-system'); ?></h4></a></td></tr>			
 
@@ -422,9 +431,10 @@ function chcount(form){
 <a href="http://jes.milordk.ru">Website Developer</a><br /></p>
 <a name="future"><h4><?php _e('Future','jet-event-system'); ?></h4></a>
 <ul>
-<li>* In version 1.2 will ensure compatibility of the system with the new version of BP</li>
 <li>* In version 1.3 will be added to the possibility of tying the event to a group</li>
-<li>* In version 1.4 will be added to the possibility of tying the event to your blog (s) </li>
+<li>* In version 2.0 will ensure compatibility of the system with the new version of BP</li>
+<li>* In version 2.5 will be able to add events to Outlook Calendar and iCal (list may vary from those of the creator of the plug and the wishes of the participants testing)</li>
+<li>* In version 3.0 will be added to the possibility of tying the event to your blog (s)</li>
 </ul>
 
 <a name="translate"><h4><?php _e('Translate','jet-event-system'); ?></h4></a>
@@ -440,9 +450,9 @@ function chcount(form){
 <p><?php _e('Translates can be discussed at the forum on the official website of the plugin:','jet-event-system'); ?> <a href="http://jes.milordk.ru/groups/translates/">Group</a></p>
 
 <a name="plugins"><h4><?php _e('Recommended plugins','jet-event-system'); ?></h4></a>
-<ol>
+<ul>
 <li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-site-unit-could-poleznye-vidzhety-dlya-vashej-socialnoj-seti.html" title="Jet Site Unit Could">Jet Site Unit Could</a></li>
-</ol>
+</ul>
 </td>
 </tr>
 </table>

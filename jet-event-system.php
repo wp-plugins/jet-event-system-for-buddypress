@@ -3,16 +3,16 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.1.9.9.5
+Version: 1.2
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
 Network: true
 */
 
-define('Jet Events System', '1.1.9');
+define('Jet Events System', '1.2');
 define ('JES_EVENTS_DB_VERSION', 4 );
-define ('JES_EVENTS_TEMPLATE_VERSION', 18 );
+define ('JES_EVENTS_THEME_VERSION', 4 );
 
 /* Define the slug for the component */
 if ( !defined( 'JES_SLUG' ) ) {
@@ -120,13 +120,6 @@ function events_setup_root_component() {
 }
 add_action( 'bp_setup_root_components', 'events_setup_root_component' );
 
-function events_check_installed() {
-	/* Need to check db tables exist, activate hook no-worky in mu-plugins folder. */
-	if ( get_site_option( 'jes-db-version' ) < JES_EVENTS_DB_VERSION )
-		jes_events_init_jesdb();
-}
-add_action( 'admin_menu', 'events_check_installed' );
-
 function add_events_to_main_menu() {
 
 	$class = (bp_is_page('events')) ? ' class="selected" ' : '';
@@ -231,9 +224,6 @@ function events_setup_nav() {
 			if ( !is_site_admin() && is_user_logged_in() && !$bp->jes_events->current_event->is_user_member && !events_jes_check_for_membership_request( $bp->loggedin_user->id, $bp->jes_events->current_event->id ) && $bp->jes_events->current_event->status == 'private' )
 				bp_core_new_subnav_item( array( 'name' => __( 'Request join to event', 'jet-event-system' ), 'slug' => 'request-join-to-event', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_request_membership', 'position' => 30, 'item_css_id' => 'request-join-to-event'  ) );
 
-		/*	if ( $bp->jes_events->current_event->enable_forum && function_exists('bp_forums_setup') )
-				bp_core_new_subnav_item( array( 'name' => __( 'Forum', 'jet-event-system' ), 'slug' => 'forum', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_forum', 'position' => 40, 'user_has_access' => $bp->jes_events->current_event->user_has_access, 'item_css_id' => 'forums' ) );
-*/
 			bp_core_new_subnav_item( array( 'name' => sprintf( __( 'Members (%s)', 'jet-event-system' ), number_format( $bp->jes_events->current_event->total_member_count ) ), 'slug' => 'members', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_members', 'position' => 60, 'user_has_access' => $bp->jes_events->current_event->user_has_access, 'item_css_id' => 'members'  ) );
 
 			if ( is_user_logged_in() && events_is_user_member( $bp->loggedin_user->id, $bp->jes_events->current_event->id ) ) {
@@ -509,7 +499,6 @@ function events_screen_event_admin_settings() {
 		// If the edit form has been submitted, save the edited details
 		if ( isset( $_POST['save'] ) ) {
 			$enable_forum = ( isset($_POST['event-show-forum'] ) ) ? 1 : 0;
-
 			$allowed_status = apply_filters( 'events_allowed_status', array( 'public', 'private', 'hidden' ) );
 			$status = ( in_array( $_POST['event-status'], (array)$allowed_status ) ) ? $_POST['event-status'] : 'public';
 
@@ -517,7 +506,7 @@ function events_screen_event_admin_settings() {
 			if ( !check_admin_referer( 'events_edit_event_settings' ) )
 				return false;
 
-			if ( !events_edit_event_settings( $_POST['event-id'], $enable_forum, $status ) ) {
+			if ( !events_edit_event_settings( $_POST['event-id'], $enable_forum, $_POST['event-grouplink'], $_POST['event-forumlink'], $status ) ) {
 				bp_core_add_message( __( 'There was an error updating event settings, please try again.', 'jet-event-system' ), 'error' );
 			} else {
 				bp_core_add_message( __( 'Event settings were successfully updated.', 'jet-event-system' ) );
@@ -885,8 +874,8 @@ function events_action_create_event() {
 				bp_core_redirect( $bp->root_domain . '/' . $bp->jes_events->slug . '/create/step/' . $bp->jes_events->current_create_step . '/' );
 			}
 
-			if ( !$bp->jes_events->new_event_id = events_create_event( array( 'event_id' => $bp->jes_events->new_event_id, 'name' => $_POST['event-name'], 'etype' => $_POST['event-etype'], 'eventapproved' => $_POST['event-eventapproved'], 'description' => $_POST['event-desc'], 'eventterms' => $_POST['event-eventterms'], 'placedcountry' => $_POST['event-placedcountry'], 'placedstate' => $_POST['event-placedstate'],'placedcity' => $_POST['event-placedcity'], 'placedaddress' => $_POST['event-placedaddress'], 'newspublic' => $_POST['event-newspublic'], 'newsprivate' => $_POST['event-newsprivate'], 'edtsd' => $_POST['event-edtsd'], 'edted' => $_POST['event-edted'], 'slug' => events_jes_check_slug( sanitize_title( esc_attr( $_POST['event-name'] ) ) ), 'date_created' => gmdate( "Y-m-d H:i:s" ), 'status' => 'public' ) ) ) {
-				bp_core_add_message( __( 'There was an error saving event details, please try again.', 'jet-event-system' ), 'error' );
+			if ( !$bp->jes_events->new_event_id = events_create_event( array( 'event_id' => $bp->jes_events->new_event_id, 'name' => $_POST['event-name'], 'etype' => $_POST['event-etype'], 'eventapproved' => $_POST['event-eventapproved'], 'description' => $_POST['event-desc'], 'eventterms' => $_POST['event-eventterms'], 'placedcountry' => $_POST['event-placedcountry'], 'placedstate' => $_POST['event-placedstate'],'placedcity' => $_POST['event-placedcity'], 'placedaddress' => $_POST['event-placedaddress'], 'newspublic' => $_POST['event-newspublic'], 'newsprivate' => $_POST['event-newsprivate'], 'edtsd' => $_POST['event-edtsd'], 'edted' => $_POST['event-edted'], 'grouplink' => $_POST['grouplink'], 'forumlink' => $_POST['forumlink'], 'slug' => events_jes_check_slug( sanitize_title( esc_attr( $_POST['event-name'] ) ) ), 'date_created' => gmdate( "Y-m-d H:i:s" ), 'status' => 'public' ) ) ) {
+				bp_core_add_message( __( 'There was an error saving event details, please try again.1', 'jet-event-system' ), 'error' );
 				bp_core_redirect( $bp->root_domain . '/' . $bp->jes_events->slug . '/create/step/' . $bp->jes_events->current_create_step . '/' );
 			}
 
@@ -908,8 +897,8 @@ function events_action_create_event() {
 			else if ( 'hidden' == $_POST['event-status'] )
 				$event_status = 'hidden';
 
-			if ( !$bp->jes_events->new_event_id = events_create_event( array( 'event_id' => $bp->jes_events->new_event_id, 'status' => $event_status, 'enable_forum' => $event_enable_forum ) ) ) {
-				bp_core_add_message( __( 'There was an error saving event details, please try again.', 'jet-event-system' ), 'error' );
+			if ( !$bp->jes_events->new_event_id = events_create_event( array( 'event_id' => $bp->jes_events->new_event_id, 'status' => $event_status, 'grouplink' => $_POST['event-grouplink'], 'forumlink' => $_POST['event-forumlink'], 'enable_forum' => $event_enable_forum ) ) ) {
+				bp_core_add_message( __( 'There was an error saving event details, please try again2.', 'jet-event-system' ), 'error' );
 				bp_core_redirect( $bp->root_domain . '/' . $bp->jes_events->slug . '/create/step/' . $bp->jes_events->current_create_step . '/' );
 			}
 		}
@@ -1358,7 +1347,13 @@ function events_create_event( $args = '' ) {
 		
 	if ( isset( $edted ) )
 		$event->edted = $edted;
-	
+
+	if ( isset( $grouplink ) )
+		$event->grouplink = $grouplink;
+
+	if ( isset( $forumlink ) )
+		$event->forumlink = $forumlink;		
+		
 	if ( isset( $slug ) && events_jes_check_slug( $slug ) )
 		$event->slug = $slug;
 
@@ -1415,7 +1410,7 @@ function events_edit_base_event_details( $event_id, $event_name, $event_etype, $
 	$event->newsprivate = $event_newsprivate;
 	$event->edtsd = $event_edtsd;
 	$event->edted = $event_edted;
-
+	
 	if ( !$event->save() )
 		return false;
 
@@ -1429,11 +1424,13 @@ function events_edit_base_event_details( $event_id, $event_name, $event_etype, $
 	return true;
 }
 
-function events_edit_event_settings( $event_id, $enable_forum, $status ) {
+function events_edit_event_settings( $event_id, $enable_forum, $glink, $flink, $status ) {
 	global $bp;
 
 	$event = new JES_Events_Event( $event_id );
 	$event->enable_forum = $enable_forum;
+	$event->grouplink = $glink;
+	$event->forumlink = $flink;
 
 	/***
 	 * Before we potentially switch the event status, if it has been changed to public
@@ -1452,6 +1449,22 @@ function events_edit_event_settings( $event_id, $enable_forum, $status ) {
 	do_action( 'events_settings_updated', $event->id );
 
 	return true;
+}
+
+
+function jes_event_groups_dropdown( $grp_id ) {
+	global $bp;
+?>
+		<label for="event-grouplink"><?php __('Make this a group event for one of your groups', 'jet-event-system'); ?></label>
+		<select id="event-grouplink" name="event-grouplink">
+	  	<option value="0" <?php if ( $grp_id == bp_get_group_id() ) { echo "selected"; } ?>></option>
+<?php
+if ( bp_has_groups( 'user_id=' . bp_loggedin_user_id() . '&type=alphabetical&max=100&per_page=100&populate_extras=0' ) ) : while ( bp_groups() ) : bp_the_group();		
+		?>
+	   		<option value="<?php bp_group_id() ?>" <?php if ( $grp_id == bp_get_group_id() ) { echo "selected"; } ?>><?php bp_group_name()?></option>
+<?php		endwhile; endif; ?>
+	  </select>
+<?php
 }
 
 function events_delete_event( $event_id ) {

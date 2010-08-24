@@ -98,26 +98,26 @@
 			$('#event-edted').mask('99/99/9999 99:99');
 });</script>
 
-
-<h4><?php _e('Date event','jet-event-system') ?></h4>
+	<tr>
+		</td>
+			<h4><?php _e('Date event','jet-event-system') ?></h4>
 					<label for="event-edtsd"><?php _e('* Event Start date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-edtsd" id="event-edtsd" value="<?php jes_bp_event_edtsd() ?>" />
 					<br /><span class="small"><?php _e('dd/mm/yyyy HH:mm','jet-event-system'); ?></span>
-</td>
-<td width="50%" style="vertical-align:bottom;">
+		</td>
+		<td width="50%" style="vertical-align:bottom;">
 					<label for="event-edtsd"><?php _e('* Event End date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-edted" id="event-edted" value="<?php jes_bp_event_edted() ?>" />	
 					<br /><span class="small"><?php _e('dd/mm/yyyy HH:mm','jet-event-system'); ?></span>
-</td>
-</tr>
-
-<tr>
-<td>
-	<label for="event-notify-members"><?php _e('Notify participants of the event to update the details?', 'jet-event-system') ?></label>
-	<input type="checkbox" name="event-notify-members" id="event-notify-members" value="1" />
-</td>
-<td></td>
-</tr>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="event-notify-members"><?php _e('Notify participants of the event to update the details?', 'jet-event-system') ?></label>
+			<input type="checkbox" name="event-notify-members" id="event-notify-members" value="1" />
+		</td>
+		<td></td>
+	</tr>
 </table>		
 
 	<?php do_action( 'bp_after_event_details_admin' ); ?>
@@ -132,28 +132,6 @@
 
 	<?php do_action( 'bp_before_event_settings_admin' ); ?>
 
-	<?php if ( function_exists('bp_wire_install') ) : ?>
-
-		<div class="checkbox">
-			<label><input type="checkbox" name="event-show-wire" id="event-show-wire" value="1"<?php bp_event_show_wire_setting() ?>/> <?php _e( 'Enable comment wire', 'jet-event-system' ) ?></label>
-		</div>
-
-	<?php endif; ?>
-<?php /*
-	<?php if ( function_exists('bp_forums_is_installed_correctly') ) : ?>
-
-		<?php if ( bp_forums_is_installed_correctly() ) : ?>
-
-			<div class="checkbox">
-				<label><input type="checkbox" name="event-show-forum" id="event-show-forum" value="1"<?php jet_bp_event_show_forum_setting() ?> /> <?php _e( 'Enable discussion forum', 'jet-event-system' ) ?></label>
-			</div>
-
-		<?php endif; ?>
-
-	<?php endif; ?>
-
-	<hr />
-*/ ?>
 	<h4><?php _e( 'Privacy Options', 'jet-event-system' ); ?></h4>
 
 	<div class="radio">
@@ -188,6 +166,23 @@
 		</label>
 	</div>
 
+
+
+		<h4><?php _e( 'Group/Forum link options', 'jet-event-system' ); ?></h4>					
+			<label><?php _e('Select the group you want to contact the event:','jet-event-system'); ?></label>
+
+			<?php jes_event_groups_dropdown( jes_bp_get_event_grouplink() ) ?>
+
+<?php /*					<label><?php _e('Select the forum topic you want to contact the event:','jet-event-system'); ?></label>					
+					<select id="forum-link" name="forum-link">
+						<option selected="selected" value="0"><?php _e( 'Do not communicate with forums', 'jet-event-system' ) ?></option>
+			<?php while ( bp_forum_topics() ) : bp_the_forum_topic(); ?>
+						<option value="<?php bp_forum_topics_id() ?>"><?php bp_the_topic_title() ?></option>
+			<?php endwhile; ?>					
+					</select>
+*/ ?>					
+	<input type="hidden" name="event-forumlink" id="event-forumlink" value="1" />
+
 	<?php do_action( 'bp_after_event_settings_admin' ); ?>
 
 	<p><input type="submit" value="<?php _e( 'Save Changes', 'jet-event-system' ) ?> &rarr;" id="save" name="save" /></p>
@@ -200,8 +195,7 @@
 
 	<?php if ( 'upload-image' == bp_get_avatar_admin_step() ) : ?>
 
-			<p><?php _e("Upload an image to use as an avatar for this event. The image will be shown on the main event page, and in search results.", 'jet-event-system') ?></p>
-
+		<p><?php _e("Upload an image to use as an avatar for this event. The image will be shown on the main event page, and in search results.", 'jet-event-system') ?></p>
 			<p>
 				<input type="file" name="file" id="file" />
 				<input type="submit" name="upload" id="upload" value="<?php _e( 'Upload Image', 'jet-event-system' ) ?>" />

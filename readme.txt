@@ -83,6 +83,11 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.2 =
+* Improved mechanism to update the database and Themes
+NOTE: To use the updating mechanism is necessary after updating the plugin go to the admin panel!
+* Introduced the ability to specify a group for the event in the future will be further developed!
+
 = 1.1.9.9.5 =
 * Fully completed work on the system of invitations
 * NOTE: Please fully implement the testing

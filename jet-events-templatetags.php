@@ -534,6 +534,31 @@ function jes_bp_event_placedstate_editable() {
 		return apply_filters( 'jes_bp_get_event_placedstate_editable', $event->placedstate );
 	}
 
+// Group/Forum Link
+function jes_bp_event_grouplink() {
+	echo jes_bp_get_event_grouplink();
+}
+	function jes_bp_get_event_grouplink( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_grouplink', stripslashes($event->grouplink) );
+	}	
+	
+function jes_bp_event_forumlink() {
+	echo jes_bp_get_event_forumlink();
+}
+	function jes_bp_get_event_forumlink( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_forumlink', stripslashes($event->forumlink) );
+	}	
+	
 // City
 function jes_bp_event_placedcity() {
 	echo jes_bp_get_event_placedcity();
@@ -893,6 +918,18 @@ function jet_bp_event_show_status_setting( $setting, $event = false ) {
 	if ( $setting == $event->status )
 		echo ' checked="checked"';
 }
+
+
+function jet_bp_event_grouplink_setting( $setting, $event = false ) {
+	global $events_template;
+
+	if ( !$event )
+		$event =& $events_template->event;
+
+	if ( $setting == $event->grouplink )
+		echo ' selected="selected"';
+}
+
 
 function jes_bp_event_admin_memberlist( $admin_list = false, $event = false ) {
 	global $events_template;
@@ -1794,6 +1831,25 @@ function bp_new_event_eventterms() {
 		return apply_filters( 'bp_get_new_event_eventterms', $bp->jes_events->current_event->eventterms );
 	}
 
+	
+// Group/Forum Link	
+function bp_new_event_group_link() {
+	echo bp_get_new_event_group_link();
+}
+	function bp_get_new_event_group_link() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_group_link', $bp->jes_events->current_event->group_link );
+	}
+	
+function bp_new_event_forum_link() {
+	echo bp_get_new_event_forum_link();
+}
+	function bp_get_new_event_forum_link() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_forum_link', $bp->jes_events->current_event->forum_link );
+	}
+	
+
 
 /* Placed */
 // Country
@@ -1892,6 +1948,22 @@ function bp_new_event_status() {
 		return apply_filters( 'bp_get_new_event_status', $bp->jes_events->current_event->status );
 	}
 
+function bp_new_event_forumlink() {
+	echo bp_get_new_event_forumlink();
+}
+	function bp_get_new_event_forumlink() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_forumlink', $bp->jes_events->current_event->forumlink );
+	}
+	
+function bp_new_event_grouplink() {
+	echo bp_get_new_event_grouplink();
+}
+	function bp_get_new_event_grouplink() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_grouplink', $bp->jes_events->current_event->grouplink );
+	}	
+	
 function bp_new_event_avatar( $args = '' ) {
 	echo bp_get_new_event_avatar( $args );
 }

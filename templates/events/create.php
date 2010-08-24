@@ -3,7 +3,8 @@
 	<div id="content">
 		<div class="padder">
 <?php $edata = get_option( 'jes_events' ); ?>
-	<?php 	$edata = get_option( 'jes_events' );
+	<?php
+			$edata = get_option( 'jes_events' );
 			$createa = $edata[ 'jes_events_createnonadmin_disable' ];
 	?>
 
@@ -28,14 +29,14 @@
 				<?php if ( bp_is_event_creation_step( 'event-details' ) ) : ?>
 
 					<?php do_action( 'bp_before_event_details_creation_step' ); ?>
-<table valign="top">
-<tr>
-<td width="50%" style="vertical-align:top;">
-<h4><?php _e('Base event details','jet-event-system') ?></h4>
+	<table valign="top">
+		<tr>
+			<td width="50%" style="vertical-align:top;">
+				<h4><?php _e('Base event details','jet-event-system') ?></h4>
 					<label for="event-name"><?php _e('* Event Name', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-name" id="event-name" value="<?php bp_new_event_name() ?>" />
 
-<?php 
+	<?php 
 		$shifta = $edata[ 'jes_events_adminapprove_enable' ];
 		if ($shifta)
 			{
@@ -54,95 +55,93 @@
 				<input type="hidden" name="event-eventapproved" value="1">
 			<?php } ?>
 			
-					<label for="event-etype"><?php _e('* Event classification', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
+				<label for="event-etype"><?php _e('* Event classification', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					
-<?php if (!$edata[ 'jes_events_class_enable' ])  { ?>					
-					<input type="text" name="event-etype" id="event-etype" value="<?php bp_new_event_etype() ?>" />	
-<?php } else { ?>
-<select name="event-etype" id="event-etype" size = "1">
-<option value="<?php echo $edata['jes_events_text_one' ] ?>"><?php echo $edata['jes_events_text_one' ] ?></option> 
-<?php if ($edata['jes_events_text_two' ] != null) { ?>
-<option value="<?php echo $edata['jes_events_text_two' ] ?>"><?php echo $edata['jes_events_text_two' ] ?></option>
-<?php } ?>
-<?php if ($edata['jes_events_text_three' ] != null) { ?>
-<option value="<?php echo $edata['jes_events_text_three' ] ?>"><?php echo $edata['jes_events_text_three' ] ?></option>
-<?php } ?>
-<?php if ($edata['jes_events_text_four' ] != null) { ?>
-<option value="<?php echo $edata['jes_events_text_four' ] ?>"><?php echo $edata['jes_events_text_four' ] ?></option>
-<?php } ?>
-<?php if ($edata['jes_events_text_five' ] != null) { ?>
-<option value="<?php echo $edata['jes_events_text_five' ] ?>"><?php echo $edata['jes_events_text_five' ] ?></option>
-</select>
-<?php } ?>
-<?php } ?>					
-					
-					<label for="event-desc"><?php _e('* Event Description', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
-					<textarea name="event-desc" id="event-desc"><?php bp_new_event_description() ?></textarea>
-
-<?php if ($edata[ 'jes_events_countryopt_enable' ])
-		{ ?>
-					<label for="event-placedcountry"><?php _e('* Event Placed Country', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
-					<input type="text" name="event-placedcountry" id="event-placedcountry" value="<?php bp_new_event_placedcountry() ?>" />
-		<?php } else { ?>
-					<input type="hidden" name="event-placedcountry" id="event-placedcountry" value="<?php $edata[ 'jes_events_countryopt_def' ] ?>" />		
+	<?php if (!$edata[ 'jes_events_class_enable' ])  { ?>					
+			<input type="text" name="event-etype" id="event-etype" value="<?php bp_new_event_etype() ?>" />	
+	<?php } else { ?>
+			<select name="event-etype" id="event-etype" size = "1">
+				<option value="<?php echo $edata['jes_events_text_one' ] ?>"><?php echo $edata['jes_events_text_one' ] ?></option> 
+			<?php if ($edata['jes_events_text_two' ] != null) { ?>
+				<option value="<?php echo $edata['jes_events_text_two' ] ?>"><?php echo $edata['jes_events_text_two' ] ?></option>
+			<?php } ?>
+			<?php if ($edata['jes_events_text_three' ] != null) { ?>
+				<option value="<?php echo $edata['jes_events_text_three' ] ?>"><?php echo $edata['jes_events_text_three' ] ?></option>
+			<?php } ?>
+			<?php if ($edata['jes_events_text_four' ] != null) { ?>
+				<option value="<?php echo $edata['jes_events_text_four' ] ?>"><?php echo $edata['jes_events_text_four' ] ?></option>
+			<?php } ?>
+			<?php if ($edata['jes_events_text_five' ] != null) { ?>
+				<option value="<?php echo $edata['jes_events_text_five' ] ?>"><?php echo $edata['jes_events_text_five' ] ?></option>
+			</select>
 		<?php } ?>
-
-<?php if ($edata[ 'jes_events_stateopt_enable' ])
-		{ ?>
-					<label for="event-placedstate"><?php _e('* Event Placed State', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
-					<input type="text" name="event-placedstate" id="event-placedstate" value="<?php bp_new_event_placedstate() ?>" />
-		<?php } else { ?>
-					<input type="hidden" name="event-placedstate" id="event-placedstate" value="<?php $edata[ 'jes_events_stateopt_def' ] ?>" />		
-		<?php } ?>		
+	<?php } ?>					
 					
-					<label for="event-placedcity"><?php _e('* Event Placed City', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
-					<input type="text" name="event-placedcity" id="event-placedcity" value="<?php bp_new_event_placedcity() ?>" />					
+		<label for="event-desc"><?php _e('* Event Description', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
+			<textarea name="event-desc" id="event-desc"><?php bp_new_event_description() ?></textarea>
 
-					<label for="event-placedaddress"><?php _e('Event Placed address', 'jet-event-system') ?></label>
-					<input type="text" name="event-placedaddress" id="event-placedaddress" value="<?php bp_new_event_placedaddress() ?>" />						
-</td>
-<td width="50%" style="vertical-align:top;">	
-<?php if ($edata['jes_events_specialconditions_enable']) { ?> 				
-					<label for="event-eventterms"><h4><?php _e('Special Conditions', 'jet-event-system') ?></h4></label>
-					<textarea name="event-eventterms" id="event-eventterms"><?php bp_new_event_eventterms() ?></textarea>
-<?php } ?>
-<?php if ($edata['jes_events_publicnews_enable'] || $edata['jes_publicnews_enable']) { ?>	
-<h4><?php _e('News for event','jet-event-system') ?></h4>					
-<?php } ?>
-<?php if ($edata['jes_events_publicnews_enable']) { ?>
-					<label for="event-newspublic"><?php _e('Event Public news', 'jet-event-system') ?></label>
-					<textarea name="event-newspublic" id="event-newspublic"><?php bp_new_event_newspublic() ?></textarea>
-<?php } ?>
-<?php if ($edata['jes_events_privatenews_enable']) { ?>
-					<label for="event-newsprivate"><?php _e('Event Private news', 'jet-event-system') ?></label>
-					<textarea name="event-newsprivate" id="event-newsprivate"><?php bp_new_event_newsprivate() ?></textarea>
-<?php } ?>					
-</td>
-</tr>
-<tr>
-<td width="50%" style="vertical-align:bottom;">
-<script type="text/javascript">
-		jQuery(function($) {
-			$.mask.definitions['~']='[+-]';
-			$('#event-edtsd').mask('99/99/9999 99:99');
-			$('#event-edted').mask('99/99/9999 99:99');
-});</script>
-<h4><?php _e('Date event','jet-event-system') ?></h4>
+	<?php if ($edata[ 'jes_events_countryopt_enable' ]) { ?>
+		<label for="event-placedcountry"><?php _e('* Event Placed Country', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
+		<input type="text" name="event-placedcountry" id="event-placedcountry" value="<?php bp_new_event_placedcountry() ?>" />
+	<?php } else { ?>
+		<input type="hidden" name="event-placedcountry" id="event-placedcountry" value="<?php $edata[ 'jes_events_countryopt_def' ] ?>" />		
+	<?php } ?>
+
+	<?php if ($edata[ 'jes_events_stateopt_enable' ]) { ?>
+		<label for="event-placedstate"><?php _e('* Event Placed State', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
+		<input type="text" name="event-placedstate" id="event-placedstate" value="<?php bp_new_event_placedstate() ?>" />
+	<?php } else { ?>
+		<input type="hidden" name="event-placedstate" id="event-placedstate" value="<?php $edata[ 'jes_events_stateopt_def' ] ?>" />		
+	<?php } ?>		
+					
+		<label for="event-placedcity"><?php _e('* Event Placed City', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
+		<input type="text" name="event-placedcity" id="event-placedcity" value="<?php bp_new_event_placedcity() ?>" />					
+
+		<label for="event-placedaddress"><?php _e('Event Placed address', 'jet-event-system') ?></label>
+		<input type="text" name="event-placedaddress" id="event-placedaddress" value="<?php bp_new_event_placedaddress() ?>" />						
+			</td>
+			<td width="50%" style="vertical-align:top;">	
+		<?php if ($edata['jes_events_specialconditions_enable']) { ?> 				
+				<label for="event-eventterms"><h4><?php _e('Special Conditions', 'jet-event-system') ?></h4></label>
+				<textarea name="event-eventterms" id="event-eventterms"><?php bp_new_event_eventterms() ?></textarea>
+		<?php } ?>
+		<?php if ($edata['jes_events_publicnews_enable'] || $edata['jes_publicnews_enable']) { ?>	
+			<h4><?php _e('News for event','jet-event-system') ?></h4>					
+		<?php } ?>
+		<?php if ($edata['jes_events_publicnews_enable']) { ?>
+			<label for="event-newspublic"><?php _e('Event Public news', 'jet-event-system') ?></label>
+			<textarea name="event-newspublic" id="event-newspublic"><?php bp_new_event_newspublic() ?></textarea>
+		<?php } ?>
+		<?php if ($edata['jes_events_privatenews_enable']) { ?>
+			<label for="event-newsprivate"><?php _e('Event Private news', 'jet-event-system') ?></label>
+			<textarea name="event-newsprivate" id="event-newsprivate"><?php bp_new_event_newsprivate() ?></textarea>
+		<?php } ?>					
+			</td>
+		</tr>
+		<tr>
+			<td width="50%" style="vertical-align:bottom;">
+				<script type="text/javascript">
+					jQuery(function($) {
+					$.mask.definitions['~']='[+-]';
+					$('#event-edtsd').mask('99/99/9999 99:99');
+					$('#event-edted').mask('99/99/9999 99:99');
+				});</script>
+				<h4><?php _e('Date event','jet-event-system') ?></h4>
 					<label for="event-edtsd"><?php _e('* Event Start date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-edtsd" id="event-edtsd" value="<?php bp_new_event_edtsd() ?>" />
 					<br /><span class="small"><?php _e('dd/mm/yyyy HH:mm','jet-event-system'); ?></span>
-</td>
-<td width="50%" style="vertical-align:bottom;">
-					<label for="event-edtsd"><?php _e('* Event End date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
-					<input type="text" name="event-edted" id="event-edted" value="<?php bp_new_event_edted() ?>" />	
-					<br /><span class="small"><?php _e('dd/mm/yyyy HH:mm','jet-event-system'); ?></span>
-</td>
-</tr>
-</table>					
-<?php /* <div class="checkbox">
-<label><input type="checkbox" name="event-allday" value="1"<?php if (bp_get_new_event_allday() ) { ?> checked="checked"<?php } ?> /> <?php _e('This is an all day event','bp-events') ?></label>
-<label><input type="checkbox" name="event-weekly" value="1"<?php if (bp_get_new_event_weekly() ) { ?> checked="checked"<?php } ?> /> <?php _e('This is an repeat weekly event','bp-events') ?></label>
-</div> */ ?>
+			</td>
+			<td width="50%" style="vertical-align:bottom;">
+				<label for="event-edtsd"><?php _e('* Event End date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
+				<input type="text" name="event-edted" id="event-edted" value="<?php bp_new_event_edted() ?>" />	
+				<br /><span class="small"><?php _e('dd/mm/yyyy HH:mm','jet-event-system'); ?></span>
+			</td>
+		</tr>
+	</table>
+<?php /*	<div class="checkbox">
+		<label><input type="checkbox" name="event-allday" value="1"<?php if (bp_get_new_event_allday() ) { ?> checked="checked"<?php } ?> /> <?php _e('This is an all day event','bp-events') ?></label>
+		<label><input type="checkbox" name="event-weekly" value="1"<?php if (bp_get_new_event_weekly() ) { ?> checked="checked"<?php } ?> /> <?php _e('This is an repeat weekly event','bp-events') ?></label>
+	</div> */ ?>
 					
 					<?php do_action( 'bp_after_event_details_creation_step' ); ?>
 
@@ -155,28 +154,6 @@
 
 					<?php do_action( 'bp_before_event_settings_creation_step' ); ?>
 
-					<?php if ( function_exists('bp_wire_install') ) : ?>
-					<div class="checkbox">
-						<label><input type="checkbox" name="event-show-wire" id="event-show-wire" value="1"<?php if ( jet_get_new_event_enable_wire() ) { ?> checked="checked"<?php } ?> /> <?php _e('Enable comment wire', 'jet-event-system') ?></label>
-					</div>
-					<?php endif; ?>
-<?php /*
-					<?php if ( function_exists('bp_forums_is_installed_correctly') ) : ?>
-						<?php if ( bp_forums_is_installed_correctly() ) : ?>
-							<div class="checkbox">
-								<label><input type="checkbox" name="event-show-forum" id="event-show-forum" value="1"<?php if ( jet_get_new_event_enable_forum() ) { ?> checked="checked"<?php } ?> /> <?php _e('Enable discussion forum', 'jet-event-system') ?></label>
-							</div>
-						<?php else : ?>
-							<?php if ( is_site_admin() ) : ?>
-								<div class="checkbox">
-									<label><input type="checkbox" disabled="disabled" name="disabled" id="disabled" value="0" /> <?php printf( __('<strong>Attention Site Admin:</strong> Event forums require the <a href="%s">correct setup and configuration</a> of a bbPress installation.', 'jet-event-system' ), bp_get_root_domain() . '/wp-admin/admin.php?page=bb-forums-setup' ) ?></label>
-								</div>
-							<?php endif; ?>
-						<?php endif; ?>
-					<?php endif; ?>
-
-					<hr />
-*/ ?>
 					<h4><?php _e( 'Privacy Options', 'jet-event-system' ); ?></h4>
 
 					<div class="radio">
@@ -208,6 +185,29 @@
 						</label>
 					</div>
 
+
+				<h4><?php _e( 'Group/Forum link options', 'jet-event-system' ); ?></h4>					
+					<label><?php _e('Select the group you want to contact the event:','jet-event-system'); ?></label>
+					<?php jes_event_groups_dropdown( $_POST['event-grouplink'] ) ?>
+					
+<?php /*					<select id="event-grouplink" name="event-grouplink">
+						<option value="0"><?php _e( 'Do not communicate with groups', 'jet-event-system' ) ?></option>
+
+						<?php if ( bp_has_groups( 'user_id=' . bp_loggedin_user_id() . '&type=alphabetical&max=100&per_page=100&populate_extras=0' ) ) : while ( bp_groups() ) : bp_the_group(); ?>
+							<option value="<?php bp_group_id() ?>" <?php if ( bp_get_group_id() == bp_get_new_event_grouplink() || !bp_get_new_event_grouplink() ) { ?> checked="checked"<?php } ?>/><?php bp_group_name() ?></option>
+						<?php endwhile; endif; ?>
+					</select>
+*/ ?>
+<?php /*					<label><?php _e('Select the forum topic you want to contact the event:','jet-event-system'); ?></label>					
+					<select id="forum-link" name="forum-link">
+						<option selected="selected" value="0"><?php _e( 'Do not communicate with forums', 'jet-event-system' ) ?></option>
+			<?php while ( bp_forum_topics() ) : bp_the_forum_topic(); ?>
+						<option value="<?php bp_forum_topics_id() ?>"><?php bp_the_topic_title() ?></option>
+			<?php endwhile; ?>					
+					</select>
+*/ ?>					
+	<input type="hidden" name="event-forumlink" id="event-forumlink" value="1" />
+										
 					<?php do_action( 'bp_after_event_settings_creation_step' ); ?>
 
 					<?php wp_nonce_field( 'events_create_save_event-settings' ) ?>

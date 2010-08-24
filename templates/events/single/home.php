@@ -32,9 +32,6 @@
 				<?php elseif ( bp_is_jes_event_invite_jes() && jes_bp_event_is_visible() ) : ?>
 					<?php locate_template( array( 'events/single/send-invites.php' ), true ) ?>
 
-				<?php elseif ( bp_is_event_forum() && jes_bp_event_is_visible() ) : ?>
-					<?php locate_template( array( 'events/single/forum.php' ), true ) ?>
-
 				<?php elseif ( bp_is_event_membership_request() ) : ?>
 					<?php locate_template( array( 'events/single/request-join-to-event.php' ), true ) ?>
 
