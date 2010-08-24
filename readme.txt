@@ -14,11 +14,9 @@ System events for your social network. Ability to attract members of the network
 
 == Description ==
 
-en: System events for your social network. Ability to attract members of the network to the ongoing activities.
-The plugin is in testing, may not operate some features! Please give your suggestions for new features and improving existing ones. Please do not remove references to the developer (for the statistics units)
+<strong>en:</strong> The modern System of events for your social network. Ability to attract members of the network to the ongoing activities, a wide range of possibilities and options, support for different types of display, etc.
 
-ru: Система событий для Вашей социальной сети. Возможность привлекать участников сети к проводимым мероприятиям. 
-Плагин находится в стадии тестирования, могут не работать некоторые функции! Просьба высказывать свои предложения по новым функциям и улучшению уже существующих. Просьба не удалять ссылки на разработчика (для статистики установок)
+<strong>ru:</strong> Современная Система событий для Вашей социальной сети. Возможность привлекать участников сети к проводимым мероприятиям, широкий спектр возможностей и настроек, поддержка разных видов отображения и т.п.
 
 
 <strong>Before you install or upgrade sure to read the Readme file!</strong>!
@@ -37,8 +35,9 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://vol
 1. Upload `jet-event-system-for-buddypress` folder to the `/wp-content/plugins/` directory
 2. Be sure to transfer the contents of the folder from the Templates folder (Events, Members) in the root of the plugin you are using themes BP (default: / plugins / buddypress / bp-themes / bp-default)
 3. Activate the plugin through the 'Plugins' menu in WordPress
-4. Add widget to site (if needed)
-5. See Events Catalog: http://yousite/events
+4. Visit the admin panel plugin (Jes Event system)
+5. Add widget to site (if needed)
+6. See Events Catalog: http://yousite/events
 
 
 == Screenshots ==
