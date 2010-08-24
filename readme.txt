@@ -26,7 +26,7 @@ ru: Система событий для Вашей социальной сет�
 <strong>Перед установкой или обновлением обязательно прочтите Readme файл!</strong>
 
 
-Live Demo: <a href="http://sportactions.ru">Sport site</a> and <a href="http://volks-wagen-club.ru">Volkswagen Club</a> (Please do not create events on these sites! Use the <a href="http://jes.milordk.ru">jes.milordk.ru</a>)
+Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://volks-wagen-club.ru">Volkswagen Club</a> (Please do not create events on these sites! Use the <a href="http://jes.milordk.ru">jes.milordk.ru</a>)
 
 
 <a href="http://jes.milordk.ru">Official website of the plugin</a> (You can register and create events, thereby testing the latest version of plug-ins under development)
@@ -65,15 +65,23 @@ Tell about problems with the plugin and read the other comments you can: http://
 
 == Future ==
 
-* In version 1.2 will ensure compatibility of the system with the new version of BP
-* In version 1.3 will be added to the possibility of tying the event to a group
-* In version 1.4 will be added to the possibility of tying the event to your blog (s) 
+* In version 1.5 will be added to the possibility of tying the event to a group
+* In version 2.0 will ensure compatibility of the system with the new version of BP
+* In version 2.5 will be able to add events to Outlook Calendar and iCal (list may vary from those of the creator of the plug and the wishes of the participants testing)
+* In version 3.0 will be added to the possibility of tying the event to your blog (s)
+
+List of future functions formed the opinion creator plug-in and test participants, if you have something to offer - <a href="http://jes.milordk.ru/groups/proposals-for-the-future/">Poposals for the future/</a>
+
 
 == Contact ==
 
 For suggestions, bugs, hugs and love can be donated at the following locations.
+
 [Authors page](http://milordk.ru)
+
 [Plugin page](http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html)
+
+[Jes Dev Site] (http://jes.milordk.ru/)
 
 
 == Changelog ==
