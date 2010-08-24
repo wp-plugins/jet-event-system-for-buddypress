@@ -32,11 +32,6 @@
 	<?php do_action( 'bp_before_event_header_meta' ) ?>
 
 	<div id="item-meta">
-		<?php if ( bp_is_event_forum() && is_user_logged_in() && !bp_is_event_forum_topic() ) : ?>
-			<div class="generic-button event-button">
-				<a href="#post-new" class=""><?php _e( 'New Topic', 'jet-event-system' ) ?></a>
-			</div>
-		<?php endif; ?>
 
 		<?php bp_event_join_button() ?>
 
