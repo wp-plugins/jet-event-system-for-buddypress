@@ -56,9 +56,7 @@ As one of the options for addressing emerging problems with other themes - conne
 <strong>If you are using a theme different from the BP-Default, be sure to install and activate</strong> - <a href="http://wordpress.org/extend/plugins/bp-template-pack/">BP Template Pack</a>
 
 Your wishes for the development of plug-in you can leave: http://jes.milordk.ru/groups/proposals-for-the-future/
-
 Discuss the issues of localization plugin, you can: http://jes.milordk.ru/groups/translates/
-
 Tell about problems with the plugin and read the other comments you can: http://jes.milordk.ru/groups/test-group-16902666/
 
 
