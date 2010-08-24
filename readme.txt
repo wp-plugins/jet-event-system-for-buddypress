@@ -78,10 +78,13 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 [Plugin page](http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html)
 
-[Jes Dev Site] (http://jes.milordk.ru/)
+[Jes Dev Site] (http://jes.milordk.ru)
 
 
 == Changelog ==
+
+= 1.2.1.1 =
+* Correction of templates and update the administrative panel plugin
 
 = 1.2 =
 * Improved mechanism to update the database and Themes
