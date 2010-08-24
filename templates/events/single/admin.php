@@ -99,7 +99,7 @@
 });</script>
 
 	<tr>
-		</td>
+		<td>
 			<h4><?php _e('Date event','jet-event-system') ?></h4>
 					<label for="event-edtsd"><?php _e('* Event Start date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-edtsd" id="event-edtsd" value="<?php jes_bp_event_edtsd() ?>" />
