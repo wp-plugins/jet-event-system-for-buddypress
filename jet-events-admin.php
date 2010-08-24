@@ -2,7 +2,7 @@
 
 function move_template($fpatch, $fname)
 {
-	$stringtoreturn = '> '.$fname.' .. '.$fpatch.'<BR />';
+	$stringtoreturn = '> '.$fname.' .. '.$fpatch.' ';
 	$filename1 = WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/templates/'.$fpatch.'/'.$fname;
 	$filename2 = TEMPLATEPATH . '/'.$fpatch.'/'.$fname;
 	if ( file_exists($filename1) )
