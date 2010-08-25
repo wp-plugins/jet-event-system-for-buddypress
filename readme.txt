@@ -60,6 +60,15 @@ Discuss the issues of localization plugin, you can: http://jes.milordk.ru/groups
 Tell about problems with the plugin and read the other comments you can: http://jes.milordk.ru/groups/the-bugs
 
 
+== Translate ==
+
+<strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru" target="_blank">http://milordk.ru</a>
+<strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">http://www.paysterresdelorraine.com/</a>
+<strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="http://www.pixelartist.de" target="_blank">www.pixelartist.de</a>
+<strong>es_ES</strong> - <em>Alex_Mx</em>
+<strong>da_DK</strong> - <em>Cavamondo</em>
+
+
 == Future ==
 
 * In version 1.5 will be added to the possibility of tying the event to a group
