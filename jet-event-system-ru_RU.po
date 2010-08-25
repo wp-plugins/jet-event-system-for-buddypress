@@ -586,8 +586,8 @@ msgid "Standart Style"
 msgstr "Стандартный стиль"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:312
-msgid "Standart with Full Description Style"
-msgstr "Стандартная с расширенным описанием"
+msgid "Standard will full description"
+msgstr "Стандартный с расширенным описанием"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:313
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:323

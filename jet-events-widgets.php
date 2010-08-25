@@ -1,5 +1,4 @@
 <?php
-
 class JES_BP_Events_Widget extends WP_Widget {
 	function jes_bp_events_widget() {
 		parent::WP_Widget(false, $name = __( 'Events', 'jet-event-system' ) );
@@ -103,18 +102,18 @@ class JES_BP_Events_Widget extends WP_Widget {
 						<div style="font-size:85%;">
 							<?php if ( $show_countrystate ) { ?>
 								<?php if ( jes_bp_get_event_placedcountry() != null ) { 
-								$kkey = 1;
+									$kkey = 1;
 								?>
 									<span><?php jes_bp_event_placedcountry() ?>, </span>
 								<?php } ?>
 								<?php if ( jes_bp_get_event_placedstate() != null ) {
-								$kkey = 1;
+									$kkey = 1;
 								?>						
 									<span><?php jes_bp_get_event_placedstate() ?></span>
 								<?php } ?>
-							<?php if ( $kkey ) { ?>
-								<br />
-							<?php } ?>
+								<?php if ( $kkey ) { ?>
+									<br />
+								<?php } ?>
 							<?php } ?>
 								<span><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>,<br /><?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?><br /><?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?></span>
 						</div>
@@ -125,20 +124,17 @@ class JES_BP_Events_Widget extends WP_Widget {
 			</ul>
 			<?php wp_nonce_field( 'events_widget_events_list', '_wpnonce-events' ); ?>
 			<input type="hidden" name="events_widget_max" id="events_widget_max" value="<?php echo attribute_escape( $instance['max_events'] ); ?>" />
-
 		<?php else: ?>
-
 			<div class="widget-error">
 				<?php _e('There are no events to display.', 'jet-event-system') ?>
 			</div>
-
 		<?php endif; ?>
-<?php if (!$data[ 'jes_events_code_index' ]) { ?>
-</noindex>
-<?php } ?>
+	<?php if (!$data[ 'jes_events_code_index' ]) { ?>
+		</noindex>
+	<?php } ?>
 		<?php echo $after_widget; ?>
-	<?php
-	}
+<?php
+}
 
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
@@ -243,7 +239,6 @@ function events_ajax_widget_events_list() {
 		<?php echo "-1[[SPLIT]]<li>" . __("No events matched the current filter.", 'jet-event-system'); ?>
 
 	<?php endif;
-
 }
 	add_action('widgets_init', create_function('', 'return register_widget("JES_BP_Events_Widget");') );
 	add_action( 'wp_ajax_widget_events_list', 'events_ajax_widget_events_list' );

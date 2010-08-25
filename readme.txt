@@ -8,8 +8,7 @@ Requires at least: 3.0, BuddyPress 1.2.5
 Tested up to: 3.0.1, BuddyPress 1.2.5.2
 Stable tag: trunk
 
-System events for your social network. Ability to attract members of the network to the ongoing activities.
-<a href="http://jes.milordk.ru">JES DEV Site</a>. <strong>Before you install or upgrade sure to read the Readme file!</strong>!
+The modern System of events for your social network. Ability to attract members of the network to the ongoing activities, a wide range of possibilities and options, support for different types of display, etc. <a href="http://jes.milordk.ru">JES DEV Site</a>. <strong>Before you install or upgrade sure to read the Readme file!</strong>!
 
 
 == Description ==
@@ -32,8 +31,8 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://vol
 == Installation ==
 
 1. Upload `jet-event-system-for-buddypress` folder to the `/wp-content/plugins/` directory
-2. Be sure to transfer the contents of the folder from the Templates folder (Events, Members) in the root of the plugin you are using themes BP (default: / plugins / buddypress / bp-themes / bp-default)
-3. Activate the plugin through the 'Plugins' menu in WordPress
+2. Activate the plugin through the 'Plugins' menu in WordPress
+2. Be sure to transfer the contents of the folder from the Templates folder (Events, Members) in the root of the plugin you are using themes BP (default: / plugins / buddypress / bp-themes / bp-default). The plugin automatically updates the Templates, but if you changed the subject and / or updated plug-in - need to visit the administrative panel of the plugin and follow the instructions - upgrade Templates!
 4. Visit the admin panel plugin (Jes Event system)
 5. Add widget to site (if needed)
 6. See Events Catalog: http://yousite/events
@@ -49,14 +48,16 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://vol
 
 == Special Note ==
 
-Used your theme should be based on the default theme BP (styles and functions)! The efficiency of the plug can only be guaranteed on these topics!
+Used your theme should be based on the default theme BP (styles and functions)! The efficiency of the plug can only be guaranteed on these themes!
 As one of the options for addressing emerging problems with other themes - connection functions.php from a default theme to your BP
 
-<strong>If you are using a theme different from the BP-Default, be sure to install and activate</strong> - <a href="http://wordpress.org/extend/plugins/bp-template-pack/">BP Template Pack</a>
+<strong>If you are using a theme different from the BP-Default, be sure to install and activate</strong> - <a href="http://wordpress.org/extend/plugins/bp-template-pack">BP Template Pack</a>
 
-Your wishes for the development of plug-in you can leave: http://jes.milordk.ru/groups/proposals-for-the-future/
-Discuss the issues of localization plugin, you can: http://jes.milordk.ru/groups/translates/
-Tell about problems with the plugin and read the other comments you can: http://jes.milordk.ru/groups/test-group-16902666/
+Your wishes for the development of plug-in you can leave: http://jes.milordk.ru/groups/proposals-for-the-future
+
+Discuss the issues of localization plugin, you can: http://jes.milordk.ru/groups/translates
+
+Tell about problems with the plugin and read the other comments you can: http://jes.milordk.ru/groups/the-bugs
 
 
 == Future ==
@@ -66,7 +67,7 @@ Tell about problems with the plugin and read the other comments you can: http://
 * In version 2.5 will be able to add events to Outlook Calendar and iCal (list may vary from those of the creator of the plug and the wishes of the participants testing)
 * In version 3.0 will be added to the possibility of tying the event to your blog (s)
 
-List of future functions formed the opinion creator plug-in and test participants, if you have something to offer - <a href="http://jes.milordk.ru/groups/proposals-for-the-future/">Poposals for the future/</a>
+List of future functions formed the opinion creator plug-in and test participants, if you have something to offer - <a href="http://jes.milordk.ru/groups/proposals-for-the-future">Poposals for the future</a>
 
 
 == Contact ==
@@ -81,7 +82,14 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
-= 1.2.2 =
+= 1.2.3 =
+* Fix problem with displaying an avatar friends who are going to invite to the event (problem occurred when an avatar user profile associated with gravitar)
+* Optimized the administrative panel (setting Countries / Cities moved to the section of access to the fields of event)
+Note: option "Allow City" does not work! 
+* Corrections in phrases
+* Fixed a problem: demonstrating public news even if they are disabled via admin panel 
+
+= 1.2.2.1 =
 * Fix: Do not save some options in the administrative panel plugin
 * Adjusted to the phrase in Template
 
@@ -227,7 +235,7 @@ NOTE: To use the updating mechanism is necessary after updating the plugin go to
 * The solution to create a blog for activate the plugin
 
 = 1.0.3 =
-* Fixed sorting Soon in the widget. 
+* Fixed sorting Soon in the widget.
 * Activated bookmark "My Events / All events from the list of events
 
 = 1.0.2 =

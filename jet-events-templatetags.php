@@ -2061,7 +2061,7 @@ function bp_new_jes_event_invite_friend_list() {
 					}
 				}
 			if ($eshowavatar) { 
-				$items[] = '<p><' . $separator . '>'.'<input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . jes_get_member_avatar('id='.$friends[$i]['id']). ' '. $friends[$i]['full_name'] . '</' . $separator . '><br /></p>';
+				$items[] = '<' . $separator . '>'.jes_get_member_avatar('id='.$friends[$i]['id'].'&alt='.$friends[$i]['full_name'].'&height=25&width=25').'<input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . $friends[$i]['full_name'] . '<br /></' . $separator . '><br />';
 			} else {
 				$items[] = '<' . $separator . '>'.'<input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . $friends[$i]['full_name'] . '</' . $separator . '>';
 				}
@@ -2526,7 +2526,7 @@ function jes_member_avatar( $args = '' ) {
 		$r = wp_parse_args( $args, $defaults );
 		extract( $r, EXTR_SKIP );
 
-		return apply_filters( 'bp_get_member_avatar', bp_core_fetch_avatar( array( 'item_id' => $id, 'type' => $type, 'alt' => $alt, 'css_id' => $id, 'class' => $class, 'width' => $width, 'height' => $height, 'email' => $members_template->member->user_email ) ) );
+		return apply_filters( 'bp_get_member_avatar', bp_core_fetch_avatar( array( 'item_id' => $id, 'type' => $type, 'alt' => $alt, 'css_id' => $id, 'class' => $class, 'width' => $width, 'height' => $height ) ) );
 	}
 	
 	

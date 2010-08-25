@@ -30,14 +30,12 @@
 			</div>
 		<?php	} ?>	
 	<ul id="events-list" class="item-list">
+	<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>	
 <?php
 // Standart style Event Catalog 
 ?>
-<?php if ( ($edata['jes_events_style'] == 'Standart') or ($edata['jes_events_style'] == 'Standart with Full Description') ) 
+<?php if ( ($edata['jes_events_style'] == 'Standart') or ($edata['jes_events_style'] == 'Standard will full description') ) 
 			{ ?>
-	
-	<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
-	
 	<?php 
 		$er = jes_bp_get_event_type();
 	// Admin Approve
@@ -115,9 +113,7 @@
 
 			<div class="clear"></div>
 		</li>
-<?php } ?>
-	<?php  endwhile; ?>
-
+	<?php } ?>
 <?php } ?>	
 
 
@@ -126,10 +122,7 @@
 ?>
 <?php if ($edata['jes_events_style'] == 'Twitter' ) 
 			{ ?>
-	
-	<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
-	
-	<?php 
+	<?php
 		$er = jes_bp_get_event_type();
 	// Admin Approve
 	$shiftcan = 0;
@@ -198,11 +191,9 @@
 
 			<div class="clear"></div>
 		</li>
-<?php } ?>
-	<?php  endwhile; ?>
-
+	<?php } ?>
 <?php } ?>	
-	
+	<?php  endwhile; ?>	
 	</ul>
 
 	<?php do_action( 'bp_after_events_loop' ) ?>
