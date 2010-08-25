@@ -1325,7 +1325,7 @@ function bp_event_join_button( $event = false ) {
 				echo '<a class="leave-event" href="' . wp_nonce_url( jes_bp_get_event_permalink( $event ) . 'leave-event', 'events_leave_event' ) . '">' . __( 'Leave Event', 'jet-event-system' ) . '</a>';
 			} else {
 				if ( !bp_event_has_requested_membership( $event ) )
-					echo '<a class="request-join-to-event" href="' . wp_nonce_url( jes_bp_get_event_permalink( $event ) . 'request-join-to-event', 'events_request_join_to_event' ) . '">' . __('Request join to Event', 'jet-event-system') . '</a>';
+					echo '<a class="request-join-to-event" href="' . wp_nonce_url( jes_bp_get_event_permalink( $event ) . 'request-join-to-event', 'events_request_join_to_event' ) . '">' . __('Request to join Event', 'jet-event-system') . '</a>';
 				else
 					echo '<a class="membership-requested" href="' . jes_bp_get_event_permalink( $event ) . '">' . __( 'Request Sent', 'jet-event-system' ) . '</a>';
 			}

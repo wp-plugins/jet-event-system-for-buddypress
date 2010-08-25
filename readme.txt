@@ -18,7 +18,6 @@ System events for your social network. Ability to attract members of the network
 
 <strong>ru:</strong> Современная Система событий для Вашей социальной сети. Возможность привлекать участников сети к проводимым мероприятиям, широкий спектр возможностей и настроек, поддержка разных видов отображения и т.п.
 
-
 <strong>Before you install or upgrade sure to read the Readme file!</strong>!
 
 <strong>Перед установкой или обновлением обязательно прочтите Readme файл!</strong>
@@ -78,10 +77,13 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 [Plugin page](http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html)
 
-[Jes Dev Site] (http://jes.milordk.ru)
 
 
 == Changelog ==
+
+= 1.2.2 =
+* Fix: Do not save some options in the administrative panel plugin
+* Adjusted to the phrase in Template
 
 = 1.2.1.2 =
 *Fixed problem when you have activated the plugin at the invitation of the group is not list of selected users.

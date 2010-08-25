@@ -50,7 +50,7 @@
 	
 <?php if ($edata[ 'jes_events_countryopt_enable' ])
 		{ ?>
-					<label for="event-placedcountry"><?php _e('* Event Placed Country', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
+					<label for="event-placedcountry"><?php _e('* Event Country', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-placedcountry" id="event-placedcountry" value="<?php jes_bp_event_placedcountry() ?>" />
 		<?php } else { ?>
 					<input type="hidden" name="event-placedcountry" id="event-placedcountry" value="<?php $edata[ 'jes_events_countryopt_def' ] ?>" />		
@@ -58,16 +58,16 @@
 
 <?php if ($edata[ 'jes_events_stateopt_enable' ])
 		{ ?>
-					<label for="event-placedstate"><?php _e('* Event Placed State', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
+					<label for="event-placedstate"><?php _e('* Event State', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-placedstate" id="event-placedstate" value="<?php jes_bp_event_placedstate() ?>" />
 		<?php } else { ?>
 					<input type="hidden" name="event-placedstate" id="event-placedstate" value="<?php $edata[ 'jes_events_stateopt_def' ] ?>" />		
 		<?php } ?>	
 		
-					<label for="event-placedcity"><?php _e('* Event Placed City', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
+					<label for="event-placedcity"><?php _e('* Event City', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-placedcity" id="event-placedcity" value="<?php jes_bp_event_placedcity() ?>" />					
 
-					<label for="event-placedaddress"><?php _e('Event Placed address', 'jet-event-system') ?></label>
+					<label for="event-placedaddress"><?php _e('Event address', 'jet-event-system') ?></label>
 					<input type="text" name="event-placedaddress" id="event-placedaddress" value="<?php jes_bp_event_placedaddress() ?>" />						
 </td>
 <td width="50%" style="vertical-align:top;">
@@ -80,11 +80,11 @@
 <h4><?php _e('News for event','jet-event-system') ?></h4>					
 <?php } ?>
 <?php if ($edata['jes_events_publicnews_enable']) { ?>
-					<label for="event-newspublic"><?php _e('Event Public news', 'jet-event-system') ?></label>
+					<label for="event-newspublic"><?php _e('Public Event News', 'jet-event-system') ?></label>
 					<textarea name="event-newspublic" id="event-newspublic"><?php jes_bp_event_newspublic() ?></textarea>
 <?php } ?>
 <?php if ($edata['jes_events_privatenews_enable']) { ?>
-					<label for="event-newsprivate"><?php _e('Event Private news', 'jet-event-system') ?></label>
+					<label for="event-newsprivate"><?php _e('Private Event News', 'jet-event-system') ?></label>
 					<textarea name="event-newsprivate" id="event-newsprivate"><?php jes_bp_event_newsprivate() ?></textarea>					
 <?php } ?>
 </td>
@@ -100,7 +100,7 @@
 
 	<tr>
 		<td>
-			<h4><?php _e('Date event','jet-event-system') ?></h4>
+			<h4><?php _e('Event Date','jet-event-system') ?></h4>
 					<label for="event-edtsd"><?php _e('* Event Start date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 					<input type="text" name="event-edtsd" id="event-edtsd" value="<?php jes_bp_event_edtsd() ?>" />
 					<br /><span class="small"><?php _e('dd/mm/yyyy HH:mm','jet-event-system'); ?></span>

@@ -30,10 +30,10 @@ class JES_BP_Events_Widget extends WP_Widget {
 <?php if ($show_navi) { ?>		
 			<div class="item-options" id="events-list-options">
 				<span class="ajax-loader" id="ajax-loader-events"></span>
-				<a href="<?php echo site_url() . '/' . $bp->jes_events->slug ?>" id="soon-events"><?php _e("Soon", 'jet-event-system') ?></a> |
+				<a href="<?php echo site_url() . '/' . $bp->jes_events->slug ?>" id="soon-events"><?php _e("Upcoming", 'jet-event-system') ?></a> |
 				<a href="<?php echo site_url() . '/' . $bp->jes_events->slug ?>" id="newest-events"><?php _e("Newest", 'jet-event-system') ?></a> |
-				<a href="<?php echo site_url() . '/' . $bp->jes_events->slug ?>" id="recently-active-events"><?php _e("Active", 'jet-event-system') ?></a> |
-				<a href="<?php echo site_url() . '/' . $bp->jes_events->slug ?>" id="popular-events" class="selected"><?php _e("Popular", 'jet-event-system') ?></a>
+				<a href="<?php echo site_url() . '/' . $bp->jes_events->slug ?>" id="recently-active-events"><?php _e("Most Active", 'jet-event-system') ?></a> |
+				<a href="<?php echo site_url() . '/' . $bp->jes_events->slug ?>" id="popular-events" class="selected"><?php _e("Most Popular", 'jet-event-system') ?></a>
 			</div>
 <?php } ?>
 <?php
@@ -89,7 +89,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 								<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
 							</div>
 <?php if ( $check_keydate ) { ?>
-				<em><span style="color : #<?php echo $archive_color ?>; font-size: 80%;"><?php _e('Archive event','jet-event-system') ?></span></em>
+				<em><span style="color : #<?php echo $archive_color ?>; font-size: 80%;"><?php _e('Past event','jet-event-system') ?></span></em>
 <?php } else { ?>
 				<em><span style="color : #33CC00; font-size: 80%;"><?php _e('Active event','jet-event-system') ?></span></em>
 <?php } ?>	

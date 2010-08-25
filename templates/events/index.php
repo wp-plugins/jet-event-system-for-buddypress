@@ -15,13 +15,13 @@
 	?>
 		<?php if (!$createa )
 			{ ?>
-				<a class="button" href="<?php echo bp_get_root_domain() . '/' . JES_SLUG . '/create/' ?>"><?php _e( 'Create a Event', 'jet-event-system' ) ?></a>			
+				<a class="button" href="<?php echo bp_get_root_domain() . '/' . JES_SLUG . '/create/' ?>"><?php _e( 'Create an Event', 'jet-event-system' ) ?></a>			
 			<?php }
 				else
 			{
 				if ( current_user_can('manage_options'))
 						{ ?>
-					<a class="button" href="<?php echo bp_get_root_domain() . '/' . JES_SLUG . '/create/' ?>"><?php _e( 'Create a Event', 'jet-event-system' ) ?></a>
+					<a class="button" href="<?php echo bp_get_root_domain() . '/' . JES_SLUG . '/create/' ?>"><?php _e( 'Create an Event', 'jet-event-system' ) ?></a>
 					<?php	}
 			}
 			endif; ?>
@@ -44,7 +44,7 @@
 		?>
 						<?php _e( 'Order By:', 'jet-event-system' ) ?>
 						<select>
-							<option <?php if ($sortby == 'soon' ) { ?>selected<?php } ?> value="soon"><?php _e( 'Soon', 'jet-event-system' ) ?></option>
+							<option <?php if ($sortby == 'soon' ) { ?>selected<?php } ?> value="soon"><?php _e( 'Upcoming', 'jet-event-system' ) ?></option>
 							<option <?php if ($sortby == 'active' ) { ?>selected<?php } ?> value="active"><?php _e( 'Last Active', 'jet-event-system' ) ?></option>
 							<option <?php if ($sortby == 'popular' ) { ?>selected<?php } ?> value="popular"><?php _e( 'Most Members', 'jet-event-system' ) ?></option>
 							<option <?php if ($sortby == 'newest' ) { ?>selected<?php } ?> value="newest"><?php _e( 'Newly Created', 'jet-event-system' ) ?></option>
