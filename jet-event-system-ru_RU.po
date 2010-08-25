@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JES\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-25 09:55+0300\n"
-"PO-Revision-Date: 2010-08-25 09:55+0300\n"
+"POT-Creation-Date: 2010-08-25 16:46+0300\n"
+"PO-Revision-Date: 2010-08-25 16:47+0300\n"
 "Last-Translator: Jettochkin <milord_k@mail.ru>\n"
 "Language-Team: Jettochkin <milord_k@mail.ru>\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgstr "Аватар"
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1207
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1220
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:1233
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:5
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:4
 msgid "Events"
 msgstr "События"
 
@@ -251,7 +251,7 @@ msgstr ""
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:851
 msgid "There was an error saving event details. Please try again."
-msgstr ""
+msgstr "Произошла ошибка при сохранении деталий события, повторите еще раз."
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-event-system.php:873
 msgid "Please fill in all of the required fields"
@@ -399,291 +399,293 @@ msgstr ""
 msgid "%s posted an update in the event %s:"
 msgstr "%s разместил обновление для события %s:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:126
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:132
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:136
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:142
 msgid "Standart"
 msgstr "Стандартный"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:138
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:148
 msgid "Site"
 msgstr "Сайт"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:143
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:153
 msgid "Personal"
 msgstr "Персональное"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:185
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:199
 msgid "Options updated."
 msgstr "Настройки обновлены."
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:189
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:203
 msgid "JES. Jet Event System"
 msgstr "JES. Система событий"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:190
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:204
 msgid "version"
 msgstr "версия"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:190
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:204
 msgid "build"
 msgstr "релиз"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:191
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:205
 msgid "Template version:"
 msgstr "Версия темы:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:192
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:206
 msgid "DB version:"
 msgstr "Версия БД:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:210
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:224
 msgid "Update Database"
-msgstr ""
+msgstr "Обновить БД"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:215
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:229
 msgid "There were changes in the theme file!"
 msgstr "Сейчас будут обновлены файлы темы!"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:219
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:233
 msgid "Theme files successfully updated!"
 msgstr "Детали события успешно обновлены."
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:225
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:239
 msgid "An error occurred while updating the files! (check the folder themes)"
 msgstr "Произошла ошибка во время обновления файлов (проверьте папку темы)"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:237
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:251
 msgid "Update Templates"
-msgstr ""
+msgstr "Обновить тему"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:244
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:258
 msgid "Let's make some changes:"
 msgstr "Сделайте некоторые настройки:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:246
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:253
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:260
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:267
 msgid "Base Options"
 msgstr "Параметры конфиденциальности"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:246
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:282
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:260
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:296
 msgid "Setting up access to the fields events"
 msgstr "Установка доступа к полям событий"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:246
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:305
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:260
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:349
 msgid "Style Options"
 msgstr "Настройка стилей"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:246
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:260
 msgid "Classification Options"
 msgstr "Настройка классификаторов"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:246
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:379
-msgid "Country/State Options"
-msgstr "Настройки Страны/Штата"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:247
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:400
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:261
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:423
 msgid "Restrict options"
 msgstr "Параметры конфиденциальности"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:247
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:417
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:261
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:440
 msgid "Privacy options"
 msgstr "Параметры конфиденциальности"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:248
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:469
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:262
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:492
 msgid "Support"
 msgstr "Поддержка"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:248
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:480
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:262
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:503
 msgid "Translate"
 msgstr "Локализация"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:248
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:472
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:262
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:495
 msgid "Future"
 msgstr "Развитие плагина"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:248
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:445
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:262
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:468
 msgid "Donations"
 msgstr "Поддержка"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:255
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:269
 msgid "Allow costum slug"
 msgstr "Разрешить настраиваемый slug"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:258
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:272
 msgid "Slug:"
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:265
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:279
 msgid "Sort of events in the directory (by default)"
 msgstr "Сортировка событий в каталоге (по-умолчанию)"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:268
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:33
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:282
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:32
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:47
 msgid "Upcoming"
 msgstr "Скоро"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:269
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:283
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:48
 msgid "Last Active"
 msgstr "Последняя активность"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:270
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:284
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:49
 msgid "Most Members"
 msgstr "По участникам"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:271
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:285
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:50
 msgid "Newly Created"
 msgstr "Недавно созданные"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:272
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:286
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/index.php:51
 msgid "Alphabetical"
 msgstr "Алфавит"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:274
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:288
 msgid "By:"
 msgstr "в"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:276
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:290
 msgid "Ascending"
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:277
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:291
 msgid "Descending"
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:285
-msgid "Allow Special Conditions"
-msgstr "Разрешить специальные условия"
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:300
+msgid "Allow Country"
+msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:292
-msgid "Allow Public News"
-msgstr "Разрешить публичные новости"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:299
-msgid "Allow Private News"
-msgstr "Разрешить приватные новости"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:308
-msgid "Style for Event Catalog:"
-msgstr "Стиль для Каталога событий:"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:311
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:322
-msgid "Standart Style"
-msgstr "Стандартный стиль"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:312
-msgid "Standard will full description"
-msgstr "Стандартный с расширенным описанием"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:313
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:323
-msgid "Twitter Style"
-msgstr "Twitter стиль"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:319
-#, fuzzy
-msgid "Style for Single Event:"
-msgstr "Стиль для Каталога событий:"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:329
-msgid "Show avatars in the list of invited friends"
-msgstr "Показывать аватары в списке друзей для приглашения"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:335
-msgid "Classification options"
-msgstr "Настройка классификаторов"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:338
-msgid "Allow the use of classifiers through an administrative panel (unless you want to use some or classifier - leave his field blank)"
-msgstr "Разрешить использование классификатора через административную панель (оставьте пустыми те позиции классификаторов - которые не планируете использовать)"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:345
-msgid "Classification - 1"
-msgstr "Классификатор - 1"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:351
-msgid "Classification - 2"
-msgstr "Классификатор - 2"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:358
-msgid "Classification - 3"
-msgstr "Классификатор - 3"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:365
-msgid "Classification - 4"
-msgstr "Классификатор - 4"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:372
-msgid "Classification - 5"
-msgstr "Классификатор - 5"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:382
-msgid "Enable Country field"
-msgstr "Разрешить использование поля Страна"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:385
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:303
 msgid "Name of the country by default:"
 msgstr "Имя страны по-умолчанию:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:391
-msgid "Enable State field"
-msgstr "Разрешить использование поля Штат"
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:309
+msgid "Allow State"
+msgstr "Разрешить Штат"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:394
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:312
 msgid "Name of the state by default:"
 msgstr "Имя штата по-умолчанию:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:403
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:318
+msgid "Allow City"
+msgstr ""
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:321
+msgid "Name of the city by default:"
+msgstr "Имя города по-умолчанию:"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:329
+msgid "Allow Special Conditions"
+msgstr "Разрешить специальные условия"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:336
+msgid "Allow Public News"
+msgstr "Разрешить публичные новости"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:343
+msgid "Allow Private News"
+msgstr "Разрешить приватные новости"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:352
+msgid "Style for Event Catalog:"
+msgstr "Стиль для Каталога событий:"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:355
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:366
+msgid "Standart Style"
+msgstr "Стандартный стиль"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:356
+msgid "Standard will full description Style"
+msgstr "Стандартный с расширенным описанием"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:357
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:367
+msgid "Twitter Style"
+msgstr "Twitter стиль"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:363
+msgid "Style for Single Event:"
+msgstr "Стиль для одного события:"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:373
+msgid "Show avatars in the list of invited friends"
+msgstr "Показывать аватары в списке друзей для приглашения"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:379
+msgid "Classification options"
+msgstr "Настройка классификаторов"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:382
+msgid "Allow the use of classifiers through an administrative panel (unless you want to use some or classifier - leave his field blank)"
+msgstr "Разрешить использование классификатора через административную панель (оставьте пустыми те позиции классификаторов - которые не планируете использовать)"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:389
+msgid "Classification - 1"
+msgstr "Классификатор - 1"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:395
+msgid "Classification - 2"
+msgstr "Классификатор - 2"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:402
+msgid "Classification - 3"
+msgstr "Классификатор - 3"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:409
+msgid "Classification - 4"
+msgstr "Классификатор - 4"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:416
+msgid "Classification - 5"
+msgstr "Классификатор - 5"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:426
 msgid "Prohibit non-administrators to create events"
 msgstr "Запретить не администраторам создание событий"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:410
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:433
 msgid "Allow verification of events by the administrator"
 msgstr "Разрешить необходимость подтверждения событий администраторами"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:420
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:443
 msgid "Allow indexing of events search engines"
 msgstr "Разрешить индексирование событий поисковыми системами"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:427
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:450
 msgid "Deny access to events for unregistered users"
 msgstr "Запретить доступ к событиям для незарегистрированных пользователей"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:434
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:457
 msgid "Show private events in the catalog for unregistered users (in the cases allow access to events)"
 msgstr "Показывать приватные события в каталоге для незарегистрированных пользователей (если выбран доступ к событиям для незарегистрированных пользователей)"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:441
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:464
 msgid "Save Settings"
 msgstr "Сохранить настройки"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:467
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:490
 msgid "please specify in the designation of the site and name:) All who have made a contribution to the development of plug-in will be included in honor roll, as well as gain access to additional modules!"
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:488
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:511
 msgid "Please send your translations to milord_k @ mail.ru"
 msgstr "Пожалуйста отправляйте свои перевода на milord_k @ mail.ru"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:490
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:513
 msgid "Translates can be discussed at the forum on the official website of the plugin:"
 msgstr "Переводы Вы можете обсудить на форуме официального веб-сайта плагина: "
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:492
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-admin.php:515
 msgid "Recommended plugins"
 msgstr "Рекомендованные плагины"
 
@@ -1026,6 +1028,7 @@ msgstr ""
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:2094
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-templatetags.php:2115
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:35
 msgid "Most Popular"
 msgstr "Популярные"
 
@@ -1057,84 +1060,80 @@ msgstr "запрошено %s назад"
 msgid "Member avatar"
 msgstr "Аватар события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:34
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:33
 msgid "Newest"
 msgstr "Новые"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:35
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:34
 msgid "Most Active"
 msgstr "Активные"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:36
-msgid "Most Popular"
-msgstr "Популярные"
-
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:92
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:70
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:160
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:91
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:68
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:153
 msgid "Past event"
 msgstr "Прошедшее событие"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:94
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:72
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:162
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:93
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:70
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:155
 msgid "Active event"
 msgstr "Активное событие"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:119
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:228
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:118
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:224
 msgid "In city:"
 msgstr "в городе:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:119
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:228
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:118
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:224
 msgid "Start:"
 msgstr "начало:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:119
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:228
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:118
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:224
 msgid "End:"
 msgstr "окончание:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:132
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:129
 msgid "There are no events to display."
 msgstr "Нет событий для отображения."
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:164
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:160
 msgid "Max events to show:"
 msgstr "Максимальное количество событий для отображения:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:167
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:163
 msgid "Show navigation:"
 msgstr "Показывать навигацию:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:170
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:166
 msgid "Show type of event and its Classification:"
 msgstr "Показывать тип события и классификатор:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:173
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:169
 msgid "Show the country and state for the event (if allowed to use administrative panel):"
 msgstr ""
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:176
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:172
 msgid "Show archived events only for administrator:"
 msgstr "Показывать прошедшие события только для администраторов:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:179
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:175
 msgid "Color to archive events:"
 msgstr "Цвет прошедших событий:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:221
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:217
 #, php-format
 msgid "created %s ago"
 msgstr "создано %s назад"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:223
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:219
 #, php-format
 msgid "active %s ago"
 msgstr "активно %s назад"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:243
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/jet-events-widgets.php:239
 msgid "No events matched the current filter."
 msgstr ""
 
@@ -1151,7 +1150,7 @@ msgstr "Каталог событий"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:35
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:20
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:9
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:8
 msgid "Base event details"
 msgstr "Основные детали события"
 
@@ -1207,37 +1206,35 @@ msgstr "* Город проведения события"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:100
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:70
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:30
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:28
 msgid "Event address"
 msgstr "Адрес проведения события"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:105
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:75
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:36
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:35
 msgid "Special Conditions"
 msgstr "Специальные условия"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:109
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:80
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:39
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:41
 msgid "News for event"
 msgstr "Новости события"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:112
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:83
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:41
-msgid "Event Public News"
+msgid "Event Public news"
 msgstr "Публичные новости"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:116
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:87
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:46
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:53
 msgid "Private Event News"
 msgstr "Приватные новости"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:129
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:103
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:54
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:63
 msgid "Event Date"
 msgstr "Дата события"
 
@@ -1391,54 +1388,54 @@ msgstr "Стиль:"
 msgid "Private events are not shown, register to view"
 msgstr "Приватные события не показываются, зарегистрируйтесь для просмотра"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:76
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:74
 msgid "Short description:"
 msgstr "Краткое описание"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:78
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:178
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:76
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:171
 msgid "Description:"
 msgstr "Описание события:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:82
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:167
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:17
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:80
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:160
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:16
 msgid "The event will take place:"
 msgstr "Событие будет проходить:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:93
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:177
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:27
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:91
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:170
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:26
 msgid "in city:"
 msgstr "в городе:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:93
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:177
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:91
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:170
 msgid "at "
 msgstr "в "
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:94
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:166
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:92
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:159
 msgid "From: "
 msgstr "с:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:94
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:166
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:92
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:159
 msgid "to: "
 msgstr "по:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:105
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:188
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:103
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:181
 msgid "Event requires approval!"
 msgstr "Необходимо одобрение события!"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:110
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:193
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:108
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:186
 #, php-format
 msgid "Last activity:<br /> %s ago"
 msgstr "Последняя активность:<br /> %s назад"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:213
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/events-loop.php:204
 msgid "There were no events found."
 msgstr "События не найдены."
 
@@ -1483,6 +1480,11 @@ msgstr ""
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:28
 msgid "Approve Event?"
 msgstr "Подтвердить событие?"
+
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:83
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:45
+msgid "Public Event News"
+msgstr "Публичное событие"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/admin.php:116
 msgid "Notify participants of the event to update the details?"
@@ -1566,27 +1568,27 @@ msgstr "ВНИМАНИЕ: Удаляя событие Вы полность уд
 msgid "I understand the consequences of deleting this event."
 msgstr "Я понимаю все риски при удалении события."
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:10
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:9
 msgid "Event Name"
 msgstr "Название события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:12
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:11
 msgid "Event classification"
 msgstr "Классификатор события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:14
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:13
 msgid "Event Description"
 msgstr "Описание события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:16
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:15
 msgid "Event Location:"
 msgstr "Место проведения события:"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:55
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:64
 msgid "Event Start date"
 msgstr "Дата начала события"
 
-#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:58
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/single/details.php:67
 msgid "Event End date"
 msgstr "Дата окончания события"
 
@@ -1611,15 +1613,25 @@ msgstr ""
 msgid "Send Request"
 msgstr "Отправить запрос"
 
+#: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/members/single/events.php:40
+msgid "Soon"
+msgstr ""
+
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/members/single/events/invites.php:34
 msgid "You have no outstanding event invites."
 msgstr "Вы имеете %d новых приглашений в события"
 
+#~ msgid "Country/State Options"
+#~ msgstr "Настройки Страны/Штата"
+
+#~ msgid "Enable Country field"
+#~ msgstr "Разрешить использование поля Страна"
+
+#~ msgid "Enable State field"
+#~ msgstr "Разрешить использование поля Штат"
+
 #~ msgid "Russia"
 #~ msgstr "Россия"
-
-#~ msgid "State"
-#~ msgstr "Штат"
 
 #~ msgid "JES Events"
 #~ msgstr "События"
