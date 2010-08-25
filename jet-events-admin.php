@@ -74,7 +74,7 @@ function jes_event_admin() {
 		$jes_events[ 'jes_events_countryopt_enable' ] = 0;
 		$jes_events[ 'jes_events_stateopt_enable' ] = 0;
 		$jes_events[ 'jes_events_specialconditions_enable' ] = 0;
-		$jes_events[ 'jes_events_publicnews_enable' ] = 0';
+		$jes_events[ 'jes_events_publicnews_enable' ] = 0;
 		$jes_events[ 'jes_events_privatenews_enable' ] = 0;
 		$jes_events[ 'jes_events_show_avatar_invite_enable' ] = 0;
 		
