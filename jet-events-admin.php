@@ -36,6 +36,8 @@ function update_template()
 		if ( !mkdir( TEMPLATEPATH . '/events/js', 0777, 1 ) ) { echo 'dir (/events/js) exists? , '; } else { echo 'ok, create dir /events/js, '; }
 		if ( !mkdir( TEMPLATEPATH . '/members', 0777, 1 ) ) { echo 'dir (/members) exists?, '; } else { echo 'ok, create dir /members, '; }
 		if ( !mkdir( TEMPLATEPATH . '/members/single', 0777, 1 ) ) { echo 'dir (/members/single) exists?, '; } else { echo 'ok, create dir /members/single, '; }
+		if ( !mkdir( TEMPLATEPATH . '/events/css', 0777, 1 ) ) { echo 'dir (/members/single) exists?, '; } else { echo 'ok, create dir /events/css, '; }
+		if ( !mkdir( TEMPLATEPATH . '/events/css/images', 0777, 1 ) ) { echo 'dir (/members/single) exists?, '; } else { echo 'ok, create dir /events/css/images, '; }		
 	echo '<br />';
 // Copy templates files
 		echo move_template( 'events','create.php');
