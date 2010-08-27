@@ -8,12 +8,6 @@
 			<select>
 				<option value="-1"><?php _e( 'No Filter', 'jet-event-system' ) ?></option>
 				<option value="activity_update"><?php _e( 'Show Updates', 'jet-event-system' ) ?></option>
-
-				<?php if ( bp_is_active( 'forums' ) ) : ?>
-					<option value="new_forum_topic"><?php _e( 'Show New Forum Topics', 'jet-event-system' ) ?></option>
-					<option value="new_forum_post"><?php _e( 'Show Forum Replies', 'jet-event-system' ) ?></option>
-				<?php endif; ?>
-
 				<option value="joined_event"><?php _e( 'Show New Event Memberships', 'jet-event-system' ) ?></option>
 
 				<?php do_action( 'bp_event_activity_filter_options' ) ?>

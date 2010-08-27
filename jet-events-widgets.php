@@ -36,12 +36,12 @@ class JES_BP_Events_Widget extends WP_Widget {
 			</div>
 <?php } ?>
 <?php
-		$kdate_now = 1 + datetounix(date("d/m/Y H:i"));
+		$kdate_now = 1 + datetounix(date("d/m/Y"),date("H"),date("i"));
 ?>
 			<ul id="events-list" class="item-list">
 				<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 <?php
-		$kdate_end = 1 + datetounix(jes_bp_get_event_edted());
+		$kdate_end = 1 + datetounix(jes_bp_get_event_edted(), jes_bp_get_event_edteth(), jes_bp_get_event_edtetm());
 		if (  $kdate_now > $kdate_end )
 			{
 				$check_keydate = 1;
@@ -115,7 +115,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 									<br />
 								<?php } ?>
 							<?php } ?>
-								<span><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>,<br /><?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?><br /><?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?></span>
+								<span><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>,<br /><?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?>, <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?><br /><?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?>, <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?></span>
 						</div>
 					</div>
 				</li>

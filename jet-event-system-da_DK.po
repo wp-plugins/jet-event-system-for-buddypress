@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jet Event System for Buddypress - Version 1.2.1.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/jet-event-system-for-buddypress\n"
-"POT-Creation-Date: 2010-08-25 07:23+0000\n"
-"PO-Revision-Date: 2010-08-25 22:50+0100\n"
+"POT-Creation-Date: 2010-08-25 22:02+0000\n"
+"PO-Revision-Date: 2010-08-26 00:10+0100\n"
 "Last-Translator: Chono Hegelund <info@chono.dk>\n"
 "Language-Team: Chono Hegelund <info@chono.dk>\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr "Avatar"
 #: jet-event-system.php:1207
 #: jet-event-system.php:1220
 #: jet-event-system.php:1233
-#: jet-events-widgets.php:5
+#: jet-events-widgets.php:4
 msgid "Events"
 msgstr "Events"
 
@@ -255,12 +255,10 @@ msgid "Please fill in all of the required fields"
 msgstr "Udfyld venligst alle de obligatoriske felter"
 
 #: jet-event-system.php:878
-#, fuzzy
 msgid "There was an error saving event details, please try again.1"
-msgstr "Der opstod en fejl under forsøget på at gemme event detaljer, prøv venligst igen."
+msgstr "Der opstod en fejl under forsøget på at gemme event detaljer, prøv venligst igen. 1"
 
 #: jet-event-system.php:901
-#, fuzzy
 msgid "There was an error saving event details, please try again2."
 msgstr "Der opstod en fejl under forsøget på at gemme event detaljer, prøv venligst igen."
 
@@ -398,273 +396,297 @@ msgstr "Da du er den eneste administrator for dette event, kan du ikke afmelde d
 msgid "%s posted an update in the event %s:"
 msgstr "%s skrev en opdatering i eventet %s:"
 
-#: jet-events-admin.php:198
+#: jet-events-admin.php:136
+#: jet-events-admin.php:142
+msgid "Standart"
+msgstr "Standard"
+
+#: jet-events-admin.php:148
+msgid "Site"
+msgstr "Website"
+
+#: jet-events-admin.php:153
+msgid "Personal"
+msgstr "Personlig"
+
+#: jet-events-admin.php:199
+msgid "Options updated."
+msgstr "Indstillinger opdaterede."
+
+#: jet-events-admin.php:203
+msgid "JES. Jet Event System"
+msgstr "JES. Jet Event System"
+
+#: jet-events-admin.php:204
+msgid "version"
+msgstr "version"
+
+#: jet-events-admin.php:204
+msgid "build"
+msgstr "Build"
+
+#: jet-events-admin.php:205
+msgid "Template version:"
+msgstr "Template Version"
+
+#: jet-events-admin.php:206
 msgid "DB version:"
 msgstr "DB Version:"
 
-#: jet-events-admin.php:216
+#: jet-events-admin.php:224
 msgid "Update Database"
 msgstr "Opdater Database"
 
-#: jet-events-admin.php:221
+#: jet-events-admin.php:229
 msgid "There were changes in the theme file!"
 msgstr "Der er blevet ændret  i template filen!"
 
-#: jet-events-admin.php:225
-#, fuzzy
+#: jet-events-admin.php:233
 msgid "Theme files successfully updated!"
-msgstr "Event detaljer er nu opdateret."
+msgstr "Tema filer er nu opdaterede!"
 
-#: jet-events-admin.php:231
+#: jet-events-admin.php:239
 msgid "An error occurred while updating the files! (check the folder themes)"
 msgstr "Der opstod en fejl under forsøget på at opdatere filerne! (Tjek folderen themes)"
 
-#: jet-events-admin.php:243
+#: jet-events-admin.php:251
 msgid "Update Templates"
 msgstr "Opdater Templates"
 
-#: jet-events-admin.php:250
+#: jet-events-admin.php:258
 msgid "Let's make some changes:"
 msgstr "Lad os komme igang:"
 
-#: jet-events-admin.php:252
-#: jet-events-admin.php:259
-#, fuzzy
+#: jet-events-admin.php:260
+#: jet-events-admin.php:267
 msgid "Base Options"
-msgstr "Indstillinger for Privacy"
+msgstr "Generelle Indstillinger"
 
-#: jet-events-admin.php:252
-#: jet-events-admin.php:288
+#: jet-events-admin.php:260
+#: jet-events-admin.php:296
 msgid "Setting up access to the fields events"
-msgstr ""
+msgstr "Opsætning af Event Data Felter"
 
-#: jet-events-admin.php:252
-#: jet-events-admin.php:311
-#, fuzzy
+#: jet-events-admin.php:260
+#: jet-events-admin.php:349
 msgid "Style Options"
-msgstr "Indstillinger for Privacy"
+msgstr "Style Indstillinger"
 
-#: jet-events-admin.php:252
-#, fuzzy
+#: jet-events-admin.php:260
 msgid "Classification Options"
-msgstr "Event Type"
+msgstr "Indstillinger for Klassificeringer"
 
-#: jet-events-admin.php:252
-#: jet-events-admin.php:385
-msgid "Country/State Options"
-msgstr "Indstillinger for Land & Amt"
-
-#: jet-events-admin.php:253
-#: jet-events-admin.php:406
-#, fuzzy
-msgid "Restrict options"
-msgstr "Indstillinger for Privacy"
-
-#: jet-events-admin.php:253
+#: jet-events-admin.php:261
 #: jet-events-admin.php:423
-#, fuzzy
+msgid "Restrict options"
+msgstr "Indstillinger for Restriktioner"
+
+#: jet-events-admin.php:261
+#: jet-events-admin.php:440
 msgid "Privacy options"
 msgstr "Indstillinger for Privacy"
 
-#: jet-events-admin.php:254
-#: jet-events-admin.php:475
+#: jet-events-admin.php:262
+#: jet-events-admin.php:492
 msgid "Support"
 msgstr "Support"
 
-#: jet-events-admin.php:254
-#: jet-events-admin.php:486
+#: jet-events-admin.php:262
+#: jet-events-admin.php:503
 msgid "Translate"
 msgstr "Oversæt"
 
-#: jet-events-admin.php:254
-#: jet-events-admin.php:478
+#: jet-events-admin.php:262
+#: jet-events-admin.php:495
 msgid "Future"
 msgstr "Fremtidige"
 
-#: jet-events-admin.php:254
-#: jet-events-admin.php:451
+#: jet-events-admin.php:262
+#: jet-events-admin.php:468
 msgid "Donations"
 msgstr "Donationer"
 
-#: jet-events-admin.php:261
+#: jet-events-admin.php:269
 msgid "Allow costum slug"
 msgstr "Tillad brugerdefinerede slugs"
 
-#: jet-events-admin.php:264
+#: jet-events-admin.php:272
 msgid "Slug:"
 msgstr "Slug:"
 
-#: jet-events-admin.php:271
+#: jet-events-admin.php:279
 msgid "Sort of events in the directory (by default)"
 msgstr "Rækkefølge for event list (standard)"
 
-#: jet-events-admin.php:274
-#: jet-events-widgets.php:33
+#: jet-events-admin.php:282
+#: jet-events-widgets.php:32
 #: templates/events/index.php:47
 msgid "Upcoming"
 msgstr "Kommende"
 
-#: jet-events-admin.php:275
+#: jet-events-admin.php:283
 #: templates/events/index.php:48
 #: templates/members/single/events.php:36
 msgid "Last Active"
 msgstr "Senest Aktive"
 
-#: jet-events-admin.php:276
+#: jet-events-admin.php:284
 #: templates/events/index.php:49
 #: templates/members/single/events.php:37
 msgid "Most Members"
 msgstr "Flest Tilmeldte"
 
-#: jet-events-admin.php:277
+#: jet-events-admin.php:285
 #: templates/events/index.php:50
 #: templates/members/single/events.php:38
 msgid "Newly Created"
 msgstr "Nyligt oprettede"
 
-#: jet-events-admin.php:278
+#: jet-events-admin.php:286
 #: templates/events/index.php:51
 #: templates/members/single/events.php:39
 msgid "Alphabetical"
 msgstr "Alfabetisk"
 
-#: jet-events-admin.php:280
+#: jet-events-admin.php:288
 msgid "By:"
 msgstr "By:"
 
-#: jet-events-admin.php:282
+#: jet-events-admin.php:290
 msgid "Ascending"
 msgstr "Stigende"
 
-#: jet-events-admin.php:283
+#: jet-events-admin.php:291
 msgid "Descending"
 msgstr "Faldende"
 
-#: jet-events-admin.php:291
-#, fuzzy
-msgid "Allow Special Conditions"
-msgstr "Specielle Omstændigheder"
-
-#: jet-events-admin.php:298
-#, fuzzy
-msgid "Allow Public News"
-msgstr "Event Offentlige Nyheder"
-
-#: jet-events-admin.php:305
-#, fuzzy
-msgid "Allow Private News"
-msgstr "Event Privat nyheder"
-
-#: jet-events-admin.php:314
-msgid "Style for Event Catalog:"
-msgstr "Style på Event Oversigt"
-
-#: jet-events-admin.php:317
-#: jet-events-admin.php:328
-msgid "Standart Style"
-msgstr "Standard Style"
-
-#: jet-events-admin.php:318
-msgid "Standart with Full Description Style"
-msgstr "Standard med Fuld Beskrivelse Style"
-
-#: jet-events-admin.php:319
-#: jet-events-admin.php:329
-msgid "Twitter Style"
-msgstr "Twitter Style"
-
-#: jet-events-admin.php:325
-msgid "Style for Single Event:"
-msgstr "Template for visning af det enkelte event:"
-
-#: jet-events-admin.php:335
-msgid "Show avatars in the list of invited friends"
-msgstr "Vis avatars på listen for tilmeldte personer"
-
-#: jet-events-admin.php:341
-#, fuzzy
-msgid "Classification options"
-msgstr "Event Type"
-
-#: jet-events-admin.php:344
-msgid "Allow the use of classifiers through an administrative panel (unless you want to use some or classifier - leave his field blank)"
-msgstr "Tillad brugen af klassificeringer igennem det administrative panel (Hvis du ikke ønsker at bruger klassificeringer behøves du ikke markere fluebenet)"
-
-#: jet-events-admin.php:351
-msgid "Classification - 1"
-msgstr "Klassificering - 1"
-
-#: jet-events-admin.php:357
-msgid "Classification - 2"
-msgstr "Klassificering - 2"
-
-#: jet-events-admin.php:364
-msgid "Classification - 3"
-msgstr "Klassificering - 3"
-
-#: jet-events-admin.php:371
-msgid "Classification - 4"
-msgstr "Klassificering - 4"
-
-#: jet-events-admin.php:378
-msgid "Classification - 5"
-msgstr "Klassificering - 5"
-
-#: jet-events-admin.php:388
+#: jet-events-admin.php:300
 msgid "Allow Country"
 msgstr "Tillad valg af Land"
 
-#: jet-events-admin.php:391
+#: jet-events-admin.php:303
 msgid "Name of the country by default:"
 msgstr "Standard navn på Land"
 
-#: jet-events-admin.php:397
+#: jet-events-admin.php:309
 msgid "Allow State"
 msgstr "Tlilad valg af Amt"
 
-#: jet-events-admin.php:400
+#: jet-events-admin.php:312
 msgid "Name of the state by default:"
 msgstr "Standard navn på Amt"
 
+#: jet-events-admin.php:318
+msgid "Allow City"
+msgstr "Tillad valg af By"
+
+#: jet-events-admin.php:321
+msgid "Name of the city by default:"
+msgstr "Standard navn på By"
+
+#: jet-events-admin.php:329
+msgid "Allow Special Conditions"
+msgstr "Tilad Specielle Omstændigheder"
+
+#: jet-events-admin.php:336
+msgid "Allow Public News"
+msgstr "Tillad Offentlige Nyheder"
+
+#: jet-events-admin.php:343
+msgid "Allow Private News"
+msgstr "Tillad Private nyheder"
+
+#: jet-events-admin.php:352
+msgid "Style for Event Catalog:"
+msgstr "Style på Event Oversigt"
+
+#: jet-events-admin.php:355
+#: jet-events-admin.php:366
+msgid "Standart Style"
+msgstr "Standard Style"
+
+#: jet-events-admin.php:356
+msgid "Standard will full description Style"
+msgstr "Standard styke med fuld beskrivelse"
+
+#: jet-events-admin.php:357
+#: jet-events-admin.php:367
+msgid "Twitter Style"
+msgstr "Twitter Style"
+
+#: jet-events-admin.php:363
+msgid "Style for Single Event:"
+msgstr "Template for visning af det enkelte event:"
+
+#: jet-events-admin.php:373
+msgid "Show avatars in the list of invited friends"
+msgstr "Vis avatars på listen for tilmeldte personer"
+
+#: jet-events-admin.php:379
+msgid "Classification options"
+msgstr "Indstillinger for Klassificering"
+
+#: jet-events-admin.php:382
+msgid "Allow the use of classifiers through an administrative panel (unless you want to use some or classifier - leave his field blank)"
+msgstr "Tillad brugen af klassificeringer igennem det administrative panel (Hvis du ikke ønsker at bruger klassificeringer behøves du ikke markere fluebenet)"
+
+#: jet-events-admin.php:389
+msgid "Classification - 1"
+msgstr "Klassificering - 1"
+
+#: jet-events-admin.php:395
+msgid "Classification - 2"
+msgstr "Klassificering - 2"
+
+#: jet-events-admin.php:402
+msgid "Classification - 3"
+msgstr "Klassificering - 3"
+
 #: jet-events-admin.php:409
-#, fuzzy
-msgid "Prohibit non-administrators to create events"
-msgstr "Forbyd ikke-administratorer at oprette events (muligt siden version 1.1.9)"
+msgid "Classification - 4"
+msgstr "Klassificering - 4"
 
 #: jet-events-admin.php:416
-#, fuzzy
-msgid "Allow verification of events by the administrator"
-msgstr "Tillad administratorer at godkende events (muligt siden version 1.1.9)"
+msgid "Classification - 5"
+msgstr "Klassificering - 5"
 
 #: jet-events-admin.php:426
+msgid "Prohibit non-administrators to create events"
+msgstr "Forbyd ikke-administratorer at oprette events"
+
+#: jet-events-admin.php:433
+msgid "Allow verification of events by the administrator"
+msgstr "Tillad administratorer at godkende events"
+
+#: jet-events-admin.php:443
 msgid "Allow indexing of events search engines"
 msgstr "Tillad søgemaskiner at indexere events"
 
-#: jet-events-admin.php:433
+#: jet-events-admin.php:450
 msgid "Deny access to events for unregistered users"
 msgstr "Bloker adgang til events for ikke registrerede brugere"
 
-#: jet-events-admin.php:440
+#: jet-events-admin.php:457
 msgid "Show private events in the catalog for unregistered users (in the cases allow access to events)"
 msgstr "Vis private events for ikke registrerede brugere"
 
-#: jet-events-admin.php:447
+#: jet-events-admin.php:464
 msgid "Save Settings"
 msgstr "Gem Indstillinger"
 
-#: jet-events-admin.php:473
+#: jet-events-admin.php:490
 msgid "please specify in the designation of the site and name:) All who have made a contribution to the development of plug-in will be included in honor roll, as well as gain access to additional modules!"
 msgstr "Anfør venligst Navn og Website). Alle der har kontribueret til udviklingen af plugins vil blive listed under credits og få adgang til yderligere moduler."
 
-#: jet-events-admin.php:494
+#: jet-events-admin.php:511
 msgid "Please send your translations to milord_k @ mail.ru"
 msgstr "Send venligst din oversættelse til  milord_k @ mail.ru"
 
-#: jet-events-admin.php:496
+#: jet-events-admin.php:513
 msgid "Translates can be discussed at the forum on the official website of the plugin:"
 msgstr "Oversættelser kan diskutteres på det offcielle Jet Events forum:"
 
-#: jet-events-admin.php:498
+#: jet-events-admin.php:515
 msgid "Recommended plugins"
 msgstr "Anbefalede plugins"
 
@@ -726,6 +748,16 @@ msgid ""
 "\r\n"
 "---------------------\r\n"
 msgstr ""
+"%s ønsker at tilmelde sig eventet \"%s\".\r\n"
+"\r\n"
+"Da du er administrator for eventet, skal du enten acceptere eller afvise ansøgningen.\r\n"
+"\r\n"
+"Se alle dette events afventende ansøgninger her:\r\n"
+"%s\r\n"
+"\r\n"
+"Se  %s's profil her: %s\r\n"
+"\r\n"
+"---------------------\r\n"
 
 #: jet-events-notifications.php:110
 #, php-format
@@ -741,6 +773,11 @@ msgid ""
 "\r\n"
 "---------------------\r\n"
 msgstr ""
+"Din ansøgning om tilmelding til eventet \"%s\" er blevet accepteret.\r\n"
+"\r\n"
+"Se eventet her: %s\r\n"
+"\r\n"
+"---------------------\r\n"
 
 #: jet-events-notifications.php:120
 #, php-format
@@ -808,11 +845,20 @@ msgid ""
 "\r\n"
 "---------------------\r\n"
 msgstr ""
+"Din ven %s har inviteret dig til eventet: \"%s\".\r\n"
+"\r\n"
+"Se dine event invitationer her: %s\r\n"
+"\r\n"
+"Se eventet her: %s\r\n"
+"\r\n"
+"Se  %s's profil her: %s\r\n"
+"\r\n"
+"---------------------\r\n"
 
 #: jet-events-notifications.php:273
 #, php-format
 msgid "%s mentioned you in the event \"%s\""
-msgstr ""
+msgstr "%s har omtalt dig i eventet \"%s\""
 
 #: jet-events-notifications.php:276
 #, php-format
@@ -825,6 +871,13 @@ msgid ""
 "\r\n"
 "---------------------\r\n"
 msgstr ""
+"%s har omtalt dig i eventet \"%s\":\r\n"
+"\r\n"
+"\"%s\"\r\n"
+"\r\n"
+"Se og svar på omtalen her: %s\r\n"
+"\r\n"
+"---------------------\r\n"
 
 #: jet-events-templatetags.php:282
 msgid "Public Event"
@@ -945,7 +998,6 @@ msgid "Join Event"
 msgstr "Tilmeld Event"
 
 #: jet-events-templatetags.php:1328
-#, fuzzy
 msgid "Request to join Event"
 msgstr "Ansøg om tilmelding til event"
 
@@ -995,7 +1047,7 @@ msgstr "Nyligt tilmeldte"
 
 #: jet-events-templatetags.php:2094
 #: jet-events-templatetags.php:2115
-#: jet-events-widgets.php:36
+#: jet-events-widgets.php:35
 msgid "Most Popular"
 msgstr "Mest Populære"
 
@@ -1024,93 +1076,90 @@ msgid "requested %s ago"
 msgstr "Ansøgt% s  siden"
 
 #: jet-events-templatetags.php:2523
-#, fuzzy
 msgid "Member avatar"
-msgstr "Event avatar"
+msgstr "'Medlems avatar"
 
-#: jet-events-widgets.php:34
+#: jet-events-widgets.php:33
 msgid "Newest"
 msgstr "Nyeste"
 
-#: jet-events-widgets.php:35
+#: jet-events-widgets.php:34
 msgid "Most Active"
 msgstr "Mest Aktive"
 
-#: jet-events-widgets.php:92
-#: templates/events/events-loop.php:70
-#: templates/events/events-loop.php:160
-#, fuzzy
+#: jet-events-widgets.php:91
+#: templates/events/events-loop.php:68
+#: templates/events/events-loop.php:153
 msgid "Past event"
-msgstr "Event Dato"
+msgstr "Tidligere event"
 
-#: jet-events-widgets.php:94
-#: templates/events/events-loop.php:72
-#: templates/events/events-loop.php:162
+#: jet-events-widgets.php:93
+#: templates/events/events-loop.php:70
+#: templates/events/events-loop.php:155
 msgid "Active event"
 msgstr "Aktive events"
 
-#: jet-events-widgets.php:119
-#: jet-events-widgets.php:228
+#: jet-events-widgets.php:118
+#: jet-events-widgets.php:224
 msgid "In city:"
 msgstr "I Byen:"
 
-#: jet-events-widgets.php:119
-#: jet-events-widgets.php:228
+#: jet-events-widgets.php:118
+#: jet-events-widgets.php:224
 msgid "Start:"
 msgstr "Start:"
 
-#: jet-events-widgets.php:119
-#: jet-events-widgets.php:228
+#: jet-events-widgets.php:118
+#: jet-events-widgets.php:224
 msgid "End:"
 msgstr "Slut:"
 
-#: jet-events-widgets.php:132
+#: jet-events-widgets.php:129
 msgid "There are no events to display."
 msgstr "Der er ingen events tilgængelige."
 
-#: jet-events-widgets.php:164
+#: jet-events-widgets.php:160
 msgid "Max events to show:"
 msgstr "Max antal viste events"
 
-#: jet-events-widgets.php:167
+#: jet-events-widgets.php:163
 msgid "Show navigation:"
 msgstr "Vis navigering"
 
-#: jet-events-widgets.php:170
+#: jet-events-widgets.php:166
 msgid "Show type of event and its Classification:"
 msgstr "Vis event type og klassificering"
 
-#: jet-events-widgets.php:173
+#: jet-events-widgets.php:169
 msgid "Show the country and state for the event (if allowed to use administrative panel):"
 msgstr "Vis Land & Amt for eventet (hvis tilladelse til at bruge det administrative panel)"
 
-#: jet-events-widgets.php:176
+#: jet-events-widgets.php:172
 msgid "Show archived events only for administrator:"
 msgstr "Vis kun arkiverede events til administratorer:"
 
-#: jet-events-widgets.php:179
+#: jet-events-widgets.php:175
 msgid "Color to archive events:"
 msgstr "Farve på arkiverede events:"
 
-#: jet-events-widgets.php:221
+#: jet-events-widgets.php:217
 #, php-format
 msgid "created %s ago"
 msgstr "oprettet for %s siden"
 
-#: jet-events-widgets.php:223
+#: jet-events-widgets.php:219
 #: templates/events/single/event-header.php:31
 #, php-format
 msgid "active %s ago"
 msgstr "aktiv for %s siden"
 
-#: jet-events-widgets.php:243
+#: jet-events-widgets.php:239
 msgid "No events matched the current filter."
 msgstr "Ingen events matchede det valgte filter."
 
 #: templates/events/create.php:12
 #: templates/events/index.php:18
 #: templates/events/index.php:24
-#, fuzzy
 msgid "Create an Event"
 msgstr "Opret et Event"
 
@@ -1121,7 +1170,7 @@ msgstr "Event Oversigt"
 
 #: templates/events/create.php:35
 #: templates/events/single/admin.php:20
-#: templates/events/single/details.php:9
+#: templates/events/single/details.php:8
 msgid "Base event details"
 msgstr "Generelle event detaljer"
 
@@ -1162,37 +1211,34 @@ msgstr "* Event Beskrivelse"
 
 #: templates/events/create.php:84
 #: templates/events/single/admin.php:53
-#, fuzzy
 msgid "* Event Country"
-msgstr "* Event Placed By"
+msgstr "* Event Land"
 
 #: templates/events/create.php:91
 #: templates/events/single/admin.php:61
-#, fuzzy
 msgid "* Event State"
-msgstr "* Event Start dato"
+msgstr "* Event Amt"
 
 #: templates/events/create.php:97
 #: templates/events/single/admin.php:67
-#, fuzzy
 msgid "* Event City"
-msgstr "* Event Placed By"
+msgstr "* Event By"
 
 #: templates/events/create.php:100
 #: templates/events/single/admin.php:70
-#, fuzzy
+#: templates/events/single/details.php:28
 msgid "Event address"
 msgstr "Event adresse"
 
 #: templates/events/create.php:105
 #: templates/events/single/admin.php:75
-#: templates/events/single/details.php:36
+#: templates/events/single/details.php:35
 msgid "Special Conditions"
 msgstr "Specielle Omstændigheder"
 
 #: templates/events/create.php:109
 #: templates/events/single/admin.php:80
-#: templates/events/single/details.php:39
+#: templates/events/single/details.php:41
 msgid "News for event"
 msgstr "Nyheder for eventet"
 
@@ -1202,17 +1248,15 @@ msgstr "Event Offentlige Nyheder"
 
 #: templates/events/create.php:116
 #: templates/events/single/admin.php:87
-#: templates/events/single/details.php:46
-#, fuzzy
+#: templates/events/single/details.php:53
 msgid "Private Event News"
-msgstr "Privat Event"
+msgstr "Privat Event Nyheder"
 
 #: templates/events/create.php:129
 #: templates/events/single/admin.php:103
-#: templates/events/single/details.php:54
-#, fuzzy
+#: templates/events/single/details.php:63
 msgid "Event Date"
-msgstr "Event Titel"
+msgstr "Event Dato"
 
 #: templates/events/create.php:130
 #: templates/events/single/admin.php:104
@@ -1359,9 +1403,8 @@ msgid "Finish"
 msgstr "Afslut"
 
 #: templates/events/events-loop.php:20
-#, fuzzy
 msgid "Style:"
-msgstr "Titel:"
+msgstr "Style:"
 
 #: templates/events/events-loop.php:20
 msgid "jes_events_style"
@@ -1371,57 +1414,54 @@ msgstr "jes_events_style"
 msgid "Private events are not shown, register to view"
 msgstr "Private events er ikke viste, registrer for at få dem vist"
 
-#: templates/events/events-loop.php:76
+#: templates/events/events-loop.php:74
 msgid "Short description:"
 msgstr "Kort beskrivelse:"
 
-#: templates/events/events-loop.php:78
-#: templates/events/events-loop.php:178
-#, fuzzy
+#: templates/events/events-loop.php:76
+#: templates/events/events-loop.php:171
 msgid "Description:"
-msgstr "Event Beskrivelse"
+msgstr "Beskrivelse"
 
-#: templates/events/events-loop.php:82
-#: templates/events/events-loop.php:167
-#: templates/events/single/details.php:17
-#, fuzzy
+#: templates/events/events-loop.php:80
+#: templates/events/events-loop.php:160
+#: templates/events/single/details.php:16
 msgid "The event will take place:"
-msgstr "Eventet vil blive afholdt i byen:"
+msgstr "Beskrivelse"
 
-#: templates/events/events-loop.php:93
-#: templates/events/events-loop.php:177
-#: templates/events/single/details.php:27
-#, fuzzy
+#: templates/events/events-loop.php:91
+#: templates/events/events-loop.php:170
+#: templates/events/single/details.php:26
 msgid "in city:"
-msgstr "I Byen:"
+msgstr "i byen:"
 
-#: templates/events/events-loop.php:93
-#: templates/events/events-loop.php:177
+#: templates/events/events-loop.php:91
+#: templates/events/events-loop.php:170
 msgid "at "
 msgstr "på"
 
-#: templates/events/events-loop.php:94
-#: templates/events/events-loop.php:166
+#: templates/events/events-loop.php:92
+#: templates/events/events-loop.php:159
 msgid "From: "
 msgstr "Fra:"
 
-#: templates/events/events-loop.php:94
-#: templates/events/events-loop.php:166
+#: templates/events/events-loop.php:92
+#: templates/events/events-loop.php:159
 msgid "to: "
 msgstr "til:"
 
-#: templates/events/events-loop.php:105
-#: templates/events/events-loop.php:188
+#: templates/events/events-loop.php:103
+#: templates/events/events-loop.php:181
 msgid "Event requires approval!"
 msgstr "Event kræver godkendelse!"
 
-#: templates/events/events-loop.php:110
-#: templates/events/events-loop.php:193
+#: templates/events/events-loop.php:108
+#: templates/events/events-loop.php:186
 #, php-format
 msgid "Last activity:<br /> %s ago"
 msgstr "Seneste aktivitet:<br /> %s siden"
 
-#: templates/events/events-loop.php:213
+#: templates/events/events-loop.php:204
 msgid "There were no events found."
 msgstr "Der blev ikke fundet nogen events."
 
@@ -1465,15 +1505,13 @@ msgid "Show New Event Memberships"
 msgstr "Vis Nye Tilmeldinger Til Events"
 
 #: templates/events/single/admin.php:28
-#, fuzzy
 msgid "Approve Event?"
-msgstr "Privat Event"
+msgstr "Godkend Event?"
 
 #: templates/events/single/admin.php:83
-#: templates/events/single/details.php:41
-#, fuzzy
+#: templates/events/single/details.php:45
 msgid "Public Event News"
-msgstr "Offentligt Event"
+msgstr "Offentligt Event Nyheder"
 
 #: templates/events/single/admin.php:116
 msgid "Notify participants of the event to update the details?"
@@ -1560,32 +1598,27 @@ msgstr "ADVARSEL: Hvis du sletter dette event, sleter du også ALT indhold relat
 msgid "I understand the consequences of deleting this event."
 msgstr "Jeg er klar over konsekvenser ved at slette dette event."
 
-#: templates/events/single/details.php:10
+#: templates/events/single/details.php:9
 msgid "Event Name"
 msgstr "Event Titel"
 
-#: templates/events/single/details.php:12
+#: templates/events/single/details.php:11
 msgid "Event classification"
 msgstr "Event Type"
 
-#: templates/events/single/details.php:14
+#: templates/events/single/details.php:13
 msgid "Event Description"
 msgstr "Event Beskrivelse"
 
-#: templates/events/single/details.php:16
-#, fuzzy
+#: templates/events/single/details.php:15
 msgid "Event Location:"
-msgstr "Event Beskrivelse"
+msgstr "Event Sted"
 
-#: templates/events/single/details.php:30
-msgid "Event Placed address"
-msgstr "Event adresse"
-
-#: templates/events/single/details.php:55
+#: templates/events/single/details.php:64
 msgid "Event Start date"
 msgstr "Event Start dato"
 
-#: templates/events/single/details.php:58
+#: templates/events/single/details.php:67
 msgid "Event End date"
 msgstr "Event Slut dato"
 
@@ -1615,18 +1648,17 @@ msgid "Soon"
 msgstr "Kommende"
 
 #: templates/members/single/events/invites.php:34
-#, fuzzy
 msgid "You have no outstanding event invites."
 msgstr "Du har %d nye event invitationer"
 
+#~ msgid "Country/State Options"
+#~ msgstr "Indstillinger for Land & Amt"
+
+#~ msgid "Event Placed address"
+#~ msgstr "Event adresse"
+
 #~ msgid "Club"
 #~ msgstr "Klub"
-
-#~ msgid "Options updated."
-#~ msgstr "Indstillinger opdaterede."
-
-#~ msgid "JES. Jet Event System"
-#~ msgstr "JES. Jet Event System"
 
 #~ msgid "Active"
 #~ msgstr "Aktive"

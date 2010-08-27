@@ -10,20 +10,26 @@ function jes_events_init_jesdb() {
 			creator_id bigint(20) NOT NULL,
 	  		name varchar(100) NOT NULL,
 			etype varchar(20) NOT NULL,
-			eventapproved varchar(1),			
+			eventapproved varchar(1),
 	  		slug varchar(100) NOT NULL,
 	  		description longtext NOT NULL,
 	  		eventterms longtext,
-			placedcountry varchar(30),
-			placedstate varchar(40),			
+			placedcountry varchar(25),
+			placedstate varchar(25),
 			placedcity varchar(25) NOT NULL,
-			placedaddress varchar(80) NOT NULL,			
-			newspublic longtext,			
+			placedaddress varchar(40) NOT NULL,
+			placednote varchar(40) NOT NULL,
+			placedgooglemap varchar(25),
+			newspublic longtext,
 			newsprivate longtext,
-			edtsd varchar(18) NOT NULL,
-			edted varchar(18) NOT NULL,			
-			edtsdunix varchar(18) NOT NULL,
-			edtedunix varchar(18) NOT NULL,			
+			edtsd varchar(20) NOT NULL,
+			edted varchar(20) NOT NULL,
+			edtsth varchar(2) NOT NULL DEFAULT '0',
+			edteth varchar(2) NOT NULL DEFAULT '23',
+			edtstm varchar(2) NOT NULL DEFAULT '0',
+			edtetm varchar(2) NOT NULL DEFAULT '59',
+			edtsdunix varchar(12) NOT NULL,
+			edtedunix varchar(12) NOT NULL,
 			status varchar(10) NOT NULL DEFAULT 'public',
 			grouplink varchar(5) NOT NULL DEFAULT '0',
 			forumlink varchar(5) NOT NULL DEFAULT '0',
@@ -35,7 +41,7 @@ function jes_events_init_jesdb() {
 			KEY eventapproved (eventapproved),
 			KEY placedcity (placedcity),
 			KEY placedcountry (placedcountry),
-			KEY grouplink (grouplink)			
+			KEY grouplink (grouplink)
 	 	   ) {$charset_collate};";
 
 	$sql[] = "CREATE TABLE {$bp->jes_events->jes_table_name_members} (
@@ -67,7 +73,7 @@ function jes_events_init_jesdb() {
 			KEY event_id (event_id),
 			KEY meta_key (meta_key)
 		   ) {$charset_collate};";
-		   
+
 	$sql[] = "CREATE TABLE {$bp->jes_events->table_name_activity} (
 	  		id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 			creator_id bigint(20) NOT NULL,
@@ -77,13 +83,12 @@ function jes_events_init_jesdb() {
 		    KEY creator_id (creator_id),
 			KEY a_datetime_unix (a_datetime_unix)
 	 	   ) {$charset_collate};";
-		   
 
 	require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
 	dbDelta($sql);
 
 	do_action( 'jes_events_init_jesdb' );
 
-	update_site_option( 'jes-events-db-version', JES_EVENTS_DB_VERSION );	
+	update_site_option( 'jes-events-db-version', JES_EVENTS_DB_VERSION );
 }
 ?>

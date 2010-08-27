@@ -17,10 +17,10 @@ The modern System of events for your social network. Ability to attract members 
 
 <strong>ru:</strong> Современная Система событий для Вашей социальной сети. Возможность привлекать участников сети к проводимым мероприятиям, широкий спектр возможностей и настроек, поддержка разных видов отображения и т.п.
 
-<strong>Before you install or upgrade sure to read the Readme file!</strong>!
-
+<strong>Before you install or upgrade sure to read the Readme file!</strong>! 
 <strong>Перед установкой или обновлением обязательно прочтите Readme файл!</strong>
 
+Translation for the following locations: ru_RU, fr_FR, de_DE, es_ES, da_DK (see Translate section in readme)
 
 Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://volks-wagen-club.ru">Volkswagen Club</a> (Please do not create events on these sites! Use the <a href="http://jes.milordk.ru">jes.milordk.ru</a>)
 
@@ -90,6 +90,13 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.2.4 =
+* Added ability to specify the size of an avatar for the Catalogue of events, single events and widget
+* The date is set by Datepicker (now there is no need to bind to a certain size - you can configure in the administrative panel plugin)
+* Produced redesign display a single event
+* <strong>NOTE:</strong> Update DB and Templates through an administrative panel!
+
 
 = 1.2.3 =
 * Fix problem with displaying an avatar friends who are going to invite to the event (problem occurred when an avatar user profile associated with gravitar)

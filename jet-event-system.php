@@ -3,7 +3,7 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: System events for your social network. Ability to attract members of the network to the ongoing activities.
-Version: 1.2.3
+Version: 1.2.4
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
@@ -11,8 +11,8 @@ Network: true
 */
 
 define('Jet Events System', '1.2');
-define ('JES_EVENTS_DB_VERSION', 5 );
-define ('JES_EVENTS_THEME_VERSION', 7 );
+define ('JES_EVENTS_DB_VERSION', 6 );
+define ('JES_EVENTS_THEME_VERSION', 8 );
 
 /* Define the slug for the component */
 if ( !defined( 'JES_SLUG' ) ) {
@@ -74,12 +74,48 @@ add_action( 'admin_menu', 'jes_add_admin_menu' );
 
 function jet_events_add_js() {
   global $bp;
-
+	$jsload = 0;
 	if ( $bp->current_component == $bp->jes_events->slug )
-		wp_enqueue_script( 'jet-event-js', get_stylesheet_directory_uri() . '/events/js/datepacker.js' );
+		{
+		if ($bp->current_action == 'create')
+			if (!bp_is_event_creation_step( 'event-avatar' ) ) {
+				$jsload = 1;
+			}
+		if ($bp->current_action == 'admin')
+			if ( !'crop-image' == bp_get_avatar_admin_step() ) {
+				$jsload = 1;
+			}
+		}
+	if ($jsload)
+		{
+			wp_enqueue_script( 'jet-event-js-base', get_stylesheet_directory_uri() . '/events/js/jquery-1.4.2.min.js' );
+			wp_enqueue_script( 'jet-event-js-ui', get_stylesheet_directory_uri() . '/events/js/jquery-ui-1.8.4.custom.min.js' );
+			// wp_enqueue_script( 'jet-event-js-ui', get_stylesheet_directory_uri() . '/events/js/datepicker.js' );
+		}
 }
 add_action( 'template_redirect', 'jet_events_add_js', 1 );	
 	
+function jes_events_add_css() {
+  global $bp;
+	$jsload = 0;
+	if ( $bp->current_component == $bp->jes_events->slug )
+		{
+		if ($bp->current_action == 'create')
+			if (!bp_is_event_creation_step( 'event-avatar' ) ) {
+				$jsload = 1;
+			}
+		if ($bp->current_action == 'admin')
+			if ( !'crop-image' == bp_get_avatar_admin_step() ) {
+				$jsload = 1;
+			}
+		}
+	if ($jsload)
+		{
+			wp_enqueue_style( 'jes-datepicker-css', apply_filters( 'jes_events_add_css', get_stylesheet_directory_uri() . '/events/css/datepicker.css' ) );
+		}
+}
+add_action( 'init', 'jes_events_add_css' );
+
 
 function jes_events_setup_globals() {
 	global $bp, $wpdb;
@@ -216,6 +252,10 @@ function events_setup_nav() {
 			/* Add the "Home" subnav item, as this will always be present */
 			bp_core_new_subnav_item( array( 'name' => __( 'Home', 'jet-event-system' ), 'slug' => 'home', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_home', 'position' => 10, 'item_css_id' => 'home' ) );
 
+			/* Add Google map navi */
+			bp_core_new_subnav_item( array( 'name' => __( 'Google Map', 'jet-event-system' ) , 'slug' => 'google-map', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_jes_event_google_map', 'position' => 15, 'item_css_id' => 'google_map' ) );
+			
+			
 			/* If the user is a event mod or more, then show the event admin nav item */
 			if ( $bp->is_item_mod || $bp->is_item_admin )
 				bp_core_new_subnav_item( array( 'name' => __( 'Admin', 'jet-event-system' ), 'slug' => 'admin', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_admin', 'position' => 20, 'user_has_access' => ( $bp->is_item_admin + (int)$bp->is_item_mod ), 'item_css_id' => 'admin' ) );
@@ -225,7 +265,7 @@ function events_setup_nav() {
 				bp_core_new_subnav_item( array( 'name' => __( 'Request join to event', 'jet-event-system' ), 'slug' => 'request-join-to-event', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_request_membership', 'position' => 30, 'item_css_id' => 'request-join-to-event'  ) );
 
 			bp_core_new_subnav_item( array( 'name' => sprintf( __( 'Members (%s)', 'jet-event-system' ), number_format( $bp->jes_events->current_event->total_member_count ) ), 'slug' => 'members', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_members', 'position' => 60, 'user_has_access' => $bp->jes_events->current_event->user_has_access, 'item_css_id' => 'members'  ) );
-
+			
 			if ( is_user_logged_in() && events_is_user_member( $bp->loggedin_user->id, $bp->jes_events->current_event->id ) ) {
 				if ( function_exists('friends_install') )
 					bp_core_new_subnav_item( array( 'name' => __( 'Send Invites', 'jet-event-system' ), 'slug' => 'send-invites', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_jes_event_invite', 'item_css_id' => 'invite', 'position' => 70, 'user_has_access' => $bp->jes_events->current_event->user_has_access ) );
@@ -364,6 +404,13 @@ function events_screen_event_home() {
 	}
 }
 
+function events_screen_jes_event_google_map() {
+	global $bp;
+
+		do_action( 'events_screen_jes_event_google_map' );
+
+		bp_core_load_template( apply_filters( 'events_template_event_google_map', 'events/single/home' ) );
+}
 
 function events_screen_event_members() {
 	global $bp;
@@ -465,7 +512,7 @@ function events_screen_event_admin_edit_details() {
 				if ( !check_admin_referer( 'events_edit_event_details' ) )
 					return false;
 
-				if ( !events_edit_base_event_details( $_POST['event-id'], $_POST['event-name'], $_POST['event-etype'], $_POST['event-eventapproved'], $_POST['event-desc'], $_POST['event-eventterms'], $_POST['event-placedcountry'], $_POST['event-placedstate'], $_POST['event-placedcity'], $_POST['event-placedaddress'], $_POST['event-newspublic'], $_POST['event-newsprivate'], $_POST['event-edtsd'], $_POST['event-edted'], (int)$_POST['event-notify-members'] ) ) {
+				if ( !events_edit_base_event_details( $_POST['event-id'], $_POST['event-name'], $_POST['event-etype'], $_POST['event-eventapproved'], $_POST['event-desc'], $_POST['event-eventterms'], $_POST['event-placedcountry'], $_POST['event-placedstate'], $_POST['event-placedcity'], $_POST['event-placedaddress'], $_POST['event-placednote'], $_POST['event-newspublic'], $_POST['event-newsprivate'], $_POST['event-edtsd'], $_POST['event-edted'], $_POST['event-edtsth'], $_POST['event-edteth'], $_POST['event-edtstm'], $_POST['event-edtetm'] ,(int)$_POST['event-notify-members'] ) ) {
 					bp_core_add_message( __( 'There was an error updating event details, please try again.', 'jet-event-system' ), 'error' );
 				} else {
 					bp_core_add_message( __( 'Event details were successfully updated.', 'jet-event-system' ) );
@@ -538,7 +585,7 @@ function events_screen_event_admin_avatar() {
 			/* Check the nonce */
 			check_admin_referer( 'jes_bp_event_avatar_delete' );
 
-			if ( bp_core_delete_existing_avatar( array( 'item_id' => $bp->jes_events->current_event->id, 'object' => 'event' ) ) )
+			if ( jes_core_delete_existing_avatar( array( 'item_id' => $bp->jes_events->current_event->id, 'object' => 'event' ) ) )
 				bp_core_add_message( __( 'Your avatar was deleted successfully!', 'jet-event-system' ) );
 			else
 				bp_core_add_message( __( 'There was a problem deleting that avatar, please try again.', 'jet-event-system' ), 'error' );
@@ -874,7 +921,7 @@ function events_action_create_event() {
 				bp_core_redirect( $bp->root_domain . '/' . $bp->jes_events->slug . '/create/step/' . $bp->jes_events->current_create_step . '/' );
 			}
 
-			if ( !$bp->jes_events->new_event_id = events_create_event( array( 'event_id' => $bp->jes_events->new_event_id, 'name' => $_POST['event-name'], 'etype' => $_POST['event-etype'], 'eventapproved' => $_POST['event-eventapproved'], 'description' => $_POST['event-desc'], 'eventterms' => $_POST['event-eventterms'], 'placedcountry' => $_POST['event-placedcountry'], 'placedstate' => $_POST['event-placedstate'],'placedcity' => $_POST['event-placedcity'], 'placedaddress' => $_POST['event-placedaddress'], 'newspublic' => $_POST['event-newspublic'], 'newsprivate' => $_POST['event-newsprivate'], 'edtsd' => $_POST['event-edtsd'], 'edted' => $_POST['event-edted'], 'grouplink' => $_POST['grouplink'], 'forumlink' => $_POST['forumlink'], 'slug' => events_jes_check_slug( sanitize_title( esc_attr( $_POST['event-name'] ) ) ), 'date_created' => gmdate( "Y-m-d H:i:s" ), 'status' => 'public' ) ) ) {
+			if ( !$bp->jes_events->new_event_id = events_create_event( array( 'event_id' => $bp->jes_events->new_event_id, 'name' => $_POST['event-name'], 'etype' => $_POST['event-etype'], 'eventapproved' => $_POST['event-eventapproved'], 'description' => $_POST['event-desc'], 'eventterms' => $_POST['event-eventterms'], 'placedcountry' => $_POST['event-placedcountry'], 'placedstate' => $_POST['event-placedstate'],'placedcity' => $_POST['event-placedcity'], 'placedaddress' => $_POST['event-placedaddress'], 'placednote' => $_POST['event-placednote'], 'newspublic' => $_POST['event-newspublic'], 'newsprivate' => $_POST['event-newsprivate'], 'edtsd' => $_POST['event-edtsd'], 'edted' => $_POST['event-edted'], 'edtsth' => $_POST['event-edtsth'], 'edteth' => $_POST['event-edteth'], 'edtstm' => $_POST['event-edtstm'], 'edtetm' => $_POST['event-edtetm'],'grouplink' => $_POST['grouplink'], 'forumlink' => $_POST['forumlink'], 'slug' => events_jes_check_slug( sanitize_title( esc_attr( $_POST['event-name'] ) ) ), 'date_created' => gmdate( "Y-m-d H:i:s" ), 'status' => 'public' ) ) ) {
 				bp_core_add_message( __( 'There was an error saving event details, please try again.1', 'jet-event-system' ), 'error' );
 				bp_core_redirect( $bp->root_domain . '/' . $bp->jes_events->slug . '/create/step/' . $bp->jes_events->current_create_step . '/' );
 			}
@@ -1117,8 +1164,6 @@ function events_register_activity_actions() {
 
 	bp_activity_set_action( $bp->jes_events->id, 'created_event', __( 'Created a event', 'jet-event-system' ) );
 	bp_activity_set_action( $bp->jes_events->id, 'joined_event', __( 'Joined a event', 'jet-event-system' ) );
-	bp_activity_set_action( $bp->jes_events->id, 'new_forum_topic', __( 'New event forum topic', 'jet-event-system' ) );
-	bp_activity_set_action( $bp->jes_events->id, 'new_forum_post', __( 'New event forum post', 'jet-event-system' ) );
 
 	do_action( 'events_register_activity_actions' );
 }
@@ -1335,7 +1380,10 @@ function events_create_event( $args = '' ) {
 
 	if ( isset( $placedaddress ) )
 		$event->placedaddress = $placedaddress;
-		
+
+	if ( isset( $placednote ) )
+		$event->placed = $placednote;
+
 	if ( isset( $newspublic ) )
 		$event->newspublic = $newspublic;
 
@@ -1348,6 +1396,18 @@ function events_create_event( $args = '' ) {
 	if ( isset( $edted ) )
 		$event->edted = $edted;
 
+	if ( isset( $edtsth ) )
+		$event->edtsth = $edtsth;
+		
+	if ( isset( $edteth ) )
+		$event->edteth = $edteth;
+
+	if ( isset( $edtstm ) )
+		$event->edtstm = $edtstm;
+		
+	if ( isset( $edtetm ) )
+		$event->edtetm = $edtetm;
+		
 	if ( isset( $grouplink ) )
 		$event->grouplink = $grouplink;
 
@@ -1391,9 +1451,9 @@ function events_create_event( $args = '' ) {
 	return $event->id;
 }
 
-function events_edit_base_event_details( $event_id, $event_name, $event_etype, $event_eventapproved, $event_desc, $event_eventterms, $event_placedcountry, $event_placedstate, $event_placedcity, $event_placedaddress, $event_newspublic, $event_newsprivate, $event_edtsd, $event_edted, $notify_members ) {
+function events_edit_base_event_details( $event_id, $event_name, $event_etype, $event_eventapproved, $event_desc, $event_eventterms, $event_placedcountry, $event_placedstate, $event_placedcity, $event_placedaddress, $event_placednote, $event_newspublic, $event_newsprivate, $event_edtsd, $event_edted, $event_edtsth, $event_edteth, $event_edtstm, $event_edtetm, $notify_members ) {
 	global $bp;
-
+					bp_core_add_message( $event_edtsd.'-'.$event_edted, 'error' );
 	if ( empty( $event_name ) || empty( $event_desc ) || empty ( $event_placedcity) || empty ( $event_etype) || empty ( $event_edtsd) || empty ( $event_edted))
 		return false;
 	$event = new JES_Events_Event( $event_id );
@@ -1406,10 +1466,15 @@ function events_edit_base_event_details( $event_id, $event_name, $event_etype, $
 	$event->placedstate = $event_placedstate;	
 	$event->placedcity = $event_placedcity;
 	$event->placedaddress = $event_placedaddress;
+	$event->placednote = $event_placednote;
 	$event->newspublic = $event_newspublic;
 	$event->newsprivate = $event_newsprivate;
 	$event->edtsd = $event_edtsd;
 	$event->edted = $event_edted;
+	$event->edtsth = $event_edtsth;
+	$event->edteth = $event_edteth;	
+	$event->edtstm = $event_edtstm;
+	$event->edtetm = $event_edtetm;
 	
 	if ( !$event->save() )
 		return false;
@@ -2253,16 +2318,30 @@ add_action( 'events_details_updated', 'events_clear_event_object_cache' );
 add_action( 'events_event_avatar_updated', 'events_clear_event_object_cache' );
 add_action( 'events_create_event_step_complete', 'events_clear_event_object_cache' );
 
-function datetounix($inputdate) {
-	$ev_day = substr($inputdate,0,2);
-	$ev_month = substr($inputdate,3,2);
-	$ev_year = substr($inputdate,6,4);
+function datetounix($inputdate,$inputtimeh,$inputtimem) {
+	$rezind = date('d-m-Y',strtotime($inputdate));
+	$rezint = time('H:i',strtotime($inputtime+':'+$inputtimem));
+	$ev_day = substr($rezind,0,2);
+	$ev_month = substr($rezind,3,2);
+	$ev_year = substr($rezind,6,4);
 
-	$ev_h = substr($inputdate,11,2);
-	$ev_m = substr($inputdate,14,2);
+	$ev_h = substr($rezint,0,2);
+	$ev_m = substr($rezint,3,2);
 
 	$ev_dres = mktime ($ev_h,$ev_m,0,$ev_month,$ev_day,$ev_year);
-return $ev_dres;
+	return $ev_dres;
+}
+
+function unixtodate($inputunix) {
+	$dfDATA = get_option( 'jes_events' );
+	$ddateformat = $dfDATA['jes_events_date_format_in'];
+	$ev_dres = date($ddateformat, $inputunix);
+	return $ev_dres;
+}
+
+function unixtotime($inputunix) {
+	$ev_dres = time('H:i',$inputunix);
+	return $ev_dres;
 }
 
 function events_clear_event_user_object_cache( $event_id, $user_id ) {
@@ -2292,5 +2371,4 @@ add_action( 'events_membership_requested', 'bp_core_clear_cache' );
 add_action( 'events_create_event_step_complete', 'bp_core_clear_cache' );
 add_action( 'events_created_event', 'bp_core_clear_cache' );
 add_action( 'events_event_avatar_updated', 'bp_core_clear_cache' );
-
 ?>

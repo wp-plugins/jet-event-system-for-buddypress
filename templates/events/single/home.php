@@ -29,6 +29,9 @@
 				<?php elseif ( bp_is_event_members() && jes_bp_event_is_visible() ) : ?>
 					<?php locate_template( array( 'events/single/members.php' ), true ) ?>
 
+				<?php elseif ( bp_is_jes_event_google_map_jes() && jes_bp_event_is_visible() ) : ?>
+					<?php locate_template( array( 'events/single/google-map.php' ), true ) ?>
+
 				<?php elseif ( bp_is_jes_event_invite_jes() && jes_bp_event_is_visible() ) : ?>
 					<?php locate_template( array( 'events/single/send-invites.php' ), true ) ?>
 

@@ -22,7 +22,8 @@
 
 <div id="item-header-avatar">
 	<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>">
-		<?php jes_bp_event_avatar() ?>
+	<?php $adata = get_option( 'jes_events' ); ?>
+		<?php jes_bp_event_avatar('height='.$adata['jes_events_show_avatar_main_size'].'&width='.$adata['jes_events_show_avatar_main_size']) ?>
 	</a><br />
 </div><!-- #item-header-avatar -->
 

@@ -45,7 +45,6 @@ function update_template()
 		echo move_template( 'events/single','admin.php');
 		echo move_template( 'events/single','details.php');
 		echo move_template( 'events/single','event-header.php');
-		echo move_template( 'events/single','forum.php');
 		echo move_template( 'events/single','home.php');
 		echo move_template( 'events/single','members.php');
 		echo move_template( 'events/single','plugins.php');
@@ -93,7 +92,7 @@ function jes_event_admin() {
 
 		if ( $_POST[ 'jes_events_addnavicatalog_disable' ] == 1 ) 
 			$jes_events[ 'jes_events_addnavicatalog_disable' ] = 1;
-			
+
 		if ( $_POST[ 'jes_events_createnonadmin_disable' ] == 1 ) 
 			$jes_events[ 'jes_events_createnonadmin_disable' ] = 1;
 
@@ -103,15 +102,7 @@ function jes_event_admin() {
 		if ( $_POST[ 'jes_events_adminapprove_enable' ] == 1 ) 
 			$jes_events[ 'jes_events_adminapprove_enable' ] = 1;	
 
-		if ( $_POST[ 'jes_events_countryopt_enable' ] == 1 ) 
-			$jes_events[ 'jes_events_countryopt_enable' ] = 1;			
-			
-		if ( $_POST[ 'jes_events_stateopt_enable' ] == 1 ) 
-			$jes_events[ 'jes_events_stateopt_enable' ] = 1;			
-
-		if ( $_POST[ 'jes_events_cityopt_enable' ] == 1 ) 
-			$jes_events[ 'jes_events_cityopt_enable' ] = 1;				
-			
+/* Access to Event Fields */
 		if ( $_POST[ 'jes_events_specialconditions_enable' ] == 1 ) 
 			$jes_events[ 'jes_events_specialconditions_enable' ] = 1;
 			
@@ -119,17 +110,29 @@ function jes_event_admin() {
 			$jes_events[ 'jes_events_publicnews_enable' ] = 1;
 
 		if ( $_POST[ 'jes_events_privatenews_enable' ] == 1 ) 
-			$jes_events[ 'jes_events_privatenews_enable' ] = 1;		
+			$jes_events[ 'jes_events_privatenews_enable' ] = 1;
 
-		if ( $_POST[ 'jes_events_show_avatar_invite_enable' ] == 1 ) 
-			$jes_events[ 'jes_events_show_avatar_invite_enable' ] = 1;
-
+/* Slug */
 		if ( $_POST[ 'jes_events_costumslug' ] != null ) {
 			$jes_events[ 'jes_events_costumslug' ] = stripslashes($_POST[ 'jes_events_costumslug' ]);
 		}else{
 			$jes_events[ 'jes_events_costumslug' ] = 'events';
 		}
 
+/* Date format */
+		if ( $_POST[ 'jes_events_date_format' ] != null ) {
+			$jes_events[ 'jes_events_date_format' ] = stripslashes($_POST[ 'jes_events_date_format' ]);
+		}else{
+			$jes_events[ 'jes_events_date_format' ] = 'dd mm yy';
+		}		
+		
+		if ( $_POST[ 'jes_events_date_format_in' ] != null ) {
+			$jes_events[ 'jes_events_date_format_in' ] = stripslashes($_POST[ 'jes_events_date_format_in' ]);
+		}else{
+			$jes_events[ 'jes_events_date_format_in' ] = 'd m Y';
+		}		
+		
+/* Style */		
 		if ( $_POST[ 'jes_events_style' ] != null ) {
 			$jes_events[ 'jes_events_style' ] = stripslashes($_POST[ 'jes_events_style' ]);
 		}else{
@@ -141,7 +144,30 @@ function jes_event_admin() {
 		}else{
 			$jes_events[ 'jes_events_style_single' ] = __('Standart','jet-event-system');
 		}
-		
+
+/* Avatars size */	
+		if ( $_POST[ 'jes_events_show_avatar_invite_enable' ] == 1 )
+			$jes_events[ 'jes_events_show_avatar_invite_enable' ] = 1;
+
+		if ( $_POST[ 'jes_events_show_avatar_invite_size' ] != null ) {
+			$jes_events[ 'jes_events_show_avatar_invite_size' ] = stripslashes($_POST[ 'jes_events_show_avatar_invite_size' ]);
+		} else {
+			$jes_events[ 'jes_events_show_avatar_invite_size' ] = 50;
+		}
+
+		if ( $_POST[ 'jes_events_show_avatar_main_size' ] != null ) {
+			$jes_events[ 'jes_events_show_avatar_main_size' ] = stripslashes($_POST[ 'jes_events_show_avatar_main_size' ]);
+		} else {
+			$jes_events[ 'jes_events_show_avatar_main_size' ] = 150;
+		}
+
+		if ( $_POST[ 'jes_events_show_avatar_directory_size' ] != null ) {
+			$jes_events[ 'jes_events_show_avatar_directory_size' ] = stripslashes($_POST[ 'jes_events_show_avatar_directory_size' ]);
+		} else {
+			$jes_events[ 'jes_events_show_avatar_directory_size' ] = 150;
+		}
+
+/* Classifications */		
 		if ( $_POST[ 'jes_events_text_one' ] != null ) {
 			$jes_events[ 'jes_events_text_one' ] = stripslashes($_POST[ 'jes_events_text_one' ]);
 		}else{
@@ -163,7 +189,8 @@ function jes_event_admin() {
 		if ( $_POST[ 'jes_events_text_five' ] != null ) {
 			$jes_events[ 'jes_events_text_five' ] = stripslashes($_POST[ 'jes_events_text_five' ]);
 		}
-		
+
+/* Sort */		
 		if ( $_POST[ 'jes_events_sort_by' ] != null ) {
 			$jes_events[ 'jes_events_sort_by' ] = stripslashes($_POST[ 'jes_events_sort_by' ]);
 		}else{
@@ -174,6 +201,16 @@ function jes_event_admin() {
 		}else{
 			$jes_events[ 'jes_events_sort_by' ] = 'ASC';			
 		}
+
+/* Country/Statr/City */
+		if ( $_POST[ 'jes_events_countryopt_enable' ] == 1 ) 
+			$jes_events[ 'jes_events_countryopt_enable' ] = 1;			
+			
+		if ( $_POST[ 'jes_events_stateopt_enable' ] == 1 ) 
+			$jes_events[ 'jes_events_stateopt_enable' ] = 1;			
+
+		if ( $_POST[ 'jes_events_cityopt_enable' ] == 1 ) 
+			$jes_events[ 'jes_events_cityopt_enable' ] = 1;				
 
 		if ( $_POST[ 'jes_events_countryopt_def' ] != null ) {
 			$jes_events[ 'jes_events_countryopt_def' ] = stripslashes($_POST[ 'jes_events_countryopt_def' ]);
@@ -186,8 +223,8 @@ function jes_event_admin() {
 		if ( $_POST[ 'jes_events_cityopt_def' ] != null ) {
 			$jes_events[ 'jes_events_cityopt_def' ] = stripslashes($_POST[ 'jes_events_cityopt_def' ]);
 		}
-				
-		
+
+/* -------------------- */
 if (stripos($blogversion, 'MU') > 0) {			
 		$blogs_ids = get_blog_list( 0, 'all' );
 		foreach ($blogs_ids as $blog) {
@@ -201,7 +238,7 @@ if (stripos($blogversion, 'MU') > 0) {
 ?>
 	<div class="wrap">
 		<h2><?php _e('JES. Jet Event System', 'jet-event-system' ) ?></h2>
-		<h4><?php _e('version','jet-event-system'); ?> 1.2 <?php _e('build','jet-event-system'); ?> 1
+		<h4><?php _e('version','jet-event-system'); ?> 1.2 <?php _e('build','jet-event-system'); ?> 4
 				- <?php _e('Template version:','jet-event-system');?> <?php if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION ) { echo "<span style='color:#CC0033;'"; } else { echo '<span>'; } ?><?php echo get_site_option( 'jes-theme-version' ); ?></span><?php echo '('.JES_EVENTS_THEME_VERSION.')'; ?>
 				- <?php _e('DB version:','jet-event-system'); ?> <?php if ( get_site_option( 'jes-events-db-version' ) < JES_EVENTS_DB_VERSION ) { echo "<span style='color:#CC0033;'"; } else { echo '<span>'; } ?><?php echo get_site_option( 'jes-events-db-version' );?></span> <?php echo '('.JES_EVENTS_DB_VERSION.')'; ?></h4>
 
@@ -293,6 +330,22 @@ if (stripos($blogversion, 'MU') > 0) {
 								</td>
 							</tr>				
 
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_date_format"><?php _e( 'Date format (templates)*: ', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_date_format" type="text" id="jes_events_date_format" value="<?php echo $jes_events[ 'jes_events_date_format' ]; ?>" />
+									<p><?php _e('* Please specify the date format in the format JQuery!','jet-event-system') ?><a href="http://docs.jquery.com/UI/Datepicker/formatDate"><?php _e('manual','jet-event-system'); ?></a></p>
+								</td>
+							</tr>
+
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_date_format_in"><?php _e( 'Date format (php)**: ', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_date_format_in" type="text" id="jes_events_date_format_in" value="<?php echo $jes_events[ 'jes_events_date_format_in' ]; ?>" />
+									<p><?php _e('** Please specify the date format in the format PHP!','jet-event-system') ?><a href="http://php.net/manual/en/function.date.php"><?php _e('manual','jet-event-system'); ?></a></p>
+								</td>
+							</tr>
+
 							<tr valign="top"><td><a name="sbase-options"><h4><?php _e('Setting up access to the fields events','jet-event-system'); ?></h4></a></td></tr>
 
 		<!-- Country/State/City Options -->
@@ -368,15 +421,33 @@ if (stripos($blogversion, 'MU') > 0) {
 									</select>
 								</td>
 							</tr>
-	
+
+							<tr valign="top"><td><a name="avatar-options"><h5><?php _e('Avatar Options','jet-event-system'); ?></h5></a></td></tr>
+							
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_show_avatar_invite_enable"><?php _e( 'Show avatars in the list of invited friends', 'jet-event-system' ) ?></label></th>
 								<td>
 									<input name="jes_events_show_avatar_invite_enable" type="checkbox" id="jes_events_show_avatar_invite_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_show_avatar_invite_enable' ] ? ' checked="checked"' : '' ); ?> />
+									<label for="jes_events_show_avatar_invite_size"><?php _e( 'Avatars size:', 'jet-event-system' ) ?></label>
+									<input name="jes_events_show_avatar_invite_size" type="text" id="jes_events_show_avatar_invite_size" value="<?php echo $jes_events[ 'jes_events_show_avatar_invite_size' ]; ?>" />
 								</td>
-							</tr>		
-		
-							<tr valign="top"><td><a name="classification-options"><h4><?php _e('Classification options','jet-event-system'); ?></h4></a></td></tr>			
+							</tr>
+
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_show_avatar_main_size"><?php _e( 'Single Event - avatars size (25..150px):', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_show_avatar_main_size" type="text" id="jes_events_show_avatar_main_size" value="<?php echo $jes_events[ 'jes_events_show_avatar_main_size' ]; ?>" />
+								</td>
+							</tr>
+
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_show_avatar_directory_size"><?php _e( 'Directory Events - avatars size ( 25..150px):', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_show_avatar_directory_size" type="text" id="jes_events_show_avatar_directory_size" value="<?php echo $jes_events[ 'jes_events_show_avatar_directory_size' ]; ?>" />
+								</td>
+							</tr>
+							
+							<tr valign="top"><td><a name="classification-options"><h4><?php _e('Classification options','jet-event-system'); ?></h4></a></td></tr>
 
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_class_enable"><?php _e( 'Allow the use of classifiers through an administrative panel (unless you want to use some or classifier - leave his field blank)', 'jet-event-system' ) ?></label></th>
@@ -384,34 +455,34 @@ if (stripos($blogversion, 'MU') > 0) {
 									<input name="jes_events_class_enable" type="checkbox" id="jes_events_class_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_class_enable' ] ? ' checked="checked"' : '' ); ?> />
 								</td>
 							</tr>
-			
+
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_text_one"><?php _e( 'Classification - 1', 'jet-event-system' ) ?></label></th>
 								<td>
 									<input name="jes_events_text_one" type="text" size="40"id="jes_events_text_one" value="<?php echo $jes_events[ 'jes_events_text_one' ]; ?>" />
 								</td>
-							</tr>					
+							</tr>
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_text_two"><?php _e( 'Classification - 2', 'jet-event-system' ) ?></label></th>
 								<td>
 									<input name="jes_events_text_two" type="text" size="40" id="jes_events_text_two" value="<?php echo $jes_events[ 'jes_events_text_two' ]; ?>" />
 								</td>
 							</tr>
-							
+
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_text_three"><?php _e( 'Classification - 3', 'jet-event-system' ) ?></label></th>
 								<td>
 									<input name="jes_events_text_three" type="text"size="40" id="jes_events_text_three" value="<?php echo $jes_events[ 'jes_events_text_three' ]; ?>" />
 								</td>
 							</tr>
-							
+
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_text_four"><?php _e( 'Classification - 4', 'jet-event-system' ) ?></label></th>
 								<td>
 									<input name="jes_events_text_four" type="text"size="40" id="jes_events_text_four" value="<?php echo $jes_events[ 'jes_events_text_four' ]; ?>" />
 								</td>
 							</tr>
-							
+
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_text_five"><?php _e( 'Classification - 5', 'jet-event-system' ) ?></label></th>
 								<td>
@@ -421,7 +492,7 @@ if (stripos($blogversion, 'MU') > 0) {
 
 		<!-- Restrict options -->
 							<tr valign="top"><td><a name="restrict-options"><h4><?php _e('Restrict options','jet-event-system'); ?></h4></a></td></tr>
-		
+
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_createnonadmin_disable"><?php _e( 'Prohibit non-administrators to create events', 'jet-event-system' ) ?></label></th>
 								<td>
@@ -435,7 +506,7 @@ if (stripos($blogversion, 'MU') > 0) {
 									<input name="jes_events_adminapprove_enable" type="checkbox" id="jes_events_adminapprove_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_adminapprove_enable' ] ? ' checked="checked"' : '' ); ?> />
 								</td>
 							</tr>
-			
+
 		<!-- Privacy options -->	
 							<tr valign="top"><td><a name="privacy-options"><h4><?php _e('Privacy options','jet-event-system'); ?></h4></a></td></tr>
 
@@ -445,14 +516,14 @@ if (stripos($blogversion, 'MU') > 0) {
 									<input name="jes_events_code_index" type="checkbox" id="jes_events_code_index" value="1"<?php echo( '1' == $jes_events[ 'jes_events_code_index' ] ? ' checked="checked"' : '' ); ?> />
 								</td>
 							</tr>
-			
+
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_addnavi_disable"><?php _e( 'Deny access to events for unregistered users', 'jet-event-system' ) ?></label></th>
 								<td>
 									<input name="jes_events_addnavi_disable" type="checkbox" id="jes_events_addnavi_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_addnavi_disable' ] ? ' checked="checked"' : '' ); ?> />
 								</td>
 							</tr>
-			
+
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_addnavi_disable"><?php _e( 'Show private events in the catalog for unregistered users (in the cases allow access to events)', 'jet-event-system' ) ?></label></th>
 								<td>
@@ -506,6 +577,7 @@ if (stripos($blogversion, 'MU') > 0) {
 								<li><strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">http://www.paysterresdelorraine.com/</a></li>
 								<li><strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="http://www.pixelartist.de" target="_blank">www.pixelartist.de</a></li>
 								<li><strong>es_ES</strong> - <em>Alex_Mx</em></li>
+								<li><strong>da_DK</strong> - <em>Cavamondo</em></li>
 							</ul>
 							<p><br />To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>
 							<p><em><?php _e('Please send your translations to milord_k @ mail.ru','jet-event-system'); ?></em></p>

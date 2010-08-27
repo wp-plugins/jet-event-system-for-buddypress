@@ -303,6 +303,204 @@ function jes_bp_event_status() {
 		return apply_filters( 'jes_bp_get_event_status', $event->status );
 	}
 
+	
+
+/* -------------- */ 	
+
+function jes_core_fetch_avatar( $args = '' ) {
+	global $bp, $current_blog;
+
+	// Set a few default variables
+	$def_object		= 'event';
+	$def_type		= 'thumb';
+	$def_class		= 'avatar';
+	$def_alt		= __( 'Avatar Image', 'buddypress' );
+
+	// Set the default variables array
+	$defaults = array(
+		'item_id'		=> false,
+		'object'		=> $def_object,	// user/group/blog/custom type (if you use filters)
+		'type'			=> $def_type,	// thumb or full
+		'avatar_dir'	=> false,		// Specify a custom avatar directory for your object
+		'width'			=> false,		// Custom width (int)
+		'height'		=> false,		// Custom height (int)
+		'class'			=> $def_class,	// Custom <img> class (string)
+		'css_id'		=> false,		// Custom <img> ID (string)
+		'alt'			=> $def_alt,	// Custom <img> alt (string)
+		'email'			=> false,		// Pass the user email (for gravatar) to prevent querying the DB for it
+		'no_grav'		=> false,		// If there is no avatar found, return false instead of a grav?
+		'html'			=> true			// Wrap the return img URL in <img />
+	);
+
+	// Compare defaults to passed and extract
+	$params = wp_parse_args( $args, $defaults );
+	extract( $params, EXTR_SKIP );
+
+	// Set item_id if not passed
+	if ( !$item_id ) {
+		if ( 'event' == $object )
+			$item_id = $current_event->id;
+			
+		$item_id = apply_filters( 'bp_core_avatar_item_id', $item_id, $object );
+
+		if ( !$item_id ) return false;
+	}
+
+	// Set avatar_dir if not passed (uses $object)
+	if ( !$avatar_dir ) {
+		if ( 'event' == $object )
+			$avatar_dir = 'event-avatars';
+			
+		$avatar_dir = apply_filters( 'bp_core_avatar_dir', $avatar_dir, $object );
+
+		if ( !$avatar_dir ) return false;
+	}
+
+	// Add an identifying class to each item
+	$class .= ' ' . $object . '-' . $item_id . '-avatar';
+
+	// Set CSS ID if passed
+	if ( !empty( $css_id ) )
+		$css_id = " id='{$css_id}'";
+
+	// Set avatar width
+	if ( $width )
+		$html_width = " width='{$width}'";
+	else
+		$html_width = ( 'thumb' == $type ) ? ' width="' . BP_AVATAR_THUMB_WIDTH . '"' : ' width="' . BP_AVATAR_FULL_WIDTH . '"';
+
+	// Set avatar height
+	if ( $height )
+		$html_height = " height='{$height}'";
+	else
+		$html_height = ( 'thumb' == $type ) ? ' height="' . BP_AVATAR_THUMB_HEIGHT . '"' : ' height="' . BP_AVATAR_FULL_HEIGHT . '"';
+
+	// Set avatar URL and DIR based on prepopulated constants
+	$avatar_folder_url = apply_filters( 'bp_core_avatar_folder_url', BP_AVATAR_URL . '/' . $avatar_dir . '/' . $item_id, $item_id, $object, $avatar_dir );
+	$avatar_folder_dir = apply_filters( 'bp_core_avatar_folder_dir', BP_AVATAR_UPLOAD_PATH . '/' . $avatar_dir . '/' . $item_id, $item_id, $object, $avatar_dir );
+
+	/****
+	 * Look for uploaded avatar first. Use it if it exists.
+	 * Set the file names to search for, to select the full size
+	 * or thumbnail image.
+	 */
+	$avatar_size = ( 'full' == $type ) ? '-bpfull' : '-bpthumb';
+	$legacy_user_avatar_name = ( 'full' == $type ) ? '-avatar2' : '-avatar1';
+	$legacy_group_avatar_name = ( 'full' == $type ) ? '-groupavatar-full' : '-groupavatar-thumb';
+
+	// Check for directory
+	if ( file_exists( $avatar_folder_dir ) ) {
+
+		// Open directory
+		if ( $av_dir = opendir( $avatar_folder_dir ) ) {
+
+			// Stash files in an array once to check for one that matches
+			$avatar_files = array();
+			while ( false !== ( $avatar_file = readdir($av_dir) ) ) {
+				// Only add files to the array (skip directories)
+				if ( 2 < strlen( $avatar_file ) )
+					$avatar_files[] = $avatar_file;
+			}
+
+			// Check for array
+			if ( 0 < count( $avatar_files ) ) {
+
+				// Check for current avatar
+				foreach( $avatar_files as $key => $value ) {
+					if ( strpos ( $value, $avatar_size )!== false )
+						$avatar_url = $avatar_folder_url . '/' . $avatar_files[$key];
+				}
+
+				// Legacy avatar check
+				if ( !isset( $avatar_url ) ) {
+					foreach( $avatar_files as $key => $value ) {
+						if ( strpos ( $value, $legacy_user_avatar_name )!== false )
+							$avatar_url = $avatar_folder_url . '/' . $avatar_files[$key];
+					}
+
+					// Legacy group avatar check
+					if ( !isset( $avatar_url ) ) {
+						foreach( $avatar_files as $key => $value ) {
+							if ( strpos ( $value, $legacy_group_avatar_name )!== false )
+								$avatar_url = $avatar_folder_url . '/' . $avatar_files[$key];
+						}
+					}
+				}
+			}
+		}
+
+		// Close the avatar directory
+		closedir( $av_dir );
+
+		// If we found a locally uploaded avatar
+		if ( $avatar_url ) {
+
+			// Return it wrapped in an <img> element
+			if ( true === $html ) {
+				return apply_filters( 'bp_core_fetch_avatar', '<img src="' . $avatar_url . '" alt="' . $alt . '" class="' . $class . '"' . $css_id . $html_width . $html_height . ' />', $params, $item_id, $avatar_dir, $css_id, $html_width, $html_height, $avatar_folder_url, $avatar_folder_dir );
+
+			// ...or only the URL
+			} else {
+				return apply_filters( 'bp_core_fetch_avatar_url', $avatar_url );
+			}
+		}
+	}
+
+	// If no avatars could be found, try to display a gravatar
+
+	// Skips gravatar check if $no_grav is passed
+	if ( !$no_grav ) {
+
+		// Set gravatar size
+		if ( $width )
+			$grav_size = $width;
+		else if ( 'full' == $type )
+			$grav_size = BP_AVATAR_FULL_WIDTH;
+		else if ( 'thumb' == $type )
+			$grav_size = BP_AVATAR_THUMB_WIDTH;
+
+		// Set gravatar type
+		if ( empty( $bp->grav_default->{$object} ) )
+			$default_grav = 'wavatar';
+		else if ( 'mystery' == $bp->grav_default->{$object} )
+			$default_grav = apply_filters( 'bp_core_mysteryman_src', BP_AVATAR_DEFAULT, $grav_size );
+		else
+			$default_grav = $bp->grav_default->{$object};
+
+		// Set gravatar object
+		if ( empty( $email ) ) {
+			if ( 'event' == $object ) {
+				$email = "{$item_id}-{$object}@{$bp->root_domain}";
+			}
+		}
+
+		// Set host based on if using ssl
+		if ( is_ssl() )
+			$host = 'https://secure.gravatar.com/avatar/';
+		else
+			$host = 'http://www.gravatar.com/avatar/';
+
+		// Filter gravatar vars
+		$email		= apply_filters( 'bp_core_gravatar_email', $email, $item_id, $object );
+		$gravatar	= apply_filters( 'bp_gravatar_url', $host ) . md5( strtolower( $email ) ) . '?d=' . $default_grav . '&amp;s=' . $grav_size;
+
+		// Return gravatar wrapped in <img />
+		if ( true === $html )
+			return apply_filters( 'jes_core_fetch_avatar', '<img src="' . $gravatar . '" alt="' . $alt . '" class="' . $class . '"' . $css_id . $html_width . $html_height . ' />', $params, $item_id, $avatar_dir, $css_id, $html_width, $html_height, $avatar_folder_url, $avatar_folder_dir );
+
+		// ...or only return the gravatar URL
+		else
+			return apply_filters( 'jes_core_fetch_avatar_url', $gravatar );
+
+	} else {
+		return apply_filters( 'jes_core_fetch_avatar', false, $params, $item_id, $avatar_dir, $css_id, $html_width, $html_height, $avatar_folder_url, $avatar_folder_dir );
+	}
+}
+	
+	
+/* ----------------- */
+
+	
 function jes_bp_event_avatar( $args = '' ) {
 	echo jes_bp_get_event_avatar( $args );
 }
@@ -322,7 +520,7 @@ function jes_bp_event_avatar( $args = '' ) {
 		extract( $r, EXTR_SKIP );
 
 		/* Fetch the avatar from the folder, if not provide backwards compat. */
-		if ( !$avatar = bp_core_fetch_avatar( array( 'item_id' => $events_template->event->id, 'object' => 'event', 'type' => $type, 'avatar_dir' => 'event-avatars', 'alt' => $alt, 'css_id' => $id, 'class' => $class, 'width' => $width, 'height' => $height ) ) )
+		if ( !$avatar = jes_core_fetch_avatar( array( 'item_id' => $events_template->event->id, 'object' => 'event', 'type' => $type, 'avatar_dir' => 'event-avatars', 'alt' => $alt, 'css_id' => $id, 'class' => $class, 'width' => $width, 'height' => $height ) ) )
 			$avatar = '<img src="' . attribute_escape( $events_template->event->avatar_thumb ) . '" class="avatar" alt="' . attribute_escape( $events_template->event->name ) . '" />';
 
 		return apply_filters( 'jes_bp_get_event_avatar', $avatar );
@@ -349,7 +547,13 @@ function jes_bp_event_avatar_top() {
 		return jes_bp_get_event_avatar( 'type=thumb&width=75&height=75' );
 	}
 	
-	
+function jes_bp_event_avatar_main() {
+	echo jes_bp_get_event_avatar_main();
+}
+	function jes_bp_get_event_avatar_main( $event = false ) {
+		return jes_bp_get_event_avatar( 'type=full&width=150&height=150' );
+	}
+		
 function jes_bp_event_last_active() {
 	echo jes_bp_get_event_last_active();
 }
@@ -608,6 +812,19 @@ function jes_bp_event_placedaddress() {
 		return apply_filters( 'jes_bp_get_event_placedaddress', stripslashes($event->placedaddress) );
 	}
 
+function jes_bp_event_placednote() {
+	echo jes_bp_get_event_placednote();
+}
+	function jes_bp_get_event_placednote( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_placednote', stripslashes($event->placednote) );
+	}
+
+
 function jes_bp_event_placedaddress_editable() {
 	echo jes_bp_get_event_placedaddress_editable();
 }
@@ -632,6 +849,29 @@ function jes_bp_event_placedaddress_excerpt() {
 		return apply_filters( 'jes_bp_get_event_placedaddress_excerpt', bp_create_excerpt( $event->placedaddress, 30 ) );
 	}
 
+function jes_bp_event_placednote_editable() {
+	echo jes_bp_get_event_placednote_editable();
+}
+	function jes_bp_get_event_placednote_editable( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_placednote_editable', $event->placednote );
+	}
+
+function jes_bp_event_placednote_excerpt() {
+	echo jes_bp_get_event_placednote_excerpt();
+}
+	function jes_bp_get_event_placednote_excerpt( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_placednote_excerpt', bp_create_excerpt( $event->placednote, 30 ) );
+	}
 
 
 /* ********* */	
@@ -684,6 +924,54 @@ function jes_bp_event_edted() {
 
 		return apply_filters( 'jes_bp_get_event_edted', stripslashes($event->edted) );
 	}
+
+function jes_bp_event_edtsth() {
+	echo jes_bp_get_event_edtsth();
+}
+	function jes_bp_get_event_edtsth( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_edtsth', stripslashes($event->edtsth) );
+	}
+	
+function jes_bp_event_edteth() {
+	echo jes_bp_get_event_edteth();
+}
+	function jes_bp_get_event_edteth( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_edteth', stripslashes($event->edteth) );
+	}	
+	
+function jes_bp_event_edtstm() {
+	echo jes_bp_get_event_edtstm();
+}
+	function jes_bp_get_event_edtstm( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_edtstm', stripslashes($event->edtstm) );
+	}
+	
+function jes_bp_event_edtetm() {
+	echo jes_bp_get_event_edtetm();
+}
+	function jes_bp_get_event_edtetm( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_edtetm', stripslashes($event->edtetm) );
+	}	
 
 function jes_bp_event_newspublic() {
 	echo jes_bp_get_event_newspublic();
@@ -1888,6 +2176,15 @@ function bp_new_event_placedaddress() {
 		return apply_filters( 'bp_get_new_event_placedaddress', $bp->jes_events->current_event->placedaddress );
 	}
 	
+function bp_new_event_placednote() {
+	echo bp_get_new_event_placednote();
+}
+	function bp_get_new_event_placednote() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_placednote', $bp->jes_events->current_event->placednote );
+	}
+	
+	
 	
 function bp_new_event_newspublic() {
 	echo bp_get_new_event_newspublic();
@@ -1922,6 +2219,37 @@ function bp_new_event_edted() {
 		return apply_filters( 'bp_get_new_event_edted', $bp->jes_events->current_event->edted );
 	}
 	
+function bp_new_event_edtsth() {
+	echo bp_get_new_event_edtsth();
+}
+	function bp_get_new_event_edtsth() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_edtsth', $bp->jes_events->current_event->edtsth );
+	}
+
+function bp_new_event_edteth() {
+	echo bp_get_new_event_edteth();
+}
+	function bp_get_new_event_edteth() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_edteth', $bp->jes_events->current_event->edteth );
+	}
+
+function bp_new_event_edtstm() {
+	echo bp_get_new_event_edtstm();
+}
+	function bp_get_new_event_edtstm() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_edtstm', $bp->jes_events->current_event->edtstm );
+	}
+
+function bp_new_event_edtetm() {
+	echo bp_get_new_event_edtetm();
+}
+	function bp_get_new_event_edtetm() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_edtetm', $bp->jes_events->current_event->edtetm );
+	}
 	
 function bp_new_event_allday() {
 	echo bp_get_new_event_allday();
@@ -2061,7 +2389,10 @@ function bp_new_jes_event_invite_friend_list() {
 					}
 				}
 			if ($eshowavatar) { 
-				$items[] = '<' . $separator . '>'.jes_get_member_avatar('id='.$friends[$i]['id'].'&alt='.$friends[$i]['full_name'].'&height=25&width=25').'<input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . $friends[$i]['full_name'] . '<br /></' . $separator . '><br />';
+				$adata = get_option( 'jes_events' );
+				$size_for_avatar = $adata['jes_events_show_avatar_invite_size'];
+				$padding_size = (int)($size_for_avatar/2);
+			$items[] = '<' . $separator . ' style="padding-bottom:'.$padding_size.'px;">'.jes_get_member_avatar('id='.$friends[$i]['id'].'&alt='.$friends[$i]['full_name'].'&height='.$size_for_avatar.'&width='.$size_for_avatar).'<input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . $friends[$i]['full_name'] . '<br /></' . $separator . '><br />';
 			} else {
 				$items[] = '<' . $separator . '>'.'<input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . $friends[$i]['full_name'] . '</' . $separator . '>';
 				}
@@ -2156,11 +2487,67 @@ function bp_event_current_avatar() {
 function bp_get_event_has_avatar() {
 	global $bp;
 
-	if ( !empty( $_FILES ) || !bp_core_fetch_avatar( array( 'item_id' => $bp->jes_events->current_event->id, 'object' => 'event', 'no_grav' => true ) ) )
+	if ( !empty( $_FILES ) || !jes_core_fetch_avatar( array( 'item_id' => $bp->jes_events->current_event->id, 'object' => 'event', 'no_grav' => true ) ) )
 		return false;
 
 	return true;
 }
+
+
+/* --------------- */
+
+function jes_core_delete_existing_avatar( $args = '' ) {
+	global $bp;
+
+	$defaults = array(
+		'item_id' => false,
+		'object' => 'event', // user OR group OR blog OR custom type (if you use filters)
+		'avatar_dir' => false
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+	extract( $args, EXTR_SKIP );
+
+	if ( !$item_id ) {
+		if ( 'event' == $object )
+			$item_id = $current_event->id;
+			
+		$item_id = apply_filters( 'bp_core_avatar_item_id', $item_id, $object );
+
+		if ( !$item_id ) return false;
+	}
+
+	if ( !$avatar_dir ) {
+		if ( 'event' == $object )
+			$avatar_dir = 'event-avatars';
+			
+		$avatar_dir = apply_filters( 'bp_core_avatar_dir', $avatar_dir, $object );
+
+		if ( !$avatar_dir ) return false;
+	}
+
+	$avatar_folder_dir = apply_filters( 'bp_core_avatar_folder_dir', BP_AVATAR_UPLOAD_PATH . '/' . $avatar_dir . '/' . $item_id, $item_id, $object, $avatar_dir );
+
+	if ( !file_exists( $avatar_folder_dir ) )
+		return false;
+
+	if ( $av_dir = opendir( $avatar_folder_dir ) ) {
+		while ( false !== ( $avatar_file = readdir($av_dir) ) ) {
+			if ( ( preg_match( "/-bpfull/", $avatar_file ) || preg_match( "/-bpthumb/", $avatar_file ) ) && '.' != $avatar_file && '..' != $avatar_file )
+				@unlink( $avatar_folder_dir . '/' . $avatar_file );
+		}
+	}
+	closedir($av_dir);
+
+	@rmdir( $avatar_folder_dir );
+
+	do_action( 'jes_core_delete_existing_avatar', $args );
+
+	return true;
+}
+
+
+/* --------------- */
 
 function jes_bp_event_avatar_delete_link() {
 	echo jes_bp_get_event_avatar_delete_link();
@@ -2628,6 +3015,16 @@ function bp_is_jes_event_invite_jes() {
 
 	return false;
 }
+
+function bp_is_jes_event_google_map_jes() {
+	global $bp;
+
+	if ( JES_SLUG == $bp->current_component && 'google-map' == $bp->current_action )
+		return true;
+
+	return false;
+}
+
 
 function bp_is_event_membership_request() {
 	global $bp;

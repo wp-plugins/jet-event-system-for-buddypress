@@ -58,13 +58,13 @@
 				{ ?>
 		<li>
 			<div class="item-avatar">
-				<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width=50&height=50' ) ?></a>
+				<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width='.$edata['jes_events_show_avatar_directory_size'].'&height='.$edata['jes_events_show_avatar_directory_size'] ) ?></a>
 			</div>
 
 			<div class="item" style="width:80%;">
 				<div class="item-title"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a></div>			
 				<div class="item-meta">
-	<?php	if ( datetounix(date("d/m/Y H:i")) > datetounix(jes_bp_get_event_edted())) { ?>
+	<?php	if ( datetounix(date("d/m/Y"),date("H"),date("i")) > datetounix(jes_bp_get_event_edted(), jes_bp_get_event_edteth(), jes_bp_get_event_edtetm())) { ?>
 				<em><span style="color : #CCFF00;"><?php _e('Past event','jet-event-system') ?></span></em> , 
 	<?php } else { ?>
 				<em><span style="color : #33CC00;"><?php _e('Active event','jet-event-system') ?></span></em> , 
@@ -89,7 +89,7 @@
 								<?php } ?></span>
 											
 					<span><?php _e('in city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?><?php if ( jes_bp_event_is_visible() ) { ?>, <?php _e('at ','jet-event-system') ?><?php jes_bp_event_placedaddress() ?><? } ?></span><br />				
-					<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?></span> <?php _e('to: ','jet-event-system') ?> <span><?php jes_bp_event_edted() ?></span>
+					<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?>, <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?></span> <?php _e('to: ','jet-event-system') ?> <span><?php jes_bp_event_edted() ?>, <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?></span>
 				</div>
 
 				<?php do_action( 'bp_directory_events_item' ) ?>
@@ -149,14 +149,14 @@
 
 			<div class="item" style="width:80%;">
 					<span style="font-size:80%;"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a> 
-					<?php	if ( datetounix(date("d/m/Y H:i")) > datetounix(jes_bp_get_event_edted())) { ?>
+					<?php	if ( datetounix(date("d/m/Y"),date("H"),date("i")) > datetounix(jes_bp_get_event_edted(), jes_bp_get_event_edteth(), jes_bp_get_event_edtetm())) { ?>
 									<em><span style="color : #CCFF00;"><?php _e('Past event','jet-event-system') ?></span></em> , 
 					<?php } else { ?>
 									<em><span style="color : #33CC00;"><?php _e('Active event','jet-event-system') ?></span></em> , 
 					<?php } ?>				
 					<em><?php jes_bp_event_type() ?></em>, <strong><?php jes_bp_event_etype() ?></strong>
 					<br />
-					<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?></span> <?php _e('to: ','jet-event-system') ?> <?php jes_bp_event_edted() ?>
+					<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?>, <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?></span> <?php _e('to: ','jet-event-system') ?> <?php jes_bp_event_edted() ?>, , <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?>
 					<?php _e('The event will take place:','jet-event-system'); ?>
 							<?php
 								if ( $edata[ 'jes_events_countryopt_enable' ] )
