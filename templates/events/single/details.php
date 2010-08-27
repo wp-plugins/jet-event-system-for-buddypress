@@ -28,8 +28,8 @@
 					<p><strong><?php _e('Event address', 'jet-event-system') ?>:</strong> <?php jes_bp_event_placedaddress() ?></p>
 		<?php } ?>		
 			<h4><?php _e('Event Date','jet-event-system') ?></h4>
-				<p><strong><?php _e('Event Start date', 'jet-event-system') ?>:</strong> <?php jes_bp_event_edtsd() ?>, <strong><?php _e('Time:','jet-event-') ?></strong> <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?><br />
-			<strong><?php _e('Event End date', 'jet-event-system') ?>:</strong> <?php jes_bp_event_edted() ?>, <strong><?php _e('Time:','jet-event-') ?></strong> <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?></p>
+				<p><strong><?php _e('Event Start date', 'jet-event-system') ?>:</strong> <?php jes_bp_event_edtsd() ?>, <strong><?php _e('Time:','jet-event-system') ?></strong> <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?><br />
+			<strong><?php _e('Event End date', 'jet-event-system') ?>:</strong> <?php jes_bp_event_edted() ?>, <strong><?php _e('Time:','jet-event-system') ?></strong> <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?></p>
 	<?php	if ( $edata[ 'jes_events_specialconditions_enable' ] )
 				{ ?>
 					<?php if ( jes_bp_get_event_eventterms() != null ) { ?>

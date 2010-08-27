@@ -12,7 +12,7 @@ Network: true
 
 define('Jet Events System', '1.2');
 define ('JES_EVENTS_DB_VERSION', 6 );
-define ('JES_EVENTS_THEME_VERSION', 8 );
+define ('JES_EVENTS_THEME_VERSION', 9 );
 
 /* Define the slug for the component */
 if ( !defined( 'JES_SLUG' ) ) {
