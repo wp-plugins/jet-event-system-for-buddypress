@@ -1,0 +1,1431 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/jet-event-system-for-buddypress\n"
+"POT-Creation-Date: 2010-08-10 12:49+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Andrea Bianchi\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+#: jet-event-system.php:66
+msgid "Jet Event System"
+msgstr "Jet Event System"
+
+#: jet-event-system.php:181
+msgid "Details"
+msgstr "Dettagli"
+
+#: jet-event-system.php:182
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: jet-event-system.php:183
+msgid "Avatar"
+msgstr "Avatar"
+
+#: jet-event-system.php:212
+#: jet-event-system.php:860
+#: jet-event-system.php:1279
+#: jet-event-system.php:1292
+#: jet-event-system.php:1305
+#: jet-event-system.php:1318
+#: jet-events-widgets.php:5
+msgid "Events"
+msgstr "Eventi"
+
+#: jet-event-system.php:246
+#, php-format
+msgid "Events <span>(%d)</span>"
+msgstr "Eventi <span>(%d)</span>"
+
+#: jet-event-system.php:251
+#: jet-event-system.php:257
+msgid "My Events"
+msgstr "Miei Eventi"
+
+#: jet-event-system.php:276
+#: jet-events-templatetags.php:995
+#: jet-events-templatetags.php:1950
+msgid "Event Avatar"
+msgstr "Avatar Eventi"
+
+#: jet-event-system.php:298
+#: jet-events-admin.php:55
+msgid "Home"
+msgstr "Home"
+
+#: jet-event-system.php:302
+msgid "Admin"
+msgstr "Amministra"
+
+#: jet-event-system.php:306
+msgid "Request join to event"
+msgstr "Richiesta partecipazione eventi"
+
+#: jet-event-system.php:311
+#, php-format
+msgid "Members (%s)"
+msgstr "Membri (%s)"
+
+#: jet-event-system.php:347
+msgid "Admin Options"
+msgstr "Opzioni Amministrazione"
+
+#: jet-event-system.php:350
+#: jet-events-templatetags.php:1004
+#: templates/events/single/admin.php:343
+msgid "Delete Event"
+msgstr "Cancella Evento"
+
+#: jet-event-system.php:395
+msgid "Event invite could not be accepted"
+msgstr "L'invito all'evento non può essere accettato"
+
+#: jet-event-system.php:397
+msgid "Event invite accepted"
+msgstr "L'invito all'evento è stato accettao"
+
+#: jet-event-system.php:403
+#: jet-event-system.php:1653
+#: jet-event-system.php:2110
+#, php-format
+msgid "%s joined the event %s"
+msgstr "%s si è unito all'evento %s"
+
+#: jet-event-system.php:417
+msgid "Event invite could not be rejected"
+msgstr "L'invito all'evento non può essere rifiutato"
+
+#: jet-event-system.php:419
+msgid "Event invite rejected"
+msgstr "L'invito all'evento è stato rifiutato"
+
+#: jet-event-system.php:476
+msgid "Event invites sent."
+msgstr "Gli inviti all'evento sono stati inviati"
+
+#: jet-event-system.php:502
+msgid "There was an error sending your event membership request, please try again."
+msgstr "Si è verificato un errore durante l'invio delle richieste di partecipazione. Riprovare."
+
+#: jet-event-system.php:504
+msgid "Your membership request was sent to the event administrator successfully. You will be notified when the event administrator responds to your request."
+msgstr "La tua richiesta di partecipazione è stata inoltrata all'amministratore dell'evento.Sarai avvisato appena l'amministratore dell'evento risponderà alla tua richiesta"
+
+#: jet-event-system.php:553
+msgid "There was an error updating event details, please try again."
+msgstr "Si è verificato un errore nell'aggiornare i dettagli dell'evento. Riprovare."
+
+#: jet-event-system.php:555
+msgid "Event details were successfully updated."
+msgstr "I dettagli dell'evento sono stati aggiornati."
+
+#: jet-event-system.php:559
+msgid "There was an error updating event details (check date!), please try again."
+msgstr "Si è verificato un errore nell'aggiornare i dettagli dell'evento (contolla la data!). Riprovare."
+
+#: jet-event-system.php:595
+msgid "There was an error updating event settings, please try again."
+msgstr "Si è verificato un errore nell'aggiornare le impostazioni dell'evento. Riprovare."
+
+#: jet-event-system.php:597
+msgid "Event settings were successfully updated."
+msgstr "Le impostazioni dell'evento sono state aggiornate"
+
+#: jet-event-system.php:627
+msgid "Your avatar was deleted successfully!"
+msgstr "Il tuo avatar è stato cancellato!"
+
+#: jet-event-system.php:629
+msgid "There was a problem deleting that avatar, please try again."
+msgstr "Si è verificato un errore durante la cancellazione dell'Avatar. Riprovare."
+
+#: jet-event-system.php:657
+msgid "There was a problem cropping the avatar, please try uploading it again"
+msgstr "Si è verificato un errore durante la modifica dell'Avatar. Riprovare."
+
+#: jet-event-system.php:659
+msgid "The new event avatar was uploaded successfully!"
+msgstr "Il nuovo Avatar dell'evento è stato caricato!"
+
+#: jet-event-system.php:688
+msgid "There was an error when promoting that user, please try again"
+msgstr "Si è verificato un errore nel promuovere questo utente, riprovare."
+
+#: jet-event-system.php:690
+msgid "User promoted successfully"
+msgstr "Utente promosso con successo"
+
+#: jet-event-system.php:707
+msgid "There was an error when demoting that user, please try again"
+msgstr "Si è verificato un errore nel retrocedere questo utente, riprovare."
+
+#: jet-event-system.php:709
+msgid "User demoted successfully"
+msgstr "Utente retrocesso con successo"
+
+#: jet-event-system.php:726
+msgid "There was an error when banning that user, please try again"
+msgstr "Si è verificato un errore nel bannare l'utente, riprovare"
+
+#: jet-event-system.php:728
+msgid "User banned successfully"
+msgstr "Utente bannato"
+
+#: jet-event-system.php:745
+msgid "There was an error when unbanning that user, please try again"
+msgstr "Si è verificato un errore durante l'operazione di rimozione del ban, riprovare"
+
+#: jet-event-system.php:747
+msgid "User ban removed successfully"
+msgstr "Il ban dell'utente è stato rimosso"
+
+#: jet-event-system.php:789
+msgid "There was an error accepting the membership request, please try again."
+msgstr "Si è verificato un errore nell'accettare la richiesta di partecipazione, riprovare"
+
+#: jet-event-system.php:791
+msgid "Event membership request accepted"
+msgstr "Richiesta di partecipazione all'evento accettata"
+
+#: jet-event-system.php:801
+msgid "There was an error rejecting the membership request, please try again."
+msgstr "Si è verificato un errore nel rifiutare la richiesta di partecipazione, riprovare"
+
+#: jet-event-system.php:803
+msgid "Event membership request rejected"
+msgstr "Richiesta di partecipazione all'evento rifiutata"
+
+#: jet-event-system.php:835
+msgid "There was an error deleting the event, please try again."
+msgstr "Si è verificato un errore nella cancellazione dell'evento, riprovare"
+
+#: jet-event-system.php:837
+msgid "The event was deleted successfully"
+msgstr "Evento cancellato"
+
+#: jet-event-system.php:861
+msgid "Yes"
+msgstr "Sì"
+
+#: jet-event-system.php:862
+msgid "No"
+msgstr "No"
+
+#: jet-event-system.php:869
+msgid "A member invites you to join a event"
+msgstr "Sei stato invitato a partecipare ad un evento"
+
+#: jet-event-system.php:875
+msgid "Event information is updated"
+msgstr "Informazioni evento aggiornate"
+
+#: jet-event-system.php:881
+msgid "You are promoted to a event administrator or moderator"
+msgstr "Sei stato promosso ad amministratore o moderatore di un evento"
+
+#: jet-event-system.php:887
+msgid "A member requests to join a private event for which you are an admin"
+msgstr "Un utente ha richiesto di partecipare ad un evento privato di cui sei amministratore"
+
+#: jet-event-system.php:936
+msgid "There was an error saving event details. Please try again."
+msgstr "Si è verificato un errore nel salvataggio dei dettagli dell'evento. Riprovare."
+
+#: jet-event-system.php:958
+msgid "Please fill in all of the required fields"
+msgstr "Devi riempire tutti i campi obbligatori"
+
+#: jet-event-system.php:963
+#: jet-event-system.php:986
+msgid "There was an error saving event details, please try again."
+msgstr "Si è verificato un errore nel salvataggio dei dettagli dell'evento, riprovare."
+
+#: jet-event-system.php:1017
+#, php-format
+msgid "%s created the event %s"
+msgstr "%s ha createo l'evento %s"
+
+#: jet-event-system.php:1065
+msgid "There was an error saving the event avatar, please try uploading again."
+msgstr "Si è verificato un errore nel salvataggio dell'avatar dell'evento, prova a ripetere l'upload"
+
+#: jet-event-system.php:1067
+msgid "The event avatar was uploaded successfully!"
+msgstr "Avatar dell'evento caricato con successo."
+
+#: jet-event-system.php:1091
+#: jet-event-system.php:1098
+msgid "There was an error joining the event."
+msgstr "Si è verificato un errore nella partecipazione all'evento"
+
+#: jet-event-system.php:1100
+msgid "You joined the event!"
+msgstr "Ti sei unito all'evento!"
+
+#: jet-event-system.php:1123
+msgid "There was an error leaving the event."
+msgstr "Si è verificato un errore nel lasciare l'evento"
+
+#: jet-event-system.php:1125
+#: jet-event-system.php:1611
+msgid "You successfully left the event."
+msgstr "Hai lasciato l'evento."
+
+#: jet-event-system.php:1203
+msgid "Created a event"
+msgstr "Creato un evento"
+
+#: jet-event-system.php:1204
+msgid "Joined a event"
+msgstr "Partecipazione a un evento"
+
+#: jet-event-system.php:1205
+msgid "New event forum topic"
+msgstr "Nuovo topic di un forum evento"
+
+#: jet-event-system.php:1206
+msgid "New event forum post"
+msgstr "Nuovo Post del Forum Eventi"
+
+#: jet-event-system.php:1265
+msgid "Event Membership Requests"
+msgstr "Richieste di Partecipazione evento"
+
+#: jet-event-system.php:1265
+#, php-format
+msgid "%d new membership requests for the event \"%s\""
+msgstr "%d nuova richiesta di partecipazione all'evento \"%s\""
+
+#: jet-event-system.php:1268
+#, php-format
+msgid "%s requests membership for the event \"%s\""
+msgstr "%s chiede di partecipare all'evento \"%s\""
+
+#: jet-event-system.php:1279
+#, php-format
+msgid "%d accepted event membership requests"
+msgstr "%d accettato la richiesta di partecipazione all'evento"
+
+#: jet-event-system.php:1281
+#, php-format
+msgid "Membership for event \"%s\" accepted"
+msgstr "La partecipazione all'event \"%s\" è stata accettata"
+
+#: jet-event-system.php:1292
+#, php-format
+msgid "%d rejected event membership requests"
+msgstr "%d rifiutato la richiesta di partecipazione all'evento"
+
+#: jet-event-system.php:1294
+#, php-format
+msgid "Membership for event \"%s\" rejected"
+msgstr "La partecipazione all'event \"%s\" è stata rifiutata"
+
+#: jet-event-system.php:1305
+#, php-format
+msgid "You were promoted to an admin in %d events"
+msgstr "Sei stato promosso ad amministratore in %d eventi"
+
+#: jet-event-system.php:1307
+#, php-format
+msgid "You were promoted to an admin in the event %s"
+msgstr "Sei stato promosso ad amministratore dell'evento %s"
+
+#: jet-event-system.php:1318
+#, php-format
+msgid "You were promoted to a mod in %d events"
+msgstr "Sei stato promosso a moderatore in %d eventi"
+
+#: jet-event-system.php:1320
+#, php-format
+msgid "You were promoted to a mod in the event %s"
+msgstr "Sei stato promosso a moderatore dell'evento %s"
+
+#: jet-event-system.php:1331
+#: jet-event-system.php:1333
+msgid "Event Invites"
+msgstr "Inviti all'evento"
+
+#: jet-event-system.php:1331
+#, php-format
+msgid "You have %d new event invitations"
+msgstr "Hai %d nuovi inviti per eventi"
+
+#: jet-event-system.php:1333
+#, php-format
+msgid "You have an invitation to the event: %s"
+msgstr "Sei stato invitato all'evento: %s"
+
+#: jet-event-system.php:1449
+#: jet-events-classes.php:748
+msgid "Event Admin"
+msgstr "Gestisci Evento"
+
+#: jet-event-system.php:1588
+msgid "As the only Admin, you cannot leave the event."
+msgstr "Come unico amministratore non puoi lasciare l'evento"
+
+#: jet-event-system.php:1832
+#, php-format
+msgid "%s posted an update in the event %s:"
+msgstr "%s ha postato un aggiornamento nell'evento %s:"
+
+#: jet-events-admin.php:45
+#: jet-events-templatetags.php:603
+msgid "Public"
+msgstr "Pubblico"
+
+#: jet-events-admin.php:50
+#: jet-events-templatetags.php:605
+msgid "Private"
+msgstr "Privato"
+
+#: jet-events-admin.php:60
+#: jet-events-admin.php:65
+msgid "Club"
+msgstr "Club"
+
+#: jet-events-admin.php:77
+msgid "Options updated."
+msgstr "Opzioni aggiornate"
+
+#: jet-events-admin.php:81
+msgid "JES. Jet Event System"
+msgstr "JES. Jet Event System"
+
+#: jet-events-admin.php:89
+msgid "Let's make some changes:"
+msgstr "Facciamo alcune modifiche:"
+
+#: jet-events-admin.php:94
+msgid "Allow costum slug"
+msgstr "Permetti etichette personalizzate"
+
+#: jet-events-admin.php:101
+msgid "Slug:"
+msgstr "Etichetta:"
+
+#: jet-events-admin.php:108
+msgid "Allow the use of classifiers through an administrative panel"
+msgstr "Consenti l'uso di classificatori nel pannello di amministrazione"
+
+#: jet-events-admin.php:115
+msgid "Classification - 1"
+msgstr "Classificazione - 1"
+
+#: jet-events-admin.php:121
+msgid "Classification - 2"
+msgstr "Classificazione - 2"
+
+#: jet-events-admin.php:127
+msgid "Classification - 3"
+msgstr "Classificazione - 3"
+
+#: jet-events-admin.php:133
+msgid "Classification - 4"
+msgstr "Classificazione - 4"
+
+#: jet-events-admin.php:139
+msgid "Classification - 5"
+msgstr "Classificazione - 5"
+
+#: jet-events-admin.php:148
+msgid "Prohibit non-administrators to create events (available since version 1.1.9)"
+msgstr "Impedisci ai non-amministratori di creare eventi (disponibile dalla versione 1.1.9)"
+
+#: jet-events-admin.php:155
+msgid "Allow verification of events by the administrator (available since version 1.1.9)"
+msgstr "Consenti la verifica degli eventi da parte degli amministratori (disponibile dalla versione 1.1.9)"
+
+#: jet-events-admin.php:164
+msgid "Allow indexing of events search engines"
+msgstr "Consenti indicizzazione degli eventi sui motori di ricerca"
+
+#: jet-events-admin.php:171
+msgid "Deny access to events for unregistered users"
+msgstr "Nega l'accesso agli eventi per gli utenti non registrati"
+
+#: jet-events-admin.php:177
+msgid "Save Settings"
+msgstr "Salva impostazioni"
+
+#: jet-events-classes.php:742
+msgid "Event Mod"
+msgstr "Moderatore Evento "
+
+#: jet-events-notifications.php:7
+msgid "Event Details Updated"
+msgstr "Dettagli evento aggiornati"
+
+#: jet-events-notifications.php:22
+#, php-format
+msgid ""
+"Event details for the event \"%s\" were updated:\r\n"
+"\r\n"
+"To view the event: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+msgstr ""
+"I dettagli per l'evento \"%s\" sono state aggiornate:\r\n"
+"\r\n"
+"Per vedere l'evento: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+
+#: jet-events-notifications.php:29
+#: jet-events-notifications.php:77
+#: jet-events-notifications.php:130
+#: jet-events-notifications.php:176
+#: jet-events-notifications.php:228
+#: jet-events-notifications.php:285
+#, php-format
+msgid "To disable these notifications please log in and go to: %s"
+msgstr "Per disabilitare queste notifiche clicca su: %s"
+
+#: jet-events-notifications.php:62
+#, php-format
+msgid "Membership request for event: %s"
+msgstr "Richiesta partecipazione all'evento: %s"
+
+#: jet-events-notifications.php:65
+#, php-format
+msgid ""
+"%s wants to join the event \"%s\".\r\n"
+"\r\n"
+"Because you are the administrator of this event, you must either accept or reject the membership request.\r\n"
+"\r\n"
+"To view all pending membership requests for this event, please visit:\r\n"
+"%s\r\n"
+"\r\n"
+"To view %s's profile: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+msgstr ""
+"%s vuole partecipare all'evento \"%s\".\r\n"
+"\r\n"
+"Poichè sei un amministratore dell'evento, devi accettare o rifiutare la sua richiesta.\r\n"
+"\r\n"
+"Per vedere tutte le richieste di partecipazione in attesa di approvazione, visita:\r\n"
+"%s\r\n"
+"\r\n"
+"Per vedere il profilo di %s: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+
+#: jet-events-notifications.php:110
+#, php-format
+msgid "Membership request for event \"%s\" accepted"
+msgstr "La richiesta di partecipazione all'evento \"%s\" è stata accettata"
+
+#: jet-events-notifications.php:112
+#, php-format
+msgid ""
+"Your membership request for the event \"%s\" has been accepted.\r\n"
+"\r\n"
+"To view the event please login and visit: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+msgstr ""
+"La tua richiesta di partecipazione all'evento \"%s\" è stata accettata.\r\n"
+"\r\n"
+"Per visualizzare l'evento collegati e visita: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+
+#: jet-events-notifications.php:120
+#, php-format
+msgid "Membership request for event \"%s\" rejected"
+msgstr "La richiesta di partecipazione all'evento \"%s\" è stata rifiutata"
+
+#: jet-events-notifications.php:122
+#, php-format
+msgid ""
+"Your membership request for the event \"%s\" has been rejected.\r\n"
+"\r\n"
+"To submit another request please log in and visit: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+msgstr ""
+"La tua richiesta di partecipazione all'evento \"%s\" è stata rifiutata.\r\n"
+"\r\n"
+"Per inviare una nuova richiesta vai su: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+
+#: jet-events-notifications.php:144
+msgid "an administrator"
+msgstr "un amministratore"
+
+#: jet-events-notifications.php:147
+msgid "a moderator"
+msgstr "un moderatore"
+
+#: jet-events-notifications.php:166
+#, php-format
+msgid "You have been promoted in the event: \"%s\""
+msgstr "Sei stato promosso nell'evento: \"%s\""
+
+#: jet-events-notifications.php:169
+#, php-format
+msgid ""
+"You have been promoted to %s for the event: \"%s\".\r\n"
+"\r\n"
+"To view the event please visit: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+msgstr ""
+"Sei stato promosso a %s per l'evento: \"%s\".\r\n"
+"\r\n"
+"Per visitare l'evento: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+
+#: jet-events-notifications.php:214
+#, php-format
+msgid "You have an invitation to the event: \"%s\""
+msgstr "Sei stato invitato all'evento: \"%s\""
+
+#: jet-events-notifications.php:217
+#, php-format
+msgid ""
+"One of your friends %s has invited you to the event: \"%s\".\r\n"
+"\r\n"
+"To view your event invites visit: %s\r\n"
+"\r\n"
+"To view the event visit: %s\r\n"
+"\r\n"
+"To view %s's profile visit: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+msgstr ""
+"Il tuo amico %s ti ha invitato all'evento: \"%s\".\r\n"
+"\r\n"
+"Per visualizzare i tuoi inviti: %s\r\n"
+"\r\n"
+"Per visualizzare l'evento: %s\r\n"
+"\r\n"
+"Per visualizzare il profilo di %s: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+
+#: jet-events-notifications.php:273
+#, php-format
+msgid "%s mentioned you in the event \"%s\""
+msgstr "%s ti ha menzionato nell'evento \"%s\""
+
+#: jet-events-notifications.php:276
+#, php-format
+msgid ""
+"%s mentioned you in the event \"%s\":\r\n"
+"\r\n"
+"\"%s\"\r\n"
+"\r\n"
+"To view and respond to the message, log in and visit: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+msgstr ""
+"%s ti ha menzionato nell'evento \"%s\":\r\n"
+"\r\n"
+"\"%s\"\r\n"
+"\r\n"
+"Per rispondere al messaggio visita: %s\r\n"
+"\r\n"
+"---------------------\r\n"
+
+#: jet-events-templatetags.php:248
+msgid "Public Event"
+msgstr "Evento pubblico"
+
+#: jet-events-templatetags.php:250
+msgid "Hidden Event"
+msgstr "Evento Nascosto"
+
+#: jet-events-templatetags.php:252
+msgid "Private Event"
+msgstr "Evento privato"
+
+#: jet-events-templatetags.php:254
+msgid "Event"
+msgstr "Evento"
+
+#: jet-events-templatetags.php:284
+#: jet-events-templatetags.php:1785
+msgid "Event avatar"
+msgstr "Avatar dell'evento"
+
+#: jet-events-templatetags.php:334
+msgid "not yet active"
+msgstr "non ancora attivo"
+
+#: jet-events-templatetags.php:660
+msgid "No Admins"
+msgstr "Nessun amministratore"
+
+#: jet-events-templatetags.php:680
+msgid "No Mods"
+msgstr "Nessun moderatore"
+
+#: jet-events-templatetags.php:702
+msgid "Filter Events"
+msgstr "Filtra Eventi"
+
+#: jet-events-templatetags.php:750
+#, php-format
+msgid "Viewing event %1$s to %2$s (of %3$s events)"
+msgstr "Visualizzazione eventi da %1$s a %2$s (di %3$s eventi)"
+
+#: jet-events-templatetags.php:773
+#, php-format
+msgid "%s member"
+msgstr "%s membro"
+
+#: jet-events-templatetags.php:775
+#, php-format
+msgid "%s members"
+msgstr "%s partecipanti"
+
+#: jet-events-templatetags.php:785
+#: jet-events-templatetags.php:787
+#, php-format
+msgid "(%s)"
+msgstr "(%s)"
+
+#: jet-events-templatetags.php:816
+#: jet-events-templatetags.php:854
+msgid "Demote to Member"
+msgstr "Retrocedi a Partecipante"
+
+#: jet-events-templatetags.php:822
+#: jet-events-templatetags.php:860
+#: jet-events-templatetags.php:1478
+#, php-format
+msgid "joined %s ago"
+msgstr "%s fa"
+
+#: jet-events-templatetags.php:835
+msgid "This event has no administrators"
+msgstr "Questo evento non ha amministratori"
+
+#: jet-events-templatetags.php:854
+#: templates/events/single/admin.php:254
+msgid "Promote to Admin"
+msgstr "Promuovi a Amministratore"
+
+#: jet-events-templatetags.php:873
+msgid "This event has no moderators"
+msgstr "Questo evento non ha moderatori"
+
+#: jet-events-templatetags.php:987
+msgid "Edit Details"
+msgstr "Modifica dettagli"
+
+#: jet-events-templatetags.php:994
+msgid "Event Settings"
+msgstr "Impostazioni evento"
+
+#: jet-events-templatetags.php:996
+msgid "Manage Members"
+msgstr "Gestione membri"
+
+#: jet-events-templatetags.php:999
+msgid "Membership Requests"
+msgstr "Richieste di partecipazione"
+
+#: jet-events-templatetags.php:1185
+#: jet-events-templatetags.php:1193
+#: jet-events-templatetags.php:1204
+msgid "Leave Event"
+msgstr "Lascia l'evento"
+
+#: jet-events-templatetags.php:1188
+msgid "Join Event"
+msgstr "Partecipa all'evento"
+
+#: jet-events-templatetags.php:1196
+msgid "Request join to Event"
+msgstr "Richiesta partecipazione evento"
+
+#: jet-events-templatetags.php:1198
+msgid "Request Sent"
+msgstr "Richiesta inviata"
+
+#: jet-events-templatetags.php:1220
+msgid "This is a private event and you must request event membership in order to join."
+msgstr "Questo è un evento privato e devi richiedere la partecipazione."
+
+#: jet-events-templatetags.php:1222
+msgid "This is a private event. To join you must be a registered site member and request event membership."
+msgstr "Questo è un evento privato. Per partecipare devi essere registrato al sito e inviare una richiesta di partecipazione."
+
+#: jet-events-templatetags.php:1224
+msgid "This is a private event. Your membership request is awaiting approval from the event administrator."
+msgstr "Questo è un evento privato. La tua richiesta di partecipazione è in attesa di approvazione da parte dell'amministratore."
+
+#: jet-events-templatetags.php:1226
+msgid "This is a hidden event and only invited members can join."
+msgstr "Questo è un evento nascosto e solo gli utenti invitati possono partecipare."
+
+#: jet-events-templatetags.php:1528
+#, php-format
+msgid "Viewing members %1$s to %2$s (of %3$s members)"
+msgstr "Stai vedendo gli utenti da %1$s a %2$s (di %3$s utenti)"
+
+#: jet-events-templatetags.php:1877
+#: jet-events-templatetags.php:1883
+msgid "Search anything..."
+msgstr "Ricerca qualcosa ..."
+
+#: jet-events-templatetags.php:1884
+msgid "Search"
+msgstr "Cerca"
+
+#: jet-events-templatetags.php:1892
+#: jet-events-templatetags.php:1909
+msgid "Recently Active"
+msgstr "Attivi di recente"
+
+#: jet-events-templatetags.php:1893
+#: jet-events-templatetags.php:1912
+msgid "Recently Joined"
+msgstr "Sottoscritti di recente"
+
+#: jet-events-templatetags.php:1894
+#: jet-events-templatetags.php:1915
+msgid "Most Popular"
+msgstr "Più popolari"
+
+#: jet-events-templatetags.php:1895
+#: jet-events-templatetags.php:1918
+msgid "Administrator Of"
+msgstr "Amministratore di"
+
+#: jet-events-templatetags.php:1896
+#: jet-events-templatetags.php:1921
+msgid "Moderator Of"
+msgstr "Moderatore di"
+
+#: jet-events-templatetags.php:1897
+#: jet-events-templatetags.php:1924
+msgid "Alphabetically"
+msgstr "Alfabetico"
+
+#: jet-events-templatetags.php:1952
+msgid "No Event Avatar"
+msgstr "Nessun Avatar per l'evento"
+
+#: jet-events-templatetags.php:2141
+#, php-format
+msgid "requested %s ago"
+msgstr "richiesto %s fa"
+
+#: jet-events-widgets.php:31
+#: templates/events/index.php:30
+#: templates/members/single/events.php:16
+msgid "Soon"
+msgstr "Presto"
+
+#: jet-events-widgets.php:32
+msgid "Newest"
+msgstr "Più nuovi"
+
+#: jet-events-widgets.php:33
+msgid "Active"
+msgstr "Attivo"
+
+#: jet-events-widgets.php:34
+msgid "Popular"
+msgstr "Popolare"
+
+#: jet-events-widgets.php:73
+#: templates/events/events-loop.php:31
+msgid "Archive event"
+msgstr "Archivio eventi"
+
+#: jet-events-widgets.php:75
+#: templates/events/events-loop.php:33
+msgid "Active event"
+msgstr "Evento attivo"
+
+#: jet-events-widgets.php:82
+#: jet-events-widgets.php:180
+msgid "In city:"
+msgstr "In città:"
+
+#: jet-events-widgets.php:82
+#: jet-events-widgets.php:180
+msgid "Start:"
+msgstr "Inizio:"
+
+#: jet-events-widgets.php:82
+#: jet-events-widgets.php:180
+msgid "End:"
+msgstr "Fine:"
+
+#: jet-events-widgets.php:95
+msgid "There are no events to display."
+msgstr "Nessun evento da mostrare"
+
+#: jet-events-widgets.php:123
+msgid "Max events to show:"
+msgstr "Numero massimo eventi da mostrare:"
+
+#: jet-events-widgets.php:125
+msgid "Show navigation:"
+msgstr "Mostra navigazione:"
+
+#: jet-events-widgets.php:128
+msgid "Show archived events only for administrator:"
+msgstr "Mostra eventi archiviati solo per amministratore:"
+
+#: jet-events-widgets.php:131
+msgid "Color to archive events:"
+msgstr "Colore per eventi archiviati:"
+
+#: jet-events-widgets.php:173
+#, php-format
+msgid "created %s ago"
+msgstr "creato %s fa"
+
+#: jet-events-widgets.php:175
+#: templates/events/single/event-header.php:31
+#, php-format
+msgid "active %s ago"
+msgstr "attivo %s fa"
+
+#: jet-events-widgets.php:195
+msgid "No events matched the current filter."
+msgstr "Nessun evento trovato per i filtri impostati"
+
+#: templates/events/create.php:8
+#: templates/events/index.php:12
+msgid "Create a Event"
+msgstr "Crea un evento"
+
+#: templates/events/create.php:8
+#: templates/events/index.php:7
+msgid "Events Directory"
+msgstr "Elenco eventi"
+
+#: templates/events/create.php:31
+#: templates/events/single/admin.php:20
+#: templates/events/single/details.php:7
+msgid "Base event details"
+msgstr "Dettaglio evento"
+
+#: templates/events/create.php:32
+#: templates/events/single/admin.php:21
+msgid "* Event Name"
+msgstr "* Nome dell'evento"
+
+#: templates/events/create.php:32
+#: templates/events/create.php:35
+#: templates/events/create.php:57
+#: templates/events/create.php:60
+#: templates/events/create.php:86
+#: templates/events/create.php:91
+#: templates/events/single/admin.php:21
+#: templates/events/single/admin.php:24
+#: templates/events/single/admin.php:36
+#: templates/events/single/admin.php:39
+#: templates/events/single/admin.php:64
+#: templates/events/single/admin.php:69
+msgid "(required)"
+msgstr "(obbligatorio)"
+
+#: templates/events/create.php:35
+#: templates/events/single/admin.php:24
+msgid "* Event classification"
+msgstr "* Classificazione evento"
+
+#: templates/events/create.php:57
+#: templates/events/single/admin.php:36
+msgid "* Event Description"
+msgstr "* Descrizione evento"
+
+#: templates/events/create.php:60
+#: templates/events/single/admin.php:39
+msgid "* Event Placed City"
+msgstr "* Città dove si svolge"
+
+#: templates/events/create.php:63
+#: templates/events/single/admin.php:42
+#: templates/events/single/details.php:16
+msgid "Event Placed address"
+msgstr "Indirizzo dove si svolge l'evento"
+
+#: templates/events/create.php:67
+#: templates/events/single/admin.php:46
+#: templates/events/single/details.php:21
+msgid "Special Conditions"
+msgstr "Condizioni speciali"
+
+#: templates/events/create.php:69
+#: templates/events/single/admin.php:48
+#: templates/events/single/details.php:23
+msgid "News for event"
+msgstr "Notizie per l'evento"
+
+#: templates/events/create.php:70
+#: templates/events/single/admin.php:49
+#: templates/events/single/details.php:24
+msgid "Event Public news"
+msgstr "Notizie evento pubblico"
+
+#: templates/events/create.php:73
+#: templates/events/single/admin.php:51
+#: templates/events/single/details.php:26
+msgid "Event Private news"
+msgstr "Notizie evento privato"
+
+#: templates/events/create.php:85
+#: templates/events/single/admin.php:63
+#: templates/events/single/details.php:32
+msgid "Date event"
+msgstr "Data dell'evento"
+
+#: templates/events/create.php:86
+#: templates/events/single/admin.php:64
+msgid "* Event Start date"
+msgstr "* Data inizio evento"
+
+#: templates/events/create.php:91
+#: templates/events/single/admin.php:69
+msgid "* Event End date"
+msgstr "* Data fine evento"
+
+#: templates/events/create.php:115
+#: templates/events/single/admin.php:91
+msgid "Enable comment wire"
+msgstr "Abilita i commenti"
+
+#: templates/events/create.php:135
+#: templates/events/single/admin.php:110
+msgid "Privacy Options"
+msgstr "Opzioni Privacy"
+
+#: templates/events/create.php:139
+#: templates/events/single/admin.php:115
+msgid "This is a public event"
+msgstr "Questo è un evento pubblico"
+
+#: templates/events/create.php:141
+#: templates/events/single/admin.php:117
+msgid "Any site member can join this event."
+msgstr "Tutti gli utenti del sito possono partecipare all'evento"
+
+#: templates/events/create.php:142
+#: templates/events/create.php:151
+#: templates/events/single/admin.php:118
+#: templates/events/single/admin.php:128
+msgid "This event will be listed in the events directory and in search results."
+msgstr "Questo evento sarà mostrato nell'elenco eventi e nei risultati delle ricerche"
+
+#: templates/events/create.php:143
+#: templates/events/single/admin.php:119
+msgid "Event content and activity will be visible to any site member."
+msgstr "Il contenuto e le attività dell'evento saranno visibili a tutti."
+
+#: templates/events/create.php:148
+#: templates/events/single/admin.php:125
+msgid "This is a private event"
+msgstr "Questo è un evento privato"
+
+#: templates/events/create.php:150
+msgid "Just send a request to join, users can join the event."
+msgstr "Inviando una richiesta, gli utenti possono partecipare all'evento."
+
+#: templates/events/create.php:152
+#: templates/events/create.php:161
+#: templates/events/single/admin.php:129
+#: templates/events/single/admin.php:139
+msgid "Event content and activity will only be visible to members of the event."
+msgstr "Il contenuto e le attività dell'evento saranno visibili solo ai partecipanti all'evento."
+
+#: templates/events/create.php:157
+#: templates/events/single/admin.php:135
+msgid "This is a hidden event"
+msgstr "Questo è un evento nascosto"
+
+#: templates/events/create.php:159
+#: templates/events/single/admin.php:137
+msgid "Only users who are invited can join the event."
+msgstr "Solo gli utenti invitati possono partecipare all'evento"
+
+#: templates/events/create.php:160
+#: templates/events/single/admin.php:138
+msgid "This event will not be listed in the events directory or search results."
+msgstr "L'evento non comparirà nelle liste eventi e nei risultati delle ricerche."
+
+#: templates/events/create.php:184
+#: templates/events/single/admin.php:156
+msgid "Upload an image to use as an avatar for this event. The image will be shown on the main event page, and in search results."
+msgstr "Carica un immagine per usarla come Avatar dell'evento. Le immagini verranno mostrate nella pagina principale dell'evento e nei risultati delle ricerche"
+
+#: templates/events/create.php:188
+#: templates/events/single/admin.php:160
+msgid "Upload Image"
+msgstr "Carica immagine"
+
+#: templates/events/create.php:192
+msgid "To skip the avatar upload process, hit the \"Next Step\" button."
+msgstr "Per saltare il caricamento immagini, clicca su \"Avanti >\""
+
+#: templates/events/create.php:199
+msgid "Crop Event Avatar"
+msgstr "Ritaglia l'avatar dell'evento"
+
+#: templates/events/create.php:201
+#: templates/events/single/admin.php:180
+msgid "Avatar to crop"
+msgstr "Avatar da ritagliare"
+
+#: templates/events/create.php:204
+#: templates/events/single/admin.php:183
+msgid "Avatar preview"
+msgstr "Anteprima Avatar"
+
+#: templates/events/create.php:207
+#: templates/events/single/admin.php:186
+msgid "Crop Image"
+msgstr "Ritaglia immagine"
+
+#: templates/events/create.php:245
+#: templates/events/single/send-invites.php:22
+msgid "Select people to invite from your friends list."
+msgstr "Seleziona gli utenti da invitare fra i tuoi amici"
+
+#: templates/events/create.php:261
+#: templates/events/single/send-invites.php:42
+msgid "Remove Invite"
+msgstr "Cancella invito"
+
+#: templates/events/create.php:276
+#: templates/events/single/send-invites.php:73
+msgid "Once you have built up friend connections you will be able to invite others to your event. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new event."
+msgstr "Dopo aver stabilito le tue amicizie potrai invitare altre persone all'evento. In futuro potrai inviare inviti cliccando su \"Invia Inviti\" mentre visualizzi il tuo evento."
+
+#: templates/events/create.php:294
+msgid "Previous Step"
+msgstr "< Indietro"
+
+#: templates/events/create.php:299
+msgid "Next Step"
+msgstr "Avanti >"
+
+#: templates/events/create.php:304
+msgid "Create Event and Continue"
+msgstr "Crea l'evento e continua"
+
+#: templates/events/create.php:309
+msgid "Finish"
+msgstr "Fine"
+
+#: templates/events/events-loop.php:36
+msgid "Short description:"
+msgstr "Descrizione breve:"
+
+#: templates/events/events-loop.php:39
+msgid "The event will be held in the city:"
+msgstr "L'evento si terrà nella città:"
+
+#: templates/events/events-loop.php:39
+msgid "at "
+msgstr "a"
+
+#: templates/events/events-loop.php:40
+msgid "From: "
+msgstr "Dalle:"
+
+#: templates/events/events-loop.php:40
+msgid "to: "
+msgstr "alle:"
+
+#: templates/events/events-loop.php:49
+msgid "Classification:"
+msgstr "Classificazione:"
+
+#: templates/events/events-loop.php:51
+#, php-format
+msgid "Last activity:<br /> %s ago"
+msgstr "Ultima attività:<br /> %s fa"
+
+#: templates/events/events-loop.php:68
+msgid "There were no events found."
+msgstr "Nessun evento trovato."
+
+#: templates/events/index.php:18
+#, php-format
+msgid "All Events (%s)"
+msgstr "Tutti gli Eventi (%s)"
+
+#: templates/events/index.php:21
+#, php-format
+msgid "My Events (%s)"
+msgstr "Miei eventi (%s)"
+
+#: templates/events/index.php:28
+#: templates/members/single/events.php:10
+msgid "Order By:"
+msgstr "Ordina per:"
+
+#: templates/events/index.php:31
+#: templates/members/single/events.php:12
+msgid "Last Active"
+msgstr "Ultimo attivo"
+
+#: templates/events/index.php:32
+#: templates/members/single/events.php:13
+msgid "Most Members"
+msgstr "Con più partecipanti"
+
+#: templates/events/index.php:33
+#: templates/members/single/events.php:14
+msgid "Newly Created"
+msgstr "Creati di recente"
+
+#: templates/events/index.php:34
+#: templates/members/single/events.php:15
+msgid "Alphabetical"
+msgstr "Alfabetico"
+
+#: templates/events/single/activity.php:3
+msgid "RSS"
+msgstr "RSS"
+
+#: templates/events/single/activity.php:9
+msgid "No Filter"
+msgstr "Nessun Filtro"
+
+#: templates/events/single/activity.php:10
+msgid "Show Updates"
+msgstr "Mostra aggiornamenti"
+
+#: templates/events/single/activity.php:13
+msgid "Show New Forum Topics"
+msgstr "Mostra nuovi topic"
+
+#: templates/events/single/activity.php:14
+msgid "Show Forum Replies"
+msgstr "Mostra risposte del forum"
+
+#: templates/events/single/activity.php:17
+msgid "Show New Event Memberships"
+msgstr "Mostra nuove partecipazioni all'evento"
+
+#: templates/events/single/admin.php:78
+#: templates/events/single/admin.php:146
+#: templates/events/single/forum/edit.php:34
+#: templates/events/single/forum/edit.php:52
+msgid "Save Changes"
+msgstr "Salva modifiche"
+
+#: templates/events/single/admin.php:127
+msgid "Only users who request membership and are accepted can join the event."
+msgstr "Solo gli utenti con una richiesta di partecipazione approvata possono partecipare all'evento."
+
+#: templates/events/single/admin.php:165
+msgid "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button."
+msgstr "Se vuoi rimuovere l'Avatar senza caricarne uno nuovo, usa il pulsante Cancella Avatar"
+
+#: templates/events/single/admin.php:168
+msgid "Delete Avatar"
+msgstr "Cancella Avatar"
+
+#: templates/events/single/admin.php:178
+msgid "Crop Avatar"
+msgstr "Ritaglia Avatar"
+
+#: templates/events/single/admin.php:206
+msgid "Administrators"
+msgstr "Amministratori"
+
+#: templates/events/single/admin.php:213
+msgid "Moderators"
+msgstr "Moderatori"
+
+#: templates/events/single/admin.php:220
+msgid "Members"
+msgstr "Membru"
+
+#: templates/events/single/admin.php:248
+msgid "(banned)"
+msgstr "(banned)"
+
+#: templates/events/single/admin.php:248
+#: templates/events/single/admin.php:254
+msgid "Kick and ban this member"
+msgstr "Kick and ban questo utente"
+
+#: templates/events/single/admin.php:248
+msgid "Remove Ban"
+msgstr "Rimuovi Ban"
+
+#: templates/events/single/admin.php:254
+msgid "Kick &amp; Ban"
+msgstr "Kick &amp; Ban"
+
+#: templates/events/single/admin.php:254
+msgid "Promote to Mod"
+msgstr "Promuovi a Moderatore"
+
+#: templates/events/single/admin.php:267
+#: templates/events/single/members.php:51
+msgid "This event has no members."
+msgstr "Questo evento non ha partecipanti"
+
+#: templates/events/single/admin.php:298
+msgid "Accept"
+msgstr "Accetta"
+
+#: templates/events/single/admin.php:304
+msgid "Reject"
+msgstr "Rifiuta"
+
+#: templates/events/single/admin.php:318
+msgid "There are no pending membership requests."
+msgstr "Non ci sono richieste di partecipazione pendenti"
+
+#: templates/events/single/admin.php:335
+msgid "WARNING: Deleting this event will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "ATTENZIONE: rimuovendo questo evento perderai definitivamente TUTTI i contenuti ad esso associati. L'operazione non può essere annullata, quindi fai attenzione."
+
+#: templates/events/single/admin.php:338
+msgid "I understand the consequences of deleting this event."
+msgstr "Ho compreso le conseguenze della cancellazione di questo evento"
+
+#: templates/events/single/details.php:8
+msgid "Event Name"
+msgstr "Nome evento"
+
+#: templates/events/single/details.php:10
+msgid "Event classification"
+msgstr "Classificazione evento"
+
+#: templates/events/single/details.php:12
+msgid "Event Description"
+msgstr "Descrizione evento"
+
+#: templates/events/single/details.php:14
+msgid "Event Placed City"
+msgstr "Città"
+
+#: templates/events/single/details.php:33
+msgid "Event Start date"
+msgstr "Data inizio evento"
+
+#: templates/events/single/details.php:36
+msgid "Event End date"
+msgstr "Data fine evento"
+
+#: templates/events/single/event-header.php:6
+msgid "Event Admins"
+msgstr "Amministratori evento"
+
+#: templates/events/single/event-header.php:14
+msgid "Event Mods"
+msgstr "Moderatori evento"
+
+#: templates/events/single/event-header.php:37
+msgid "New Topic"
+msgstr "Nuovo Topic"
+
+#: templates/events/single/forum.php:29
+msgid "You will auto join this event when you start a new topic."
+msgstr "Verrai automaticamente associato all'evento quando inizierai un nuovo topic"
+
+#: templates/events/single/forum.php:33
+msgid "Post a New Topic:"
+msgstr "Scrivi un nuovo Topic:"
+
+#: templates/events/single/forum.php:35
+#: templates/events/single/forum/edit.php:26
+msgid "Title:"
+msgstr "Titolo"
+
+#: templates/events/single/forum.php:38
+#: templates/events/single/forum/edit.php:29
+msgid "Content:"
+msgstr "Contenuto"
+
+#: templates/events/single/forum.php:41
+msgid "Tags (comma separated):"
+msgstr "Tags (separati da virgola)"
+
+#: templates/events/single/forum.php:47
+msgid "Post Topic"
+msgstr "Scrivi Topic"
+
+#: templates/events/single/forum/edit.php:9
+#: templates/events/single/forum/topic.php:21
+msgid "Event Forum"
+msgstr "Forum evento"
+
+#: templates/events/single/forum/edit.php:9
+#: templates/events/single/forum/topic.php:21
+msgid "Event Forum Directory"
+msgstr "Lista Forum eventi"
+
+#: templates/events/single/forum/edit.php:24
+msgid "Edit Topic:"
+msgstr "Modifica Topic:"
+
+#: templates/events/single/forum/edit.php:46
+msgid "Edit Post:"
+msgstr "Modifica Post:"
+
+#: templates/events/single/forum/edit.php:67
+msgid "This topic does not exist."
+msgstr "Il topic non esiste"
+
+#: templates/events/single/forum/topic.php:42
+#, php-format
+msgid "%s said %s ago:"
+msgstr "%s ha detto %s fa:"
+
+#: templates/events/single/forum/topic.php:56
+msgid "Permanent link to this post"
+msgstr "Link permanente a questo post"
+
+#: templates/events/single/forum/topic.php:87
+msgid "You will auto join this event when you reply to this topic."
+msgstr "Verrai automaticamente associato all'evento quando risponderai al topic"
+
+#: templates/events/single/forum/topic.php:92
+msgid "Add a reply:"
+msgstr "Aggiungi una risposta:"
+
+#: templates/events/single/forum/topic.php:97
+msgid "Post Reply"
+msgstr "Rispondi"
+
+#: templates/events/single/forum/topic.php:108
+msgid "This topic is closed, replies are no longer accepted."
+msgstr "Il Topic è chiuso, impossibile inserire nuove risposte"
+
+#: templates/events/single/forum/topic.php:121
+msgid "There are no posts for this topic."
+msgstr "Non ci sono post per questo topic"
+
+#: templates/events/single/request-join-to-event.php:4
+#, php-format
+msgid "You are requesting to become a member of the event '%s'."
+msgstr "Stai richiedendo di diventare membro dell'evento '%s'."
+
+#: templates/events/single/request-join-to-event.php:7
+msgid "Comments (optional)"
+msgstr "Commenti (opzionale)"
+
+#: templates/events/single/request-join-to-event.php:12
+msgid "Send Request"
+msgstr "Invia richiesta"
+
+#: templates/events/single/send-invites.php:60
+msgid "Send Invites"
+msgstr "Invia invito"
+
