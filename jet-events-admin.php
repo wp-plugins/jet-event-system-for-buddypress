@@ -255,7 +255,28 @@ if ( isset($_POST['saveData']) ) {
 			$jes_events[ 'jes_events_style_single' ] = stripslashes($_POST[ 'jes_events_style_single' ]);
 		}else{
 			$jes_events[ 'jes_events_style_single' ] = __('Standart','jet-event-system');
+			}
+
+/* Color Event */
+
+		if ( $_POST[ 'jes_events_color_past' ] != null ) {
+			$jes_events[ 'jes_events_color_past' ] = stripslashes($_POST[ 'jes_events_color_past' ]);
+		} else {
+			$jes_events[ 'jes_events_color_past' ] = 'CCCCCC';
 		}
+
+		if ( $_POST[ 'jes_events_color_current' ] != null ) {
+			$jes_events[ 'jes_events_color_current' ] = stripslashes($_POST[ 'jes_events_color_current' ]);
+		} else {
+			$jes_events[ 'jes_events_color_current' ] = '33CC00';
+		}
+
+		if ( $_POST[ 'jes_events_color_active' ] != null ) {
+			$jes_events[ 'jes_events_color_active' ] = stripslashes($_POST[ 'jes_events_color_active' ]);
+		} else {
+			$jes_events[ 'jes_events_color_active' ] = 'FF9900';
+		}
+
 /* Avatars size */	
 		if ( $_POST[ 'jes_events_show_avatar_invite_enable' ] == 1 )
 			$jes_events[ 'jes_events_show_avatar_invite_enable' ] = 1;
@@ -428,7 +449,7 @@ function on_jes_events_admin_note($jes_events) {
 	
 function on_jes_events_admin_information($jes_events) {
 ?>
-		<h4>Jet Event System <?php _e('version','jet-event-system'); ?> 1.3 <?php _e('build','jet-event-system'); ?> 1</h4>
+		<h4>Jet Event System <?php _e('version','jet-event-system'); ?> 1.3 <?php _e('build','jet-event-system'); ?> 2</h4>
 				<p><?php echo JES_EVENTS_RELEASE; ?></p>
 			<p><?php _e('Template version:','jet-event-system');?>
 				<?php if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION )
@@ -666,6 +687,28 @@ function on_jes_events_admin_information($jes_events) {
 									<input name="jes_events_show_avatar_directory_size" type="text" id="jes_events_show_avatar_directory_size" value="<?php echo $jes_events[ 'jes_events_show_avatar_directory_size' ]; ?>" />
 								</td>
 							</tr>
+							
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_color_past"><?php _e( 'Color for past event:', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_color_past" type="text" id="jes_events_color_past" value="<?php echo $jes_events[ 'jes_events_color_past' ]; ?>" />
+								</td>
+							</tr>							
+
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_color_active"><?php _e( 'Color for active event:', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_color_active" type="text" id="jes_events_color_active" value="<?php echo $jes_events[ 'jes_events_color_active' ]; ?>" />
+								</td>
+							</tr>
+
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_color_current"><?php _e( 'Color for current event:', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_color_current" type="text" id="jes_events_color_current" value="<?php echo $jes_events[ 'jes_events_color_current' ]; ?>" />
+								</td>
+							</tr>
+							
 </table>							
 <?php  
    }   

@@ -113,6 +113,11 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.3.2 =
+
+* Fixed a bug with the definition of activity events (active / archive)
+* Added a new type of event - "current"
+
 = 1.3.1 =
 
 * Update translate: it_IT

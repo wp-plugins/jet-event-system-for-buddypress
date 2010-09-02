@@ -37,7 +37,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 			</div>
 <?php } ?>
 <?php
-		$kdate_now = jes_datetounix();
+	//	$kdate_now = jes_datetounix();
 ?>
 			<ul id="events-list" class="item-list">
 				<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
@@ -88,11 +88,8 @@ class JES_BP_Events_Widget extends WP_Widget {
 							<div class="item-title" id="jes-title">
 								<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
 							</div>
-<?php if ( $check_keydate ) { ?>
-				<em><span style="color:#<?php echo $archive_color ?>; font-size: 80%;"><?php _e('Past event','jet-event-system') ?></span></em>
-<?php } else { ?>
-				<em><span style="color:#33CC00; font-size: 80%;"><?php _e('Active event','jet-event-system') ?></span></em>
-<?php } ?>	
+	
+				<em><span style="font-size: 80%;"><?php echo eventstatus(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm(),jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm()); ?></span></em>
 <?php if ($show_type) { ?>
 <br /><span style="font-size:80%;"><?php jes_bp_event_type() ?>, <strong><?php jes_bp_event_etype() ?></strong></span>
 <?php } ?>

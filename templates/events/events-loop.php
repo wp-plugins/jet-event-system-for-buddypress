@@ -62,11 +62,7 @@
 			<div class="item" style="width:80%;" id="jes-item">
 				<div class="item-title" id="jes-title"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a></div>			
 				<div class="item-meta">
-	<?php	if ( jes_datetounix() > jes_datetounix(jes_bp_get_event_edted(), jes_bp_get_event_edteth(), jes_bp_get_event_edtetm())) { ?>
-				<em><span style="color : #CCFF00;"><?php _e('Past event','jet-event-system') ?></span></em> , 
-	<?php } else { ?>
-				<em><span style="color : #33CC00;"><?php _e('Active event','jet-event-system') ?></span></em> , 
-	<?php } ?>				
+					<em><?php echo eventstatus(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm(),jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm()); ?></em> , 
 					<span class="meta"><em><?php jes_bp_event_type() ?></em></span><br />
 					<div class="item-desc" id="jes-timedate">
 						<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?>, <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?></span> <?php _e('to: ','jet-event-system') ?> <span><?php jes_bp_event_edted() ?>, <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?></span>
