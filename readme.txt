@@ -3,7 +3,7 @@ Contributors: Jettochkin
 Donate link: http://milordk.ru/uslugi.html
 Plugin link: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Authoe link: http://milordk.ru/
-Tags: BuddyPress, Wordpress MU, meta, members, widget
+Tags: BuddyPress, Wordpress MU, meta, members, widget, event, group, invite
 Requires at least: 3.0, BuddyPress 1.2.5
 Tested up to: 3.0.1, BuddyPress 1.2.5.2
 Stable tag: trunk
