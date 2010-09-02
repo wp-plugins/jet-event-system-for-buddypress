@@ -428,7 +428,7 @@ function on_jes_events_admin_note($jes_events) {
 	
 function on_jes_events_admin_information($jes_events) {
 ?>
-		<h4>Jet Event System <?php _e('version','jet-event-system'); ?> 1.3 <?php _e('build','jet-event-system'); ?> 0</h4>
+		<h4>Jet Event System <?php _e('version','jet-event-system'); ?> 1.3 <?php _e('build','jet-event-system'); ?> 1</h4>
 				<p><?php echo JES_EVENTS_RELEASE; ?></p>
 			<p><?php _e('Template version:','jet-event-system');?>
 				<?php if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION )

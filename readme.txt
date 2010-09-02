@@ -46,6 +46,18 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://vol
 4. **Widget on Site Wide**
 5. **Admin Panel**
 
+== FAQ ==
+
+Q: I have not updated Templates, what to do?
+A: Make sure that the owner of the folders and files contained in them is the owner of the web server (www/apache/nginx/nobody?)
+
+Q: Where can I see the plug-in work?
+A: You can see the latest version of the dev website: <a href="http://jes.milordk.ru">http://jes.milordk.ru</a>
+
+Q: Can I get extended support plug-in or implementation of additional (specific) functional?
+A: You can, but keep in mind that the cost of implementing individual (not popular majority) functions - should be paid off
+
+
 == Special Note ==
 
 Used your theme should be based on the default theme BP (styles and functions)! The efficiency of the plug can only be guaranteed on these themes!
@@ -73,12 +85,15 @@ Tell about problems with the plugin and read the other comments you can: http://
 == Future ==
 
 * In version 1.4 will be updated mechanism for the formation of Google Maps (manually or automatically at the specified location of the event)
-* In version 1.5 will be added to the possibility of tying the event to a group
+* In version 1.5 will be implemented to use shortkode to insert into your records
+* In version 1.6 will be added to the possibility of tying the event to a group
 * In version 2.0 will ensure compatibility of the system with the new version of BP
 * In version 2.5 will be able to add events to Outlook Calendar and iCal (list may vary from those of the creator of the plug and the wishes of the participants testing)
 * In version 3.0 will be added to the possibility of tying the event to your blog (s)
 
 List of future functions formed the opinion creator plug-in and test participants, if you have something to offer - <a href="http://jes.milordk.ru/groups/proposals-for-the-future">Poposals for the future</a>
+
+Author plug reserves the right to order the implementation of functions
 
 
 == Contact ==
@@ -91,6 +106,12 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.3.1 =
+
+* Update translate: it_IT
+* The suppression of warnings in the web server logs for jes_datetounix function
+* Resolved: At sub-domains in some subjects there is a problem with processing the menu in the administrative panel WP
 
 = 1.3 =
 * Fixed a security issue: if the prohibition did not create an event administrators - they can directly access the form creation events
