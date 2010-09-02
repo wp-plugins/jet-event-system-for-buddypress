@@ -48,13 +48,17 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://vol
 
 == Frequently Asked Questions ==
 
+= Where can I see the plug-in work? =
+
+You can see the latest version of the dev website: <a href="http://jes.milordk.ru">http://jes.milordk.ru</a>
+
+= Can I affect the development of plug-in? =
+
+Yes, the dev website there is a group for proposals for the development of plug-in. <a href="http://jes.milordk.ru">http://jes.milordk.ru</a>
+
 = I have not updated Templates, what to do? =
 
 Make sure that the owner of the folders and files contained in them is the owner of the web server (www/apache/nginx/nobody?)
-
-= Where can I see the plug-in work? =
-
-A: You can see the latest version of the dev website: <a href="http://jes.milordk.ru">http://jes.milordk.ru</a>
 
 = Can I get extended support plug-in or implementation of additional (specific) functional? =
 You can, but keep in mind that the cost of implementing individual (not popular majority) functions - should be paid off
