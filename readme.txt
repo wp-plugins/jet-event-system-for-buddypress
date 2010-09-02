@@ -46,16 +46,18 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://vol
 4. **Widget on Site Wide**
 5. **Admin Panel**
 
-== FAQ ==
+== Frequently Asked Questions ==
 
-Q: I have not updated Templates, what to do?
-A: Make sure that the owner of the folders and files contained in them is the owner of the web server (www/apache/nginx/nobody?)
+= I have not updated Templates, what to do? =
 
-Q: Where can I see the plug-in work?
+Make sure that the owner of the folders and files contained in them is the owner of the web server (www/apache/nginx/nobody?)
+
+= Where can I see the plug-in work? =
+
 A: You can see the latest version of the dev website: <a href="http://jes.milordk.ru">http://jes.milordk.ru</a>
 
-Q: Can I get extended support plug-in or implementation of additional (specific) functional?
-A: You can, but keep in mind that the cost of implementing individual (not popular majority) functions - should be paid off
+= Can I get extended support plug-in or implementation of additional (specific) functional? =
+You can, but keep in mind that the cost of implementing individual (not popular majority) functions - should be paid off
 
 
 == Special Note ==
@@ -111,7 +113,7 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 * Update translate: it_IT
 * The suppression of warnings in the web server logs for jes_datetounix function
-* Resolved: At sub-domains in some subjects there is a problem with processing the menu in the administrative panel WP
+* Resolved: At sub-domains in some theme there is a problem with processing the menu in the administrative panel WP
 
 = 1.3 =
 * Fixed a security issue: if the prohibition did not create an event administrators - they can directly access the form creation events
