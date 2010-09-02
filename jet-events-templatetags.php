@@ -824,6 +824,31 @@ function jes_bp_event_placednote() {
 		return apply_filters( 'jes_bp_get_event_placednote', stripslashes($event->placednote) );
 	}
 
+function jes_bp_event_placedgooglemap() {
+	echo jes_bp_get_event_placedgooglemap();
+}
+	function jes_bp_get_event_placedgooglemap( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_placedgooglemap', stripslashes($event->placedgooglemap) );
+	}
+
+function jes_bp_event_flyer() {
+	echo jes_bp_get_event_flyer();
+}
+	function jes_bp_get_event_flyer( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_flyer', stripslashes($event->flyer) );
+	}
+
+
 
 function jes_bp_event_placedaddress_editable() {
 	echo jes_bp_get_event_placedaddress_editable();
@@ -1242,7 +1267,7 @@ function jes_bp_event_admin_memberlist( $admin_list = false, $event = false ) {
 				<span class="activity"><?php echo bp_core_get_last_activity( strtotime( $admin->date_modified ), __( 'joined %s ago', 'jet-event-system') ); ?></span>
 
 				<?php if ( function_exists( 'friends_install' ) ) : ?>
-					<div class="action">
+					<div class="action" id="jes-add-friend">
 						<?php bp_add_friend_button( $admin->user_id ) ?>
 					</div>
 				<?php endif; ?>
@@ -1280,7 +1305,7 @@ function jes_bp_event_mod_memberlist( $admin_list = false, $event = false ) {
 					<span class="activity"><?php echo bp_core_get_last_activity( strtotime( $mod->date_modified ), __( 'joined %s ago', 'jet-event-system') ); ?></span>
 
 					<?php if ( function_exists( 'friends_install' ) ) : ?>
-						<div class="action">
+						<div class="action" id="jes-add-friend">
 							<?php bp_add_friend_button( $mod->user_id ) ?>
 						</div>
 					<?php endif; ?>
@@ -2004,7 +2029,7 @@ function bp_event_creation_form_action() {
 		return apply_filters( 'bp_get_event_creation_form_action', $bp->root_domain . '/' . $bp->jes_events->slug . '/create/step/' . $bp->action_variables[1] );
 	}
 
-function bp_is_event_creation_step( $step_slug ) {
+function jes_is_event_creation_step( $step_slug ) {
 	global $bp;
 
 	/* Make sure we are in the events component */
@@ -2184,8 +2209,22 @@ function bp_new_event_placednote() {
 		return apply_filters( 'bp_get_new_event_placednote', $bp->jes_events->current_event->placednote );
 	}
 	
-	
-	
+function bp_new_event_placedgooglemap() {
+	echo bp_get_new_event_placedgooglemap();
+}
+	function bp_get_new_event_placedgooglemap() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_placedgooglemap', $bp->jes_events->current_event->placedgooglemap );
+	}
+		
+function bp_new_event_flyer() {
+	echo bp_get_new_event_flyer();
+}
+	function bp_get_new_event_flyer() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_flyer', $bp->jes_events->current_event->flyer );
+	}
+		
 function bp_new_event_newspublic() {
 	echo bp_get_new_event_newspublic();
 }
@@ -2841,7 +2880,7 @@ function bp_event_has_invite_jes( $args = '' ) {
 function bp_jes_event_invite_jes() {
 	global $invites_template;
 
-	return $invites_template->invite_jes();
+	return $invites_template->has_invite_jes();
 }
 
 function bp_event_the_invite() {
@@ -3025,6 +3064,14 @@ function bp_is_jes_event_google_map_jes() {
 	return false;
 }
 
+function bp_is_jes_event_flyer_jes() {
+	global $bp;
+
+	if ( JES_SLUG == $bp->current_component && 'flyer' == $bp->current_action )
+		return true;
+
+	return false;
+}
 
 function bp_is_event_membership_request() {
 	global $bp;

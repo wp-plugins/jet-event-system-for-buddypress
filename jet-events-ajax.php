@@ -25,7 +25,7 @@ function bp_dtheme_ajax_invite_user_to_event() {
 		echo $user->avatar_thumb;
 		echo '<h4>' . $user->user_link . '</h4>';
 		echo '<span class="activity">' . esc_attr( $user->last_active ) . '</span>';
-		echo '<div class="action">
+		echo '<div class="action" id="jes-remove-action">
 				<a class="remove" href="' . wp_nonce_url( $bp->loggedin_user->domain . $bp->events->slug . '/' . $_POST['event_id'] . '/invites/remove/' . $user->id, 'events_invite_uninvite_user' ) . '" id="uid-' . attribute_escape( $user->id ) . '">' . __( 'Remove Invite', 'buddypress' ) . '</a>
 			  </div>';
 		echo '</li>';

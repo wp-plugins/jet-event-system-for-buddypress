@@ -25,7 +25,12 @@
 					<strong> <?php _e('in city:','jet-event-system') ?></strong> <?php jes_bp_event_placedcity() ?></span>
 	
 		<?php if ( jes_bp_event_is_visible() ) { ?>
-					<p><strong><?php _e('Event address', 'jet-event-system') ?>:</strong> <?php jes_bp_event_placedaddress() ?></p>
+					<p><strong><?php _e('Event address', 'jet-event-system') ?>:</strong> <?php jes_bp_event_placedaddress() ?>
+				<?php if ( $edata[ 'jes_events_placednoteopt_enable' ] )
+							{	?>
+					<br />
+					<strong><?php _e('Event note', 'jet-event-system') ?>:</strong> <?php jes_bp_event_placednote() ?>
+				<?php } ?></p>
 		<?php } ?>		
 			<h4><?php _e('Event Date','jet-event-system') ?></h4>
 				<p><strong><?php _e('Event Start date', 'jet-event-system') ?>:</strong> <?php jes_bp_event_edtsd() ?>, <strong><?php _e('Time:','jet-event-system') ?></strong> <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?><br />

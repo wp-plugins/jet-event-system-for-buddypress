@@ -1,5 +1,3 @@
-<?php /* Querystring is set via AJAX in _inc/ajax.php - bp_dtheme_object_filter() */ ?>
-
 <?php do_action( 'bp_before_events_loop' ) ?>
 
 <?php	$showevent = 1;
@@ -57,26 +55,29 @@
 	<?php if ( $showevent )
 				{ ?>
 		<li>
-			<div class="item-avatar">
+			<div class="item-avatar" id="jes-avatar">
 				<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width='.$edata['jes_events_show_avatar_directory_size'].'&height='.$edata['jes_events_show_avatar_directory_size'] ) ?></a>
 			</div>
 
-			<div class="item" style="width:80%;">
-				<div class="item-title"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a></div>			
+			<div class="item" style="width:80%;" id="jes-item">
+				<div class="item-title" id="jes-title"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a></div>			
 				<div class="item-meta">
-	<?php	if ( datetounix(date("d/m/Y"),date("H"),date("i")) > datetounix(jes_bp_get_event_edted(), jes_bp_get_event_edteth(), jes_bp_get_event_edtetm())) { ?>
+	<?php	if ( jes_datetounix() > jes_datetounix(jes_bp_get_event_edted(), jes_bp_get_event_edteth(), jes_bp_get_event_edtetm())) { ?>
 				<em><span style="color : #CCFF00;"><?php _e('Past event','jet-event-system') ?></span></em> , 
 	<?php } else { ?>
 				<em><span style="color : #33CC00;"><?php _e('Active event','jet-event-system') ?></span></em> , 
 	<?php } ?>				
 					<span class="meta"><em><?php jes_bp_event_type() ?></em></span><br />
+					<div class="item-desc" id="jes-timedate">
+						<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?>, <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?></span> <?php _e('to: ','jet-event-system') ?> <span><?php jes_bp_event_edted() ?>, <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?></span>
+					</div>
 				<?php if ($edata['jes_events_style'] == 'Standart') { ?>
 					<?php _e('Short description:','jet-event-system') ?> <?php jes_bp_event_description_excerpt() ?>
 				<?php } else { ?>
 					<?php _e('Description:','jet-event-system') ?> <?php jes_bp_event_description() ?>
 				<?php } ?>
 				</div>				
-				<div class="item-desc">
+				<div class="item-desc" id="jes-desc">
 					<span><?php _e('The event will take place:','jet-event-system'); ?>
 							<?php
 								if ( $edata[ 'jes_events_countryopt_enable' ] )
@@ -88,16 +89,15 @@
 										jes_bp_event_placedstate(); ?> ,
 								<?php } ?></span>
 											
-					<span><?php _e('in city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?><?php if ( jes_bp_event_is_visible() ) { ?>, <?php _e('at ','jet-event-system') ?><?php jes_bp_event_placedaddress() ?><? } ?></span><br />				
-					<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?>, <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?></span> <?php _e('to: ','jet-event-system') ?> <span><?php jes_bp_event_edted() ?>, <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?></span>
+					<span><?php _e('in city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?><?php if ( jes_bp_event_is_visible() ) { ?>, <?php _e('at ','jet-event-system') ?><?php jes_bp_event_placedaddress() ?><? } ?></span><br />
 				</div>
 
 				<?php do_action( 'bp_directory_events_item' ) ?>
 			</div>
-	<div class="action">
+	<div class="action" id="jes-button">
 				<?php bp_event_join_button() ?>
 
-				<div class="meta">
+				<div class="meta" id="jes-approval">
 					<?php if ( $shiftcan ) 
 								{ ?>
 									<span class="meta"><em><?php _e('Event requires approval!','jet-event-system'); ?></em></span>
@@ -149,7 +149,7 @@
 
 			<div class="item" style="width:80%;">
 					<span style="font-size:80%;"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a> 
-					<?php	if ( datetounix(date("d/m/Y"),date("H"),date("i")) > datetounix(jes_bp_get_event_edted(), jes_bp_get_event_edteth(), jes_bp_get_event_edtetm())) { ?>
+					<?php	if ( jes_datetounix() > jes_datetounix(jes_bp_get_event_edted(), jes_bp_get_event_edteth(), jes_bp_get_event_edtetm())) { ?>
 									<em><span style="color : #CCFF00;"><?php _e('Past event','jet-event-system') ?></span></em> , 
 					<?php } else { ?>
 									<em><span style="color : #33CC00;"><?php _e('Active event','jet-event-system') ?></span></em> , 

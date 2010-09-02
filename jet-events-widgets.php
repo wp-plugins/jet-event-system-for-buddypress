@@ -12,15 +12,16 @@ class JES_BP_Events_Widget extends WP_Widget {
 
 		echo $before_widget;
 		echo $before_title
-		   . $widget_name
-		   . $after_title; 
+			. $instance['title']
+			. $after_title; 
 	$data = get_option( 'jes_events' );
 	$show_navi = $instance['show_navi'];
 	$show_type = $instance['show_type'];
 	$show_countrystate = $instance['show_countrystate'];
 	$showonlyadmin = $instance['showonlyadmin'];
-	$archive_color = $instance['archive_color'];  ?>
-
+	$archive_color = $instance['archive_color'];
+	$showtime = $instance['showtime'];
+?>
 <?php if (!$data[ 'jes_events_code_index' ]) { ?>
 	<noindex>
 <?php } ?>
@@ -36,13 +37,13 @@ class JES_BP_Events_Widget extends WP_Widget {
 			</div>
 <?php } ?>
 <?php
-		$kdate_now = 1 + datetounix(date("d/m/Y"),date("H"),date("i"));
+		$kdate_now = jes_datetounix();
 ?>
 			<ul id="events-list" class="item-list">
 				<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 <?php
-		$kdate_end = 1 + datetounix(jes_bp_get_event_edted(), jes_bp_get_event_edteth(), jes_bp_get_event_edtetm());
-		if (  $kdate_now > $kdate_end )
+		$kdate_end = jes_datetounix(jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm());
+		if (  (int)$kdate_now > (int)$kdate_end )
 			{
 				$check_keydate = 1;
 			}
@@ -82,24 +83,24 @@ class JES_BP_Events_Widget extends WP_Widget {
 		if ($keyvisible)
 			{ ?>
 				<li>
-					<div class="item-avatar">
+					<div class="item-avatar" id="jes-avatar">
 							<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar_thumb() ?></a>
-							<div class="item-title">
+							<div class="item-title" id="jes-title">
 								<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
 							</div>
 <?php if ( $check_keydate ) { ?>
-				<em><span style="color : #<?php echo $archive_color ?>; font-size: 80%;"><?php _e('Past event','jet-event-system') ?></span></em>
+				<em><span style="color:#<?php echo $archive_color ?>; font-size: 80%;"><?php _e('Past event','jet-event-system') ?></span></em>
 <?php } else { ?>
-				<em><span style="color : #33CC00; font-size: 80%;"><?php _e('Active event','jet-event-system') ?></span></em>
+				<em><span style="color:#33CC00; font-size: 80%;"><?php _e('Active event','jet-event-system') ?></span></em>
 <?php } ?>	
 <?php if ($show_type) { ?>
 <br /><span style="font-size:80%;"><?php jes_bp_event_type() ?>, <strong><?php jes_bp_event_etype() ?></strong></span>
 <?php } ?>
 					</div>
 
-					<div class="item">
+					<div class="item" id="jes-item">
 
-						<div style="font-size:85%;">
+						<div style="font-size:85%;" id="jes-placed">
 							<?php if ( $show_countrystate ) { ?>
 								<?php if ( jes_bp_get_event_placedcountry() != null ) { 
 									$kkey = 1;
@@ -115,7 +116,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 									<br />
 								<?php } ?>
 							<?php } ?>
-								<span><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>,<br /><?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?>, <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?><br /><?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?>, <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?></span>
+								<span><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>,<br /><?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?><?php if ($showtime) { ?>, <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?><br /><?php } ?> <?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?><?php if ($showtime) { ?>, <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?><?php } ?></span>
 						</div>
 					</div>
 				</li>
@@ -138,25 +139,31 @@ class JES_BP_Events_Widget extends WP_Widget {
 
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
+		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['max_events'] = strip_tags( $new_instance['max_events'] );
 		$instance['show_navi'] = strip_tags( $new_instance['show_navi'] );
 		$instance['show_type'] = strip_tags( $new_instance['show_type'] );
 		$instance['show_countrystate'] = strip_tags( $new_instance['show_countrystate'] );
 		$instance['showonlyadmin'] = strip_tags( $new_instance['showonlyadmin'] );		
 		$instance['archive_color'] = strip_tags( $new_instance['archive_color'] );
+		$instance['showtime'] = strip_tags( $new_instance['showtime'] );
 		return $instance;
 	}
 
 	function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance, array( 'max_events' => 5 ) );
 		$max_events = strip_tags( $instance['max_events'] );
+		$title = strip_tags( $instance['title'] );
 		$show_navi = $instance['show_navi'];
 		$show_type = $instance['show_type'];
 		$show_type = $instance['show_countrystate'];
 		$showonlyadmin = $instance['showonlyadmin'];
+		$showtime = $instance['showtime'];
 		$archive_color = strip_tags( $instance['archive_color'] );		
 		?>
 
+		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'jet-event-system'); ?> 
+		<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo attribute_escape( $title ); ?>" style="width: 30%" /></label></p>
 		<p><label for="<?php echo $this->get_field_id('max_events'); ?>"><?php _e('Max events to show:', 'jet-event-system'); ?> 
 		<input id="<?php echo $this->get_field_id( 'max_events' ); ?>" name="<?php echo $this->get_field_name( 'max_events' ); ?>" type="text" value="<?php echo attribute_escape( $max_events ); ?>" style="width: 30%" /></label></p>
 
@@ -165,7 +172,8 @@ class JES_BP_Events_Widget extends WP_Widget {
 
 		<p><label for="<?php echo $this->get_field_id('show_type'); ?>"><?php _e('Show type of event and its Classification:', 'jet-event-system'); ?>
 		<input class="checkbox" type="checkbox" <?php if ($show_type) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('show_type'); ?>" name="<?php echo $this->get_field_name('show_type'); ?>" value="1" /></label></p>	
-	
+		<p><label for="<?php echo $this->get_field_id('showtime'); ?>"><?php _e('Show time:', 'jet-event-system'); ?>
+		<input class="checkbox" type="checkbox" <?php if ($showtime) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('showtime'); ?>" name="<?php echo $this->get_field_name('showtime'); ?>" value="1" /></label></p>	
 		<p><label for="<?php echo $this->get_field_id('show_countrystate'); ?>"><?php _e('Show the country and state for the event (if allowed to use administrative panel):', 'jet-event-system'); ?>
 		<input class="checkbox" type="checkbox" <?php if ($show_countrystate) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('show_countrystate'); ?>" name="<?php echo $this->get_field_name('show_countrystate'); ?>" value="1" /></label></p>	
 	
@@ -204,13 +212,13 @@ function events_ajax_widget_events_list() {
 		<ul id="events-list" class="item-list">
 			<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 				<li>
-					<div class="item-avatar">
+					<div class="item-avatar" id="jes-avatar">
 						<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar_thumb() ?></a>
 					</div>
 
-					<div class="item">
-						<div class="item-title"><a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a></div>
-						<div class="item-meta">
+					<div class="item" id="jes-title">
+						<div class="item-title" id="jes-event-title"><a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a></div>
+						<div class="item-meta" id="jes-meta">
 							<span>
 								<?php
 								if ( 'newest-events' == $_POST['filter'] ) {

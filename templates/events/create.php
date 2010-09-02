@@ -6,6 +6,18 @@
 	<?php
 			$edata = get_option( 'jes_events' );
 			$createa = $edata[ 'jes_events_createnonadmin_disable' ];
+			$showcreate = 0;
+			if ( is_user_logged_in() )
+					{
+						if (!$createa )
+							{
+								$showcreate = 1;
+							}
+						if (current_user_can('manage_options'))
+							{
+								$showcreate = 1;
+							}
+					}
 	?>
 
 		<form action="<?php bp_event_creation_form_action() ?>" method="post" id="create-event-form" class="standard-form" enctype="multipart/form-data">
@@ -26,7 +38,7 @@
 			<div class="item-body" id="event-create-body">
 
 				<?php /* Event creation step 1: Basic event details */ ?>
-				<?php if ( bp_is_event_creation_step( 'event-details' ) ) : ?>
+				<?php if ( jes_is_event_creation_step( 'event-details' ) ) : ?>
 
 					<?php do_action( 'bp_before_event_details_creation_step' ); ?>
 	<table valign="top">
@@ -99,12 +111,15 @@
 
 		<label for="event-placedaddress"><?php _e('Event address', 'jet-event-system') ?></label>
 		<input type="text" name="event-placedaddress" id="event-placedaddress" size="25" maxlength="40" value="<?php bp_new_event_placedaddress() ?>" />
-			</td>
+
+	<?php if ($edata[ 'jes_events_noteopt_enable' ]) { ?>		
+		<label for="event-placednote"><?php _e('Event note', 'jet-event-system') ?></label>
+		<input type="text" name="event-placednote" id="event-placednote" size="25" maxlength="40" value="<?php bp_new_event_placednote() ?>" />
+	<?php } else { ?>
+		<input type="hidden" name="event-placednote" id="event-placednote" size="25" maxlength="40" value="<?php bp_new_event_placednote() ?>" />	
+	<?php } ?>
+	</td>
 			<td width="50%" style="vertical-align:top;">	
-		<?php if ($edata['jes_events_specialconditions_enable']) { ?> 				
-				<label for="event-eventterms"><h4><?php _e('Special Conditions', 'jet-event-system') ?></h4></label>
-				<textarea name="event-eventterms" id="event-eventterms"><?php bp_new_event_eventterms() ?></textarea>
-		<?php } ?>
 		<?php if ($edata['jes_events_publicnews_enable'] || $edata['jes_publicnews_enable']) { ?>	
 			<h4><?php _e('News for event','jet-event-system') ?></h4>					
 		<?php } ?>
@@ -115,7 +130,25 @@
 		<?php if ($edata['jes_events_privatenews_enable']) { ?>
 			<label for="event-newsprivate"><?php _e('Private Event News', 'jet-event-system') ?></label>
 			<textarea name="event-newsprivate" id="event-newsprivate"><?php bp_new_event_newsprivate() ?></textarea>
-		<?php } ?>					
+		<?php } ?>	
+		<?php if ($edata['jes_events_specialconditions_enable']) { ?> 				
+				<label for="event-eventterms"><h4><?php _e('Special Conditions', 'jet-event-system') ?></h4></label>
+				<textarea name="event-eventterms" id="event-eventterms"><?php bp_new_event_eventterms() ?></textarea>
+		<?php } ?>
+
+	<?php if ($edata[ 'jes_events_googlemapopt_enable' ]) { ?>
+		<label for="event-placedgooglemap"><?php _e('Link to Google Maps or any other image', 'jet-event-system') ?></label>
+		<input type="text" name="event-placedgooglemap" id="event-placedgooglemap" size="50" maxlength="250" value="<?php bp_new_event_placedgooglemap() ?>" />
+	<?php } else { ?>
+		<input type="hidden" name="event-placedgooglemap" id="event-placedgooglemap" size="50" maxlength="250" value="<?php bp_new_event_placedgooglemap() ?>" />	
+	<?php } ?>
+
+	<?php if ($edata[ 'jes_events_flyeropt_enable' ]) { ?>
+		<label for="event-flyer"><?php _e('Link to image flyer', 'jet-event-system') ?></label>
+		<input type="text" name="event-flyer" id="event-flyer" size="50" maxlength="250" value="<?php bp_new_event_flyer() ?>" />
+	<?php } else { ?>
+		<input type="hidden" name="event-flyer" id="event-flyer" size="50" maxlength="250" value="<?php bp_new_event_flyer() ?>" />	
+	<?php } ?>
 			</td>
 		</tr>
 		<tr>
@@ -127,14 +160,14 @@
 							changeMonth: true,
 							changeYear: true,
 							yearRange: '2010:2020',
-							dateFormat:<?php echo $edata['jes_events_date_format']; ?>
+							gotoCurrent: true
 						});
 					$("#event-edted").datepicker(
 						{
 							changeMonth: true,
 							changeYear: true,
 							yearRange: '2010:2020',
-							dateFormat:<?php echo $edata['jes_events_date_format']; ?>
+							gotoCurrent: true
 						});		
 					});
 </script>
@@ -149,13 +182,21 @@
 								<select name="event-edtsth" id="event-edtsth" size=1>
 								<?php
 									for ($i=1; $i<24; $i++) { ?>
-										<option value="<?php echo $i;?>"><?php echo $i; ?></option>
+									<?php if ($i<10)
+										{ $codei = '0'.$i; }
+											else
+										{ $codei = $i; } ?>
+										<option value="<?php echo $codei;?>"><?php echo $codei; ?></option>
 								<?php } ?>
 								</select><?php _e(' hours','jet-event-system'); ?>
 								<select name="event-edtstm" id="event-edtstm" size=1>
-								<?php
-									for ($i=0; $i<60; $i=$i+10) { ?>
-										<option value="<?php echo $i;?>"><?php echo $i; ?></option>
+								<?php for ($i=0;$i<60;$i=$i+5)
+									{ ?>
+									<?php if ($i<10)
+										{ $codei = '0'.$i; }
+											else
+										{ $codei = $i; } ?>
+								<option value="<?php echo $codei; ?>"><?php echo $codei; ?></option>
 								<?php } ?>
 								</select><?php _e(' minutes','jet-event-system'); ?>
 							</td>
@@ -169,20 +210,26 @@
 								<label for="event-edted"><?php _e('* Event End date', 'jet-event-system') ?><br /> <?php _e( '(required)', 'jet-event-system' )?></label>
 							</td>
 							<td>
-								<input type="text" readonly name="event-edted" id="event-edted" size="20" maxlength="20" value="<?php bp_new_event_edted() ?>" />
+								<input type="text" readonly name="event-edted" id="event-edted" size="20" maxlength="20" value="<?php bp_new_event_edted() ?>" /><br />
 								<select name="event-edteth" id="event-edteth" size=1>
 								<?php
 									for ($i=1; $i<24; $i++) { ?>
-										<option value="<?php echo $i;?>"><?php echo $i; ?></option>
+									<?php if ($i<10)
+										{ $codei = '0'.$i; }
+											else
+										{ $codei = $i; } ?>
+										<option value="<?php echo $codei;?>"><?php echo $codei; ?></option>
 								<?php } ?>
 								</select><?php _e(' hours','jet-event-system'); ?>
 								<select name="event-edtetm" id="event-edtetm" size=1>
-										<option value="00">00</option>
-										<option value="10">10</option>
-										<option value="20">20</option>
-										<option value="30">30</option>
-										<option value="40">40</option>
-										<option value="50">50</option>
+								<?php for ($i=0;$i<60;$i=$i+5)
+									{ ?>
+									<?php if ($i<10)
+										{ $codei = '0'.$i; }
+											else
+										{ $codei = $i; } ?>
+								<option value="<?php echo $codei; ?>"><?php echo $codei; ?></option>
+								<?php } ?>
 								</select><?php _e(' minutes','jet-event-system'); ?>
 							</td>
 						</tr>
@@ -202,7 +249,7 @@
 				<?php endif; ?>
 
 				<?php /* Event creation step 2: Event settings */ ?>
-				<?php if ( bp_is_event_creation_step( 'event-settings' ) ) : ?>
+				<?php if ( jes_is_event_creation_step( 'event-settings' ) ) : ?>
 
 					<?php do_action( 'bp_before_event_settings_creation_step' ); ?>
 
@@ -251,7 +298,7 @@
 				<?php endif; ?>
 
 				<?php /* Event creation step 3: Avatar Uploads */ ?>
-				<?php if ( bp_is_event_creation_step( 'event-avatar' ) ) : ?>
+				<?php if ( jes_is_event_creation_step( 'event-avatar' ) ) : ?>
 
 					<?php do_action( 'bp_before_event_avatar_creation_step' ); ?>
 
@@ -303,7 +350,7 @@
 				<?php endif; ?>
 
 				<?php /* Event creation step 4: Invite friends to event */ ?>
-				<?php if ( bp_is_event_creation_step( 'event-invites' ) ) : ?>
+				<?php if ( jes_is_event_creation_step( 'event-invites' ) ) : ?>
 
 					<?php do_action( 'bp_before_jes_event_invites_creation_step' ); ?>
 

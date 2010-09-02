@@ -20,7 +20,7 @@ The modern System of events for your social network. Ability to attract members 
 <strong>Before you install or upgrade sure to read the Readme file!</strong>! 
 <strong>Перед установкой или обновлением обязательно прочтите Readme файл!</strong>
 
-Translation for the following locations: ru_RU, fr_FR, de_DE, es_ES, da_DK (see Translate section in readme)
+Translation for the following locations: ru_RU, fr_FR, de_DE, es_ES, da_DK, it_IT (see Translate section in readme)
 
 Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://volks-wagen-club.ru">Volkswagen Club</a> (Please do not create events on these sites! Use the <a href="http://jes.milordk.ru">jes.milordk.ru</a>)
 
@@ -32,7 +32,7 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://vol
 
 1. Upload `jet-event-system-for-buddypress` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-2. Be sure to transfer the contents of the folder from the Templates folder (Events, Members) in the root of the plugin you are using themes BP (default: / plugins / buddypress / bp-themes / bp-default). The plugin automatically updates the Templates, but if you changed the subject and / or updated plug-in - need to visit the administrative panel of the plugin and follow the instructions - upgrade Templates!
+3. The plugin automatically updates the Templates (and DB), but if you changed the subject and / or updated plug-in - need to visit the administrative panel of the plugin and follow the instructions - upgrade Templates!
 4. Visit the admin panel plugin (Jes Event system)
 5. Add widget to site (if needed)
 6. See Events Catalog: http://yousite/events
@@ -41,8 +41,8 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://vol
 == Screenshots ==
 
 1. **Event catalog**
-2. **Create Event Screen**
-3. **Event Setting**
+2. **Single Event**
+3. **Datepicker**
 4. **Widget on Site Wide**
 5. **Admin Panel**
 
@@ -62,19 +62,17 @@ Tell about problems with the plugin and read the other comments you can: http://
 
 == Translate ==
 
-<strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru" target="_blank">http://milordk.ru</a>
-
-<strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">http://www.paysterresdelorraine.com/</a>
-
-<strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="http://www.pixelartist.de" target="_blank">www.pixelartist.de</a>
-
-<strong>es_ES</strong> - <em>Alex_Mx</em>
-
-<strong>da_DK</strong> - <em>Cavamondo</em>
+* <strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru" target="_blank">http://milordk.ru</a>
+* <strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">http://www.paysterresdelorraine.com/</a>
+* <strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="http://www.pixelartist.de" target="_blank">www.pixelartist.de</a>
+* <strong>es_ES</strong> - <em>Alex_Mx</em>
+* <strong>da_DK</strong> - <em>Cavamondo</em>
+* <strong>it_IT</strong> - <em>Andrea Bianchi</em>
 
 
 == Future ==
 
+* In version 1.4 will be updated mechanism for the formation of Google Maps (manually or automatically at the specified location of the event)
 * In version 1.5 will be added to the possibility of tying the event to a group
 * In version 2.0 will ensure compatibility of the system with the new version of BP
 * In version 2.5 will be able to add events to Outlook Calendar and iCal (list may vary from those of the creator of the plug and the wishes of the participants testing)
@@ -92,15 +90,24 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 [Plugin page](http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html)
 
 
-
 == Changelog ==
+
+= 1.3 =
+* Fixed a security issue: if the prohibition did not create an event administrators - they can directly access the form creation events
+* The opportunity to add a map location of the event and its flyer
+* Added ability to specify location of the event (in addition to address)
+* Added possibility to change for the Title avatar widget
+* Added check event's name at the time of its creation (given warning if the name is already used or it is not specified)
+* For those who use their own styles: all div-layers added id
+* Redesign Admin Panel
+* Added to the locale it_IT translation. thanks Andrea Bianchi
+* Added to the locale da_DK translation. thanks Cavamondo
 
 = 1.2.4 =
 * Added ability to specify the size of an avatar for the Catalogue of events, single events and widget
 * The date is set by Datepicker (now there is no need to bind to a certain size - you can configure in the administrative panel plugin)
 * Produced redesign display a single event
 * <strong>NOTE:</strong> Update DB and Templates through an administrative panel!
-
 
 = 1.2.3 =
 * Fix problem with displaying an avatar friends who are going to invite to the event (problem occurred when an avatar user profile associated with gravitar)

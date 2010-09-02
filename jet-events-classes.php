@@ -14,6 +14,8 @@ Class JES_Events_Event {
 	var $placedcity;
 	var $placedaddress;
 	var $placednote;
+	var $placedgooglemap;
+	var $flyer;
 	var $newspublic;
 	var $newsprivate;
 	var $edtsd;
@@ -55,6 +57,8 @@ Class JES_Events_Event {
 			$this->placedcity = stripslashes($event->placedcity);
 			$this->placedaddress = stripslashes($event->placedaddress);
 			$this->placednote = stripslashes($event->placednote);
+			$this->placedgooglemap = stripslashes($event->placedgooglemap);
+			$this->flyer = stripslashes($event->flyer);
 			$this->newspublic = stripslashes($event->newspublic);
 			$this->newsprivate = stripslashes($event->newsprivate);
 			$this->edtsd = stripslashes($event->edtsd);			
@@ -100,6 +104,8 @@ Class JES_Events_Event {
 		$this->placedcity = apply_filters( 'events_event_placedcity_before_save', $this->placedcity, $this->id );
 		$this->placedaddress = apply_filters( 'events_event_placedaddress_before_save', $this->placedaddress, $this->id );		
 		$this->placednote = apply_filters( 'events_event_placednote_before_save', $this->placednote, $this->id );
+		$this->placedgooglemap = apply_filters( 'events_event_placedgooglemap_before_save', $this->placedgooglemap, $this->id );
+		$this->flyer = apply_filters( 'events_event_flyer_before_save', $this->flyer, $this->id );
 		$this->newspublic = apply_filters( 'events_event_newspublic_before_save', $this->newspublic, $this->id );
 		$this->newsprivate = apply_filters( 'events_event_newsprivate_before_save', $this->newsprivate, $this->id );
 		$this->edtsd = apply_filters( 'events_event_edtsd_before_save', $this->edtsd, $this->id );
@@ -108,8 +114,8 @@ Class JES_Events_Event {
 		$this->edteth = apply_filters( 'events_event_edteth_before_save', $this->edteth, $this->id );
 		$this->edtstm = apply_filters( 'events_event_edtstm_before_save', $this->edtstm, $this->id );
 		$this->edtetm = apply_filters( 'events_event_edtetm_before_save', $this->edtetm, $this->id );
-		$this->edtsdunix = datetounix(apply_filters( 'events_event_edtsdunix_before_save', $this->edtsd, $this->id ), apply_filters( 'events_event_edtsth_before_save', $this->edtsth, $this->id ), apply_filters( 'events_event_edtstm_before_save', $this->edtstm, $this->id ));		
-		$this->edtedunix = datetounix(apply_filters( 'events_event_edtedunix_before_save', $this->edted, $this->id ), apply_filters( 'events_event_edteth_before_save', $this->edteth, $this->id ), apply_filters( 'events_event_edtetm_before_save', $this->edtetm, $this->id ));
+		$this->edtsdunix = jes_datetounix(apply_filters( 'events_event_edtsdunix_before_save', $this->edtsd, $this->id ), apply_filters( 'events_event_edtsth_before_save', $this->edtsth, $this->id ), apply_filters( 'events_event_edtstm_before_save', $this->edtstm, $this->id ));
+		$this->edtedunix = jes_datetounix(apply_filters( 'events_event_edtedunix_before_save', $this->edted, $this->id ), apply_filters( 'events_event_edteth_before_save', $this->edteth, $this->id ), apply_filters( 'events_event_edtetm_before_save', $this->edtetm, $this->id ));		
 		$this->grouplink = apply_filters( 'events_event_grouplink_before_save', $this->grouplink, $this->id );
 		$this->forumlink = apply_filters( 'events_event_forumlink_before_save', $this->forumlink, $this->id );		
  		$this->status = apply_filters( 'events_event_status_before_save', $this->status, $this->id );
@@ -133,6 +139,8 @@ Class JES_Events_Event {
 					placedcity = %s,
 					placedaddress = %s,
 					placednote = %s,
+					placedgooglemap = %s,
+					flyer = %s,
 					newspublic = %s,
 					newsprivate = %s,
 					edtsd = %s,
@@ -163,6 +171,8 @@ Class JES_Events_Event {
 					$this->placedcity,
 					$this->placedaddress,
 					$this->placednote,					
+					$this->placedgooglemap,
+					$this->flyer,
 					$this->newspublic,
 					$this->newsprivate,
 					$this->edtsd,
@@ -171,8 +181,8 @@ Class JES_Events_Event {
 					$this->edteth,
 					$this->edtstm,
 					$this->edtetm,					
-					datetounix($this->edtsd, $this->edtsth, $this->edtstm),
-					datetounix($this->edted, $this->edteth, $this->edtetm),
+					jes_datetounix($this->edtsd, $this->edtsth, $this->edtstm),
+					jes_datetounix($this->edted, $this->edteth, $this->edtetm),
 					$this->grouplink,
 					$this->forumlink,
 					$this->status,
@@ -195,6 +205,8 @@ Class JES_Events_Event {
 					placedcity,
 					placedaddress,
 					placednote,
+					placedgooglemap,
+					flyer,
 					newspublic,
 					newsprivate,
 					edtsd,
@@ -211,7 +223,7 @@ Class JES_Events_Event {
 					enable_forum,
 					date_created
 				) VALUES (
-					%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %s
+					%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %s
 				)",
 					$this->creator_id,
 					$this->name,
@@ -225,6 +237,8 @@ Class JES_Events_Event {
 					$this->placedcity,
 					$this->placedaddress,
 					$this->placednote,
+					$this->placedgooglemap,
+					$this->flyer,
 					$this->newspublic,
 					$this->newsprivate,
 					$this->edtsd,
@@ -233,8 +247,8 @@ Class JES_Events_Event {
 					$this->edteth,					
 					$this->edtstm,
 					$this->edtetm,
-					datetounix($this->edtsd, $this->edtsth, $this->edtstm),
-					datetounix($this->edted, $this->edteth, $this->edtetm),
+					$this->edtsdunix,
+					$this->edtedunix,
 					$this->grouplink,
 					$this->forumlink,
 					$this->status,
