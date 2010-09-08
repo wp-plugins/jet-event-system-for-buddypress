@@ -29,6 +29,7 @@ Class JES_Events_Event {
 	var $grouplink;
 	var $forumlink;
 	var $date_created;
+	var $notify_timed_enable;
 
 	var $admins;
 	var $total_member_count;
@@ -75,6 +76,7 @@ Class JES_Events_Event {
 			$this->enable_forum = $event->enable_forum;
 			$this->date_created = $event->date_created;
 			$this->last_activity = $event->last_activity;
+			$this->notify_timed_enable = $event->notify_timed_enable;
 			$this->total_member_count = $event->total_member_count;
 			$this->is_member = JES_Events_Member::jes_check_is_member( $bp->loggedin_user->id, $this->id );
 
@@ -91,7 +93,7 @@ Class JES_Events_Event {
 
 	function save() {
 		global $wpdb, $bp;
-
+	
 		$this->creator_id = apply_filters( 'events_event_creator_id_before_save', $this->creator_id, $this->id );
 		$this->name = apply_filters( 'events_event_name_before_save', $this->name, $this->id );
 		$this->etype = apply_filters( 'events_event_etype_before_save', $this->etype, $this->id );
@@ -121,7 +123,8 @@ Class JES_Events_Event {
  		$this->status = apply_filters( 'events_event_status_before_save', $this->status, $this->id );
 		$this->enable_forum = apply_filters( 'events_event_enable_forum_before_save', $this->enable_forum, $this->id );
 		$this->date_created = apply_filters( 'events_event_date_created_before_save', $this->date_created, $this->id );
-
+		$this->notify_timed_enable = apply_filters( 'events_event_notify_timed_enable_before_save', $this->notify_timed_enable, $this->id );
+		
 		do_action( 'events_event_before_save', $this );
 
 		if ( $this->id ) {
@@ -155,7 +158,8 @@ Class JES_Events_Event {
 					forumlink = %s,
 					status = %s,
 					enable_forum = %d,
-					date_created = %s
+					date_created = %s,
+					notify_timed_enable = %s
 				WHERE
 					id = %d
 				",
@@ -188,9 +192,11 @@ Class JES_Events_Event {
 					$this->status,
 					$this->enable_forum,
 					$this->date_created,
+					$this->notify_timed_enable,
 					$this->id
 			);
 		} else {
+		
 			$sql = $wpdb->prepare(
 				"INSERT INTO {$bp->jes_events->table_name} (
 					creator_id,
@@ -221,9 +227,10 @@ Class JES_Events_Event {
 					forumlink,
 					status,
 					enable_forum,
-					date_created
+					date_created,
+					notify_timed_enable
 				) VALUES (
-					%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %s
+					%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %s, %s
 				)",
 					$this->creator_id,
 					$this->name,
@@ -253,7 +260,8 @@ Class JES_Events_Event {
 					$this->forumlink,
 					$this->status,
 					$this->enable_forum,
-					$this->date_created
+					$this->date_created,
+					$this->notify_timed_enable
 			);
 		}
 
@@ -266,7 +274,7 @@ Class JES_Events_Event {
 
 		do_action( 'events_event_after_save', $this );
 
-		return true;
+		return true;	
 	}
 
 	function delete() {

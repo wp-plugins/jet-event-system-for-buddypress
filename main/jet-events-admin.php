@@ -6,76 +6,7 @@ if ( !function_exists( 'add_action' ) ) {
 	exit();
 }
 
-function move_template($fpatch, $fname)
-	{
-		$stringtoreturn = ' ';
-		$filename1 = WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/templates/'.$fpatch.'/'.$fname;
-		$filename2 = TEMPLATEPATH . '/'.$fpatch.'/'.$fname;
-		if ( file_exists($filename1) )
-			{ $stringtoreturn = $stringtoreturn."[OF]"; }
-					else
-			{ $stringtoreturn = $stringtoreturn."[EF]"; }
-
-		if ( !rename ($filename1,$filename2) )
-			{ $stringtoreturn = $stringtoreturn."[ET]"; }
-					else
-			{ $stringtoreturn = $stringtoreturn."[OT]"; }
-		$fresult = $stringtoreturn;
-	return $fresult;
-}
-
-function update_template()
-	{
-// Create Dir
-		if ( !mkdir( TEMPLATEPATH . '/events', 0777, 1 ) ) { echo '[WD]'; } else { echo '[OD]'; }
-		if ( !mkdir( TEMPLATEPATH . '/events/single', 0777, 1 ) ) { echo '[WD]'; } else { echo '[OD]'; }
-		if ( !mkdir( TEMPLATEPATH . '/events/js', 0777, 1 ) ) { echo '[WD]'; } else { echo '[OD]'; }
-		if ( !mkdir( TEMPLATEPATH . '/members', 0777, 1 ) ) { echo '[WD]'; } else { echo '[OD]'; }
-		if ( !mkdir( TEMPLATEPATH . '/members/single', 0777, 1 ) ) { echo '[WD]'; } else { echo '[OD]'; }
-		if ( !mkdir( TEMPLATEPATH . '/members/single/events', 0777, 1 ) ) { echo '[WD]'; } else { echo '[OD]'; }
-		if ( !mkdir( TEMPLATEPATH . '/events/css', 0777, 1 ) ) { echo '[WD]'; } else { echo '[OD]'; }
-		if ( !mkdir( TEMPLATEPATH . '/events/css/images', 0777, 1 ) ) { echo '[WD]'; } else { echo '[OD]'; }
-		echo '<br />';
-// Copy templates files
-	/* Events Main */
-		echo move_template( 'events','create.php');
-		echo move_template( 'events','events-loop.php');
-		echo move_template( 'events','index.php');
-	/* Events single */
-		echo move_template( 'events/single','activity.php');
-		echo move_template( 'events/single','admin.php');
-		echo move_template( 'events/single','details.php');
-		echo move_template( 'events/single','event-header.php');
-		echo move_template( 'events/single','home.php');
-		echo move_template( 'events/single','members.php');
-		echo move_template( 'events/single','plugins.php');
-		echo move_template( 'events/single','request-join-to-event.php');
-		echo move_template( 'events/single','send-invites.php');
-		echo move_template( 'events/single','google-map.php');
-		echo move_template( 'events/single','flyer.php');
-	/* Datepicker */
-		echo move_template( 'events/css','datepicker.css');
-		echo move_template( 'events/css/images','ui-bg_flat_0_aaaaaa_40x100.png');		
-		echo move_template( 'events/css/images','ui-bg_flat_75_ffffff_40x100.png');
-		echo move_template( 'events/css/images','ui-bg_glass_55_fbf9ee_1x400.png');		
-		echo move_template( 'events/css/images','ui-bg_glass_65_ffffff_1x400.png');		
-		echo move_template( 'events/css/images','ui-bg_glass_75_dadada_1x400.png');		
-		echo move_template( 'events/css/images','ui-bg_glass_75_e6e6e6_1x400.png');		
-		echo move_template( 'events/css/images','ui-bg_glass_95_fef1ec_1x400.png');
-		echo move_template( 'events/css/images','ui-bg_highlight-soft_75_cccccc_1x100.png');
-		echo move_template( 'events/css/images','ui-icons_2e83ff_256x240.png');		
-		echo move_template( 'events/css/images','ui-icons_222222_256x240.png');
-		echo move_template( 'events/css/images','ui-icons_454545_256x240.png');
-		echo move_template( 'events/css/images','ui-icons_888888_256x240.png');
-		echo move_template( 'events/css/images','ui-icons_cd0a0a_256x240.png');
-		echo move_template( 'events/js','jquery-1.4.2.min.js');
-		echo move_template( 'events/js','jquery-ui-1.8.4.custom.min.js');
-	/* Member section */
-		echo move_template( 'members/single','events.php');
-		echo move_template( 'members/single/events','invites.php');	
-	return true;
-}
-
+require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-update.php' );
 
 $new_jes_events_admin = new JES_EVENTS_ADMIN_PAGE();
 
@@ -123,6 +54,9 @@ class JES_EVENTS_ADMIN_PAGE {
 
 		add_meta_box('jes-event-admin-privacyoptions', __( 'Privacy options', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_privacyoptions'), $this->pagehook, 'normal', 'core');		
 
+		add_meta_box('jes-event-admin-reminder', __( 'Reminder options (future)', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_reminder'), $this->pagehook, 'normal', 'core');
+
+		add_meta_box('jes-event-admin-googlemap', __( 'Google Map options (future)', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_googlemap'), $this->pagehook, 'normal', 'core');		
 	}
 
 	//executed to show the plugins complete admin page
@@ -139,6 +73,17 @@ class JES_EVENTS_ADMIN_PAGE {
 
 		<?php
 /* JES */
+
+if ( isset($_POST['updatedb']) )
+		{
+			jes_events_init_jesdb();
+			echo "<div id='message' class='updated fade'><p>" . __( 'Database updated.', 'jet-event-system' ) . "</p></div>";
+		}
+
+if ( isset($_POST['updatetemplate']) )
+		{
+			echo "<div id='message' class='updated fade'><p>" . __( 'Templates updated.', 'jet-event-system' ) . " " . update_template() ."</p></div>";
+		}
 
 	$jes_events = get_option( 'jes_events' );
 if ( isset($_POST['saveData']) ) {
@@ -161,7 +106,9 @@ if ( isset($_POST['saveData']) ) {
 		$jes_events[ 'jes_events_publicnews_enable' ] = 0;
 		$jes_events[ 'jes_events_privatenews_enable' ] = 0;
 		$jes_events[ 'jes_events_show_avatar_invite_enable' ] = 0;
-		
+		$jes_events[ 'jes_events_notifymembers_manual_enable' ] = 0;
+		$jes_events[ 'jes_events_flyer_toall' ] = 0;		
+
 		if ( $_POST[ 'jes_events_class_enable' ] == 1 ) 
 			$jes_events[ 'jes_events_class_enable' ] = 1;
 			
@@ -186,6 +133,13 @@ if ( isset($_POST['saveData']) ) {
 		if ( $_POST[ 'jes_events_adminapprove_enable' ] == 1 ) 
 			$jes_events[ 'jes_events_adminapprove_enable' ] = 1;	
 
+		if ( $_POST[ 'jes_events_notifymembers_manual_enable' ] == 1 ) 
+			$jes_events[ 'jes_events_notifymembers_manual_enable' ] = 1;
+		
+		if ( $_POST[ 'jes_events_flyer_toall' ] == 1 ) 
+			$jes_events[ 'jes_events_flyer_toall' ] = 1;
+			
+			
 /* Access to Event Fields */
 	/* Conditions - News */
 		if ( $_POST[ 'jes_events_specialconditions_enable' ] == 1 ) 
@@ -332,6 +286,25 @@ if ( isset($_POST['saveData']) ) {
 			$jes_events[ 'jes_events_sort_by' ] = 'ASC';			
 		}
 
+/* Notify */
+		if ( $_POST[ 'jes_events_notify_timed' ] != null ) {
+			$jes_events[ 'jes_events_notify_timed' ] = stripslashes($_POST[ 'jes_events_notify_timed' ]);
+		}else{
+			$jes_events[ 'jes_events_notify_timed' ] = '12';		
+		}
+
+		if ( $_POST[ 'jes_events_notifymembers_enable' ] != null ) {
+			$jes_events[ 'jes_events_notifymembers_enable' ] = stripslashes($_POST[ 'jes_events_notifymembers_enable' ]);
+		}else{
+			$jes_events[ 'jes_events_notifymembers_enable' ] = 'admin';
+		}
+/* Google map */
+		if ( $_POST[ 'jes_events_googlemapopt_type' ] != null ) {
+			$jes_events[ 'jes_events_googlemapopt_type' ] = stripslashes($_POST[ 'jes_events_googlemapopt_type' ]);
+		}else{
+			$jes_events[ 'jes_events_googlemapopt_type' ] = 'google';
+		}
+
 /* -------------------- */
 
 if (stripos($blogversion, 'MU') > 0)
@@ -449,12 +422,12 @@ function on_jes_events_admin_note($jes_events) {
 	
 function on_jes_events_admin_information($jes_events) {
 ?>
-		<h4>Jet Event System <?php _e('version','jet-event-system'); ?> 1.3 <?php _e('build','jet-event-system'); ?> 2</h4>
+		<h4>Jet Event System <?php _e('version','jet-event-system'); ?> <?php echo JES_EVENTS_VERSION; ?> <?php _e('build','jet-event-system'); ?> <?php echo JES_EVENTS_BUILD; ?></h4>
 				<p><?php echo JES_EVENTS_RELEASE; ?></p>
 			<p><?php _e('Template version:','jet-event-system');?>
 				<?php if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION )
 							{
-								echo '<span style="color:#CC0033;"';
+								echo '<span style="color:#CC0033;">';
 							} else {
 								echo '<span>';
 							} ?>
@@ -462,7 +435,7 @@ function on_jes_events_admin_information($jes_events) {
 				<p><?php _e('DB version:','jet-event-system'); ?>
 				<?php if ( get_site_option( 'jes-events-db-version' ) < JES_EVENTS_DB_VERSION )
 							{
-								echo '<span style="color:#CC0033;"';
+								echo '<span style="color:#CC0033;">';
 							} else {
 								echo '<span>';
 							} ?>
@@ -471,29 +444,16 @@ function on_jes_events_admin_information($jes_events) {
 <?php
 }
 
-   function on_jes_events_admin_setupmain($jes_events) {
-  ?>
-	<form action="" name="jes_events_update_component" id="jes_events_update_component" method="post">
-	<?php
-		if ( get_site_option( 'jes-events-db-version' ) < JES_EVENTS_DB_VERSION )
-			{
-				jes_events_init_jesdb();
-				_e('The database is updated!','jet-event-system');				
-				echo '<br />';
-			} 
-				else
-			{ ?>
-				<SCRIPT LANGUAGE="JavaScript">
-					function updateDB(form){
-						var code="<?php jes_events_init_jesdb(); ?>";
-						alert('The database is updated!');
-					return true;
-					}
-				</SCRIPT>
-				<input type="button" value="<?php _e('Update Database','jet-event-system'); ?> (<?php echo JES_EVENTS_DB_VERSION; ?>)" onClick="return updateDB(this.form)"> 
-	<?php } ?>
-	
-<?php	if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION )
+function on_jes_events_admin_setupmain($jes_events) {
+/* DB */
+	if ( get_site_option( 'jes-events-db-version' ) < JES_EVENTS_DB_VERSION )
+		{
+			jes_events_init_jesdb();
+			_e('The database is updated!','jet-event-system');				
+			echo '<br />';
+		} 
+/* Template */
+	if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION )
 			{
 				_e('There were changes in the theme file!','jet-event-system');
 				echo '<br />';
@@ -508,17 +468,10 @@ function on_jes_events_admin_information($jes_events) {
 						_e('An error occurred while updating the files! (check the folder themes)','jet-event-system');
 					}
 			}
-				else
-			{ ?>
-				<SCRIPT LANGUAGE="JavaScript">
-					function updateTHEME(form){
-						var code="<?php update_template(); ?>";
-						alert('Templates is updated!');
-					return true;
-					}
-				</SCRIPT>			
-				<input type="button" value="<?php _e('Update Templates','jet-event-system'); ?> (<?php echo JES_EVENTS_THEME_VERSION ?>)" onClick="return updateTHEME(this.form)"> 
-			<?php }	?>
+?>  
+	<form action="<?php echo site_url() . '/wp-admin/admin.php?page=jes-event-admin' ?>" name="jes_events_update_j" id="jes_events_update_j" method="post">
+		<input type="submit" name="updatedb" value="<?php _e( 'Update Database', 'jet-event-system' ) ?>"/>
+		<input type="submit" name="updatetemplate" value="<?php _e( 'Update Templates', 'jet-event-system' ) ?>"/>
 	</form>	
 <?php	}
 
@@ -802,7 +755,69 @@ function on_jes_events_admin_information($jes_events) {
 									<input name="jes_events_addnavicatalog_disable" type="checkbox" id="jes_events_addnavicatalog_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_addnavicatalog_disable' ] ? ' checked="checked"' : '' ); ?> />
 								</td>
 							</tr>
+							
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_flyer_toall"><?php _e( 'Show flyers to all users? (otherwise, flyers will be available only to participants of the event)', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_flyer_toall" type="checkbox" id="jes_events_flyer_toall" value="1"<?php echo( '1' == $jes_events[ 'jes_events_flyer_toall' ] ? ' checked="checked"' : '' ); ?> />
+								</td>
+							</tr>							
 </table>
 <?php   }   
+
+	function on_jes_events_admin_reminder($jes_events) {
+?>
+	<table class="form-table" width="90%">
+	
+		<tr valign="top">
+			<th scope="row"><label for="jes_events_notifymembers_manual_enable"><?php _e( 'Provide administrators an opportunity to remind participants of the events of the coming event in manual mode?', 'jet-event-system' ) ?></label></th>
+			<td>
+				<input name="jes_events_notifymembers_manual_enable" type="checkbox" id="jes_events_notifymembers_manual_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_notifymembers_manual_enable' ] ? ' checked="checked"' : '' ); ?> />
+			</td>
+		</tr>
+		
+		<tr valign="top">
+			<th scope="row"><label for="jes_events_notifymembers_enable"><?php _e( 'To allow the setting reminder?', 'jet-event-system' ) ?></label></th>
+			<td>
+				<select name="jes_events_notifymembers_enable" id="jes_events_notifymembers_enable">
+					<option <?php if ($jes_events[ 'jes_events_notifymembers_enable' ] == 'admin') { ?>selected<?php } ?> value="admin"><?php _e('Administrators','jet-event-system'); ?></option>
+					<option <?php if ($jes_events[ 'jes_events_notifymembers_enable' ] == 'user') { ?>selected<?php } ?> value="user"><?php _e('All users','jet-event-system'); ?></option>
+					<option <?php if ($jes_events[ 'jes_events_notifymembers_enable' ] == 'none') { ?>selected<?php } ?> value="none"><?php _e('Function is not active','jet-event-system'); ?></option>				
+				</select>
+			</td>
+		</tr>
+
+		<tr valign="top">
+			<th scope="row"><label for="jes_events_notify_timed"><?php _e( 'Time remind default:', 'jet-event-system' ) ?></label></th>
+			<td>
+				<select name="jes_events_notify_timed" id="jes_events_notify_timed">
+					<option <?php if ($jes_events[ 'jes_events_notify_timed' ] == '1') { ?>selected<?php } ?> value="1"><?php echo sprintf ( __('%s hours','jet-event-system'),'1'); ?></option>
+					<option <?php if ($jes_events[ 'jes_events_notify_timed' ] == '2') { ?>selected<?php } ?> value="2"><?php echo sprintf ( __('%s hours','jet-event-system'),'2'); ?></option>
+					<option <?php if ($jes_events[ 'jes_events_notify_timed' ] == '3') { ?>selected<?php } ?> value="3"><?php echo sprintf ( __('%s hours','jet-event-system'),'3'); ?></option>
+					<option <?php if ($jes_events[ 'jes_events_notify_timed' ] == '5') { ?>selected<?php } ?> value="5"><?php echo sprintf ( __('%s hours','jet-event-system'),'5'); ?></option>
+					<option <?php if ($jes_events[ 'jes_events_notify_timed' ] == '12') { ?>selected<?php } ?> value="12"><?php echo sprintf ( __('%s hours','jet-event-system'),'12'); ?></option>
+					<option <?php if ($jes_events[ 'jes_events_notify_timed' ] == '24') { ?>selected<?php } ?> value="24"><?php echo sprintf ( __('%s hours','jet-event-system'),'24'); ?></option>
+					<option <?php if ($jes_events[ 'jes_events_notify_timed' ] == '48') { ?>selected<?php } ?> value="48"><?php echo sprintf ( __('%s hours','jet-event-system'),'48'); ?></option>
+			</select>
+			</td>
+		</tr>
+	</table>
+<?php   } 
+
+	function on_jes_events_admin_googlemap($jes_events) {
+?>
+	<table class="form-table" width="90%">
+		
+		<tr valign="top">
+			<th scope="row"><label for="jes_events_googlemapopt_type"><?php _e( 'Use the following mechanism for the demonstration maps:', 'jet-event-system' ) ?></label></th>
+			<td>
+				<select name="jes_events_googlemapopt_type" id="jes_events_googlemapopt_type">
+					<option <?php if ($jes_events[ 'jes_events_googlemapopt_type' ] == 'google') { ?>selected<?php } ?> value="google"><?php _e('Google','jet-event-system'); ?></option>
+					<option <?php if ($jes_events[ 'jes_events_googlemapopt_type' ] == 'image') { ?>selected<?php } ?> value="image"><?php _e('Image','jet-event-system'); ?></option>
+				</select>
+			</td>
+		</tr>
+	</table>
+<?php   } 
 }
 ?>

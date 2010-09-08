@@ -1626,8 +1626,8 @@ function bp_event_join_button( $event = false ) {
 	switch ( $event->status ) {
 		case 'public':
 			if ( $event->is_member ) {
-			if (!jes_bp_event_is_admin()) {
-				echo '<a class="leave-event" href="' . wp_nonce_url( jes_bp_get_event_permalink( $event ) . 'leave-event', 'events_leave_event' ) . '">' . __( 'Leave Event', 'jet-event-system' ) . '</a>'; }
+			// if (!jes_bp_event_is_admin()) {
+				echo '<a class="leave-event" href="' . wp_nonce_url( jes_bp_get_event_permalink( $event ) . 'leave-event', 'events_leave_event' ) . '">' . __( 'Leave Event', 'jet-event-system' ) . '</a>'; //}
 			} 
 			else
 				echo '<a class="join-event" href="' . wp_nonce_url( jes_bp_get_event_permalink( $event ) . 'join', 'events_join_event' ) . '">' . __( 'Join Event', 'jet-event-system' ) . '</a>';

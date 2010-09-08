@@ -26,7 +26,7 @@
 	
 		<?php if ( jes_bp_event_is_visible() ) { ?>
 					<p><strong><?php _e('Event address', 'jet-event-system') ?>:</strong> <?php jes_bp_event_placedaddress() ?>
-				<?php if ( $edata[ 'jes_events_placednoteopt_enable' ] )
+				<?php if ( $edata[ 'jes_events_noteopt_enable' ] )
 							{	?>
 					<br />
 					<strong><?php _e('Event note', 'jet-event-system') ?>:</strong> <?php jes_bp_event_placednote() ?>

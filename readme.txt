@@ -32,8 +32,8 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://vol
 
 1. Upload `jet-event-system-for-buddypress` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. The plugin automatically updates the Templates (and DB), but if you changed the subject and / or updated plug-in - need to visit the administrative panel of the plugin and follow the instructions - upgrade Templates!
-4. Visit the admin panel plugin (Jes Event system)
+3. Visit the admin panel plugin (JES Event System)
+4. The plugin automatically updates the Templates (and DB), but if you changed the subject and / or updated plug-in - need to visit the administrative panel of the plugin and follow the instructions - upgrade Templates!
 5. Add widget to site (if needed)
 6. See Events Catalog: http://yousite/events
 
@@ -60,11 +60,25 @@ Yes, the dev website there is a group for proposals for the development of plug-
 
 Make sure that the owner of the folders and files contained in them is the owner of the web server (www/apache/nginx/nobody?)
 
+= I'm not working choose the date when creating and / or edit an event =
+
+You need to check whether all files are copied Temple. Make sure that all plugin js-scripts are not only registered in the boot, but also present on the specified routes
+
 = Can I get extended support plug-in or implementation of additional (specific) functional? =
 You can, but keep in mind that the cost of implementing individual (not popular majority) functions - should be paid off
 
+= What resources are consumed plugin? =
+
+Home page:
+С плагином: Render Time: 0.696 sec (9.6% for queries). DB queries: 57, none defective, none > 0.500 sec. Memory: 34.7MB 
+Без плагина: Render Time: 0.632 sec (10.4% for queries). DB queries: 52, none defective, none > 0.500 sec. Memory: 32.3MB
+
+Page "Events directory": Render Time: 0.375 sec (11.0% for queries). DB queries: 59, none defective, none > 0.500 sec. Memory: 34.7MB
+
 
 == Special Note ==
+
+<strong>Correct operation of the plugin is guaranteed only in case of installation through the administrative panel of Wordpress! If you install the plugin yourself - you must have the necessary knowledge of web servers, access rights & etc.!</strong>
 
 Used your theme should be based on the default theme BP (styles and functions)! The efficiency of the plug can only be guaranteed on these themes!
 As one of the options for addressing emerging problems with other themes - connection functions.php from a default theme to your BP
@@ -90,9 +104,10 @@ Tell about problems with the plugin and read the other comments you can: http://
 
 == Future ==
 
-* In version 1.4 will be updated mechanism for the formation of Google Maps (manually or automatically at the specified location of the event)
-* In version 1.5 will be implemented to use shortkode to insert into your records
-* In version 1.6 will be added to the possibility of tying the event to a group
+* In version 1.5 will be added the possibility to use your theme for the Events Directory.
+* In version 1.6 will be updated mechanism for the formation of Google Maps (manually or automatically at the specified location of the event)
+* In version 1.7 will be implemented to use shortkode to insert into your records
+* In version 1.8 will be added to the possibility of tying the event to a group
 * In version 2.0 will ensure compatibility of the system with the new version of BP
 * In version 2.5 will be able to add events to Outlook Calendar and iCal (list may vary from those of the creator of the plug and the wishes of the participants testing)
 * In version 3.0 will be added to the possibility of tying the event to your blog (s)
@@ -112,6 +127,22 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.4 =
+* Fixed: Unable to select the zero hour for the timing of the start and end events
+* Fixed: You could enter one and the same start date and end events
+* Fixed minor problems
+* Changed a mechanism to update database and Templates
+* Added ability to notify members about the events of his early start (beta version)
+* Added the ability to customize demonstration flyer for users
+* Ability to use the full Google maps
+
+
+= 1.3.3 =
+
+* Fixed: A site administrator could not refuse from participation in the event
+* Fixed: Not working bookmarks "All events", "My events"
+* Update translate: it_IT
 
 = 1.3.2 =
 

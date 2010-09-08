@@ -136,9 +136,14 @@
 				<textarea name="event-eventterms" id="event-eventterms"><?php bp_new_event_eventterms() ?></textarea>
 		<?php } ?>
 
-	<?php if ($edata[ 'jes_events_googlemapopt_enable' ]) { ?>
-		<label for="event-placedgooglemap"><?php _e('Link to Google Maps or any other image', 'jet-event-system') ?></label>
+<?php	/* Google Map */ ?>
+	<?php if ($edata[ 'jes_events_googlemapopt_enable' ]) {
+			if ($edata[ 'jes_events_googlemapopt_type' ] == 'image') { ?>
+		<label for="event-placedgooglemap"><?php _e('Link to Google Maps or any other image', 'jet-event-system') ?></label> */ ?>
 		<input type="text" name="event-placedgooglemap" id="event-placedgooglemap" size="50" maxlength="250" value="<?php bp_new_event_placedgooglemap() ?>" />
+	<?php } else { ?>
+		<input type="hidden" name="event-placedgooglemap" id="event-placedgooglemap" size="50" maxlength="250" value="<?php bp_new_event_placedgooglemap() ?>" />
+	<?php }	?>		
 	<?php } else { ?>
 		<input type="hidden" name="event-placedgooglemap" id="event-placedgooglemap" size="50" maxlength="250" value="<?php bp_new_event_placedgooglemap() ?>" />	
 	<?php } ?>
@@ -181,7 +186,7 @@
 								<input type="text" readonly name="event-edtsd" id="event-edtsd" size="20" maxlength="20" value="<?php bp_new_event_edtsd() ?>" /><br />
 								<select name="event-edtsth" id="event-edtsth" size=1>
 								<?php
-									for ($i=1; $i<24; $i++) { ?>
+									for ($i=0; $i<24; $i++) { ?>
 									<?php if ($i<10)
 										{ $codei = '0'.$i; }
 											else
@@ -213,7 +218,7 @@
 								<input type="text" readonly name="event-edted" id="event-edted" size="20" maxlength="20" value="<?php bp_new_event_edted() ?>" /><br />
 								<select name="event-edteth" id="event-edteth" size=1>
 								<?php
-									for ($i=1; $i<24; $i++) { ?>
+									for ($i=0; $i<24; $i++) { ?>
 									<?php if ($i<10)
 										{ $codei = '0'.$i; }
 											else
@@ -236,6 +241,57 @@
 					</table>
 			</td>
 		</tr>
+
+<tr>
+	<td>
+<?php
+/* Notify */
+
+$notaccessrem = 0;
+
+if ($edata[ 'jes_events_notifymembers_enable' ] == 'none' )
+	{
+		$notaccessrem = 1;
+	} else
+	{
+		if ($edata[ 'jes_events_notifymembers_enable' ] == 'admin' )
+			{
+				if ( current_user_can('manage_options') )
+					{
+						$notaccessrem = 1;
+					}
+			} else
+			{
+				if ($edata[ 'jes_events_notifymembers_enable' ] == 'user' )
+					{
+						$notaccessrem = 1;
+					} else
+					{
+						$notaccessrem = 0;
+					}
+			}
+	}
+
+	if ($notaccessrem)
+		{ ?>
+<h4><?php _e( 'Reminder', 'jet-event-system' ); ?></h4>
+		<label for="notifytimedenable"><?php echo sprintf ( __('Remind participants about the early events in %s hours?','jet-event-system'),$edata[ 'jes_events_notify_timed' ] ); ?></label>
+				<select name="notifytimedenable" id="notifytimedenable">
+					<option value="1"><?php _e('Yes','jet-event-system'); ?></option>
+					<option selected value="0"><?php _e('No','jet-event-system'); ?></option>
+				</select>
+<?php 	} 
+			else
+		{ ?>
+			<input id="notifytimedenable" name="notifytimedenable" type="hidden">
+<?php	}
+	?>
+<?php
+/* Notify */
+?>				
+	</td>
+</tr>		
+		
 	</table>
 <?php /*	<div class="checkbox">
 		<label><input type="checkbox" name="event-allday" value="1"<?php if (bp_get_new_event_allday() ) { ?> checked="checked"<?php } ?> /> <?php _e('This is an all day event','bp-events') ?></label>
@@ -283,8 +339,7 @@
 							</ul>
 						</label>
 					</div>
-
-
+	
 				<h4><?php _e( 'Group/Forum link options', 'jet-event-system' ); ?></h4>					
 					<label><?php _e('Select the group you want to contact the event:','jet-event-system'); ?></label>
 					<?php jes_event_groups_dropdown( $_POST['event-grouplink'] ) ?>
@@ -429,7 +484,7 @@
 
 						<?php /* Create Button */ ?>
 						<?php if ( bp_is_first_event_creation_step() ) : ?>
-							<input type="submit" value="<?php _e('Create Event and Continue', 'jet-event-system') ?> &rarr;" id="event-creation-create" name="save" />
+							<input type="submit" onClick="CreateGeoCode()" value="<?php _e('Create Event and Continue', 'jet-event-system') ?> &rarr;" id="event-creation-create" name="save" />
 						<?php endif; ?>
 
 						<?php /* Finish Button */ ?>

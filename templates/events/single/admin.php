@@ -69,14 +69,20 @@
 			{ ?>
 				<label for="event-placednote"><?php _e('Event note', 'jet-event-system') ?></label>
 				<input type="text" name="event-placednote" id="event-placednote" size="25" maxlength="40" value="<?php jes_bp_event_placednote() ?>" />
+		
+				<input type="hidden" name="event-placednote" id="event-placednote" size="25" maxlength="40" value="<?php jes_bp_event_placednote() ?>" />
 	<?php } else { ?>
-				<input type="hidden" name="event-placednote" id="event-placednote" size="25" maxlength="40" value="<?php jes_bp_event_placednote() ?>" />		
+				<input type="hidden" name="event-placednote" id="event-placednote" size="25" maxlength="40" value="<?php jes_bp_event_placednote() ?>" />
 	<?php } ?>
 
 	<?php if ($edata[ 'jes_events_googlemapopt_enable' ])
-			{ ?>	
+			{
+			if ($edata[ 'jes_events_googlemapopt_type' ] == 'image') { ?>			
 				<label for="event-placedgooglemap"><?php _e('Link to Google Maps or any other image', 'jet-event-system') ?></label>
 				<input type="text" name="event-placedgooglemap" id="event-placedgooglemap" size="50" maxlength="250" value="<?php jes_bp_event_placedgooglemap() ?>" />
+		<?php } else { ?>
+				<input type="hidden" name="event-placedgooglemap" id="event-placedgooglemap" size="25" maxlength="40" value="<?php jes_bp_event_placedgooglemap() ?>" />
+		<?php } ?>		
 	<?php } else { ?>
 				<input type="hidden" name="event-placedgooglemap" id="event-placedgooglemap" size="50" maxlength="250" value="<?php jes_bp_event_placedgooglemap() ?>" />
 	<?php } ?>
@@ -138,7 +144,7 @@
 							<input type="text" readonly name="event-edtsd" id="event-edtsd" size="20" maxlength="20" value="<?php jes_bp_event_edtsd() ?>" /><br />
 							<select name="event-edtsth" id="event-edtsth" size=1>
 								<?php
-									for ($i=1; $i<24; $i++) { ?>
+									for ($i=0; $i<24; $i++) { ?>
 									<?php if ($i<10)
 										{ $codei = '0'.$i; }
 											else
@@ -170,7 +176,7 @@
 						<input type="text" readonly name="event-edted" id="event-edted" size="20" maxlength="20" value="<?php jes_bp_event_edted() ?>" /><br />
 						<select name="event-edteth" id="event-edteth" size=1>
 								<?php
-									for ($i=1; $i<24; $i++) { ?>
+									for ($i=0; $i<24; $i++) { ?>
 									<?php if ($i<10)
 										{ $codei = '0'.$i; }
 											else

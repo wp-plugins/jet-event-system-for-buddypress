@@ -36,6 +36,7 @@ function jes_events_init_jesdb() {
 			forumlink varchar(5) NOT NULL DEFAULT '0',
 			enable_forum tinyint(1) NOT NULL DEFAULT '1',
 			date_created datetime NOT NULL,
+			notify_timed_enable varchar(1) NOT NULL DEFAULT '0',
 		    KEY creator_id (creator_id),
 		    KEY status (status),
 			KEY etype (etype),

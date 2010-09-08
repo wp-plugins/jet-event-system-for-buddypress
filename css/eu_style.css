@@ -1,7 +1,7 @@
 /*Put this into your theeme and comment the css enqueue line in the plugin for better optimization*//*code*/	
 /* The css is taken from bp-default theme, thanks to @apeatling, I have just modified the selectors*/
 #eventname_checker span.loading {
-	background-image: url( css/ajax-loader.gif );
+	background-image: url( ajax-loader.gif );
 	background-position: 92% 50%;
 	background-repeat: no-repeat;
 	padding-right: 30px !important;

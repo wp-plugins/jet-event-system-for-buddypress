@@ -3,12 +3,12 @@
 	<div id="content">
 		<div class="padder">
 
-		<form action="" method="post" id="events-directory-form" class="dir-form">
+		<form action="" method="post" id="groups-directory-form" class="dir-form">
 			<h3><?php _e( 'Events Directory', 'jet-event-system' ) ?></h3>
 
 			<?php do_action( 'bp_before_directory_events_content' ) ?>
 
-			<div id="event-dir-search" class="dir-search">
+			<div id="group-dir-search" class="dir-search">
 			<?php if ( is_user_logged_in() ) : ?>
 	<?php 	$edata = get_option( 'jes_events' );
 			$createa = $edata[ 'jes_events_createnonadmin_disable' ];
@@ -55,7 +55,7 @@
 				</ul>
 			</div><!-- .item-list-tabs -->
 
-			<div id="events-dir-list" class="events dir-list">
+			<div id="groups-dir-list" class="events dir-list">
 				<?php locate_template( array( 'events/events-loop.php' ), true ) ?>
 			</div><!-- #events-dir-list -->
 			<div>
