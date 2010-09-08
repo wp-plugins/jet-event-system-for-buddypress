@@ -16,7 +16,7 @@ require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-admi
 function jet_event_system_load_textdomain() {
 	$locale = apply_filters( 'wordpress_locale', get_locale() );
 //	$mofile = dirname( __File__ )   . "/lang/jet-event-system-$locale.mo";
-	$mofile = WP_PLUGIN_DIR . "jet-event-system-for-buddypress/lang/jet-event-system-$locale.mo";
+	$mofile = WP_PLUGIN_DIR . "/jet-event-system-for-buddypress/lang/jet-event-system-$locale.mo";
 
 	if ( file_exists( $mofile ) )
 		load_textdomain( 'jet-event-system', $mofile );
