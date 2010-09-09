@@ -197,7 +197,7 @@ if ($notify_timed_enable)
 		return false;
 
 	if ( $notify_members ) {
-		require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-notifications.php' );
+		require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-notifications.php' );
 		events_notification_event_updated( $event->id );
 	}
 

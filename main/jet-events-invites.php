@@ -104,7 +104,7 @@ function events_jes_delete_invite( $user_id, $event_id ) {
 function events_send_invite_jes( $user_id, $event_id ) {
 	global $bp;
 
-	require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-notifications.php' );
+	require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-notifications.php' );
 
 	if ( !$user_id )
 		$user_id = $bp->loggedin_user->id;

@@ -1417,7 +1417,7 @@ function events_post_update( $args = '' ) {
 	) );
 
  	/* Require the notifications code so email notifications can be set on the 'bp_activity_posted_update' action. */
-	require_once( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-notifications.php' );
+	require_once( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-notifications.php' );
 
 	events_update_eventmeta( $event_id, 'last_activity', gmdate( "Y-m-d H:i:s" ) );
 	do_action( 'jes_bp_events_posted_update', $content, $user_id, $event_id, $activity_id );
@@ -1505,7 +1505,7 @@ function events_send_membership_request( $requesting_user_id, $event_id ) {
 	if ( $requesting_user->save() ) {
 		$admins = events_get_event_admins( $event_id );
 
-		require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-notifications.php' );
+		require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-notifications.php' );
 
 		for ( $i = 0; $i < count( $admins ); $i++ ) {
 			// Saved okay, now send the email notification
