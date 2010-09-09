@@ -9,11 +9,11 @@
 
 	<div class="pagination">
 
-		<div class="pag-count" id="event-dir-count">
+		<div class="pag-count" id="group-dir-count">
 			<?php jes_bp_events_pagination_count() ?>
 		</div>
 
-		<div class="pagination-links" id="event-dir-pag">
+		<div class="pagination-links" id="group-dir-pag">
 			<?php jes_bp_events_pagination_links() ?>
 			<?php _e('Style:','jet-event-system'); ?> <?php _e($edata['jes_events_style'],'jet-event-system'); ?>
 		</div>
@@ -27,7 +27,7 @@
 				<p><?php _e('Private events are not shown, register to view','jet-event-system'); ?></p>
 			</div>
 		<?php	} ?>	
-	<ul id="events-list" class="item-list">
+	<ul id="group-list" class="item-list">
 	<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>	
 <?php
 // Standart style Event Catalog 
@@ -63,7 +63,7 @@
 				<div class="item-title" id="jes-title"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a></div>			
 				<div class="item-meta">
 					<em><?php echo eventstatus(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm(),jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm()); ?></em> , 
-					<span class="meta"><em><?php jes_bp_event_type() ?></em></span><br />
+					<p class="meta"><em><?php jes_bp_event_type() ?></em></p>
 					<div class="item-desc" id="jes-timedate">
 						<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?>, <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?></span> <?php _e('to: ','jet-event-system') ?> <span><?php jes_bp_event_edted() ?>, <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?></span>
 					</div>

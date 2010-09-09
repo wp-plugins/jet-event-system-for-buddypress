@@ -128,6 +128,13 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.4.2 =
+
+* Fix: Do not store details of the event if the date coincided (Thanks adelay)
+* Fixed: not save settings demonstrate the country-state widget
+* Fixed: using the child so as not always correctly defined path to the topic (a problem when you update the theme through the admin panel plugin). Added ability to select the correct path to use the theme. (Thanks adelay)
+* Changed: a mechanism for determining the locale is no longer dependent on WPLANG
+
 = 1.4 =
 * Fixed: Unable to select the zero hour for the timing of the start and end events
 * Fixed: You could enter one and the same start date and end events

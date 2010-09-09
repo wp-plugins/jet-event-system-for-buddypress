@@ -153,7 +153,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 		$title = strip_tags( $instance['title'] );
 		$show_navi = $instance['show_navi'];
 		$show_type = $instance['show_type'];
-		$show_type = $instance['show_countrystate'];
+		$show_countrystate = $instance['show_countrystate'];
 		$showonlyadmin = $instance['showonlyadmin'];
 		$showtime = $instance['showtime'];
 		$archive_color = strip_tags( $instance['archive_color'] );		

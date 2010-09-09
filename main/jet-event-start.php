@@ -1564,7 +1564,7 @@ function events_reject_membership_request( $membership_id, $user_id = false, $ev
 		return false;
 
 	// Send a notification to the user.
-	require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/jet-events-notifications.php' );
+	require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-notifications.php' );
 	events_notification_membership_request_completed( $membership->user_id, $membership->event_id, false );
 
 	do_action( 'events_membership_rejected', $membership->user_id, $membership->event_id );

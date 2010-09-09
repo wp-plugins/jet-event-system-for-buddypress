@@ -82,7 +82,8 @@ if ( isset($_POST['updatedb']) )
 
 if ( isset($_POST['updatetemplate']) )
 		{
-			echo "<div id='message' class='updated fade'><p>" . __( 'Templates updated.', 'jet-event-system' ) . " " . update_template() ."</p></div>";
+			update_template($_POST['jthemepath']);
+			echo "<div id='message' class='updated fade'><p>" . __( 'Templates updated.', 'jet-event-system' ) . "</p></div>";
 		}
 
 	$jes_events = get_option( 'jes_events' );
@@ -470,6 +471,14 @@ function on_jes_events_admin_setupmain($jes_events) {
 			}
 ?>  
 	<form action="<?php echo site_url() . '/wp-admin/admin.php?page=jes-event-admin' ?>" name="jes_events_update_j" id="jes_events_update_j" method="post">
+		<label name="jthemepath"><?php _e('Select the location you are using themes:','jet-event-system'); ?></label>
+<?php
+	$stps_vis = substr(STYLESHEETPATH,strlen(STYLESHEETPATH)-25,strlen(STYLESHEETPATH)-24);
+?>
+		<select name="jthemepath">
+			<option value="<?php echo STYLESHEETPATH; ?>">..<?php echo substr(STYLESHEETPATH,strlen(STYLESHEETPATH)-30,strlen(STYLESHEETPATH)-29); ?>*</option>
+			<option value="<?php echo TEMPLATEPATH; ?>">..<?php echo substr(TEMPLATEPATH,strlen(TEMPLATEPATH)-30,strlen(TEMPLATEPATH)-29); ?></option>
+		</select>
 		<input type="submit" name="updatedb" value="<?php _e( 'Update Database', 'jet-event-system' ) ?>"/>
 		<input type="submit" name="updatetemplate" value="<?php _e( 'Update Templates', 'jet-event-system' ) ?>"/>
 	</form>	
