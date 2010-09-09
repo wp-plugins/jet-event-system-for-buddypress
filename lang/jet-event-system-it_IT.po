@@ -5,843 +5,1007 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: jes\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/jet-event-system-for-buddypress\n"
-"POT-Creation-Date: 2010-09-02 08:26+0000\n"
-"PO-Revision-Date: 2010-09-03 12:19+0100\n"
+"POT-Creation-Date: 2010-09-09 09:29+0000\n"
+"PO-Revision-Date: 2010-09-09 17:57+0100\n"
 "Last-Translator: Andrea Bianchi\n"
-"Language-Team: \n"
+"Language-Team: ab <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: JAMAICA\n"
 
-#: jet-event-system.php:124
+#: main/jet-event-start.php:106
 #, fuzzy
 msgid "Details"
 msgstr "Dettagli"
 
-#: jet-event-system.php:125
+#: main/jet-event-start.php:107
 #, fuzzy
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: jet-event-system.php:126
+#: main/jet-event-start.php:108
 #, fuzzy
 msgid "Avatar"
 msgstr "Avatar"
 
-#: jet-event-system.php:149
-#: jet-event-system.php:848
-#: jet-event-system.php:1265
-#: jet-event-system.php:1278
-#: jet-event-system.php:1291
-#: jet-event-system.php:1304
-#: jet-events-widgets.php:4
-#, fuzzy
-msgid "Events"
-msgstr "Eventi"
-
-#: jet-event-system.php:183
-#, fuzzy, php-format
-msgid "Events <span>(%d)</span>"
-msgstr "Eventi <span>(%d)</span>"
-
-#: jet-event-system.php:188
-#: jet-event-system.php:198
-#, fuzzy
-msgid "My Events"
-msgstr "Miei Eventi"
-
-#: jet-event-system.php:192
-#, fuzzy
-msgid "Invitations to Event"
-msgstr "Richiesta partecipazione eventi"
-
-#: jet-event-system.php:217
-#: jet-events-templatetags.php:1440
-#: jet-events-templatetags.php:2520
-#, fuzzy
-msgid "Event Avatar"
-msgstr "Avatar Eventi"
-
-#: jet-event-system.php:239
-#, fuzzy
-msgid "Home"
-msgstr "Home"
-
-#: jet-event-system.php:245
-#: templates/events/single/google-map.php:27
-msgid "Google Map"
-msgstr "Google Map"
-
-#: jet-event-system.php:251
-#: templates/events/single/flyer.php:5
-msgid "Flyer"
-msgstr ""
-
-#: jet-event-system.php:255
-#, fuzzy
-msgid "Admin"
-msgstr "Amministra"
-
-#: jet-event-system.php:259
-#, fuzzy
-msgid "Request join to event"
-msgstr "Richiesta partecipazione eventi"
-
-#: jet-event-system.php:261
-#, fuzzy, php-format
-msgid "Members (%s)"
-msgstr "Membri (%s)"
-
-#: jet-event-system.php:265
-#: templates/events/single/send-invites.php:59
-#, fuzzy
-msgid "Send Invites"
-msgstr "Invia invito"
-
-#: jet-event-system.php:297
-#, fuzzy
-msgid "Admin Options"
-msgstr "Opzioni Amministrazione"
-
-#: jet-event-system.php:300
-#: jet-events-templatetags.php:1449
-#: templates/events/single/admin.php:461
-#, fuzzy
-msgid "Delete Event"
-msgstr "Cancella Evento"
-
-#: jet-event-system.php:369
+#: main/jet-event-start.php:199
 #, fuzzy
 msgid "Event invite could not be accepted"
 msgstr "L'invito all'evento non può essere accettato"
 
-#: jet-event-system.php:371
+#: main/jet-event-start.php:201
 #, fuzzy
 msgid "Event invite accepted"
 msgstr "L'invito all'evento è stato accettao"
 
-#: jet-event-system.php:377
-#: jet-event-system.php:1704
-#: jet-events-operations.php:308
+#: main/jet-event-start.php:207
+#: main/jet-event-start.php:1547
+#: main/jet-events-operations.php:341
 #, fuzzy, php-format
 msgid "%s joined the event %s"
 msgstr "%s si è unito all'evento %s"
 
-#: jet-event-system.php:391
+#: main/jet-event-start.php:221
 #, fuzzy
 msgid "Event invite could not be rejected"
 msgstr "L'invito all'evento non può essere rifiutato"
 
-#: jet-event-system.php:393
+#: main/jet-event-start.php:223
 #, fuzzy
 msgid "Event invite rejected"
 msgstr "L'invito all'evento è stato rifiutato"
 
-#: jet-event-system.php:465
+#: main/jet-event-start.php:295
 #, fuzzy
 msgid "Event invites sent."
 msgstr "Gli inviti all'evento sono stati inviati"
 
-#: jet-event-system.php:491
+#: main/jet-event-start.php:321
 #, fuzzy
 msgid "There was an error sending your join event request, please try again."
 msgstr "Si è verificato un errore durante l'invio delle richieste di partecipazione. Riprovare."
 
-#: jet-event-system.php:493
+#: main/jet-event-start.php:323
 #, fuzzy
 msgid "Your request to join was sent to the event administrator successfully. You will be notified when the event administrator responds to your request."
 msgstr "La tua richiesta di partecipazione è stata inoltrata all'amministratore dell'evento.Sarai avvisato appena l'amministratore dell'evento risponderà alla tua richiesta"
 
-#: jet-event-system.php:543
+#: main/jet-event-start.php:373
+#: main/jet-event-start.php:789
+#, fuzzy
 msgid "There was an error updating event details. Date and time of completion of the event can not exceed the date of its beginning, please try again."
 msgstr "Si è verificato un errore nell'aggiornamento dei dettagli dell'evento. La data e l'ora di fine dell'evento non possono precedere la data di inzio, riprovare"
 
-#: jet-event-system.php:546
+#: main/jet-event-start.php:376
 #, fuzzy
 msgid "There was an error updating event details, please try again."
 msgstr "Si è verificato un errore nell'aggiornare i dettagli dell'evento. Riprovare."
 
-#: jet-event-system.php:548
+#: main/jet-event-start.php:378
 #, fuzzy
 msgid "Event details were successfully updated."
 msgstr "I dettagli dell'evento sono stati aggiornati."
 
-#: jet-event-system.php:583
+#: main/jet-event-start.php:413
 #, fuzzy
 msgid "There was an error updating event settings, please try again."
 msgstr "Si è verificato un errore nell'aggiornare le impostazioni dell'evento. Riprovare."
 
-#: jet-event-system.php:585
+#: main/jet-event-start.php:415
 #, fuzzy
 msgid "Event settings were successfully updated."
 msgstr "Le impostazioni dell'evento sono state aggiornate"
 
-#: jet-event-system.php:615
+#: main/jet-event-start.php:445
 #, fuzzy
 msgid "Your avatar was deleted successfully!"
 msgstr "Il tuo avatar è stato cancellato!"
 
-#: jet-event-system.php:617
+#: main/jet-event-start.php:447
 #, fuzzy
 msgid "There was a problem deleting that avatar, please try again."
 msgstr "Si è verificato un errore durante la cancellazione dell'Avatar. Riprovare."
 
-#: jet-event-system.php:645
+#: main/jet-event-start.php:475
 #, fuzzy
 msgid "There was a problem cropping the avatar, please try uploading it again"
 msgstr "Si è verificato un errore durante la modifica dell'Avatar. Riprovare."
 
-#: jet-event-system.php:647
+#: main/jet-event-start.php:477
 #, fuzzy
 msgid "The new event avatar was uploaded successfully!"
 msgstr "Il nuovo Avatar dell'evento è stato caricato!"
 
-#: jet-event-system.php:676
+#: main/jet-event-start.php:506
 #, fuzzy
 msgid "There was an error when promoting that user, please try again"
 msgstr "Si è verificato un errore nel promuovere questo utente, riprovare."
 
-#: jet-event-system.php:678
+#: main/jet-event-start.php:508
 #, fuzzy
 msgid "User promoted successfully"
 msgstr "Utente promosso con successo"
 
-#: jet-event-system.php:695
+#: main/jet-event-start.php:525
 #, fuzzy
 msgid "There was an error when demoting that user, please try again"
 msgstr "Si è verificato un errore nel retrocedere questo utente, riprovare."
 
-#: jet-event-system.php:697
+#: main/jet-event-start.php:527
 #, fuzzy
 msgid "User demoted successfully"
 msgstr "Utente retrocesso con successo"
 
-#: jet-event-system.php:714
+#: main/jet-event-start.php:544
 #, fuzzy
 msgid "There was an error when banning that user, please try again"
 msgstr "Si è verificato un errore nel bannare l'utente, riprovare"
 
-#: jet-event-system.php:716
+#: main/jet-event-start.php:546
 #, fuzzy
 msgid "User banned successfully"
 msgstr "Utente bannato"
 
-#: jet-event-system.php:733
+#: main/jet-event-start.php:563
 #, fuzzy
 msgid "There was an error when unbanning that user, please try again"
 msgstr "Si è verificato un errore durante l'operazione di rimozione del ban, riprovare"
 
-#: jet-event-system.php:735
+#: main/jet-event-start.php:565
 #, fuzzy
 msgid "User ban removed successfully"
 msgstr "Il ban dell'utente è stato rimosso"
 
-#: jet-event-system.php:777
+#: main/jet-event-start.php:607
 #, fuzzy
 msgid "There was an error accepting the membership request, please try again."
 msgstr "Si è verificato un errore nell'accettare la richiesta di partecipazione, riprovare"
 
-#: jet-event-system.php:779
+#: main/jet-event-start.php:609
 #, fuzzy
 msgid "Event membership request accepted"
 msgstr "Richiesta di partecipazione all'evento accettata"
 
-#: jet-event-system.php:789
+#: main/jet-event-start.php:619
 #, fuzzy
 msgid "There was an error rejecting the membership request, please try again."
 msgstr "Si è verificato un errore nel rifiutare la richiesta di partecipazione, riprovare"
 
-#: jet-event-system.php:791
+#: main/jet-event-start.php:621
 #, fuzzy
 msgid "Event membership request rejected"
 msgstr "Richiesta di partecipazione all'evento rifiutata"
 
-#: jet-event-system.php:823
+#: main/jet-event-start.php:653
 #, fuzzy
 msgid "There was an error deleting the event, please try again."
 msgstr "Si è verificato un errore nella cancellazione dell'evento, riprovare"
 
-#: jet-event-system.php:825
+#: main/jet-event-start.php:655
 #, fuzzy
 msgid "The event was deleted successfully"
 msgstr "Evento cancellato"
 
-#: jet-event-system.php:849
+#: main/jet-event-start.php:678
+#: main/jet-event-start.php:1108
+#: main/jet-event-start.php:1121
+#: main/jet-event-start.php:1134
+#: main/jet-event-start.php:1147
+#: main/jet-events-menu.php:7
+#: main/jet-events-widgets.php:4
+#, fuzzy
+msgid "Events"
+msgstr "Eventi"
+
+#: main/jet-event-start.php:679
+#: templates/events/create.php:280
 #, fuzzy
 msgid "Yes"
 msgstr "Sì"
 
-#: jet-event-system.php:850
+#: main/jet-event-start.php:680
+#: templates/events/create.php:281
 #, fuzzy
 msgid "No"
 msgstr "No"
 
-#: jet-event-system.php:857
+#: main/jet-event-start.php:687
 #, fuzzy
 msgid "A member invites you to join a event"
 msgstr "Sei stato invitato a partecipare ad un evento"
 
-#: jet-event-system.php:863
+#: main/jet-event-start.php:693
 #, fuzzy
 msgid "Event information is updated"
 msgstr "Informazioni evento aggiornate"
 
-#: jet-event-system.php:869
+#: main/jet-event-start.php:700
 #, fuzzy
 msgid "You are promoted to a event administrator or moderator"
 msgstr "Sei stato promosso ad amministratore o moderatore di un evento"
 
-#: jet-event-system.php:875
+#: main/jet-event-start.php:706
 #, fuzzy
 msgid "A member requests to join a private event for which you are an admin"
 msgstr "Un utente ha richiesto di partecipare ad un evento privato di cui sei amministratore"
 
-#: jet-event-system.php:924
+#: main/jet-event-start.php:713
+msgid "You come reminder of imminent events"
+msgstr "Promemoria di un prossimo evento"
+
+#: main/jet-event-start.php:762
 #, fuzzy
 msgid "There was an error saving event details. Please try again."
 msgstr "Si è verificato un errore nel salvataggio dei dettagli dell'evento. Riprovare."
 
-#: jet-event-system.php:946
+#: main/jet-event-start.php:784
 #, fuzzy
 msgid "Please fill in all of the required fields"
 msgstr "Devi riempire tutti i campi obbligatori"
 
-#: jet-event-system.php:951
+#: main/jet-event-start.php:794
 #, fuzzy
 msgid "There was an error saving event details, please try again.1"
 msgstr "Si è verificato un errore nel salvataggio dei dettagli dell'evento. Riprovare."
 
-#: jet-event-system.php:974
+#: main/jet-event-start.php:817
 #, fuzzy
 msgid "There was an error saving event details, please try again2."
 msgstr "Si è verificato un errore nel salvataggio dei dettagli dell'evento. Riprovare."
 
-#: jet-event-system.php:1005
+#: main/jet-event-start.php:848
 #, fuzzy, php-format
 msgid "%s created the event %s"
 msgstr "%s ha createo l'evento %s"
 
-#: jet-event-system.php:1053
+#: main/jet-event-start.php:896
 #, fuzzy
 msgid "There was an error saving the event avatar, please try uploading again."
 msgstr "Si è verificato un errore nel salvataggio dell'avatar dell'evento, prova a ripetere l'upload"
 
-#: jet-event-system.php:1055
+#: main/jet-event-start.php:898
 #, fuzzy
 msgid "The event avatar was uploaded successfully!"
 msgstr "Avatar dell'evento caricato con successo."
 
-#: jet-event-system.php:1079
-#: jet-event-system.php:1086
+#: main/jet-event-start.php:922
+#: main/jet-event-start.php:929
 #, fuzzy
 msgid "There was an error joining the event."
 msgstr "Si è verificato un errore nella partecipazione all'evento"
 
-#: jet-event-system.php:1088
+#: main/jet-event-start.php:931
 #, fuzzy
 msgid "You joined the event!"
 msgstr "Ti sei unito all'evento!"
 
-#: jet-event-system.php:1111
+#: main/jet-event-start.php:954
 #, fuzzy
 msgid "There was an error leaving the event."
 msgstr "Si è verificato un errore nel lasciare l'evento"
 
-#: jet-event-system.php:1113
-#: jet-events-operations.php:266
+#: main/jet-event-start.php:956
+#: main/jet-events-operations.php:299
 #, fuzzy
 msgid "You successfully left the event."
 msgstr "Hai lasciato l'evento."
 
-#: jet-event-system.php:1191
+#: main/jet-event-start.php:1034
 #, fuzzy
 msgid "Created a event"
 msgstr "Creato un evento"
 
-#: jet-event-system.php:1192
+#: main/jet-event-start.php:1035
 #, fuzzy
 msgid "Joined a event"
 msgstr "Partecipazione a un evento"
 
-#: jet-event-system.php:1251
+#: main/jet-event-start.php:1094
 #, fuzzy
 msgid "Event Membership Requests"
 msgstr "Richieste di Partecipazione evento"
 
-#: jet-event-system.php:1251
+#: main/jet-event-start.php:1094
 #, fuzzy, php-format
 msgid "%d new membership requests for the event \"%s\""
 msgstr "%d nuova richiesta di partecipazione all'evento \"%s\""
 
-#: jet-event-system.php:1254
+#: main/jet-event-start.php:1097
 #, fuzzy, php-format
 msgid "%s requests membership for the event \"%s\""
 msgstr "%s chiede di partecipare all'evento \"%s\""
 
-#: jet-event-system.php:1265
+#: main/jet-event-start.php:1108
 #, fuzzy, php-format
 msgid "%d accepted event membership requests"
 msgstr "%d accettato la richiesta di partecipazione all'evento"
 
-#: jet-event-system.php:1267
+#: main/jet-event-start.php:1110
 #, fuzzy, php-format
 msgid "Membership for event \"%s\" accepted"
 msgstr "La partecipazione all'event \"%s\" è stata accettata"
 
-#: jet-event-system.php:1278
+#: main/jet-event-start.php:1121
 #, fuzzy, php-format
 msgid "%d rejected event membership requests"
 msgstr "%d rifiutato la richiesta di partecipazione all'evento"
 
-#: jet-event-system.php:1280
+#: main/jet-event-start.php:1123
 #, fuzzy, php-format
 msgid "Membership for event \"%s\" rejected"
 msgstr "La partecipazione all'event \"%s\" è stata rifiutata"
 
-#: jet-event-system.php:1291
+#: main/jet-event-start.php:1134
 #, fuzzy, php-format
 msgid "You were promoted to an admin in %d events"
 msgstr "Sei stato promosso ad amministratore in %d eventi"
 
-#: jet-event-system.php:1293
+#: main/jet-event-start.php:1136
 #, fuzzy, php-format
 msgid "You were promoted to an admin in the event %s"
 msgstr "Sei stato promosso ad amministratore dell'evento %s"
 
-#: jet-event-system.php:1304
+#: main/jet-event-start.php:1147
 #, fuzzy, php-format
 msgid "You were promoted to a mod in %d events"
 msgstr "Sei stato promosso a moderatore in %d eventi"
 
-#: jet-event-system.php:1306
+#: main/jet-event-start.php:1149
 #, fuzzy, php-format
 msgid "You were promoted to a mod in the event %s"
 msgstr "Sei stato promosso a moderatore dell'evento %s"
 
-#: jet-event-system.php:1317
-#: jet-event-system.php:1319
+#: main/jet-event-start.php:1160
+#: main/jet-event-start.php:1162
 #, fuzzy
 msgid "Event Invites"
 msgstr "Inviti all'evento"
 
-#: jet-event-system.php:1317
+#: main/jet-event-start.php:1160
 #, fuzzy, php-format
 msgid "You have %d new event invitations"
 msgstr "Hai %d nuovi inviti per eventi"
 
-#: jet-event-system.php:1319
+#: main/jet-event-start.php:1162
 #, fuzzy, php-format
 msgid "You have an invitation to the event: %s"
 msgstr "Sei stato invitato all'evento: %s"
 
-#: jet-event-system.php:1354
+#: main/jet-event-start.php:1197
+#, fuzzy
 msgid "Make this a group event for one of your groups"
 msgstr "Rendi questo evento disponibile per uno dei tuoi gruppi"
 
-#: jet-event-system.php:1565
+#: main/jet-event-start.php:1408
 #, fuzzy, php-format
 msgid "%s posted an update in the event %s:"
 msgstr "%s ha postato un aggiornamento nell'evento %s:"
 
-#: jet-events-admin.php:97
+#: main/jet-events-admin.php:28
 #, fuzzy
 msgid "Jet Event System"
 msgstr "Jet Event System"
 
-#: jet-events-admin.php:107
+#: main/jet-events-admin.php:38
+#, fuzzy
 msgid "Information"
 msgstr "Informazioni"
 
-#: jet-events-admin.php:108
+#: main/jet-events-admin.php:39
+#, fuzzy
 msgid "Donations"
 msgstr "Donazioni"
 
-#: jet-events-admin.php:109
+#: main/jet-events-admin.php:40
+#, fuzzy
 msgid "Setup"
 msgstr "Impostazioni"
 
-#: jet-events-admin.php:110
+#: main/jet-events-admin.php:41
+#, fuzzy
 msgid "Support"
 msgstr "Supporto"
 
-#: jet-events-admin.php:111
+#: main/jet-events-admin.php:42
+#, fuzzy
 msgid "Translate"
 msgstr "Traduzione"
 
-#: jet-events-admin.php:112
+#: main/jet-events-admin.php:43
+#, fuzzy
 msgid "Note"
 msgstr "Note"
 
-#: jet-events-admin.php:115
+#: main/jet-events-admin.php:46
 #, fuzzy
 msgid "Base Options"
 msgstr "Opzioni Amministrazione"
 
-#: jet-events-admin.php:116
+#: main/jet-events-admin.php:47
+#, fuzzy
 msgid "Setting up access to the fields events"
 msgstr "Impostazioni accesso ai campi dell'evento"
 
-#: jet-events-admin.php:118
+#: main/jet-events-admin.php:49
 #, fuzzy
 msgid "Style Options"
 msgstr "Opzioni Amministrazione"
 
-#: jet-events-admin.php:120
+#: main/jet-events-admin.php:51
 #, fuzzy
 msgid "Classification options"
 msgstr "Opzioni Amministrazione"
 
-#: jet-events-admin.php:122
+#: main/jet-events-admin.php:53
 #, fuzzy
 msgid "Restrict options"
 msgstr "Opzioni Amministrazione"
 
-#: jet-events-admin.php:124
+#: main/jet-events-admin.php:55
 #, fuzzy
 msgid "Privacy options"
 msgstr "Opzioni Privacy"
 
-#: jet-events-admin.php:138
+#: main/jet-events-admin.php:57
+#, fuzzy
+msgid "Reminder options (future)"
+msgstr "Opzione link Gruppi/Forum"
+
+#: main/jet-events-admin.php:59
+msgid "Google Map options (future)"
+msgstr "Opzione Google Map (futuro)"
+
+#: main/jet-events-admin.php:72
 #, fuzzy
 msgid "Jes Event System"
 msgstr "JES. Jet Event System"
 
-#: jet-events-admin.php:251
-#: jet-events-admin.php:257
+#: main/jet-events-admin.php:80
+#, fuzzy
+msgid "Database updated."
+msgstr "Opzioni aggiornate"
+
+#: main/jet-events-admin.php:86
+#, fuzzy
+msgid "Templates updated."
+msgstr "Opzioni aggiornate"
+
+#: main/jet-events-admin.php:206
+#: main/jet-events-admin.php:212
+#, fuzzy
 msgid "Standart"
 msgstr "Standard"
 
-#: jet-events-admin.php:284
+#: main/jet-events-admin.php:260
+#, fuzzy
 msgid "Site"
 msgstr "Sito"
 
-#: jet-events-admin.php:289
+#: main/jet-events-admin.php:265
+#, fuzzy
 msgid "Personal"
 msgstr "Personale"
 
-#: jet-events-admin.php:325
+#: main/jet-events-admin.php:320
 #, fuzzy
 msgid "Options updated."
 msgstr "Opzioni aggiornate"
 
-#: jet-events-admin.php:343
+#: main/jet-events-admin.php:338
 #, fuzzy
 msgid "Save Settings"
 msgstr "Salva impostazioni"
 
-#: jet-events-admin.php:389
+#: main/jet-events-admin.php:384
 msgid "please specify in the designation of the site and name :) All who have made a contribution to the development of plug-in will be included in honor roll, as well as gain access to additional modules!"
-msgstr ""
+msgstr "Prego specificare il sito ed il nome :) Tutti coloro che contribuiranno allo sviluppo del plug-in verranno inclusi nella \"lista dell'onore\" e guadagneranno l'accesso a moduli aggiuntivi!"
 
-#: jet-events-admin.php:411
+#: main/jet-events-admin.php:406
+#, fuzzy
 msgid "Please send your translations to milord_k @ mail.ru"
 msgstr "Per favore, inviate la vostra traduzione a milord_k @ mail.ru"
 
-#: jet-events-admin.php:413
+#: main/jet-events-admin.php:408
+#, fuzzy
 msgid "Translates can be discussed at the forum on the official website of the plugin:"
 msgstr "Le traduzioni possono essere discusse nel forum sul sito ufficiale del plugin: "
 
-#: jet-events-admin.php:419
+#: main/jet-events-admin.php:414
+#, fuzzy
 msgid "Recommended plugins"
 msgstr "Plugin consigliati"
 
-#: jet-events-admin.php:431
+#: main/jet-events-admin.php:426
+#, fuzzy
 msgid "version"
 msgstr "versione"
 
-#: jet-events-admin.php:431
+#: main/jet-events-admin.php:426
+#, fuzzy
 msgid "build"
 msgstr "build"
 
-#: jet-events-admin.php:433
+#: main/jet-events-admin.php:428
+#, fuzzy
 msgid "Template version:"
 msgstr "Versione Template"
 
-#: jet-events-admin.php:441
+#: main/jet-events-admin.php:436
+#, fuzzy
 msgid "DB version:"
 msgstr "Versione DB"
 
-#: jet-events-admin.php:460
+#: main/jet-events-admin.php:453
 #, fuzzy
 msgid "The database is updated!"
 msgstr "Informazioni evento aggiornate"
 
-#: jet-events-admin.php:472
+#: main/jet-events-admin.php:459
 #, fuzzy
-msgid "Update Database"
-msgstr "%s ha postato un aggiornamento nell'evento %s:"
-
-#: jet-events-admin.php:477
 msgid "There were changes in the theme file!"
 msgstr "Ci sono state modifiche nel file del tema!"
 
-#: jet-events-admin.php:481
+#: main/jet-events-admin.php:463
 #, fuzzy
 msgid "Templates updated!"
 msgstr "Opzioni aggiornate"
 
-#: jet-events-admin.php:487
+#: main/jet-events-admin.php:469
+#, fuzzy
 msgid "An error occurred while updating the files! (check the folder themes)"
 msgstr "Si è verificato un errore nell'aggiornamento dei file! (controlla nella cartella themes)"
 
-#: jet-events-admin.php:499
+#: main/jet-events-admin.php:474
+msgid "Select the location you are using themes:"
+msgstr "Seleziona il percorso del tema che stai utilizzando:"
+
+#: main/jet-events-admin.php:482
+#, fuzzy
+msgid "Update Database"
+msgstr "%s ha postato un aggiornamento nell'evento %s:"
+
+#: main/jet-events-admin.php:483
 #, fuzzy
 msgid "Update Templates"
 msgstr "%s ha postato un aggiornamento nell'evento %s:"
 
-#: jet-events-admin.php:511
+#: main/jet-events-admin.php:494
 #, fuzzy
 msgid "Allow costum slug"
 msgstr "Permetti etichette personalizzate"
 
-#: jet-events-admin.php:514
+#: main/jet-events-admin.php:497
 #, fuzzy
 msgid "Slug:"
 msgstr "Etichetta:"
 
-#: jet-events-admin.php:521
+#: main/jet-events-admin.php:504
+#, fuzzy
 msgid "Sort of events in the directory (by default)"
 msgstr "Ordina gli eventi nella lista (default)"
 
-#: jet-events-admin.php:524
-#: jet-events-widgets.php:33
+#: main/jet-events-admin.php:507
+#: main/jet-events-widgets.php:33
 #: templates/events/index.php:47
+#, fuzzy
 msgid "Upcoming"
 msgstr "In arrivo"
 
-#: jet-events-admin.php:525
+#: main/jet-events-admin.php:508
 #: templates/events/index.php:48
 #: templates/members/single/events.php:36
 #, fuzzy
 msgid "Last Active"
 msgstr "Ultimo attivo"
 
-#: jet-events-admin.php:526
+#: main/jet-events-admin.php:509
 #: templates/events/index.php:49
 #: templates/members/single/events.php:37
 #, fuzzy
 msgid "Most Members"
 msgstr "Con più partecipanti"
 
-#: jet-events-admin.php:527
+#: main/jet-events-admin.php:510
 #: templates/events/index.php:50
 #: templates/members/single/events.php:38
 #, fuzzy
 msgid "Newly Created"
 msgstr "Creati di recente"
 
-#: jet-events-admin.php:528
+#: main/jet-events-admin.php:511
 #: templates/events/index.php:51
 #: templates/members/single/events.php:39
 #, fuzzy
 msgid "Alphabetical"
 msgstr "Alfabetico"
 
-#: jet-events-admin.php:530
+#: main/jet-events-admin.php:513
 #, fuzzy
 msgid "By:"
 msgstr "Ordina per:"
 
-#: jet-events-admin.php:532
+#: main/jet-events-admin.php:515
+#, fuzzy
 msgid "Ascending"
 msgstr "Crescente"
 
-#: jet-events-admin.php:533
+#: main/jet-events-admin.php:516
+#, fuzzy
 msgid "Descending"
 msgstr "Descrescente"
 
-#: jet-events-admin.php:546
+#: main/jet-events-admin.php:529
 #, fuzzy
 msgid "Allow Country"
 msgstr "Permetti etichette personalizzate"
 
-#: jet-events-admin.php:549
+#: main/jet-events-admin.php:532
+#, fuzzy
 msgid "Name of the country by default:"
 msgstr "Nome del paese di default"
 
-#: jet-events-admin.php:555
+#: main/jet-events-admin.php:538
 #, fuzzy
 msgid "Allow State"
 msgstr "Permetti etichette personalizzate"
 
-#: jet-events-admin.php:558
+#: main/jet-events-admin.php:541
+#, fuzzy
 msgid "Name of the state by default:"
 msgstr "Nome Stato di default"
 
-#: jet-events-admin.php:564
+#: main/jet-events-admin.php:547
 #, fuzzy
 msgid "Allow City"
 msgstr "In città:"
 
-#: jet-events-admin.php:567
+#: main/jet-events-admin.php:550
+#, fuzzy
 msgid "Name of the city by default:"
 msgstr "Nome città di Default"
 
-#: jet-events-admin.php:575
+#: main/jet-events-admin.php:558
 #, fuzzy
 msgid "Allow Special Conditions"
 msgstr "Permetti etichette personalizzate"
 
-#: jet-events-admin.php:582
+#: main/jet-events-admin.php:565
 #, fuzzy
 msgid "Allow Public News"
 msgstr "Notizie evento pubblico"
 
-#: jet-events-admin.php:589
+#: main/jet-events-admin.php:572
 #, fuzzy
 msgid "Allow Private News"
 msgstr "Notizie evento privato"
 
-#: jet-events-admin.php:598
+#: main/jet-events-admin.php:581
 #, fuzzy
 msgid "Allow Event Note"
 msgstr "Jet Event System"
 
-#: jet-events-admin.php:605
+#: main/jet-events-admin.php:588
 #, fuzzy
 msgid "Allow Event GoogleMap"
 msgstr "Jet Event System"
 
-#: jet-events-admin.php:612
+#: main/jet-events-admin.php:595
 #, fuzzy
 msgid "Allow Event Flyer"
 msgstr "Jet Event System"
 
-#: jet-events-admin.php:625
+#: main/jet-events-admin.php:608
 #, fuzzy
 msgid "Style for Event Catalog:"
 msgstr "%s chiede di partecipare all'evento \"%s\""
 
-#: jet-events-admin.php:628
-#: jet-events-admin.php:639
+#: main/jet-events-admin.php:611
+#: main/jet-events-admin.php:622
+#, fuzzy
 msgid "Standart Style"
 msgstr "Stile Standard"
 
-#: jet-events-admin.php:629
+#: main/jet-events-admin.php:612
+#, fuzzy
 msgid "Standard will full description Style"
 msgstr "Stile Standard con descrizioni complete"
 
-#: jet-events-admin.php:630
-#: jet-events-admin.php:640
+#: main/jet-events-admin.php:613
+#: main/jet-events-admin.php:623
+#, fuzzy
 msgid "Twitter Style"
 msgstr "Stile Twitter"
 
-#: jet-events-admin.php:636
+#: main/jet-events-admin.php:619
 #, fuzzy
 msgid "Style for Single Event:"
 msgstr "%s chiede di partecipare all'evento \"%s\""
 
-#: jet-events-admin.php:645
+#: main/jet-events-admin.php:628
 #, fuzzy
 msgid "Avatar Options"
 msgstr "Opzioni Amministrazione"
 
-#: jet-events-admin.php:648
+#: main/jet-events-admin.php:631
+#, fuzzy
 msgid "Show avatars in the list of invited friends"
 msgstr "Mostra Avatar nella lista di amici invitati"
 
-#: jet-events-admin.php:651
+#: main/jet-events-admin.php:634
+#, fuzzy
 msgid "Avatars size:"
 msgstr "Dimensione Avatar:"
 
-#: jet-events-admin.php:657
+#: main/jet-events-admin.php:640
+#, fuzzy
 msgid "Single Event - avatars size (25..150px):"
 msgstr "Singolo Evento - dimensione Avatar ( 25..150px):"
 
-#: jet-events-admin.php:664
+#: main/jet-events-admin.php:647
+#, fuzzy
 msgid "Directory Events - avatars size ( 25..150px):"
 msgstr "Elenco Eventi - dimensione Avatar ( 25..150px):"
 
-#: jet-events-admin.php:677
+#: main/jet-events-admin.php:654
+#, fuzzy
+msgid "Color for past event:"
+msgstr "%s chiede di partecipare all'evento \"%s\""
+
+#: main/jet-events-admin.php:661
+#, fuzzy
+msgid "Color for active event:"
+msgstr "%s chiede di partecipare all'evento \"%s\""
+
+#: main/jet-events-admin.php:668
+#, fuzzy
+msgid "Color for current event:"
+msgstr "%s chiede di partecipare all'evento \"%s\""
+
+#: main/jet-events-admin.php:682
+#, fuzzy
 msgid "Allow the use of classifiers through an administrative panel (unless you want to use some or classifier - leave his field blank)"
 msgstr "Consenti l'uso di classificatori dal pannello di amministrazione (se non vuoi usare alcuni classificatori lascia il campo vuoto)"
 
-#: jet-events-admin.php:684
+#: main/jet-events-admin.php:689
 #, fuzzy
 msgid "Classification - 1"
 msgstr "Classificazione - 1"
 
-#: jet-events-admin.php:690
+#: main/jet-events-admin.php:695
 #, fuzzy
 msgid "Classification - 2"
 msgstr "Classificazione - 2"
 
-#: jet-events-admin.php:697
+#: main/jet-events-admin.php:702
 #, fuzzy
 msgid "Classification - 3"
 msgstr "Classificazione - 3"
 
-#: jet-events-admin.php:704
+#: main/jet-events-admin.php:709
 #, fuzzy
 msgid "Classification - 4"
 msgstr "Classificazione - 4"
 
-#: jet-events-admin.php:711
+#: main/jet-events-admin.php:716
 #, fuzzy
 msgid "Classification - 5"
 msgstr "Classificazione - 5"
 
-#: jet-events-admin.php:724
+#: main/jet-events-admin.php:729
+#, fuzzy
 msgid "Prohibit non-administrators to create events"
 msgstr "Impedisci la creazione di eventi ai non-amministratori"
 
-#: jet-events-admin.php:731
+#: main/jet-events-admin.php:736
+#, fuzzy
 msgid "Allow verification of events by the administrator"
 msgstr "Consenti la verifica degli eventi da parte dell'amministratore"
 
-#: jet-events-admin.php:743
+#: main/jet-events-admin.php:748
 #, fuzzy
 msgid "Allow indexing of events search engines"
 msgstr "Consenti indicizzazione degli eventi sui motori di ricerca"
 
-#: jet-events-admin.php:750
+#: main/jet-events-admin.php:755
 #, fuzzy
 msgid "Deny access to events for unregistered users"
 msgstr "Nega l'accesso agli eventi per gli utenti non registrati"
 
-#: jet-events-admin.php:757
+#: main/jet-events-admin.php:762
+#, fuzzy
 msgid "Show private events in the catalog for unregistered users (in the cases allow access to events)"
 msgstr "Mostra eventi privati nella lista a utenti non registrati (nel caso, consenti l'accesso all'evento)"
 
-#: jet-events-ajax.php:29
-#: templates/events/create.php:389
+#: main/jet-events-admin.php:769
+msgid "Show flyers to all users? (otherwise, flyers will be available only to participants of the event)"
+msgstr "Mostrare il volantino a tutti gli utenti? (altrimenti in volantini saranno disponibili solo per i partecipanti all'evento)"
+
+#: main/jet-events-admin.php:782
+msgid "Provide administrators an opportunity to remind participants of the events of the coming event in manual mode?"
+msgstr "Fornire agli amministratori la possibilità di ricordare manualmente ai partecipanti l'avvicinarsi un un evento?"
+
+#: main/jet-events-admin.php:789
+#, fuzzy
+msgid "To allow the setting reminder?"
+msgstr "Impostazioni accesso ai campi dell'evento"
+
+#: main/jet-events-admin.php:792
+#: templates/events/single/admin.php:330
+#, fuzzy
+msgid "Administrators"
+msgstr "Amministratori"
+
+#: main/jet-events-admin.php:793
+#, fuzzy
+msgid "All users"
+msgstr "Tutti gli Eventi (%s)"
+
+#: main/jet-events-admin.php:794
+msgid "Function is not active"
+msgstr "La funzione non è attiva"
+
+#: main/jet-events-admin.php:800
+#, fuzzy
+msgid "Time remind default:"
+msgstr "Nome del paese di default"
+
+#: main/jet-events-admin.php:803
+#: main/jet-events-admin.php:804
+#: main/jet-events-admin.php:805
+#: main/jet-events-admin.php:806
+#: main/jet-events-admin.php:807
+#: main/jet-events-admin.php:808
+#: main/jet-events-admin.php:809
+#, fuzzy, php-format
+msgid "%s hours"
+msgstr "ore"
+
+#: main/jet-events-admin.php:821
+msgid "Use the following mechanism for the demonstration maps:"
+msgstr "Utilizza il seguente meccanismo di visualizzazione delle mappe:"
+
+#: main/jet-events-admin.php:824
+#, fuzzy
+msgid "Google"
+msgstr "Google Map"
+
+#: main/jet-events-admin.php:825
+#, fuzzy
+msgid "Image"
+msgstr "Carica immagine"
+
+#: main/jet-events-ajax.php:29
+#: templates/events/create.php:444
 #: templates/events/single/send-invites.php:41
 #, fuzzy
 msgid "Remove Invite"
 msgstr "Cancella invito"
 
-#: jet-events-classes.php:888
+#: main/jet-events-classes.php:896
 #, fuzzy
 msgid "Event Mod"
 msgstr "Moderatore Evento "
 
-#: jet-events-classes.php:894
-#: jet-events-operations.php:125
+#: main/jet-events-classes.php:902
+#: main/jet-events-operations.php:128
 #, fuzzy
 msgid "Event Admin"
 msgstr "Gestisci Evento"
 
-#: jet-events-module_eu.php:52
+#: main/jet-events-functions.php:132
+#, fuzzy
+msgid "Current event"
+msgstr "Avatar Eventi"
+
+#: main/jet-events-functions.php:138
+#: templates/events/events-loop.php:149
+#, fuzzy
+msgid "Past event"
+msgstr "Avatar Eventi"
+
+#: main/jet-events-functions.php:142
+#: templates/events/events-loop.php:151
+#, fuzzy
+msgid "Active event"
+msgstr "Evento attivo"
+
+#: main/jet-events-menu.php:41
+#, fuzzy, php-format
+msgid "Events <span>(%d)</span>"
+msgstr "Eventi <span>(%d)</span>"
+
+#: main/jet-events-menu.php:46
+#: main/jet-events-menu.php:56
+#, fuzzy
+msgid "My Events"
+msgstr "Miei Eventi"
+
+#: main/jet-events-menu.php:50
+#, fuzzy
+msgid "Invitations to Event"
+msgstr "Richiesta partecipazione eventi"
+
+#: main/jet-events-menu.php:75
+#: main/jet-events-templatetags.php:1440
+#: main/jet-events-templatetags.php:2520
+#, fuzzy
+msgid "Event Avatar"
+msgstr "Avatar Eventi"
+
+#: main/jet-events-menu.php:97
+#, fuzzy
+msgid "Home"
+msgstr "Home"
+
+#: main/jet-events-menu.php:103
+#: templates/events/single/google-map.php:32
+#, fuzzy
+msgid "Google Map"
+msgstr "Google Map"
+
+#: main/jet-events-menu.php:109
+#: templates/events/single/flyer.php:5
+msgid "Flyer"
+msgstr "Volantino"
+
+#: main/jet-events-menu.php:114
+#, fuzzy
+msgid "Admin"
+msgstr "Amministra"
+
+#: main/jet-events-menu.php:118
+#, fuzzy
+msgid "Request join to event"
+msgstr "Richiesta partecipazione eventi"
+
+#: main/jet-events-menu.php:120
+#, fuzzy, php-format
+msgid "Members (%s)"
+msgstr "Membri (%s)"
+
+#: main/jet-events-menu.php:124
+#: templates/events/single/send-invites.php:59
+#, fuzzy
+msgid "Send Invites"
+msgstr "Invia invito"
+
+#: main/jet-events-menu.php:145
+#, fuzzy
+msgid "Admin Options"
+msgstr "Opzioni Amministrazione"
+
+#: main/jet-events-menu.php:148
+#: main/jet-events-templatetags.php:1449
+#: templates/events/single/admin.php:467
+#, fuzzy
+msgid "Delete Event"
+msgstr "Cancella Evento"
+
+#: main/jet-events-module_eu.php:52
+#, fuzzy
 msgid "An event with this name already exists .. do not want to change it?"
 msgstr "Esiste già un evento con questo nome... non vuoi cambiarlo?"
 
-#: jet-events-module_eu.php:54
+#: main/jet-events-module_eu.php:54
 #, fuzzy
 msgid "good name for the event"
 msgstr "%s chiede di partecipare all'evento \"%s\""
 
-#: jet-events-module_eu.php:59
+#: main/jet-events-module_eu.php:59
+#, fuzzy
 msgid "The event name can not be empty .."
 msgstr "Il nome evento non può essere vuoto"
 
-#: jet-events-notifications.php:7
+#: main/jet-events-notifications.php:7
 #, fuzzy
 msgid "Event Details Updated"
 msgstr "Dettagli evento aggiornati"
 
-#: jet-events-notifications.php:22
+#: main/jet-events-notifications.php:22
 #, fuzzy, php-format
 msgid ""
 "Event details for the event \"%s\" were updated:\r\n"
@@ -856,22 +1020,23 @@ msgstr ""
 "\r\n"
 "---------------------\r\n"
 
-#: jet-events-notifications.php:29
-#: jet-events-notifications.php:77
-#: jet-events-notifications.php:130
-#: jet-events-notifications.php:176
-#: jet-events-notifications.php:228
-#: jet-events-notifications.php:285
+#: main/jet-events-notifications.php:29
+#: main/jet-events-notifications.php:77
+#: main/jet-events-notifications.php:130
+#: main/jet-events-notifications.php:176
+#: main/jet-events-notifications.php:228
+#: main/jet-events-notifications.php:285
+#: main/jet-events-operations.php:387
 #, fuzzy, php-format
 msgid "To disable these notifications please log in and go to: %s"
 msgstr "Per disabilitare queste notifiche clicca su: %s"
 
-#: jet-events-notifications.php:62
+#: main/jet-events-notifications.php:62
 #, fuzzy, php-format
 msgid "Membership request for event: %s"
 msgstr "Richiesta partecipazione all'evento: %s"
 
-#: jet-events-notifications.php:65
+#: main/jet-events-notifications.php:65
 #, fuzzy, php-format
 msgid ""
 "%s wants to join the event \"%s\".\r\n"
@@ -896,12 +1061,12 @@ msgstr ""
 "\r\n"
 "---------------------\r\n"
 
-#: jet-events-notifications.php:110
+#: main/jet-events-notifications.php:110
 #, fuzzy, php-format
 msgid "Membership request for event \"%s\" accepted"
 msgstr "La richiesta di partecipazione all'evento \"%s\" è stata accettata"
 
-#: jet-events-notifications.php:112
+#: main/jet-events-notifications.php:112
 #, fuzzy, php-format
 msgid ""
 "Your membership request for the event \"%s\" has been accepted.\r\n"
@@ -916,12 +1081,12 @@ msgstr ""
 "\r\n"
 "---------------------\r\n"
 
-#: jet-events-notifications.php:120
+#: main/jet-events-notifications.php:120
 #, fuzzy, php-format
 msgid "Membership request for event \"%s\" rejected"
 msgstr "La richiesta di partecipazione all'evento \"%s\" è stata rifiutata"
 
-#: jet-events-notifications.php:122
+#: main/jet-events-notifications.php:122
 #, fuzzy, php-format
 msgid ""
 "Your membership request for the event \"%s\" has been rejected.\r\n"
@@ -936,22 +1101,22 @@ msgstr ""
 "\r\n"
 "---------------------\r\n"
 
-#: jet-events-notifications.php:144
+#: main/jet-events-notifications.php:144
 #, fuzzy
 msgid "an administrator"
 msgstr "un amministratore"
 
-#: jet-events-notifications.php:147
+#: main/jet-events-notifications.php:147
 #, fuzzy
 msgid "a moderator"
 msgstr "un moderatore"
 
-#: jet-events-notifications.php:166
+#: main/jet-events-notifications.php:166
 #, fuzzy, php-format
 msgid "You have been promoted in the event: \"%s\""
 msgstr "Sei stato promosso nell'evento: \"%s\""
 
-#: jet-events-notifications.php:169
+#: main/jet-events-notifications.php:169
 #, fuzzy, php-format
 msgid ""
 "You have been promoted to %s for the event: \"%s\".\r\n"
@@ -966,12 +1131,12 @@ msgstr ""
 "\r\n"
 "---------------------\r\n"
 
-#: jet-events-notifications.php:214
+#: main/jet-events-notifications.php:214
 #, fuzzy, php-format
 msgid "You have an invitation to the event: \"%s\""
 msgstr "Sei stato invitato all'evento: \"%s\""
 
-#: jet-events-notifications.php:217
+#: main/jet-events-notifications.php:217
 #, fuzzy, php-format
 msgid ""
 "One of your friends %s has invited you to the event: \"%s\".\r\n"
@@ -994,12 +1159,12 @@ msgstr ""
 "\r\n"
 "---------------------\r\n"
 
-#: jet-events-notifications.php:273
+#: main/jet-events-notifications.php:273
 #, fuzzy, php-format
 msgid "%s mentioned you in the event \"%s\""
 msgstr "%s ti ha menzionato nell'evento \"%s\""
 
-#: jet-events-notifications.php:276
+#: main/jet-events-notifications.php:276
 #, fuzzy, php-format
 msgid ""
 "%s mentioned you in the event \"%s\":\r\n"
@@ -1018,350 +1183,360 @@ msgstr ""
 "\r\n"
 "---------------------\r\n"
 
-#: jet-events-operations.php:243
+#: main/jet-events-operations.php:276
 #, fuzzy
 msgid "As the only Admin, you cannot leave the event."
 msgstr "Come unico amministratore non puoi lasciare l'evento"
 
-#: jet-events-templatetags.php:282
+#: main/jet-events-operations.php:363
+#: templates/events/create.php:277
+msgid "Reminder"
+msgstr "Promemoria"
+
+#: main/jet-events-operations.php:379
+#, php-format
+msgid ""
+"We remind you that after %s hours will be held event \"%s\".\n"
+"The event will be held at: %s\n"
+"\n"
+"To view the event: %s\n"
+"\n"
+"---------------------\n"
+msgstr ""
+"Ti ricordiamo che tra %s ore si terrà l'evento \"%s\".\n"
+"L'evento si terrà a: %s\n"
+"\n"
+"Per visualizzare i dettagli dell'evento: %s\n"
+"\n"
+"---------------------\n"
+
+#: main/jet-events-templatetags.php:282
 #, fuzzy
 msgid "Public Event"
 msgstr "Evento pubblico"
 
-#: jet-events-templatetags.php:284
+#: main/jet-events-templatetags.php:284
 #, fuzzy
 msgid "Hidden Event"
 msgstr "Evento Nascosto"
 
-#: jet-events-templatetags.php:286
+#: main/jet-events-templatetags.php:286
 #, fuzzy
 msgid "Private Event"
 msgstr "Evento privato"
 
-#: jet-events-templatetags.php:288
+#: main/jet-events-templatetags.php:288
 #, fuzzy
 msgid "Event"
 msgstr "Evento"
 
-#: jet-events-templatetags.php:317
+#: main/jet-events-templatetags.php:317
 #, fuzzy
 msgid "Avatar Image"
 msgstr "Carica immagine"
 
-#: jet-events-templatetags.php:516
-#: jet-events-templatetags.php:2346
+#: main/jet-events-templatetags.php:516
+#: main/jet-events-templatetags.php:2346
 #, fuzzy
 msgid "Event avatar"
 msgstr "Avatar dell'evento"
 
-#: jet-events-templatetags.php:572
+#: main/jet-events-templatetags.php:572
 #, fuzzy
 msgid "not yet active"
 msgstr "non ancora attivo"
 
-#: jet-events-templatetags.php:1036
+#: main/jet-events-templatetags.php:1036
 #, fuzzy
 msgid "Public"
 msgstr "Pubblico"
 
-#: jet-events-templatetags.php:1038
+#: main/jet-events-templatetags.php:1038
 #, fuzzy
 msgid "Private"
 msgstr "Privato"
 
-#: jet-events-templatetags.php:1093
+#: main/jet-events-templatetags.php:1093
 #, fuzzy
 msgid "No Admins"
 msgstr "Nessun amministratore"
 
-#: jet-events-templatetags.php:1113
+#: main/jet-events-templatetags.php:1113
 #, fuzzy
 msgid "No Mods"
 msgstr "Nessun moderatore"
 
-#: jet-events-templatetags.php:1135
+#: main/jet-events-templatetags.php:1135
 #, fuzzy
 msgid "Filter Events"
 msgstr "Filtra Eventi"
 
-#: jet-events-templatetags.php:1183
+#: main/jet-events-templatetags.php:1183
 #, fuzzy, php-format
 msgid "Viewing event %1$s to %2$s (of %3$s events)"
 msgstr "Visualizzazione eventi da %1$s a %2$s (di %3$s eventi)"
 
-#: jet-events-templatetags.php:1206
+#: main/jet-events-templatetags.php:1206
 #, fuzzy, php-format
 msgid "%s member"
 msgstr "%s membro"
 
-#: jet-events-templatetags.php:1208
+#: main/jet-events-templatetags.php:1208
 #: templates/members/single/events/invites.php:11
 #, fuzzy, php-format
 msgid "%s members"
 msgstr "%s partecipanti"
 
-#: jet-events-templatetags.php:1218
-#: jet-events-templatetags.php:1220
+#: main/jet-events-templatetags.php:1218
+#: main/jet-events-templatetags.php:1220
 #, fuzzy, php-format
 msgid "(%s)"
 msgstr "(%s)"
 
-#: jet-events-templatetags.php:1261
-#: jet-events-templatetags.php:1299
+#: main/jet-events-templatetags.php:1261
+#: main/jet-events-templatetags.php:1299
 #, fuzzy
 msgid "Demote to Member"
 msgstr "Retrocedi a Partecipante"
 
-#: jet-events-templatetags.php:1267
-#: jet-events-templatetags.php:1305
-#: jet-events-templatetags.php:1923
+#: main/jet-events-templatetags.php:1267
+#: main/jet-events-templatetags.php:1305
+#: main/jet-events-templatetags.php:1923
 #, fuzzy, php-format
 msgid "joined %s ago"
 msgstr "%s fa"
 
-#: jet-events-templatetags.php:1280
+#: main/jet-events-templatetags.php:1280
 #, fuzzy
 msgid "This event has no administrators"
 msgstr "Questo evento non ha amministratori"
 
-#: jet-events-templatetags.php:1299
-#: templates/events/single/admin.php:372
+#: main/jet-events-templatetags.php:1299
+#: templates/events/single/admin.php:378
 #, fuzzy
 msgid "Promote to Admin"
 msgstr "Promuovi a Amministratore"
 
-#: jet-events-templatetags.php:1318
+#: main/jet-events-templatetags.php:1318
 #, fuzzy
 msgid "This event has no moderators"
 msgstr "Questo evento non ha moderatori"
 
-#: jet-events-templatetags.php:1432
+#: main/jet-events-templatetags.php:1432
 #, fuzzy
 msgid "Edit Details"
 msgstr "Modifica dettagli"
 
-#: jet-events-templatetags.php:1439
+#: main/jet-events-templatetags.php:1439
 #, fuzzy
 msgid "Event Settings"
 msgstr "Impostazioni evento"
 
-#: jet-events-templatetags.php:1441
+#: main/jet-events-templatetags.php:1441
 #, fuzzy
 msgid "Manage Members"
 msgstr "Gestione membri"
 
-#: jet-events-templatetags.php:1444
+#: main/jet-events-templatetags.php:1444
 #, fuzzy
 msgid "Membership Requests"
 msgstr "Richieste di partecipazione"
 
-#: jet-events-templatetags.php:1630
-#: jet-events-templatetags.php:1638
-#: jet-events-templatetags.php:1649
+#: main/jet-events-templatetags.php:1630
+#: main/jet-events-templatetags.php:1638
+#: main/jet-events-templatetags.php:1649
 #, fuzzy
 msgid "Leave Event"
 msgstr "Lascia l'evento"
 
-#: jet-events-templatetags.php:1633
+#: main/jet-events-templatetags.php:1633
 #, fuzzy
 msgid "Join Event"
 msgstr "Partecipa all'evento"
 
-#: jet-events-templatetags.php:1641
+#: main/jet-events-templatetags.php:1641
 #, fuzzy
 msgid "Request to join Event"
 msgstr "Richiesta partecipazione eventi"
 
-#: jet-events-templatetags.php:1643
+#: main/jet-events-templatetags.php:1643
 #, fuzzy
 msgid "Request Sent"
 msgstr "Richiesta inviata"
 
-#: jet-events-templatetags.php:1665
+#: main/jet-events-templatetags.php:1665
 #, fuzzy
 msgid "This is a private event and you must request event membership in order to join."
 msgstr "Questo è un evento privato e devi richiedere la partecipazione."
 
-#: jet-events-templatetags.php:1667
+#: main/jet-events-templatetags.php:1667
 #, fuzzy
 msgid "This is a private event. To join you must be a registered site member and request event membership."
 msgstr "Questo è un evento privato. Per partecipare devi essere registrato al sito e inviare una richiesta di partecipazione."
 
-#: jet-events-templatetags.php:1669
+#: main/jet-events-templatetags.php:1669
 #, fuzzy
 msgid "This is a private event. Your membership request is awaiting approval from the event administrator."
 msgstr "Questo è un evento privato. La tua richiesta di partecipazione è in attesa di approvazione da parte dell'amministratore."
 
-#: jet-events-templatetags.php:1671
+#: main/jet-events-templatetags.php:1671
 #, fuzzy
 msgid "This is a hidden event and only invited members can join."
 msgstr "Questo è un evento nascosto e solo gli utenti invitati possono partecipare."
 
-#: jet-events-templatetags.php:1973
+#: main/jet-events-templatetags.php:1973
 #, fuzzy, php-format
 msgid "Viewing members %1$s to %2$s (of %3$s members)"
 msgstr "Stai vedendo gli utenti da %1$s a %2$s (di %3$s utenti)"
 
-#: jet-events-templatetags.php:2447
-#: jet-events-templatetags.php:2453
+#: main/jet-events-templatetags.php:2447
+#: main/jet-events-templatetags.php:2453
 #, fuzzy
 msgid "Search anything..."
 msgstr "Ricerca qualcosa ..."
 
-#: jet-events-templatetags.php:2454
+#: main/jet-events-templatetags.php:2454
 #, fuzzy
 msgid "Search"
 msgstr "Cerca"
 
-#: jet-events-templatetags.php:2462
-#: jet-events-templatetags.php:2479
+#: main/jet-events-templatetags.php:2462
+#: main/jet-events-templatetags.php:2479
 #, fuzzy
 msgid "Recently Active"
 msgstr "Attivi di recente"
 
-#: jet-events-templatetags.php:2463
-#: jet-events-templatetags.php:2482
+#: main/jet-events-templatetags.php:2463
+#: main/jet-events-templatetags.php:2482
 #, fuzzy
 msgid "Recently Joined"
 msgstr "Sottoscritti di recente"
 
-#: jet-events-templatetags.php:2464
-#: jet-events-templatetags.php:2485
-#: jet-events-widgets.php:36
+#: main/jet-events-templatetags.php:2464
+#: main/jet-events-templatetags.php:2485
+#: main/jet-events-widgets.php:36
 #, fuzzy
 msgid "Most Popular"
 msgstr "Più popolari"
 
-#: jet-events-templatetags.php:2465
-#: jet-events-templatetags.php:2488
+#: main/jet-events-templatetags.php:2465
+#: main/jet-events-templatetags.php:2488
 #, fuzzy
 msgid "Administrator Of"
 msgstr "Amministratore di"
 
-#: jet-events-templatetags.php:2466
-#: jet-events-templatetags.php:2491
+#: main/jet-events-templatetags.php:2466
+#: main/jet-events-templatetags.php:2491
 #, fuzzy
 msgid "Moderator Of"
 msgstr "Moderatore di"
 
-#: jet-events-templatetags.php:2467
-#: jet-events-templatetags.php:2494
+#: main/jet-events-templatetags.php:2467
+#: main/jet-events-templatetags.php:2494
 #, fuzzy
 msgid "Alphabetically"
 msgstr "Alfabetico"
 
-#: jet-events-templatetags.php:2522
+#: main/jet-events-templatetags.php:2522
 #, fuzzy
 msgid "No Event Avatar"
 msgstr "Nessun Avatar per l'evento"
 
-#: jet-events-templatetags.php:2767
+#: main/jet-events-templatetags.php:2767
 #, fuzzy, php-format
 msgid "requested %s ago"
 msgstr "richiesto %s fa"
 
-#: jet-events-templatetags.php:2949
+#: main/jet-events-templatetags.php:2949
 #, fuzzy
 msgid "Member avatar"
 msgstr "Avatar Eventi"
 
-#: jet-events-widgets.php:34
+#: main/jet-events-widgets.php:34
 #, fuzzy
 msgid "Newest"
 msgstr "Più nuovi"
 
-#: jet-events-widgets.php:35
+#: main/jet-events-widgets.php:35
 #, fuzzy
 msgid "Most Active"
 msgstr "Attivi di recente"
 
-#: jet-events-widgets.php:92
-#: templates/events/events-loop.php:66
-#: templates/events/events-loop.php:153
-#, fuzzy
-msgid "Past event"
-msgstr "Avatar Eventi"
-
-#: jet-events-widgets.php:94
-#: templates/events/events-loop.php:68
-#: templates/events/events-loop.php:155
-#, fuzzy
-msgid "Active event"
-msgstr "Evento attivo"
-
-#: jet-events-widgets.php:119
-#: jet-events-widgets.php:232
+#: main/jet-events-widgets.php:116
+#: main/jet-events-widgets.php:229
 #, fuzzy
 msgid "In city:"
 msgstr "In città:"
 
-#: jet-events-widgets.php:119
-#: jet-events-widgets.php:232
+#: main/jet-events-widgets.php:116
+#: main/jet-events-widgets.php:229
 #, fuzzy
 msgid "Start:"
 msgstr "Inizio:"
 
-#: jet-events-widgets.php:119
-#: jet-events-widgets.php:232
+#: main/jet-events-widgets.php:116
+#: main/jet-events-widgets.php:229
 #, fuzzy
 msgid "End:"
 msgstr "Fine:"
 
-#: jet-events-widgets.php:130
+#: main/jet-events-widgets.php:127
 #, fuzzy
 msgid "There are no events to display."
 msgstr "Nessun evento da mostrare"
 
-#: jet-events-widgets.php:165
+#: main/jet-events-widgets.php:162
 #, fuzzy
 msgid "Title:"
 msgstr "Titolo"
 
-#: jet-events-widgets.php:167
+#: main/jet-events-widgets.php:164
 #, fuzzy
 msgid "Max events to show:"
 msgstr "Numero massimo eventi da mostrare:"
 
-#: jet-events-widgets.php:170
+#: main/jet-events-widgets.php:167
 #, fuzzy
 msgid "Show navigation:"
 msgstr "Mostra navigazione:"
 
-#: jet-events-widgets.php:173
+#: main/jet-events-widgets.php:170
+#, fuzzy
 msgid "Show type of event and its Classification:"
 msgstr "Mostra il tipo di evento e la sua Classificazione:"
 
-#: jet-events-widgets.php:175
+#: main/jet-events-widgets.php:172
 #, fuzzy
 msgid "Show time:"
 msgstr "Mostra navigazione:"
 
-#: jet-events-widgets.php:177
+#: main/jet-events-widgets.php:174
+#, fuzzy
 msgid "Show the country and state for the event (if allowed to use administrative panel):"
 msgstr "Mostra Nazione e Stato per l'evento (se consentito nel pannello di amministrazione):"
 
-#: jet-events-widgets.php:180
+#: main/jet-events-widgets.php:177
 #, fuzzy
 msgid "Show archived events only for administrator:"
 msgstr "Mostra eventi archiviati solo per amministratore:"
 
-#: jet-events-widgets.php:183
+#: main/jet-events-widgets.php:180
 #, fuzzy
 msgid "Color to archive events:"
 msgstr "Colore per eventi archiviati:"
 
-#: jet-events-widgets.php:225
+#: main/jet-events-widgets.php:222
 #, fuzzy, php-format
 msgid "created %s ago"
 msgstr "creato %s fa"
 
-#: jet-events-widgets.php:227
+#: main/jet-events-widgets.php:224
 #: templates/events/single/event-header.php:32
 #, fuzzy, php-format
 msgid "active %s ago"
 msgstr "attivo %s fa"
 
-#: jet-events-widgets.php:247
+#: main/jet-events-widgets.php:244
 #, fuzzy
 msgid "No events matched the current filter."
 msgstr "Nessun evento trovato per i filtri impostati"
@@ -1398,8 +1573,8 @@ msgstr "* Nome dell'evento"
 #: templates/events/create.php:96
 #: templates/events/create.php:103
 #: templates/events/create.php:109
-#: templates/events/create.php:178
-#: templates/events/create.php:210
+#: templates/events/create.php:183
+#: templates/events/create.php:215
 #: templates/events/single/admin.php:21
 #: templates/events/single/admin.php:27
 #: templates/events/single/admin.php:33
@@ -1407,8 +1582,8 @@ msgstr "* Nome dell'evento"
 #: templates/events/single/admin.php:49
 #: templates/events/single/admin.php:57
 #: templates/events/single/admin.php:62
-#: templates/events/single/admin.php:135
-#: templates/events/single/admin.php:167
+#: templates/events/single/admin.php:141
+#: templates/events/single/admin.php:173
 #, fuzzy
 msgid "(required)"
 msgstr "(obbligatorio)"
@@ -1446,7 +1621,7 @@ msgstr "* Città dove si svolge"
 #: templates/events/create.php:112
 #: templates/events/single/admin.php:65
 #: templates/events/single/details.php:28
-#: templates/events/single/google-map.php:19
+#: templates/events/single/google-map.php:23
 #, fuzzy
 msgid "Event address"
 msgstr "Indirizzo dove si svolge l'evento"
@@ -1454,13 +1629,13 @@ msgstr "Indirizzo dove si svolge l'evento"
 #: templates/events/create.php:116
 #: templates/events/single/admin.php:70
 #: templates/events/single/details.php:32
-#: templates/events/single/google-map.php:23
+#: templates/events/single/google-map.php:27
 #, fuzzy
 msgid "Event note"
 msgstr "Avatar Eventi"
 
 #: templates/events/create.php:124
-#: templates/events/single/admin.php:99
+#: templates/events/single/admin.php:105
 #, fuzzy
 msgid "News for event"
 msgstr "Notizie per l'evento"
@@ -1471,212 +1646,220 @@ msgid "Event Public news"
 msgstr "Notizie evento pubblico"
 
 #: templates/events/create.php:131
-#: templates/events/single/admin.php:106
+#: templates/events/single/admin.php:112
 #: templates/events/single/details.php:62
 #, fuzzy
 msgid "Private Event News"
 msgstr "Notizie evento privato"
 
 #: templates/events/create.php:135
-#: templates/events/single/admin.php:94
+#: templates/events/single/admin.php:100
 #: templates/events/single/details.php:41
 #, fuzzy
 msgid "Special Conditions"
 msgstr "Condizioni speciali"
 
-#: templates/events/create.php:140
-#: templates/events/single/admin.php:78
+#: templates/events/create.php:142
+#: templates/events/single/admin.php:81
+#, fuzzy
 msgid "Link to Google Maps or any other image"
 msgstr "Link a Google Maps o qualsiasi altra immagine"
 
-#: templates/events/create.php:147
-#: templates/events/single/admin.php:86
+#: templates/events/create.php:152
+#: templates/events/single/admin.php:92
 #, fuzzy
 msgid "Link to image flyer"
 msgstr "Link permanente a questo post"
 
-#: templates/events/create.php:174
-#: templates/events/single/admin.php:131
+#: templates/events/create.php:179
+#: templates/events/single/admin.php:137
 #: templates/events/single/details.php:35
 #, fuzzy
 msgid "Event Date"
 msgstr "Data dell'evento"
 
-#: templates/events/create.php:178
-#: templates/events/single/admin.php:135
+#: templates/events/create.php:183
+#: templates/events/single/admin.php:141
 #, fuzzy
 msgid "* Event Start date"
 msgstr "* Data inizio evento"
 
-#: templates/events/create.php:191
-#: templates/events/create.php:223
-#: templates/events/single/admin.php:148
-#: templates/events/single/admin.php:180
+#: templates/events/create.php:196
+#: templates/events/create.php:228
+#: templates/events/single/admin.php:154
+#: templates/events/single/admin.php:186
 #, fuzzy
 msgid " hours"
 msgstr "ore"
 
-#: templates/events/create.php:201
-#: templates/events/create.php:233
-#: templates/events/single/admin.php:158
-#: templates/events/single/admin.php:190
+#: templates/events/create.php:206
+#: templates/events/create.php:238
+#: templates/events/single/admin.php:164
+#: templates/events/single/admin.php:196
 #, fuzzy
 msgid " minutes"
 msgstr "minuti:"
 
-#: templates/events/create.php:210
-#: templates/events/single/admin.php:167
+#: templates/events/create.php:215
+#: templates/events/single/admin.php:173
 #, fuzzy
 msgid "* Event End date"
 msgstr "* Data fine evento"
 
-#: templates/events/create.php:256
-#: templates/events/single/admin.php:218
+#: templates/events/create.php:278
+#, php-format
+msgid "Remind participants about the early events in %s hours?"
+msgstr "Ricordare ai partecipanti gli eventi in scadenza nelle prossime %s ore?"
+
+#: templates/events/create.php:312
+#: templates/events/single/admin.php:224
 #, fuzzy
 msgid "Privacy Options"
 msgstr "Opzioni Privacy"
 
-#: templates/events/create.php:260
-#: templates/events/single/admin.php:223
+#: templates/events/create.php:316
+#: templates/events/single/admin.php:229
 #, fuzzy
 msgid "This is a public event"
 msgstr "Questo è un evento pubblico"
 
-#: templates/events/create.php:262
-#: templates/events/single/admin.php:225
+#: templates/events/create.php:318
+#: templates/events/single/admin.php:231
 #, fuzzy
 msgid "Any site member can join this event."
 msgstr "Tutti gli utenti del sito possono partecipare all'evento"
 
-#: templates/events/create.php:263
-#: templates/events/create.php:272
-#: templates/events/single/admin.php:226
-#: templates/events/single/admin.php:235
+#: templates/events/create.php:319
+#: templates/events/create.php:328
+#: templates/events/single/admin.php:232
+#: templates/events/single/admin.php:241
 #, fuzzy
 msgid "This event will be listed in the events directory and in search results."
 msgstr "Questo evento sarà mostrato nell'elenco eventi e nei risultati delle ricerche"
 
-#: templates/events/create.php:264
-#: templates/events/single/admin.php:227
+#: templates/events/create.php:320
+#: templates/events/single/admin.php:233
 #, fuzzy
 msgid "Event content and activity will be visible to any site member."
 msgstr "Il contenuto e le attività dell'evento saranno visibili a tutti."
 
-#: templates/events/create.php:269
-#: templates/events/single/admin.php:232
+#: templates/events/create.php:325
+#: templates/events/single/admin.php:238
 #, fuzzy
 msgid "This is a private event"
 msgstr "Questo è un evento privato"
 
-#: templates/events/create.php:271
+#: templates/events/create.php:327
 #, fuzzy
 msgid "Just send a request to join, users can join the event."
 msgstr "Inviando una richiesta, gli utenti possono partecipare all'evento."
 
-#: templates/events/create.php:273
-#: templates/events/create.php:282
-#: templates/events/single/admin.php:236
-#: templates/events/single/admin.php:245
+#: templates/events/create.php:329
+#: templates/events/create.php:338
+#: templates/events/single/admin.php:242
+#: templates/events/single/admin.php:251
 #, fuzzy
 msgid "Event content and activity will only be visible to members of the event."
 msgstr "Il contenuto e le attività dell'evento saranno visibili solo ai partecipanti all'evento."
 
-#: templates/events/create.php:278
-#: templates/events/single/admin.php:241
+#: templates/events/create.php:334
+#: templates/events/single/admin.php:247
 #, fuzzy
 msgid "This is a hidden event"
 msgstr "Questo è un evento nascosto"
 
-#: templates/events/create.php:280
-#: templates/events/single/admin.php:243
+#: templates/events/create.php:336
+#: templates/events/single/admin.php:249
 #, fuzzy
 msgid "Only users who are invited can join the event."
 msgstr "Solo gli utenti invitati possono partecipare all'evento"
 
-#: templates/events/create.php:281
-#: templates/events/single/admin.php:244
+#: templates/events/create.php:337
+#: templates/events/single/admin.php:250
 #, fuzzy
 msgid "This event will not be listed in the events directory or search results."
 msgstr "L'evento non comparirà nelle liste eventi e nei risultati delle ricerche."
 
-#: templates/events/create.php:288
-#: templates/events/single/admin.php:250
+#: templates/events/create.php:343
+#: templates/events/single/admin.php:256
+#, fuzzy
 msgid "Group/Forum link options"
 msgstr "Opzione link Gruppi/Forum"
 
-#: templates/events/create.php:289
-#: templates/events/single/admin.php:251
+#: templates/events/create.php:344
+#: templates/events/single/admin.php:257
+#, fuzzy
 msgid "Select the group you want to contact the event:"
 msgstr "Seleziona il gruppo che vuoi contattare per l'evento:"
 
-#: templates/events/create.php:312
-#: templates/events/single/admin.php:277
+#: templates/events/create.php:367
+#: templates/events/single/admin.php:283
 #, fuzzy
 msgid "Upload an image to use as an avatar for this event. The image will be shown on the main event page, and in search results."
 msgstr "Carica un immagine per usarla come Avatar dell'evento. Le immagini verranno mostrate nella pagina principale dell'evento e nei risultati delle ricerche"
 
-#: templates/events/create.php:316
-#: templates/events/single/admin.php:280
+#: templates/events/create.php:371
+#: templates/events/single/admin.php:286
 #, fuzzy
 msgid "Upload Image"
 msgstr "Carica immagine"
 
-#: templates/events/create.php:320
+#: templates/events/create.php:375
 #, fuzzy
 msgid "To skip the avatar upload process, hit the \"Next Step\" button."
 msgstr "Per saltare il caricamento immagini, clicca su \"Avanti >\""
 
-#: templates/events/create.php:327
+#: templates/events/create.php:382
 #, fuzzy
 msgid "Crop Event Avatar"
 msgstr "Ritaglia l'avatar dell'evento"
 
-#: templates/events/create.php:329
-#: templates/events/single/admin.php:298
+#: templates/events/create.php:384
+#: templates/events/single/admin.php:304
 #, fuzzy
 msgid "Avatar to crop"
 msgstr "Avatar da ritagliare"
 
-#: templates/events/create.php:332
-#: templates/events/single/admin.php:301
+#: templates/events/create.php:387
+#: templates/events/single/admin.php:307
 #, fuzzy
 msgid "Avatar preview"
 msgstr "Anteprima Avatar"
 
-#: templates/events/create.php:335
-#: templates/events/single/admin.php:304
+#: templates/events/create.php:390
+#: templates/events/single/admin.php:310
 #, fuzzy
 msgid "Crop Image"
 msgstr "Ritaglia immagine"
 
-#: templates/events/create.php:373
+#: templates/events/create.php:428
 #: templates/events/single/send-invites.php:22
 #, fuzzy
 msgid "Select people to invite from your friends list."
 msgstr "Seleziona gli utenti da invitare fra i tuoi amici"
 
-#: templates/events/create.php:404
+#: templates/events/create.php:459
 #: templates/events/single/send-invites.php:72
 #, fuzzy
 msgid "Once you have built up friend connections you will be able to invite others to your event. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new event."
 msgstr "Dopo aver stabilito le tue amicizie potrai invitare altre persone all'evento. In futuro potrai inviare inviti cliccando su \"Invia Inviti\" mentre visualizzi il tuo evento."
 
-#: templates/events/create.php:422
+#: templates/events/create.php:477
 #, fuzzy
 msgid "Previous Step"
 msgstr "< Indietro"
 
-#: templates/events/create.php:427
+#: templates/events/create.php:482
 #, fuzzy
 msgid "Next Step"
 msgstr "Avanti >"
 
-#: templates/events/create.php:432
+#: templates/events/create.php:487
 #, fuzzy
 msgid "Create Event and Continue"
 msgstr "Crea l'evento e continua"
 
-#: templates/events/create.php:437
+#: templates/events/create.php:492
 #, fuzzy
 msgid "Finish"
 msgstr "Fine"
@@ -1689,70 +1872,71 @@ msgstr "Stile:"
 #: templates/events/events-loop.php:18
 #, fuzzy
 msgid "jes_events_style"
-msgstr "Visualizzazione eventi da %1$s a %2$s (di %3$s eventi)"
+msgstr "Stile Standard con descrizioni complete"
 
 #: templates/events/events-loop.php:27
+#, fuzzy
 msgid "Private events are not shown, register to view"
 msgstr "Gli eventi privati non vengono mostrati, registrati per vederli"
 
-#: templates/events/events-loop.php:72
-#: templates/events/events-loop.php:159
+#: templates/events/events-loop.php:68
+#: templates/events/events-loop.php:155
 #, fuzzy
 msgid "From: "
 msgstr "Dalle:"
 
-#: templates/events/events-loop.php:72
-#: templates/events/events-loop.php:159
+#: templates/events/events-loop.php:68
+#: templates/events/events-loop.php:155
 #, fuzzy
 msgid "to: "
 msgstr "alle:"
 
-#: templates/events/events-loop.php:75
+#: templates/events/events-loop.php:71
 #, fuzzy
 msgid "Short description:"
 msgstr "Descrizione breve:"
 
-#: templates/events/events-loop.php:77
-#: templates/events/events-loop.php:171
+#: templates/events/events-loop.php:73
+#: templates/events/events-loop.php:167
 #, fuzzy
 msgid "Description:"
 msgstr "* Descrizione evento"
 
-#: templates/events/events-loop.php:81
-#: templates/events/events-loop.php:160
+#: templates/events/events-loop.php:77
+#: templates/events/events-loop.php:156
 #: templates/events/single/details.php:15
-#: templates/events/single/google-map.php:5
+#: templates/events/single/google-map.php:9
 #, fuzzy
 msgid "The event will take place:"
 msgstr "Jet Event System"
 
-#: templates/events/events-loop.php:92
-#: templates/events/events-loop.php:170
+#: templates/events/events-loop.php:88
+#: templates/events/events-loop.php:166
 #: templates/events/single/details.php:25
-#: templates/events/single/google-map.php:16
+#: templates/events/single/google-map.php:20
 #, fuzzy
 msgid "in city:"
 msgstr "In città:"
 
-#: templates/events/events-loop.php:92
-#: templates/events/events-loop.php:170
+#: templates/events/events-loop.php:88
+#: templates/events/events-loop.php:166
 #, fuzzy
 msgid "at "
 msgstr "a"
 
-#: templates/events/events-loop.php:103
-#: templates/events/events-loop.php:181
+#: templates/events/events-loop.php:99
+#: templates/events/events-loop.php:177
 #, fuzzy
 msgid "Event requires approval!"
 msgstr "Jet Event System"
 
-#: templates/events/events-loop.php:108
-#: templates/events/events-loop.php:186
+#: templates/events/events-loop.php:104
+#: templates/events/events-loop.php:182
 #, fuzzy, php-format
 msgid "Last activity:<br /> %s ago"
 msgstr "Ultima attività:<br /> %s fa"
 
-#: templates/events/events-loop.php:204
+#: templates/events/events-loop.php:200
 #, fuzzy
 msgid "There were no events found."
 msgstr "Nessun evento trovato."
@@ -1799,6 +1983,7 @@ msgid "Approve Event?"
 msgstr "Avatar Eventi"
 
 #: templates/events/single/admin.php:29
+#, fuzzy
 msgid "Approve"
 msgstr "Approva"
 
@@ -1807,112 +1992,108 @@ msgstr "Approva"
 msgid "Not Approve"
 msgstr "non ancora attivo"
 
-#: templates/events/single/admin.php:102
+#: templates/events/single/admin.php:108
 #: templates/events/single/details.php:52
 #, fuzzy
 msgid "Public Event News"
 msgstr "Notizie evento pubblico"
 
-#: templates/events/single/admin.php:198
+#: templates/events/single/admin.php:204
+#, fuzzy
 msgid "Notify participants of the event to update the details?"
 msgstr "Notificare l'aggiornamento dei dettagli evento ai partecipanti?"
 
-#: templates/events/single/admin.php:208
-#: templates/events/single/admin.php:267
+#: templates/events/single/admin.php:214
+#: templates/events/single/admin.php:273
 #, fuzzy
 msgid "Save Changes"
 msgstr "Salva modifiche"
 
-#: templates/events/single/admin.php:234
+#: templates/events/single/admin.php:240
 #, fuzzy
 msgid "Only users who request membership and are accepted can join the event."
 msgstr "Solo gli utenti con una richiesta di partecipazione approvata possono partecipare all'evento."
 
-#: templates/events/single/admin.php:285
+#: templates/events/single/admin.php:291
 #, fuzzy
 msgid "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button."
 msgstr "Se vuoi rimuovere l'Avatar senza caricarne uno nuovo, usa il pulsante Cancella Avatar"
 
-#: templates/events/single/admin.php:287
+#: templates/events/single/admin.php:293
 #, fuzzy
 msgid "Delete Avatar"
 msgstr "Cancella Avatar"
 
-#: templates/events/single/admin.php:297
+#: templates/events/single/admin.php:303
 #, fuzzy
 msgid "Crop Avatar"
 msgstr "Ritaglia Avatar"
 
-#: templates/events/single/admin.php:324
-#, fuzzy
-msgid "Administrators"
-msgstr "Amministratori"
-
-#: templates/events/single/admin.php:331
+#: templates/events/single/admin.php:337
 #, fuzzy
 msgid "Moderators"
 msgstr "Moderatori"
 
-#: templates/events/single/admin.php:338
+#: templates/events/single/admin.php:344
 #, fuzzy
 msgid "Members"
 msgstr "Membru"
 
-#: templates/events/single/admin.php:366
+#: templates/events/single/admin.php:372
 #, fuzzy
 msgid "(banned)"
 msgstr "(banned)"
 
-#: templates/events/single/admin.php:366
 #: templates/events/single/admin.php:372
+#: templates/events/single/admin.php:378
 #, fuzzy
 msgid "Kick and ban this member"
 msgstr "Kick and ban questo utente"
 
-#: templates/events/single/admin.php:366
+#: templates/events/single/admin.php:372
 #, fuzzy
 msgid "Remove Ban"
 msgstr "Rimuovi Ban"
 
-#: templates/events/single/admin.php:372
+#: templates/events/single/admin.php:378
 #, fuzzy
 msgid "Kick &amp; Ban"
 msgstr "Kick &amp; Ban"
 
-#: templates/events/single/admin.php:372
+#: templates/events/single/admin.php:378
 #, fuzzy
 msgid "Promote to Mod"
 msgstr "Promuovi a Moderatore"
 
-#: templates/events/single/admin.php:385
+#: templates/events/single/admin.php:391
 #: templates/events/single/members.php:51
 #, fuzzy
 msgid "This event has no members."
 msgstr "Questo evento non ha partecipanti"
 
-#: templates/events/single/admin.php:416
+#: templates/events/single/admin.php:422
 #: templates/members/single/events/invites.php:20
 #, fuzzy
 msgid "Accept"
 msgstr "Accetta"
 
-#: templates/events/single/admin.php:422
+#: templates/events/single/admin.php:428
 #: templates/members/single/events/invites.php:21
 #, fuzzy
 msgid "Reject"
 msgstr "Rifiuta"
 
-#: templates/events/single/admin.php:436
+#: templates/events/single/admin.php:442
 #, fuzzy
 msgid "There are no pending membership requests."
 msgstr "Non ci sono richieste di partecipazione pendenti"
 
-#: templates/events/single/admin.php:453
+#: templates/events/single/admin.php:459
 #, fuzzy
 msgid "WARNING: Deleting this event will completely remove ALL content associated with it. There is no way back, please be careful with this option."
 msgstr "ATTENZIONE: rimuovendo questo evento perderai definitivamente TUTTI i contenuti ad esso associati. L'operazione non può essere annullata, quindi fai attenzione."
 
-#: templates/events/single/admin.php:456
+#: templates/events/single/admin.php:462
 #, fuzzy
 msgid "I understand the consequences of deleting this event."
 msgstr "Ho compreso le conseguenze della cancellazione di questo evento"
@@ -1958,12 +2139,13 @@ msgstr "Amministratori evento"
 msgid "Event Mods"
 msgstr "Moderatori evento"
 
-#: templates/events/single/flyer.php:12
+#: templates/events/single/flyer.php:19
+#, fuzzy
 msgid "Available only to participants of the event!"
 msgstr "Disponibile solo per i partecipanti all'evento!"
 
-#: templates/events/single/flyer.php:15
-#: templates/events/single/google-map.php:32
+#: templates/events/single/flyer.php:23
+#: templates/events/single/google-map.php:76
 #, fuzzy
 msgid "Currently unavailable"
 msgstr "Attualmente non disponibile"
