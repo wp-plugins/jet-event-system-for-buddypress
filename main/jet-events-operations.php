@@ -137,8 +137,8 @@ function events_create_event( $args = '' ) {
 /* Set Notify CRON */
 if ($notify_timed_enable)
 	{
-		$edata = get_option( 'jes_events' );
-		$hours = (int)$edata[ 'jes_events_notify_timed' ];
+		$jes_adata = get_option( 'jes_events' );
+		$hours = (int)$jes_adata[ 'jes_events_notify_timed' ];
 		$offset1 = mktime(date_i18n('H'),date_i18n('i'),date_i18n('s'),date_i18n('m'),date_i18n('d'),date_i18n('Y'));
 		$offset2 = time();
 		$offset = $offset1 - $offset2;
@@ -181,13 +181,13 @@ function events_edit_base_event_details( $event_id, $event_name, $event_etype, $
 /* Set Notify CRON */
 if ($notify_timed_enable)
 	{
-		$edata = get_option( 'jes_events' );
-		$hours = (int)$edata[ 'jes_events_notify_timed' ]; 
+		$jes_adata = get_option( 'jes_events' );
+		$hours = (int)$jes_adata[ 'jes_events_notify_timed' ]; 
 		$todorem = jes_datetounix($event_edtsd,$event_edtsth,$event_edtstm) - $hours*3600;
 		// wp_schedule_single_event($todorem,'jes_events_notification_cron_hook',$event_id);
 	} else {
-		$edata = get_option( 'jes_events' );
-		$hours = (int)$edata[ 'jes_events_notify_timed' ]; 
+		$jes_adata = get_option( 'jes_events' );
+		$hours = (int)$jes_adata[ 'jes_events_notify_timed' ]; 
 		$todorem = jes_datetounix($event_edtsd,$event_edtsth,$event_edtstm) - $hours*3600;
 		// wp_unschedule_event($todorem,'jes_events_notification_cron_hook',$event_id);
 	}
@@ -355,9 +355,9 @@ function events_join_event( $event_id, $user_id = false ) {
 function jes_events_notification_cron( $event_id, $event_name, $event_placed, $event_timed ) {
 	global $bp;
 
-	$edata = get_option( 'jes_events' );
-	$message = $edata[ 'jes_events_notify_templates' ];
-	$timenotify = $edata[ 'jes_events_notify_timed' ];
+	$jes_adata = get_option( 'jes_events' );
+	$message = $jes_adata[ 'jes_events_notify_templates' ];
+	$timenotify = $jes_adata[ 'jes_events_notify_timed' ];
 		
 	$event = new JES_Events_Event( $event_id );
 	$subject = __( 'Reminder', 'jet-event-system' ). '! [' . get_blog_option( BP_ROOT_BLOG, 'blogname' ) . '] -' .$event_name;

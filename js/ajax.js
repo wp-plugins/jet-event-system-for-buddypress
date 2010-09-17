@@ -6,9 +6,8 @@ var jesjq = jQuery;
 
 jesjq(document).ready( function() {
 
-	//var objects = [ 'members', 'groups', 'blogs', 'forums', 'events' ];
-	//bp_init_objects( objects );
-
+	var object = 'events';
+	
 	/**** Directory Search ****************************************************/
 
 	/* The search form on all directory pages */

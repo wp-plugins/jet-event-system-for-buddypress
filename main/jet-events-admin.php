@@ -50,26 +50,27 @@ class JES_EVENTS_ADMIN_PAGE {
 	
 		add_meta_box('jes-event-admin-classificationoptions', __( 'Classification options', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_classificationoptions'), $this->pagehook, 'normal', 'core');		
 
-		add_meta_box('jes-event-admin-restrictoptions', __( 'Restrict options', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_restrictoptions'), $this->pagehook, 'normal', 'core');
-
-		add_meta_box('jes-event-admin-privacyoptions', __( 'Privacy options', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_privacyoptions'), $this->pagehook, 'normal', 'core');		
+		add_meta_box('jes-event-admin-googlemap', __( 'Google Map options (future)', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_googlemap'), $this->pagehook, 'normal', 'core');
 
 		add_meta_box('jes-event-admin-reminder', __( 'Reminder options (future)', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_reminder'), $this->pagehook, 'normal', 'core');
 
-		add_meta_box('jes-event-admin-googlemap', __( 'Google Map options (future)', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_googlemap'), $this->pagehook, 'normal', 'core');		
+		add_meta_box('jes-event-admin-restrictoptions', __( 'Restrict options', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_restrictoptions'), $this->pagehook, 'normal', 'core');
+
+		add_meta_box('jes-event-admin-privacyoptions', __( 'Privacy options', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_privacyoptions'), $this->pagehook, 'normal', 'core');
+
 	}
 
 	//executed to show the plugins complete admin page
 	function jeson_show_page() {
 		global $bp, $wpdb;
 		global $screen_layout_columns;
-		
+
 		//define some data can be given to each metabox during rendering
 		$jes_events = get_option( 'jes-events' );
 		?>
 		<div id="jes-event-admin-general" class="wrap">
-		<?php screen_icon('options-general'); ?>
-		<h2><?php _e( 'Jes Event System','jes-events') ?></h2>
+		<img src="<?php echo WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/images/jeslogo.gif'; ?>">
+		<h2><?php _e( 'Jet Event System','jes-events') ?></h2>
 
 		<?php
 /* JES */
@@ -84,6 +85,11 @@ if ( isset($_POST['updatetemplate']) )
 		{
 			update_template($_POST['jthemepath']);
 			echo "<div id='message' class='updated fade'><p>" . __( 'Templates updated.', 'jet-event-system' ) . "</p></div>";
+		}
+
+if ( isset($_POST['checkfiles']) )
+		{
+			echo "<div id='message' class='updated fade'><p>" . __( 'Files checked.', 'jet-event-system' ) . " - ".check_template($_POST['jthemepath'])."</p></div>";
 		}
 
 	$jes_events = get_option( 'jes_events' );
@@ -415,6 +421,7 @@ function on_jes_events_admin_note($jes_events) {
 	<ul>
 		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-site-unit-could-poleznye-vidzhety-dlya-vashej-socialnoj-seti.html" title="Jet Site Unit Could">Jet Site Unit Could</a></li>
 		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/publikaciya-v-wordpress-minuyu-administrativnuyu-panel-jet-quickpress.html">Jet QuickPress</a></li>
+		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/v-pomoshh-adminam-jet-footer-code.html">Jet Footer Code</a></li>
 		<li><a href="http://cosydale.com/plugin-cd-avatar-bubble.html">CD Avatar Bubble</a></li>
 	</ul></p>
 	<p>Special thanks to <a href="http://cosydale.com">slaFFik</a> for his help in writing a plugin!</p>
@@ -441,34 +448,11 @@ function on_jes_events_admin_information($jes_events) {
 								echo '<span>';
 							} ?>
 				<?php echo get_site_option( 'jes-events-db-version' );?></span><?php echo '('.JES_EVENTS_DB_VERSION.')'; ?></p>
-			<p>locale: <?php echo WPLANG; ?></p>
+			<p><strong>locale:</strong> wplang: <?php echo WPLANG; ?>, wplocale: <?php echo apply_filters( 'wordpress_locale', get_locale() ); ?></p>
 <?php
 }
 
 function on_jes_events_admin_setupmain($jes_events) {
-/* DB */
-	if ( get_site_option( 'jes-events-db-version' ) < JES_EVENTS_DB_VERSION )
-		{
-			jes_events_init_jesdb();
-			_e('The database is updated!','jet-event-system');				
-			echo '<br />';
-		} 
-/* Template */
-	if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION )
-			{
-				_e('There were changes in the theme file!','jet-event-system');
-				echo '<br />';
-				if ( update_template() )
-					{
-						_e('Templates updated!','jet-event-system');
-						echo '<br />';
-						update_site_option( 'jes-theme-version', JES_EVENTS_THEME_VERSION );
-					}
-						else
-					{
-						_e('An error occurred while updating the files! (check the folder themes)','jet-event-system');
-					}
-			}
 ?>  
 	<form action="<?php echo site_url() . '/wp-admin/admin.php?page=jes-event-admin' ?>" name="jes_events_update_j" id="jes_events_update_j" method="post">
 		<label name="jthemepath"><?php _e('Select the location you are using themes:','jet-event-system'); ?></label>
@@ -481,6 +465,7 @@ function on_jes_events_admin_setupmain($jes_events) {
 		</select>
 		<input type="submit" name="updatedb" value="<?php _e( 'Update Database', 'jet-event-system' ) ?>"/>
 		<input type="submit" name="updatetemplate" value="<?php _e( 'Update Templates', 'jet-event-system' ) ?>"/>
+		<input type="submit" name="checkfiles" value="<?php _e( 'Checking for files', 'jet-event-system' ) ?>"/>		
 	</form>	
 <?php	}
 
@@ -611,7 +596,9 @@ function on_jes_events_admin_setupmain($jes_events) {
 										<option <?php if ($jes_events[ 'jes_events_style' ] == 'Standart') { ?>selected <?php } ?>value="Standart"><?php _e('Standart Style','jet-event-system'); ?></option>
 										<option <?php if ($jes_events[ 'jes_events_style' ] == 'Standard will full description') { ?>selected <?php } ?>value="Standard will full description"><?php _e('Standard will full description Style','jet-event-system'); ?></option>						
 										<option <?php if ($jes_events[ 'jes_events_style' ] == 'Twitter') { ?>selected <?php } ?>value="Twitter"><?php _e('Twitter Style','jet-event-system'); ?></option>
+										<option <?php if ($jes_events[ 'jes_events_style' ] == 'Custom') { ?>selected <?php } ?>value="Custom"><?php _e('Custom Style*','jet-event-system'); ?></option>
 									</select>
+<p><?php _e('* To use a custom design Directory Events, modify the file:','jet-event-system'); ?> <?php echo STYLESHEETPATH.'/events/looptemplates/custom.php'; ?></p>
 								</td>
 							</tr>
 	

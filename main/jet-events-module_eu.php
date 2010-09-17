@@ -1,6 +1,5 @@
 <?php
-$EAC_dir =str_replace(basename( __FILE__),"",plugin_basename(__FILE__));
-define("EAC_DIR_NAME",$EAC_dir);
+define("EAC_DIR_NAME",'jet-event-system-for-buddypress');
 define("EAC_PLUGIN_DIR",WP_PLUGIN_DIR."/".EAC_DIR_NAME);
 define("EAC_PLUGIN_URL",WP_PLUGIN_URL."/".EAC_DIR_NAME);
 
@@ -13,8 +12,8 @@ if ( $bp->current_component == $bp->jes_events->slug )
 			{
 				if (!jes_is_event_creation_step( 'event-avatar' ) )
 				{
-					wp_enqueue_script("jquery");
-					wp_enqueue_script("jeseachecker",EAC_PLUGIN_URL."/js/eu_script.js");
+					wp_enqueue_script( 'jquery' );
+					wp_enqueue_script( 'jeseachecker' , EAC_PLUGIN_URL . '/js/eu_script.js' );
 				}
 			}
 		}

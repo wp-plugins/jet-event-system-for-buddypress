@@ -3,12 +3,12 @@ Contributors: Jettochkin
 Donate link: http://milordk.ru/projects/wordpress-buddypress/podderzhka.html
 Plugin link: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Authoe link: http://milordk.ru/
-Tags: BuddyPress, Wordpress MU, meta, members, widget, event, group, invite
+Tags: BuddyPress, Wordpress MU, meta, members, widget, event, group, invite, events
 Requires at least: 3.0, BuddyPress 1.2.5
 Tested up to: 3.0.1, BuddyPress 1.2.5.2
 Stable tag: trunk
 
-The modern System of events for your social network. Ability to attract members of the network to the ongoing activities, a wide range of possibilities and options, support for different types of display, etc. <a href="http://jes.milordk.ru">JES DEV Site</a>. <strong>Before you install or upgrade sure to read the Readme file!</strong>!
+The modern System of events for your social network. Ability to attract members of the network to the ongoing activities, etc. <a href="http://jes.milordk.ru">JES DEV Site</a>
 
 
 == Description ==
@@ -37,6 +37,10 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://vol
 5. Add widget to site (if needed)
 6. See Events Catalog: http://yousite/events
 
+== Upgrade Notice ==
+
+* Visit the admin panel and update the database and Templates
+
 
 == Screenshots ==
 
@@ -62,10 +66,11 @@ Make sure that the owner of the folders and files contained in them is the owner
 
 = I'm not working choose the date when creating and / or edit an event =
 
-You need to check whether all files are copied Temple. Make sure that all plugin js-scripts are not only registered in the boot, but also present on the specified routes
+You need to check whether all files are copied Templates. Make sure that all plugin js-scripts are not only registered in the boot, but also present on the specified routes
 
-= Can I get extended support plug-in or implementation of additional (specific) functional? =
-You can, but keep in mind that the cost of implementing individual (not popular majority) functions - should be paid off
+= I'm not going localization Datapicker, what to do? =
+
+If there was no localization datapicker - check wplocale in administrative panel of the plugin and the presence of a file in the folder plugin / js/jquery-iu-locale/jquery.ui.datepicker- <wplocale>. Js. If not - then rename the file most suitable for you.
 
 = What resources are consumed plugin? =
 
@@ -75,6 +80,8 @@ Home page:
 
 Page "Events directory": Render Time: 0.375 sec (11.0% for queries). DB queries: 59, none defective, none > 0.500 sec. Memory: 34.7MB
 
+= Can I get extended support plug-in or implementation of additional (specific) functional? =
+You can, but keep in mind that the cost of implementing individual (not popular majority) functions - should be paid off
 
 == Special Note ==
 
@@ -85,9 +92,10 @@ As one of the options for addressing emerging problems with other themes - conne
 
 <strong>If you are using a theme different from the BP-Default, be sure to install and activate</strong> - <a href="http://wordpress.org/extend/plugins/bp-template-pack">BP Template Pack</a>
 
-Your wishes for the development of plug-in you can leave: http://jes.milordk.ru/groups/proposals-for-the-future
+<strong>Conflict jQuery:</strong>
+* Event Calendar 6.7.5
 
-Discuss the issues of localization plugin, you can: http://jes.milordk.ru/groups/translates
+Your wishes for the development of plug-in you can leave: http://jes.milordk.ru/groups/proposals-for-the-future
 
 Tell about problems with the plugin and read the other comments you can: http://jes.milordk.ru/groups/the-bugs
 
@@ -101,10 +109,10 @@ Tell about problems with the plugin and read the other comments you can: http://
 * <strong>da_DK</strong> - <em>Cavamondo</em>
 * <strong>it_IT</strong> - <em>Andrea Bianchi</em>
 
+Discuss the issues of localization plugin, you can: http://jes.milordk.ru/groups/translates
 
 == Future ==
 
-* In version 1.5 will be added the possibility to use your theme for the Events Directory.
 * In version 1.6 will be updated mechanism for the formation of Google Maps (manually or automatically at the specified location of the event)
 * In version 1.7 will be implemented to use shortkode to insert into your records
 * In version 1.8 will be added to the possibility of tying the event to a group
@@ -127,6 +135,21 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.5 =
+
+* Update Templates and DB occurs automatically after activating the plugin
+* Fixed: Unable to set the color of state events for Twitter style
+* Fixed: Using localization stopped working tabs «All events» – «My events»
+* Added: Ability to use your own template for the catalog of events
+* Optimized code
+
+= 1.4.3 =
+
+* Update Templates and DB occurs automatically after activating the plugin
+* Fixed: Unable to set the color of state events for Tev style
+* Added: Ability to use your own template for the catalog of events
+* Optimized code
 
 = 1.4.2 =
 

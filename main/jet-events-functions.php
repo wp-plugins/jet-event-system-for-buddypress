@@ -13,8 +13,8 @@ function hidden_events()
 				bp_core_redirect($bp->root_domain.'/'.BP_REGISTER_SLUG);
 		}
 } 
-	$edata = get_option( 'jes_events' );
-	if ($edata[ 'jes_events_addnavi_disable' ])
+	$jes_adata = get_option( 'jes_events' );
+	if ($jes_adata[ 'jes_events_addnavi_disable' ])
 		{
 			add_action('get_header','hidden_events');
 	}
@@ -122,24 +122,24 @@ function unixtotime($inputunix) {
 }
 
 function eventstatus($inarg1 = '', $inarg2 = '', $inarg3 = '', $inarg4 = '', $inarg5 = '', $inarg6 = '') {
-	$edata = get_option( 'jes_events' );
+	$jes_adata = get_option( 'jes_events' );
 	$mainarg = jes_datetounix();
 	$iinarg1 = jes_datetounix($inarg1,$inarg2,$inarg3);
 	$iinarg2 = jes_datetounix($inarg4,$inarg5,$inarg6);
 
 if ( ( $iinarg1 < $mainarg ) && ( $iinarg2 > $mainarg ) )
 	{
-		$rezstat = '<span style="color:#'.$edata[ 'jes_events_color_current' ].'">'.__('Current event','jet-event-system').'</span>';
+		$rezstat = '<span style="color:#'.$jes_adata[ 'jes_events_color_current' ].'">'.__('Current event','jet-event-system').'</span>';
 	}
 		else
 			{
 				if ( ( $iinarg2 < $mainarg ) )
 					{
-						$rezstat = '<span style="color:#'.$edata[ 'jes_events_color_past' ].'">'.__('Past event','jet-event-system').'</span>';
+						$rezstat = '<span style="color:#'.$jes_adata[ 'jes_events_color_past' ].'">'.__('Past event','jet-event-system').'</span>';
 					}
 						else
 							{
-								$rezstat = '<span style="color:#'.$edata[ 'jes_events_color_active' ].'">'.__('Active event','jet-event-system').'</span>';
+								$rezstat = '<span style="color:#'.$jes_adata[ 'jes_events_color_active' ].'">'.__('Active event','jet-event-system').'</span>';
 							}
 			}
 		

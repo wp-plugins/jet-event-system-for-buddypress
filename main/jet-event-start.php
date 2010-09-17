@@ -13,15 +13,6 @@ require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-invi
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-module_eu.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-admin.php' );
 
-function jet_event_system_load_textdomain() {
-	$locale = apply_filters( 'wordpress_locale', get_locale() );
-	$mofile = WP_PLUGIN_DIR . "/jet-event-system-for-buddypress/lang/jet-event-system-$locale.mo";
-
-	if ( file_exists( $mofile ) )
-		load_textdomain( 'jet-event-system', $mofile );
-}
-add_action ( 'plugins_loaded', 'jet_event_system_load_textdomain', 7 );
-
 function jet_events_add_js() {
   global $bp;
 	$jsload = 0;
@@ -43,11 +34,14 @@ function jet_events_add_js() {
 				}
 		if ($jsload)
 			{
-				wp_enqueue_script( 'jet-event-js-base', get_stylesheet_directory_uri() . '/events/js/jquery-1.4.2.min.js' );
-				wp_enqueue_script( 'jet-event-js-ui', get_stylesheet_directory_uri() . '/events/js/jquery-ui-1.8.4.custom.min.js' );
-			$locale = apply_filters( 'wordpress_locale', get_locale() );
+				// wp_deregister_script('jquery');
+				// wp_register_script('jquery', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-1.4.2.min.js' );
+				wp_enqueue_script( 'jquery-jes-uicore', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-ui-core.js' );
+				wp_enqueue_script( 'jquery-jes-uidpcore', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-datapicker.js' );
+				wp_enqueue_script( 'jquery-jes-uidp', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jes_datepicker.js' );
+				$locale = apply_filters( 'wordpress_locale', get_locale() );
 				if (!file_exists( WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-'.$locale.'.js')) {
-				wp_enqueue_script( 'jet-event-js-uilocale', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-en_GB.js' );
+				wp_enqueue_script( 'jet-event-js-uilocale', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-'.$locale.'.js' );
 				} else
 				{
 				wp_enqueue_script( 'jet-event-js-uilocale', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-'.$locale.'.js' );

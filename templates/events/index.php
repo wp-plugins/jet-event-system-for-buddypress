@@ -10,8 +10,8 @@
 
 			<div id="group-dir-search" class="dir-search">
 			<?php if ( is_user_logged_in() ) : ?>
-	<?php 	$edata = get_option( 'jes_events' );
-			$createa = $edata[ 'jes_events_createnonadmin_disable' ];
+	<?php 	$jes_adata = get_option( 'jes_events' );
+			$createa = $jes_adata[ 'jes_events_createnonadmin_disable' ];
 	?>
 		<?php if (!$createa )
 			{ ?>
@@ -40,7 +40,7 @@
 
 					<li id="events-order-select" class="last filter">
 		<?php
-			$sortby = $edata[ 'jes_events_sort_by' ];
+			$sortby = $jes_adata[ 'jes_events_sort_by' ];
 		?>
 						<?php _e( 'Order By:', 'jet-event-system' ) ?>
 						<select>

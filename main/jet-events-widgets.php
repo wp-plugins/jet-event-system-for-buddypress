@@ -21,6 +21,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 	$showonlyadmin = $instance['showonlyadmin'];
 	$archive_color = $instance['archive_color'];
 	$showtime = $instance['showtime'];
+	$show_avatar = $instance['show_avatar'];	
 ?>
 <?php if (!$data[ 'jes_events_code_index' ]) { ?>
 	<noindex>
@@ -35,9 +36,8 @@ class JES_BP_Events_Widget extends WP_Widget {
 				<a href="<?php echo site_url() . '/' . $bp->jes_events->slug ?>" id="recently-active-events"><?php _e("Most Active", 'jet-event-system') ?></a> |
 				<a href="<?php echo site_url() . '/' . $bp->jes_events->slug ?>" id="popular-events" class="selected"><?php _e("Most Popular", 'jet-event-system') ?></a>
 			</div>
-<?php } ?>
-<?php
-	//	$kdate_now = jes_datetounix();
+<?php }
+		$kdate_now = jes_datetounix();
 ?>
 			<ul id="events-list" class="item-list">
 				<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
@@ -144,6 +144,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 		$instance['showonlyadmin'] = strip_tags( $new_instance['showonlyadmin'] );		
 		$instance['archive_color'] = strip_tags( $new_instance['archive_color'] );
 		$instance['showtime'] = strip_tags( $new_instance['showtime'] );
+		$instance['show_avatar'] = strip_tags( $new_instance['show_avatar'] );
 		return $instance;
 	}
 
@@ -157,6 +158,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 		$showonlyadmin = $instance['showonlyadmin'];
 		$showtime = $instance['showtime'];
 		$archive_color = strip_tags( $instance['archive_color'] );		
+		$show_avatar = strip_tags( $instance['show_avatar'] );
 		?>
 
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'jet-event-system'); ?> 
@@ -177,9 +179,11 @@ class JES_BP_Events_Widget extends WP_Widget {
 		<p><label for="<?php echo $this->get_field_id('showonlyadmin'); ?>"><?php _e('Show archived events only for administrator:', 'jet-event-system'); ?>
 		<input type="checkbox" <?php if ($showonlyadmin) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('showonlyadmin'); ?>" name="<?php echo $this->get_field_name('showonlyadmin'); ?>" value="1" /></label></p>	
 		
-		<p><label for="<?php echo $this->get_field_id('archive_color'); ?>"><?php _e('Color to archive events:', 'jet-event-system'); ?> <input id="<?php echo $this->get_field_id( 'archive_color' ); ?>" name="<?php echo $this->get_field_name( 'archive_color' ); ?>" type="text" value="<?php echo attribute_escape( $archive_color ); ?>" style="width: 30%" /></label></p>		
+		<p><label for="<?php echo $this->get_field_id('archive_color'); ?>"><?php _e('Color to archive events:', 'jet-event-system'); ?> <input id="<?php echo $this->get_field_id( 'archive_color' ); ?>" name="<?php echo $this->get_field_name( 'archive_color' ); ?>" type="text" value="<?php echo attribute_escape( $archive_color ); ?>" style="width: 30%" /></label></p>	
 
-	<?php
+		<p><label for="<?php echo $this->get_field_id('show_avatar'); ?>"><?php _e('Show avatar:', 'jet-event-system'); ?>
+		<input type="checkbox" <?php if ($show_avatar) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('show_avatar'); ?>" name="<?php echo $this->get_field_name('show_avatar'); ?>" value="1" /></label></p>	
+<?php
 	}
 }
 

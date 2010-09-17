@@ -9,16 +9,12 @@ class JES_Events_Template {
 	var $event_count;
 	var $events;
 	var $event;
-
 	var $in_the_loop;
-
 	var $pag_page;
 	var $pag_num;
 	var $pag_links;
 	var $jes_total_event_count;
-
 	var $single_event = false;
-
 	var $sort_by;
 	var $order;
 
@@ -102,8 +98,6 @@ function bp_is_event_membership_request() {
 	return false;
 }
 
-	
-	
 	function jes_has_events() {
 		if ( $this->event_count )
 			return true;
@@ -2408,8 +2402,8 @@ function bp_new_jes_event_invite_friend_list() {
 		$r = wp_parse_args( $args, $defaults );
 		extract( $r, EXTR_SKIP );
 
-		$edata = get_option( 'jes_events' );
-		$eshowavatar = $edata[ 'jes_events_show_avatar_invite_enable' ];		
+		$jes_adata = get_option( 'jes_events' );
+		$eshowavatar = $jes_adata[ 'jes_events_show_avatar_invite_enable' ];		
 		
 		if ( !$event_id )
 			$event_id = ( $bp->jes_events->new_event_id ) ? $bp->jes_events->new_event_id : $bp->jes_events->current_event->id;
@@ -2444,13 +2438,12 @@ function bp_new_jes_event_invite_friend_list() {
 function bp_directory_events_search_form() {
 	global $bp;
 
-	$search_value = __( 'Search anything...', 'jet-event-system' );
+	$search_value = '';
 	if ( !empty( $_REQUEST['s'] ) )
 	 	$search_value = $_REQUEST['s'];
-
 ?>
 	<form action="" method="get" id="search-events-form">
-		<label><input type="text" name="s" id="events_search" value="<?php echo attribute_escape($search_value) ?>"  onfocus="if (this.value == '<?php _e( 'Search anything...', 'jet-event-system' ) ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php _e( 'Search anything...', 'jet-event-system' ) ?>';}" /></label>
+		<label><input type="text" name="s" id="events_search" value="" /></label>
 		<input type="submit" id="events_search_submit" name="events_search_submit" value="<?php _e( 'Search', 'jet-event-system' ) ?>" />
 	</form>
 <?php
@@ -3133,7 +3126,6 @@ function jes_is_event_forum_topic() {
 
 	return false;
 }
-
 
 function jes_is_event_forum_topic_edit() {
 	global $bp;

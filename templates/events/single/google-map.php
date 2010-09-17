@@ -1,19 +1,18 @@
 <?php do_action( 'bp_before_event_googlemap' ); ?>
 
-<?php $edata = get_option( 'jes_events' ); ?>
+<?php $jes_adata = get_option( 'jes_events' ); ?>
 
-<?php if (jes_bp_get_event_placedgooglemap() == null ) { ?>
 <table valign="top">
     <tr>
 	<td width="50%">
 <span><h4><?php _e('The event will take place:','jet-event-system'); ?></h4>
 					<?php
-						if ( $edata[ 'jes_events_countryopt_enable' ] )
+						if ( $jes_adata[ 'jes_events_countryopt_enable' ] )
 							{
 								jes_bp_event_placedcountry(); ?> ,
 						<?php } ?>
 					<?php
-						if ( $edata[ 'jes_events_stateopt_enable' ] )
+						if ( $jes_adata[ 'jes_events_stateopt_enable' ] )
 							{
 								jes_bp_event_placedstate(); ?> ,
 					<?php } ?>
@@ -21,7 +20,7 @@
 	
 	<?php if ( jes_bp_event_is_visible() ) { ?>
 			<p><strong><?php _e('Event address', 'jet-event-system') ?>:</strong> <?php jes_bp_event_placedaddress() ?>
-			<?php if ( $edata[ 'jes_events_noteopt_enable' ] )
+			<?php if ( $jes_adata[ 'jes_events_noteopt_enable' ] )
 							{	?>
 			<br />
 			<strong><?php _e('Event note', 'jet-event-system') ?>:</strong> <?php jes_bp_event_placednote() ?>
@@ -30,9 +29,7 @@
 	</td>
 	<td width="50%">
 <h4><?php _e('Google Map','jet-event-system'); ?></h4>
-
-<?php /* <img src="<?php jes_bp_event_placedgooglemap() ?>"> */ ?>
-
+<?php if ( ( jes_bp_get_event_placedgooglemap() == null ) || ( $jes_adata['jes_events_googlemapopt_type'] == 'google' ) ) { ?>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
   var geocoder;
@@ -66,14 +63,11 @@ function initialize() {
 window.onload = codeAddress;
 </script>
 
-
-
 <div id="map_canvas" style="width: 400px; height: 350px;"></div>
+<?php } else { ?>
+<img src="<?php jes_bp_event_placedgooglemap() ?>">
+<?php } ?>
 	</td>
     </tr>
 </table>
-<?php } else { ?>
-	<?php _e('Currently unavailable','jet-event-system'); ?>
-<?php } ?>
-
 <?php do_action( 'bp_after_event_googlemap' ); ?>

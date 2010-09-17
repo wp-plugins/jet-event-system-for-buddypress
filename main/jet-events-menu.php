@@ -123,6 +123,10 @@ if ($navi['jes_events_flyeropt_enable'])
 				if ( function_exists('friends_install') )
 					bp_core_new_subnav_item( array( 'name' => __( 'Send Invites', 'jet-event-system' ), 'slug' => 'send-invites', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_jes_event_invite', 'item_css_id' => 'invite', 'position' => 70, 'user_has_access' => $bp->is_item_admin ) );
 			}
+/* Forum */
+/*			if ( $bp->events->current_event->enable_forum && function_exists('bp_forums_setup') )
+				bp_core_new_subnav_item( array( 'name' => __( 'Forum', 'jet-event-system' ), 'slug' => 'forum', 'parent_url' => $event_link, 'parent_slug' => $bp->events->slug, 'screen_function' => 'events_screen_event_forum', 'position' => 40, 'user_has_access' => $bp->events->current_event->user_has_access, 'item_css_id' => 'forums' ) );
+*/
 		}
 	}
 
