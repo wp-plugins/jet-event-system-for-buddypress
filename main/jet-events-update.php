@@ -272,8 +272,8 @@ $rezult = 1;
 		if (!file_exists( $jthemepath . '/events/css/images/ui-icons_888888_256x240.png')) { $rezult = 0; }
 		if (!file_exists( $jthemepath . '/events/css/images/ui-icons_cd0a0a_256x240.png')) { $rezult = 0; }
 	/* Member section */
-		if (!file_exists( $jthemepath,  '/members/single/events.php')) { $rezult = 0; }
-		if (!file_exists( $jthemepath,  'members/single/events/invites.php')) { $rezult = 0; }
+		if (!file_exists( $jthemepath . '/members/single/events.php')) { $rezult = 0; }
+		if (!file_exists( $jthemepath . 'members/single/events/invites.php')) { $rezult = 0; }
 	return $rezult;
 }
 
