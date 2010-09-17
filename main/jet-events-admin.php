@@ -69,7 +69,7 @@ class JES_EVENTS_ADMIN_PAGE {
 		$jes_events = get_option( 'jes-events' );
 		?>
 		<div id="jes-event-admin-general" class="wrap">
-		<img src="<?php echo WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/images/jeslogo.gif'; ?>">
+		<img src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/jeslogo.gif'; ?>">
 		<h2><?php _e( 'Jet Event System','jes-events') ?></h2>
 
 		<?php
