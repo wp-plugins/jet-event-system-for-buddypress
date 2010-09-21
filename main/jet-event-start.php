@@ -41,7 +41,7 @@ function jet_events_add_js() {
 				wp_enqueue_script( 'jquery-jes-uidp', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jes_datepicker.js' );
 				$locale = apply_filters( 'wordpress_locale', get_locale() );
 				if (!file_exists( WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-'.$locale.'.js')) {
-				wp_enqueue_script( 'jet-event-js-uilocale', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-'.$locale.'.js' );
+				wp_enqueue_script( 'jet-event-js-uilocale', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-en_GB.js' );
 				} else
 				{
 				wp_enqueue_script( 'jet-event-js-uilocale', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-'.$locale.'.js' );
