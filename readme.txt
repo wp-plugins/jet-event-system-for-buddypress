@@ -8,8 +8,7 @@ Requires at least: 3.0, BuddyPress 1.2.5
 Tested up to: 3.0.1, BuddyPress 1.2.5.2
 Stable tag: trunk
 
-The modern System of events for your social network. Ability to attract members of the network to the ongoing activities, etc. <a href="http://jes.milordk.ru">JES DEV Site</a>
-
+The modern System of events for your social network. Ability to attract members of the network to the ongoing activities, etc.
 
 == Description ==
 
