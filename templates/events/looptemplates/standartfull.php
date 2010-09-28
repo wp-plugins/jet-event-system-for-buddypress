@@ -18,8 +18,8 @@
 		<em><?php echo $_eventstatus; ?></em>				
 		<em><?php jes_bp_event_type() ?></em>, <strong><?php jes_bp_event_etype() ?></strong>
 			<br />
-		<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?>, <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?></span> <?php _e('to: ','jet-event-system') ?> <?php jes_bp_event_edted() ?>, <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() 
-		 _e('The event will take place:','jet-event-system'); 
+		<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?>, <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?></span> <?php _e('to: ','jet-event-system') ?> <?php jes_bp_event_edted() ?>, <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?>
+		<?php _e('The event will take place:','jet-event-system'); 
 		if ( $jes_adata[ 'jes_events_countryopt_enable' ] )
 			{
 				jes_bp_event_placedcountry(); ?> ,
