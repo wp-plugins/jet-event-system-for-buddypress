@@ -139,6 +139,7 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 * Added the ability to create events in the Outlook Calendar and iPhone
 * Fixed: Disallow the use of city filed in the administrative panel had no effect on the functioning of the system
 * Fixed: The inability to disable avatars in a widget
+* Fixed: Standart Full style for Event Catalog
 * Optimization: js-scripts are not loaded on every page of your site, but only where necessary
 
 = 1.5.1 =
