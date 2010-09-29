@@ -145,5 +145,11 @@ if ( ( $iinarg1 < $mainarg ) && ( $iinarg2 > $mainarg ) )
 		
 return $rezstat;
 }
-
+function jes_offset()
+	{
+		$offset1 = mktime(date_i18n('H'),date_i18n('i'),date_i18n('s'),date_i18n('m'),date_i18n('d'),date_i18n('Y'));
+		$offset2 = time();
+		$offset = $offset1 - $offset2;
+		return $offset;
+}
 ?>

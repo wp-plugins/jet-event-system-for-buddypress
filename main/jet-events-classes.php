@@ -44,7 +44,7 @@ Class JES_Events_Event {
 	function populate() {
 		global $wpdb, $bp;
 
-		if ( $event = $wpdb->get_row( $wpdb->prepare( "SELECT g.*, gm.meta_value as last_activity, gm2.meta_value as total_member_count FROM {$bp->jes_events->table_name} g, {$bp->jes_events->table_name_eventmeta} gm, {$bp->jes_events->table_name_eventmeta} gm2 WHERE g.id = gm.event_id AND g.id = gm2.event_id AND gm.meta_key = 'last_activity' AND gm2.meta_key = 'total_member_count' AND g.id = %d", $this->id ) ) ) {
+		if ( $event = $wpdb->get_row( $wpdb->prepare( "SELECT g.*, gm.meta_value as last_activity, gm2.meta_value as total_member_count FROM {$bp->jes_events->table_name} g, {$bp->jes_events->table_name_eventmeta} gm, {$bp->jes_events->table_name_eventmeta} gm2 WHERE g.id = gm.event_id AND g.id = gm2.event_id AND gm.meta_key = 'last_activity' AND gm2.meta_key = 'total_member_count' AND g.id = %d LIMIT 1", $this->id ) ) ) {
 			$this->id = $event->id;
 			$this->creator_id = $event->creator_id;
 			$this->name = stripslashes($event->name);
@@ -313,7 +313,7 @@ Class JES_Events_Event {
 		if ( !$slug )
 			return false;
 
-		return $wpdb->get_var( $wpdb->prepare( "SELECT id FROM {$table_name} WHERE slug = %s limit 1", $slug ) );
+		return $wpdb->get_var( $wpdb->prepare( "SELECT id FROM {$table_name} WHERE slug = %s LIMIT 1", $slug ) );
 	}
 
 	function jes_get_id_from_slug( $slug ) {
@@ -508,7 +508,7 @@ Class JES_Events_Event {
 	}
 /* ------------ */
 
-	function jes_get_soon( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
+	function jes_get_soon( $limit = 10, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
 		global $wpdb, $bp;
 	$jes_adata = get_option( 'jes_events' );
 	$sortby_ad = $jes_adata[ 'jes_events_sort_by_ad' ];

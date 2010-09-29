@@ -139,9 +139,7 @@ if ($notify_timed_enable)
 	{
 		$jes_adata = get_option( 'jes_events' );
 		$hours = (int)$jes_adata[ 'jes_events_notify_timed' ];
-		$offset1 = mktime(date_i18n('H'),date_i18n('i'),date_i18n('s'),date_i18n('m'),date_i18n('d'),date_i18n('Y'));
-		$offset2 = time();
-		$offset = $offset1 - $offset2;
+		$offset = jes_offset();
 		$todorem = (jes_datetounix($event_edtsd,$event_edtsth,$event_edtstm) - $offset - $hours*3600);
 		$notify_bundle = array( 'event_id' => $event->id, 'event_name' => $name, 'event_placed' => $placedaddress, 'event_timed' => $hours);
 		wp_schedule_single_event($todorem,'jes_events_notification_cron_hook',$notify_bundle);

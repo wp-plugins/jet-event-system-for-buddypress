@@ -58,10 +58,14 @@
 				<input type="text" name="event-placedstate" id="event-placedstate" size="15" maxlength="25" value="<?php jes_bp_event_placedstate() ?>" />
 	<?php } else { ?>
 				<input type="hidden" name="event-placedstate" id="event-placedstate" value="<?php $jes_adata[ 'jes_events_stateopt_def' ] ?>" />		
-	<?php } ?>		
+	<?php } ?>
+	<?php if ($jes_adata[ 'jes_events_cityopt_enable' ])
+			{ ?>
 				<label for="event-placedcity"><?php _e('* Event City', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 				<input type="text" name="event-placedcity" id="event-placedcity" value="<?php jes_bp_event_placedcity() ?>" />
-
+	<?php } else { ?>
+				<input type="hidden" name="event-placedcity" id="event-placedcity" value="<?php $jes_adata[ 'jes_events_cityopt_def' ] ?>" />		
+	<?php } ?>
 				<label for="event-placedaddress"><?php _e('Event address', 'jet-event-system') ?></label>
 				<input type="text" name="event-placedaddress" id="event-placedaddress" size="25" maxlength="40" value="<?php jes_bp_event_placedaddress() ?>" />
 

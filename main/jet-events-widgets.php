@@ -84,7 +84,9 @@ class JES_BP_Events_Widget extends WP_Widget {
 			{ ?>
 				<li>
 					<div class="item-avatar" id="jes-avatar">
+						<?php if ($show_avatar) { ?>
 							<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar_thumb() ?></a>
+						<?php } ?>
 							<div class="item-title" id="jes-title">
 								<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
 							</div>

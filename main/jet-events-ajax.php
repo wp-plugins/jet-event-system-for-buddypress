@@ -42,8 +42,13 @@ function bp_dtheme_ajax_invite_user_to_event() {
 	}
 }
 add_action( 'wp_ajax_events_invite_user', 'bp_dtheme_ajax_invite_user_to_event' );
+
+function jet_events_add_ajaxjs() {
+global $bp;
 	if ( $bp->current_component == $bp->jes_events->slug )
 		{
 			wp_enqueue_script( 'events_widget_events_invite-js', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/ajax.js', array('jquery') );
 	}
+}
+add_action( 'template_redirect', 'jet_events_add_ajaxjs', 1 );
 ?>

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: JES\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/jet-event-system-for-buddypress\n"
 "POT-Creation-Date: 2010-09-17 20:48+0000\n"
-"PO-Revision-Date: 2010-09-18 01:04+0300\n"
+"PO-Revision-Date: 2010-09-29 10:30+0300\n"
 "Last-Translator: Jettochkin <milord_k@mail.ru>\n"
 "Language-Team: Jettochkin <milord_k@mail.ru>\n"
 "MIME-Version: 1.0\n"
@@ -352,7 +352,7 @@ msgstr "Ожидаемые"
 #: templates/events/index.php:48
 #: templates/members/single/events.php:36
 msgid "Last Active"
-msgstr ""
+msgstr "Активность"
 
 #: main/jet-events-admin.php:494
 #: templates/events/index.php:49
@@ -364,13 +364,13 @@ msgstr ""
 #: templates/events/index.php:50
 #: templates/members/single/events.php:38
 msgid "Newly Created"
-msgstr ""
+msgstr "Недавно созданное"
 
 #: main/jet-events-admin.php:496
 #: templates/events/index.php:51
 #: templates/members/single/events.php:39
 msgid "Alphabetical"
-msgstr ""
+msgstr "Алф"
 
 #: main/jet-events-admin.php:498
 msgid "By:"
@@ -759,7 +759,7 @@ msgstr ""
 #: main/jet-events-notifications.php:110
 #, php-format
 msgid "Membership request for event \"%s\" accepted"
-msgstr ""
+msgstr "Приглашение на событие \"%s\" принято"
 
 #: main/jet-events-notifications.php:112
 #, fuzzy, php-format
@@ -779,7 +779,7 @@ msgstr ""
 #: main/jet-events-notifications.php:120
 #, php-format
 msgid "Membership request for event \"%s\" rejected"
-msgstr ""
+msgstr "Приглашение на событие \"%s\" отклонено"
 
 #: main/jet-events-notifications.php:122
 #, fuzzy, php-format
@@ -807,7 +807,7 @@ msgstr "модератор"
 #: main/jet-events-notifications.php:166
 #, php-format
 msgid "You have been promoted in the event: \"%s\""
-msgstr ""
+msgstr "Вы повышены на событии: \"%s\""
 
 #: main/jet-events-notifications.php:169
 #, fuzzy, php-format
@@ -827,7 +827,7 @@ msgstr ""
 #: main/jet-events-notifications.php:214
 #, php-format
 msgid "You have an invitation to the event: \"%s\""
-msgstr ""
+msgstr "У Вас есть приглашение на событие: \"%s\""
 
 #: main/jet-events-notifications.php:217
 #, php-format
@@ -842,6 +842,15 @@ msgid ""
 "\r\n"
 "---------------------\r\n"
 msgstr ""
+"Один из Ваших друзей приглашает на событие: \"%s\".\r\n"
+"\r\n"
+"Посмотреть приглашения на события: %s\r\n"
+"\r\n"
+"Посмотреть событие: %s\r\n"
+"\r\n"
+"Просмотр профиля %s's: %s\r\n"
+"\r\n"
+"---------------------\r\n"
 
 #: main/jet-events-notifications.php:273
 #, php-format
@@ -878,12 +887,16 @@ msgstr "Напоминание"
 #, php-format
 msgid ""
 "We remind you that after %s hours will be held event \"%s\".\n"
-"The event will be held at: %s\n"
 "\n"
 "To view the event: %s\n"
 "\n"
 "---------------------\n"
 msgstr ""
+"Напоминаем Вам, что через %s часов начинается событие \"%s\".\n"
+"\n"
+"Посмотреть событие: %s\n"
+"\n"
+"---------------------\n"
 
 #: main/jet-events-screen.php:37
 msgid "Event invite could not be accepted"
@@ -1032,104 +1045,84 @@ msgid "You come reminder of imminent events"
 msgstr "Вам пришло напоминание о предстоящих событиях"
 
 #: main/jet-events-screen.php:584
-#, fuzzy
 msgid "There was an error when replying to that topic"
-msgstr "Произошла ошибка при понижении участника, попробуйте еще раз"
+msgstr ""
 
 #: main/jet-events-screen.php:586
-#, fuzzy
 msgid "Your reply was posted successfully"
-msgstr "Ваш аватар успешно удален!"
+msgstr ""
 
 #: main/jet-events-screen.php:600
-#, fuzzy
 msgid "There was an error when making that topic a sticky"
-msgstr "Произошла ошибка при бане участника, попробуйте еще раз"
+msgstr ""
 
 #: main/jet-events-screen.php:602
-#, fuzzy
 msgid "The topic was made sticky successfully"
-msgstr "Событие успешно удалено"
+msgstr ""
 
 #: main/jet-events-screen.php:614
-#, fuzzy
 msgid "There was an error when unsticking that topic"
-msgstr "Произошла ошибка при бане участника, попробуйте еще раз"
+msgstr ""
 
 #: main/jet-events-screen.php:616
-#, fuzzy
 msgid "The topic was unstuck successfully"
-msgstr "Событие успешно удалено"
+msgstr ""
 
 #: main/jet-events-screen.php:628
-#, fuzzy
 msgid "There was an error when closing that topic"
-msgstr "Произошла ошибка при присоединении к событию."
+msgstr ""
 
 #: main/jet-events-screen.php:630
-#, fuzzy
 msgid "The topic was closed successfully"
-msgstr "Событие успешно удалено"
+msgstr ""
 
 #: main/jet-events-screen.php:642
-#, fuzzy
 msgid "There was an error when opening that topic"
-msgstr "Произошла ошибка при присоединении к событию."
+msgstr ""
 
 #: main/jet-events-screen.php:644
-#, fuzzy
 msgid "The topic was opened successfully"
-msgstr "Событие успешно удалено"
+msgstr ""
 
 #: main/jet-events-screen.php:663
-#, fuzzy
 msgid "There was an error deleting the topic"
-msgstr "Произошла ошибка выхода из события."
+msgstr ""
 
 #: main/jet-events-screen.php:665
-#, fuzzy
 msgid "The topic was deleted successfully"
-msgstr "Событие успешно удалено"
+msgstr ""
 
 #: main/jet-events-screen.php:685
-#, fuzzy
 msgid "There was an error when editing that topic"
-msgstr "Произошла ошибка при понижении участника, попробуйте еще раз"
+msgstr ""
 
 #: main/jet-events-screen.php:687
-#, fuzzy
 msgid "The topic was edited successfully"
-msgstr "Событие успешно удалено"
+msgstr ""
 
 #: main/jet-events-screen.php:709
-#, fuzzy
 msgid "There was an error deleting that post"
-msgstr "Произошла ошибка выхода из события."
+msgstr ""
 
 #: main/jet-events-screen.php:711
-#, fuzzy
 msgid "The post was deleted successfully"
-msgstr "Событие успешно удалено"
+msgstr ""
 
 #: main/jet-events-screen.php:731
-#, fuzzy
 msgid "There was an error when editing that post"
-msgstr "Произошла ошибка при понижении участника, попробуйте еще раз"
+msgstr ""
 
 #: main/jet-events-screen.php:733
-#, fuzzy
 msgid "The post was edited successfully"
-msgstr "Событие успешно удалено"
+msgstr ""
 
 #: main/jet-events-screen.php:762
-#, fuzzy
 msgid "There was an error when creating the topic"
-msgstr "Произошла ошибка выхода из события."
+msgstr ""
 
 #: main/jet-events-screen.php:764
-#, fuzzy
 msgid "The topic was created successfully"
-msgstr "Событие успешно удалено"
+msgstr ""
 
 #: main/jet-events-templatetags.php:276
 msgid "Public Event"

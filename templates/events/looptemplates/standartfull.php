@@ -28,7 +28,8 @@
 			{
 				jes_bp_event_placedstate(); ?> ,
 		<?php } ?>
-		<?php _e('in city:','jet-event-system'); ?> <?php jes_bp_event_placedcity(); ?><?php if ( jes_bp_event_is_visible(); ) { ?>, <?php _e('at ','jet-event-system') ?> <?php jes_bp_event_placedaddress(); ?> <?php } ?><br />				
+		<?php _e('in city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?><?php if ( jes_bp_event_is_visible() ) { ?>, <?php _e('at ','jet-event-system') ?> <?php jes_bp_event_placedaddress() ?> <?php } ?><br />
+
 		<?php _e('Description:','jet-event-system') ?> <?php jes_bp_event_description() ?>	
 	</span>					
 <?php do_action( 'bp_directory_events_item' ) ?>

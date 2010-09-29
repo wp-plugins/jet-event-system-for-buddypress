@@ -72,6 +72,15 @@ function jes_events_add_css() {
 }
 add_action( 'init', 'jes_events_add_css' );
 
+function jes_css_style()
+	{
+global $bp;
+if ( $bp->current_component == $bp->jes_events->slug )
+	{
+		wp_enqueue_style("jes-css",WP_PLUGIN_URL."/jet-event-system-for-buddypress/css/eventstyle.css");
+	}
+}
+add_action("wp_print_styles", "jes_css_style");
 
 function jes_events_setup_globals() {
 	global $bp, $wpdb;

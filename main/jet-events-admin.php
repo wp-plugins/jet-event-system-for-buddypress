@@ -403,7 +403,7 @@ function on_jes_events_admin_translate($jes_events) {
 		<li><strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">paysterresdelorraine.com/</a></li>
 		<li><strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="http://www.pixelartist.de" target="_blank">pixelartist.de</a></li>
 		<li><strong>es_ES</strong> - <em>Alex_Mx</em></li>
-		<li><strong>da_DK</strong> - <em>Cavamondo</em></li>
+		<li><strong>da_DK</strong> - <em>Chono</em>, <a href="http://www.chono.dk" target="_blank">chono.dk</a></li>
 		<li><strong>it_IT</strong> - <em>Andrea</em>, <a href="http://riderbook.it">riderbook.it</a>
 	</ul></p>
 	<p>To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>
@@ -421,6 +421,12 @@ function on_jes_events_admin_note($jes_events) {
 		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/publikaciya-v-wordpress-minuyu-administrativnuyu-panel-jet-quickpress.html">Jet QuickPress</a></li>
 		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/v-pomoshh-adminam-jet-footer-code.html">Jet Footer Code</a></li>
 		<li><a href="http://cosydale.com/plugin-cd-avatar-bubble.html">CD Avatar Bubble</a></li>
+	</ul></p>
+<p><strong><?php _e('Recommended themes','jet-event-system'); ?></strong>
+	<ul>
+		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-lite-tema-dlya-wordpress-3-0.html" title="Jet Site Unit Could">Jet Lite Standart</a></li>
+		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-lite-fresh-cut-day-tema-dlya-wordpress-3-0.html">Jet Lite Fresh Cut Day</a></li>
+		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-lite-yellow-%e2%80%93-tema-dlya-wordpress-3-0.html">Jet Lite Yellow</a></li>
 	</ul></p>
 	<p>Special thanks to <a href="http://cosydale.com">slaFFik</a> for his help in writing a plugin!</p>
 <?php

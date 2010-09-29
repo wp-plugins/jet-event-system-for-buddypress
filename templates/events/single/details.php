@@ -21,7 +21,10 @@
 								{
 									jes_bp_event_placedstate(); ?> ,
 							<?php } ?>
-					<strong> <?php _e('in city:','jet-event-system') ?></strong> <?php jes_bp_event_placedcity() ?></span>
+					<?php	if ( $jes_adata[ 'jes_events_cityopt_enable' ] )
+								{	?>
+					<strong> <?php _e('in city:','jet-event-system') ?></strong> <?php jes_bp_event_placedcity() ?>
+							<?php } ?></span>
 	
 		<?php if ( jes_bp_event_is_visible() ) { ?>
 					<p><strong><?php _e('Event address', 'jet-event-system') ?>:</strong> <?php jes_bp_event_placedaddress() ?>
