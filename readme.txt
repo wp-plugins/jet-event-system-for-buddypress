@@ -134,6 +134,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.6.1 =
+
+* Fixed: Not Drag&Drop Widget
+
 = 1.6.0 =
 
 * Added the ability to create events in the Outlook Calendar and iPhone

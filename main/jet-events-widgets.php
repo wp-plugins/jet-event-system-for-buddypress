@@ -2,8 +2,11 @@
 class JES_BP_Events_Widget extends WP_Widget {
 	function jes_bp_events_widget() {
 		parent::WP_Widget(false, $name = __( 'Events', 'jet-event-system' ) );
-		if ( is_active_widget( false, false, $this->id_base ) )
-			wp_enqueue_script( 'events_widget_events_list-js', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/widget-events.js', array('jquery') );
+		if ( is_active_widget( false, false, $this->id_base ) ) {
+			if (!is_admin()) {
+				wp_enqueue_script( 'events_widget_events_list-js', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/widget-events.js', array('jquery') );
+			}
+		}
 	}
 
 	function widget($args, $instance) {
