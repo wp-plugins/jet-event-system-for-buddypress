@@ -105,7 +105,7 @@ Tell about problems with the plugin and read the other comments you can: http://
 * <strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">http://www.paysterresdelorraine.com/</a>
 * <strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="http://www.pixelartist.de" target="_blank">www.pixelartist.de</a>
 * <strong>es_ES</strong> - <em>Alex_Mx</em>
-* <strong>da_DK</strong> - <em>Cavamondo</em>
+* <strong>da_DK</strong> - <em>Chono</em>, <a href="http://www.chono.dk">chono.dk</a>
 * <strong>it_IT</strong> - <em>Andrea Bianchi</em>
 
 Discuss the issues of localization plugin, you can: http://jes.milordk.ru/groups/translates
