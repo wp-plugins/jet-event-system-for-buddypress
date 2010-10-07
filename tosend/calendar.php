@@ -3,9 +3,9 @@ if ($_POST['jes_send_type'] == 'iPhone' )
 	{
 		header("Content-Type: text/Calendar");
 		header("Content-Disposition: inline; filename=event-".$_POST['jes-send-eventslug'].".ics");
-echo "BEGIN:VCALENDAR\n";
-echo "VERSION:2.0\n";
-echo "PRODID:-//Apple Inc.//iCal 4.0.2//EN\n";
+		echo "BEGIN:VCALENDAR\n";
+		echo "VERSION:2.0\n";
+		echo "PRODID:-//Apple Inc.//iCal 4.0.2//EN\n";
 	}
 		else
 	{
@@ -33,7 +33,7 @@ echo "DTSTART:".date('Ymd',$j_sd).'T'.date('His',$j_sd)."\n";
 echo "DTEND:".date('Ymd',$j_ed).'T'.date('His',$j_ed)."\n";
 echo "LOCATION:".$_POST['jes-send-placed']."\n";
 echo "SUMMARY:".$_POST['jes-send-eventname']."\n";
-echo "DESCRIPTION: ".$_POST['jes-send-eventdesc']."\n";
+echo "DESCRIPTION: ".$_POST['jes-send-eventdesc']."\n"."url: ".$_POST['jes-send-url']."\n";
 echo "URL:".$_POST['jes-send-url']."\n";
 echo "END:VEVENT\n";
 echo "END:VCALENDAR\n";

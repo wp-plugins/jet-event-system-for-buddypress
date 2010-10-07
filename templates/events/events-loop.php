@@ -61,22 +61,29 @@
 if ( $showevent )
 	{
 // Loop Templates
+		if ($jes_adata['jes_events_style'] != 'Custom' )
+			{
+				require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-themetemplate.php' );
+			}
 	// Standart style Event Catalog 
 		if ($jes_adata['jes_events_style'] == 'Standart') 
 			{
-				include('looptemplates/standart.php');
+				jes_theme_template_standart();
+				// include('looptemplates/standart.php');
 		}
 
 	// Standard will full description
 		if ($jes_adata['jes_events_style'] == 'Standard will full description') 
 			{
-				include('looptemplates/standartfull.php');
+				jes_theme_template_standartfull();
+				// include('looptemplates/standartfull.php');
 		}
 
 	// Twitter style Event Catalog
 		if ($jes_adata['jes_events_style'] == 'Twitter' )
 			{
-				include('looptemplates/twitter.php');
+				jes_theme_template_twitter();
+				// include('looptemplates/twitter.php');
 		}
 
 	// Custom style Event Catalog
@@ -88,7 +95,8 @@ if ( $showevent )
 					}
 						else
 					{
-						include('looptemplates/standart.php');
+						jes_theme_template_standart();
+						// include('looptemplates/standart.php');
 					}
 		}
 	}

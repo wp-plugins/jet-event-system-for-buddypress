@@ -1,7 +1,7 @@
 <?php get_header() ?>
 
 	<div id="content">
-		<div class="padder">
+		<div class="padder" id="jes-padder">
 <?php $jes_adata = get_option( 'jes_events' ); ?>
 	<?php
 			$jes_adata = get_option( 'jes_events' );

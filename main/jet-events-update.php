@@ -199,9 +199,6 @@ $rezult = 1;
 			{
 				if (!move_template( $jthemepath,  'events/looptemplates','custom.php',$shownotice)) { $rezult = 0; }
 			}
-		if (!move_template( $jthemepath,  'events/looptemplates','standart.php',$shownotice)) { $rezult = 0; }
-		if (!move_template( $jthemepath,  'events/looptemplates','standartfull.php',$shownotice)) { $rezult = 0; }
-		if (!move_template( $jthemepath,  'events/looptemplates','twitter.php',$shownotice)) { $rezult = 0; }
 	/* Datepicker */
 		if (!move_template( $jthemepath,  'events/css','datepicker.css',$shownotice)) { $rezult = 0; }
 		if (!move_template( $jthemepath,  'events/css/images','ui-bg_flat_0_aaaaaa_40x100.png',$shownotice)) { $rezult = 0; }		

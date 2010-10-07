@@ -112,7 +112,7 @@ Discuss the issues of localization plugin, you can: http://jes.milordk.ru/groups
 
 == Future ==
 
-* In version 1.6 will be implemented to use shortcode to insert into your records
+* In version 1.7 will be implemented to use shortcode to insert into your records
 * In version 1.8 will ensure compatibility of the system with the new version of BP
 * In version 2.0 will be added to the possibility of tying the event to a group
 * In version 2.5 will be able to add events to Outlook Calendar and iCal (list may vary from those of the creator of the plug and the wishes of the participants testing)
@@ -133,6 +133,11 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.6.2 =
+
+* Changes in the patterns Event catalog (you can now use the function to call templates)
+* Added extra id for div
 
 = 1.6.1 =
 

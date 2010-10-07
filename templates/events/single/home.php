@@ -1,7 +1,7 @@
 <?php get_header() ?>
 
 	<div id="content">
-		<div class="padder">
+		<div class="padder" id="jes-padder">
 			<?php if ( bp_jes_has_events() ) : while ( jes_bp_events() ) : bp_jes_the_event(); ?>
 
 			<?php do_action( 'bp_before_event_home_content' ) ?>

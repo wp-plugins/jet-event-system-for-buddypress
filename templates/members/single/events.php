@@ -1,7 +1,7 @@
 <?php get_header() ?>
 
 	<div id="content">
-		<div class="padder">
+		<div class="padder" id="jes-padder">
 
 			<?php do_action( 'bp_before_member_home_content' ) ?>
 

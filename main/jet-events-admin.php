@@ -6,7 +6,7 @@ if ( !function_exists( 'add_action' ) ) {
 	exit();
 }
 
-require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-update.php' );
+require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-update.php' );
 
 $new_jes_events_admin = new JES_EVENTS_ADMIN_PAGE();
 
@@ -87,7 +87,10 @@ if ( isset($_POST['updatetemplate']) )
 
 if ( isset($_POST['checkfiles']) )
 		{
-			echo "<div id='message' class='updated fade'><p>" . __( 'Files checked.', 'jet-event-system' ) . " - ".check_template($_POST['jthemepath'])."</p></div>";
+			echo "<div id='message' class='updated fade'><p>" . __( 'Files checked.', 'jet-event-system' ) . " - ";
+			if (check_template($_POST['jthemepath']))
+				{ echo "OK"; } else { echo "Error"; }
+			echo "</p></div>";
 		}
 
 	$jes_events = get_option( 'jes_events' );
@@ -392,7 +395,7 @@ function on_jes_events_admin_donations($jes_events) {
 function on_jes_events_admin_support($jes_events) {
 ?>
 	<p><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html">About</a></p>
-	<p><a href="http://jes.milordk.ru">Website Developer</a>: <a href="http://jes.milordk.ru/manual-working-with-a-event.html">Manual</a>, <a href="http://jes.milordk.ru/changelog.html">Changelog</a>, <a href="http://jes.milordk.ru/polls-oprosy.html">Polls</a></p>
+	<p><a href="http://jes.milordk.ru">Website Developer</a>: <a href="http://test.jes.milordk.ru/">Ticket site</a>, <a href="http://jes.milordk.ru/manual-working-with-a-event.html">Manual</a>, <a href="http://jes.milordk.ru/changelog.html">Changelog</a>, <a href="http://jes.milordk.ru/polls-oprosy.html">Polls</a></p>
 <?php
 }
 
@@ -418,9 +421,11 @@ function on_jes_events_admin_note($jes_events) {
 <p><strong><?php _e('Recommended plugins','jet-event-system'); ?></strong>
 	<ul>
 		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-site-unit-could-poleznye-vidzhety-dlya-vashej-socialnoj-seti.html" title="Jet Site Unit Could">Jet Site Unit Could</a></li>
-		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/publikaciya-v-wordpress-minuyu-administrativnuyu-panel-jet-quickpress.html">Jet QuickPress</a></li>
+		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/publikaciya-v-wordpress-minuyu-administrativnuyu-panel-jet-quickpress.html">Jet QuickPress (for BP < 1.2.5)</a></li>
 		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/v-pomoshh-adminam-jet-footer-code.html">Jet Footer Code</a></li>
 		<li><a href="http://cosydale.com/plugin-cd-avatar-bubble.html">CD Avatar Bubble</a></li>
+		<li><a href="http://wordpress.org/extend/plugins/wp-minify/">WP Minify</a></li>
+		<li><a href="http://dev.pellicule.org/?page_id=19">One Click Post (for BP > 1.2.5, WP 3.0.x)</a></li>
 	</ul></p>
 <p><strong><?php _e('Recommended themes','jet-event-system'); ?></strong>
 	<ul>

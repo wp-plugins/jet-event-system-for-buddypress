@@ -1,7 +1,7 @@
 <?php get_header() ?>
 
 	<div id="content">
-		<div class="padder">
+		<div class="padder" id="jes-padder">
 
 		<form action="" method="post" id="groups-directory-form" class="dir-form">
 			<h3><?php _e( 'Events Directory', 'jet-event-system' ) ?></h3>
