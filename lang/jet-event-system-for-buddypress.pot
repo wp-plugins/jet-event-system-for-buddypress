@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/jet-event-system-for-"
 "buddypress\n"
-"POT-Creation-Date: 2010-09-29 08:08+0000\n"
+"POT-Creation-Date: 2010-10-07 11:09+0000\n"
 "PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -250,337 +250,337 @@ msgstr ""
 msgid "Files checked."
 msgstr ""
 
-#: main/jet-events-admin.php:210 main/jet-events-admin.php:216
+#: main/jet-events-admin.php:213 main/jet-events-admin.php:219
 msgid "Standart"
 msgstr ""
 
-#: main/jet-events-admin.php:264
+#: main/jet-events-admin.php:267
 msgid "Site"
 msgstr ""
 
-#: main/jet-events-admin.php:269
+#: main/jet-events-admin.php:272
 msgid "Personal"
 msgstr ""
 
-#: main/jet-events-admin.php:324
+#: main/jet-events-admin.php:327
 msgid "Options updated."
 msgstr ""
 
-#: main/jet-events-admin.php:342
+#: main/jet-events-admin.php:345
 msgid "Save Settings"
 msgstr ""
 
-#: main/jet-events-admin.php:388
+#: main/jet-events-admin.php:391
 msgid ""
 "please specify in the designation of the site and name :) All who have made "
 "a contribution to the development of plug-in will be included in honor roll, "
 "as well as gain access to additional modules!"
 msgstr ""
 
-#: main/jet-events-admin.php:410
+#: main/jet-events-admin.php:413
 msgid "Please send your translations to milord_k @ mail.ru"
 msgstr ""
 
-#: main/jet-events-admin.php:412
+#: main/jet-events-admin.php:415
 msgid ""
 "Translates can be discussed at the forum on the official website of the "
 "plugin:"
 msgstr ""
 
-#: main/jet-events-admin.php:418
+#: main/jet-events-admin.php:421
 msgid "Recommended plugins"
 msgstr ""
 
-#: main/jet-events-admin.php:425
+#: main/jet-events-admin.php:430
 msgid "Recommended themes"
 msgstr ""
 
-#: main/jet-events-admin.php:437
+#: main/jet-events-admin.php:442
 msgid "version"
 msgstr ""
 
-#: main/jet-events-admin.php:437
+#: main/jet-events-admin.php:442
 msgid "build"
 msgstr ""
 
-#: main/jet-events-admin.php:439
+#: main/jet-events-admin.php:444
 msgid "Template version:"
 msgstr ""
 
-#: main/jet-events-admin.php:447
+#: main/jet-events-admin.php:452
 msgid "DB version:"
 msgstr ""
 
-#: main/jet-events-admin.php:462
+#: main/jet-events-admin.php:467
 msgid "Select the location you are using themes:"
 msgstr ""
 
-#: main/jet-events-admin.php:470
+#: main/jet-events-admin.php:475
 msgid "Update Database"
 msgstr ""
 
-#: main/jet-events-admin.php:471
+#: main/jet-events-admin.php:476
 msgid "Update Templates"
 msgstr ""
 
-#: main/jet-events-admin.php:472
+#: main/jet-events-admin.php:477
 msgid "Checking for files"
 msgstr ""
 
-#: main/jet-events-admin.php:483
+#: main/jet-events-admin.php:488
 msgid "Allow costum slug"
 msgstr ""
 
-#: main/jet-events-admin.php:486
+#: main/jet-events-admin.php:491
 msgid "Slug:"
 msgstr ""
 
-#: main/jet-events-admin.php:493
+#: main/jet-events-admin.php:498
 msgid "Sort of events in the directory (by default)"
 msgstr ""
 
-#: main/jet-events-admin.php:496 main/jet-events-widgets.php:34
+#: main/jet-events-admin.php:501 main/jet-events-widgets.php:37
 #: templates/events/index.php:47
 msgid "Upcoming"
 msgstr ""
 
-#: main/jet-events-admin.php:497 templates/events/index.php:48
+#: main/jet-events-admin.php:502 templates/events/index.php:48
 #: templates/members/single/events.php:36
 msgid "Last Active"
 msgstr ""
 
-#: main/jet-events-admin.php:498 templates/events/index.php:49
+#: main/jet-events-admin.php:503 templates/events/index.php:49
 #: templates/members/single/events.php:37
 msgid "Most Members"
 msgstr ""
 
-#: main/jet-events-admin.php:499 templates/events/index.php:50
+#: main/jet-events-admin.php:504 templates/events/index.php:50
 #: templates/members/single/events.php:38
 msgid "Newly Created"
 msgstr ""
 
-#: main/jet-events-admin.php:500 templates/events/index.php:51
+#: main/jet-events-admin.php:505 templates/events/index.php:51
 #: templates/members/single/events.php:39
 msgid "Alphabetical"
 msgstr ""
 
-#: main/jet-events-admin.php:502
+#: main/jet-events-admin.php:507
 msgid "By:"
 msgstr ""
 
-#: main/jet-events-admin.php:504
+#: main/jet-events-admin.php:509
 msgid "Ascending"
 msgstr ""
 
-#: main/jet-events-admin.php:505
+#: main/jet-events-admin.php:510
 msgid "Descending"
 msgstr ""
 
-#: main/jet-events-admin.php:518
+#: main/jet-events-admin.php:523
 msgid "Allow Country"
 msgstr ""
 
-#: main/jet-events-admin.php:521
+#: main/jet-events-admin.php:526
 msgid "Name of the country by default:"
 msgstr ""
 
-#: main/jet-events-admin.php:527
+#: main/jet-events-admin.php:532
 msgid "Allow State"
 msgstr ""
 
-#: main/jet-events-admin.php:530
+#: main/jet-events-admin.php:535
 msgid "Name of the state by default:"
 msgstr ""
 
-#: main/jet-events-admin.php:536
+#: main/jet-events-admin.php:541
 msgid "Allow City"
 msgstr ""
 
-#: main/jet-events-admin.php:539
+#: main/jet-events-admin.php:544
 msgid "Name of the city by default:"
 msgstr ""
 
-#: main/jet-events-admin.php:547
+#: main/jet-events-admin.php:552
 msgid "Allow Special Conditions"
 msgstr ""
 
-#: main/jet-events-admin.php:554
+#: main/jet-events-admin.php:559
 msgid "Allow Public News"
 msgstr ""
 
-#: main/jet-events-admin.php:561
+#: main/jet-events-admin.php:566
 msgid "Allow Private News"
 msgstr ""
 
-#: main/jet-events-admin.php:570
+#: main/jet-events-admin.php:575
 msgid "Allow Event Note"
 msgstr ""
 
-#: main/jet-events-admin.php:577
+#: main/jet-events-admin.php:582
 msgid "Allow Event GoogleMap"
 msgstr ""
 
-#: main/jet-events-admin.php:584
+#: main/jet-events-admin.php:589
 msgid "Allow Event Flyer"
 msgstr ""
 
-#: main/jet-events-admin.php:597
+#: main/jet-events-admin.php:602
 msgid "Style for Event Catalog:"
 msgstr ""
 
-#: main/jet-events-admin.php:600 main/jet-events-admin.php:613
+#: main/jet-events-admin.php:605 main/jet-events-admin.php:618
 msgid "Standart Style"
 msgstr ""
 
-#: main/jet-events-admin.php:601
+#: main/jet-events-admin.php:606
 msgid "Standard will full description Style"
 msgstr ""
 
-#: main/jet-events-admin.php:602 main/jet-events-admin.php:614
+#: main/jet-events-admin.php:607 main/jet-events-admin.php:619
 msgid "Twitter Style"
 msgstr ""
 
-#: main/jet-events-admin.php:603
+#: main/jet-events-admin.php:608
 msgid "Custom Style*"
 msgstr ""
 
-#: main/jet-events-admin.php:605
+#: main/jet-events-admin.php:610
 msgid "* To use a custom design Directory Events, modify the file:"
 msgstr ""
 
-#: main/jet-events-admin.php:610
+#: main/jet-events-admin.php:615
 msgid "Style for Single Event:"
 msgstr ""
 
-#: main/jet-events-admin.php:619
+#: main/jet-events-admin.php:624
 msgid "Avatar Options"
 msgstr ""
 
-#: main/jet-events-admin.php:622
+#: main/jet-events-admin.php:627
 msgid "Show avatars in the list of invited friends"
 msgstr ""
 
-#: main/jet-events-admin.php:625
+#: main/jet-events-admin.php:630
 msgid "Avatars size:"
 msgstr ""
 
-#: main/jet-events-admin.php:631
+#: main/jet-events-admin.php:636
 msgid "Single Event - avatars size (25..150px):"
 msgstr ""
 
-#: main/jet-events-admin.php:638
+#: main/jet-events-admin.php:643
 msgid "Directory Events - avatars size ( 25..150px):"
 msgstr ""
 
-#: main/jet-events-admin.php:645
+#: main/jet-events-admin.php:650
 msgid "Color for past event:"
 msgstr ""
 
-#: main/jet-events-admin.php:652
+#: main/jet-events-admin.php:657
 msgid "Color for active event:"
 msgstr ""
 
-#: main/jet-events-admin.php:659
+#: main/jet-events-admin.php:664
 msgid "Color for current event:"
 msgstr ""
 
-#: main/jet-events-admin.php:673
+#: main/jet-events-admin.php:678
 msgid ""
 "Allow the use of classifiers through an administrative panel (unless you "
 "want to use some or classifier - leave his field blank)"
 msgstr ""
 
-#: main/jet-events-admin.php:680
+#: main/jet-events-admin.php:685
 msgid "Classification - 1"
 msgstr ""
 
-#: main/jet-events-admin.php:686
+#: main/jet-events-admin.php:691
 msgid "Classification - 2"
 msgstr ""
 
-#: main/jet-events-admin.php:693
+#: main/jet-events-admin.php:698
 msgid "Classification - 3"
 msgstr ""
 
-#: main/jet-events-admin.php:700
+#: main/jet-events-admin.php:705
 msgid "Classification - 4"
 msgstr ""
 
-#: main/jet-events-admin.php:707
+#: main/jet-events-admin.php:712
 msgid "Classification - 5"
 msgstr ""
 
-#: main/jet-events-admin.php:720
+#: main/jet-events-admin.php:725
 msgid "Prohibit non-administrators to create events"
 msgstr ""
 
-#: main/jet-events-admin.php:727
+#: main/jet-events-admin.php:732
 msgid "Allow verification of events by the administrator"
 msgstr ""
 
-#: main/jet-events-admin.php:739
+#: main/jet-events-admin.php:744
 msgid "Allow indexing of events search engines"
 msgstr ""
 
-#: main/jet-events-admin.php:746
+#: main/jet-events-admin.php:751
 msgid "Deny access to events for unregistered users"
 msgstr ""
 
-#: main/jet-events-admin.php:753
+#: main/jet-events-admin.php:758
 msgid ""
 "Show private events in the catalog for unregistered users (in the cases "
 "allow access to events)"
 msgstr ""
 
-#: main/jet-events-admin.php:760
+#: main/jet-events-admin.php:765
 msgid ""
 "Show flyers to all users? (otherwise, flyers will be available only to "
 "participants of the event)"
 msgstr ""
 
-#: main/jet-events-admin.php:773
+#: main/jet-events-admin.php:778
 msgid ""
 "Provide administrators an opportunity to remind participants of the events "
 "of the coming event in manual mode?"
 msgstr ""
 
-#: main/jet-events-admin.php:780
+#: main/jet-events-admin.php:785
 msgid "To allow the setting reminder?"
 msgstr ""
 
-#: main/jet-events-admin.php:783 templates/events/single/admin.php:334
+#: main/jet-events-admin.php:788 templates/events/single/admin.php:334
 msgid "Administrators"
 msgstr ""
 
-#: main/jet-events-admin.php:784
+#: main/jet-events-admin.php:789
 msgid "All users"
 msgstr ""
 
-#: main/jet-events-admin.php:785
+#: main/jet-events-admin.php:790
 msgid "Function is not active"
 msgstr ""
 
-#: main/jet-events-admin.php:791
+#: main/jet-events-admin.php:796
 msgid "Time remind default:"
 msgstr ""
 
-#: main/jet-events-admin.php:794 main/jet-events-admin.php:795
-#: main/jet-events-admin.php:796 main/jet-events-admin.php:797
-#: main/jet-events-admin.php:798 main/jet-events-admin.php:799
-#: main/jet-events-admin.php:800
+#: main/jet-events-admin.php:799 main/jet-events-admin.php:800
+#: main/jet-events-admin.php:801 main/jet-events-admin.php:802
+#: main/jet-events-admin.php:803 main/jet-events-admin.php:804
+#: main/jet-events-admin.php:805
 #, php-format
 msgid "%s hours"
 msgstr ""
 
-#: main/jet-events-admin.php:812
+#: main/jet-events-admin.php:817
 msgid "Use the following mechanism for the demonstration maps:"
 msgstr ""
 
-#: main/jet-events-admin.php:815
+#: main/jet-events-admin.php:820
 msgid "Google"
 msgstr ""
 
-#: main/jet-events-admin.php:816
+#: main/jet-events-admin.php:821
 msgid "Image"
 msgstr ""
 
@@ -601,11 +601,9 @@ msgstr ""
 msgid "Current event"
 msgstr ""
 
-#: main/jet-events-functions.php:138
+#: main/jet-events-functions.php:138 main/jet-events-themetemplate.php:53
+#: main/jet-events-themetemplate.php:116 main/jet-events-themetemplate.php:178
 #: templates/events/looptemplates/custom.php:47
-#: templates/events/looptemplates/standart.php:47
-#: templates/events/looptemplates/standartfull.php:39
-#: templates/events/looptemplates/twitter.php:38
 #: templates/events/single/event-header.php:42
 msgid "Past event"
 msgstr ""
@@ -1143,7 +1141,7 @@ msgid "Recently Joined"
 msgstr ""
 
 #: main/jet-events-templatetags.php:2457 main/jet-events-templatetags.php:2478
-#: main/jet-events-widgets.php:37
+#: main/jet-events-widgets.php:40
 msgid "Most Popular"
 msgstr ""
 
@@ -1172,79 +1170,136 @@ msgstr ""
 msgid "Member avatar"
 msgstr ""
 
-#: main/jet-events-widgets.php:35
+#: main/jet-events-themetemplate.php:28 main/jet-events-themetemplate.php:98
+#: main/jet-events-themetemplate.php:161
+#: templates/events/looptemplates/custom.php:22
+msgid "From: "
+msgstr ""
+
+#: main/jet-events-themetemplate.php:28 main/jet-events-themetemplate.php:98
+#: main/jet-events-themetemplate.php:161
+#: templates/events/looptemplates/custom.php:22
+msgid "to: "
+msgstr ""
+
+#: main/jet-events-themetemplate.php:31
+#: templates/events/looptemplates/custom.php:25
+msgid "Short description:"
+msgstr ""
+
+#: main/jet-events-themetemplate.php:33 main/jet-events-themetemplate.php:110
+#: main/jet-events-themetemplate.php:172
+#: templates/events/looptemplates/custom.php:27
+msgid "Description:"
+msgstr ""
+
+#: main/jet-events-themetemplate.php:37 main/jet-events-themetemplate.php:99
+#: main/jet-events-themetemplate.php:162
+#: templates/events/looptemplates/custom.php:31
+#: templates/events/single/details.php:14
+#: templates/events/single/google-map.php:8
+msgid "The event will take place:"
+msgstr ""
+
+#: main/jet-events-themetemplate.php:47 main/jet-events-themetemplate.php:108
+#: main/jet-events-themetemplate.php:171
+#: templates/events/looptemplates/custom.php:41
+#: templates/events/single/details.php:26
+#: templates/events/single/google-map.php:19
+msgid "in city:"
+msgstr ""
+
+#: main/jet-events-themetemplate.php:47 main/jet-events-themetemplate.php:108
+#: main/jet-events-themetemplate.php:171
+#: templates/events/looptemplates/custom.php:41
+msgid "at "
+msgstr ""
+
+#: main/jet-events-themetemplate.php:61 main/jet-events-themetemplate.php:124
+#: main/jet-events-themetemplate.php:186
+#: templates/events/looptemplates/custom.php:55
+msgid "Event requires approval!"
+msgstr ""
+
+#: main/jet-events-themetemplate.php:65 main/jet-events-themetemplate.php:128
+#: main/jet-events-themetemplate.php:190
+#, php-format
+msgid "Last activity:<br /> %s ago"
+msgstr ""
+
+#: main/jet-events-widgets.php:38
 msgid "Newest"
 msgstr ""
 
-#: main/jet-events-widgets.php:36
+#: main/jet-events-widgets.php:39
 msgid "Most Active"
 msgstr ""
 
-#: main/jet-events-widgets.php:118 main/jet-events-widgets.php:235
+#: main/jet-events-widgets.php:121 main/jet-events-widgets.php:238
 msgid "In city:"
 msgstr ""
 
-#: main/jet-events-widgets.php:118 main/jet-events-widgets.php:235
+#: main/jet-events-widgets.php:121 main/jet-events-widgets.php:238
 msgid "Start:"
 msgstr ""
 
-#: main/jet-events-widgets.php:118 main/jet-events-widgets.php:235
+#: main/jet-events-widgets.php:121 main/jet-events-widgets.php:238
 msgid "End:"
 msgstr ""
 
-#: main/jet-events-widgets.php:129
+#: main/jet-events-widgets.php:132
 msgid "There are no events to display."
 msgstr ""
 
-#: main/jet-events-widgets.php:166
+#: main/jet-events-widgets.php:169
 msgid "Title:"
 msgstr ""
 
-#: main/jet-events-widgets.php:168
+#: main/jet-events-widgets.php:171
 msgid "Max events to show:"
 msgstr ""
 
-#: main/jet-events-widgets.php:171
+#: main/jet-events-widgets.php:174
 msgid "Show navigation:"
 msgstr ""
 
-#: main/jet-events-widgets.php:174
+#: main/jet-events-widgets.php:177
 msgid "Show type of event and its Classification:"
 msgstr ""
 
-#: main/jet-events-widgets.php:176
+#: main/jet-events-widgets.php:179
 msgid "Show time:"
 msgstr ""
 
-#: main/jet-events-widgets.php:178
+#: main/jet-events-widgets.php:181
 msgid ""
 "Show the country and state for the event (if allowed to use administrative "
 "panel):"
 msgstr ""
 
-#: main/jet-events-widgets.php:181
+#: main/jet-events-widgets.php:184
 msgid "Show archived events only for administrator:"
 msgstr ""
 
-#: main/jet-events-widgets.php:184
+#: main/jet-events-widgets.php:187
 msgid "Color to archive events:"
 msgstr ""
 
-#: main/jet-events-widgets.php:186
+#: main/jet-events-widgets.php:189
 msgid "Show avatar:"
 msgstr ""
 
-#: main/jet-events-widgets.php:228
+#: main/jet-events-widgets.php:231
 #, php-format
 msgid "created %s ago"
 msgstr ""
 
-#: main/jet-events-widgets.php:230 templates/events/single/event-header.php:35
+#: main/jet-events-widgets.php:233 templates/events/single/event-header.php:35
 #, php-format
 msgid "active %s ago"
 msgstr ""
 
-#: main/jet-events-widgets.php:250
+#: main/jet-events-widgets.php:253
 msgid "No events matched the current filter."
 msgstr ""
 
@@ -1490,7 +1545,7 @@ msgstr ""
 msgid "Private events are not shown, register to view"
 msgstr ""
 
-#: templates/events/events-loop.php:103
+#: templates/events/events-loop.php:111
 msgid "There were no events found."
 msgstr ""
 
@@ -1506,71 +1561,6 @@ msgstr ""
 
 #: templates/events/index.php:45 templates/members/single/events.php:34
 msgid "Order By:"
-msgstr ""
-
-#: templates/events/looptemplates/custom.php:22
-#: templates/events/looptemplates/standart.php:22
-#: templates/events/looptemplates/standartfull.php:21
-#: templates/events/looptemplates/twitter.php:21
-msgid "From: "
-msgstr ""
-
-#: templates/events/looptemplates/custom.php:22
-#: templates/events/looptemplates/standart.php:22
-#: templates/events/looptemplates/standartfull.php:21
-#: templates/events/looptemplates/twitter.php:21
-msgid "to: "
-msgstr ""
-
-#: templates/events/looptemplates/custom.php:25
-#: templates/events/looptemplates/standart.php:25
-msgid "Short description:"
-msgstr ""
-
-#: templates/events/looptemplates/custom.php:27
-#: templates/events/looptemplates/standart.php:27
-#: templates/events/looptemplates/standartfull.php:33
-#: templates/events/looptemplates/twitter.php:32
-msgid "Description:"
-msgstr ""
-
-#: templates/events/looptemplates/custom.php:31
-#: templates/events/looptemplates/standart.php:31
-#: templates/events/looptemplates/standartfull.php:22
-#: templates/events/looptemplates/twitter.php:22
-#: templates/events/single/details.php:14
-#: templates/events/single/google-map.php:8
-msgid "The event will take place:"
-msgstr ""
-
-#: templates/events/looptemplates/custom.php:41
-#: templates/events/looptemplates/standart.php:41
-#: templates/events/looptemplates/standartfull.php:31
-#: templates/events/looptemplates/twitter.php:31
-#: templates/events/single/details.php:26
-#: templates/events/single/google-map.php:19
-msgid "in city:"
-msgstr ""
-
-#: templates/events/looptemplates/custom.php:41
-#: templates/events/looptemplates/standart.php:41
-#: templates/events/looptemplates/standartfull.php:31
-#: templates/events/looptemplates/twitter.php:31
-msgid "at "
-msgstr ""
-
-#: templates/events/looptemplates/custom.php:55
-#: templates/events/looptemplates/standart.php:55
-#: templates/events/looptemplates/standartfull.php:47
-#: templates/events/looptemplates/twitter.php:46
-msgid "Event requires approval!"
-msgstr ""
-
-#: templates/events/looptemplates/standart.php:59
-#: templates/events/looptemplates/standartfull.php:51
-#: templates/events/looptemplates/twitter.php:50
-#, php-format
-msgid "Last activity:<br /> %s ago"
 msgstr ""
 
 #: templates/events/single/activity.php:3
