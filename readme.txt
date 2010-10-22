@@ -13,8 +13,10 @@ The modern System of events for your social network. Ability to attract members 
 == Description ==
 
 <strong>en:</strong> The modern System of events for your social network. Ability to attract members of the network to the ongoing activities, a wide range of possibilities and options, support for different types of display, etc.
+Support for 8 languages.
 
 <strong>ru:</strong> Современная Система событий для Вашей социальной сети. Возможность привлекать участников сети к проводимым мероприятиям, широкий спектр возможностей и настроек, поддержка разных видов отображения и т.п.
+Поддержка 8 языков.
 
 <strong>Before you install or upgrade sure to read the Readme file!</strong>! 
 <strong>Перед установкой или обновлением обязательно прочтите Readme файл!</strong>
@@ -107,16 +109,16 @@ Tell about problems with the plugin and read the other comments you can: http://
 * <strong>es_ES</strong> - <em>Alex_Mx</em>
 * <strong>da_DK</strong> - <em>Chono</em>, <a href="http://www.chono.dk">chono.dk</a>
 * <strong>it_IT</strong> - <em>Andrea Bianchi</em>
+* <strong>sv_SE</strong> - <em>Thomas Schneider</em>
 
 Discuss the issues of localization plugin, you can: http://jes.milordk.ru/groups/translates
 
 == Future ==
 
-* In version 1.7 will be implemented to use shortcode to insert into your records
-* In version 1.8 will ensure compatibility of the system with the new version of BP
-* In version 2.0 will be added to the possibility of tying the event to a group
-* In version 2.5 will be able to add events to Outlook Calendar and iCal (list may vary from those of the creator of the plug and the wishes of the participants testing)
-* In version 3.0 will be added to the possibility of tying the event to your blog (s)
+* In version 1.7 will be added to link events to a group
+* In version 1.8 will add the ability to use a template for a single event
+* In version 3.0 will add the ability to associate events with blogs
+
 
 List of future functions formed the opinion creator plug-in and test participants, if you have something to offer - <a href="http://jes.milordk.ru/groups/proposals-for-the-future">Poposals for the future</a>
 
@@ -133,6 +135,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.6.2.1 =
+
+* Added Swedish translation, thanks Thomas Schneider
 
 = 1.6.2 =
 
