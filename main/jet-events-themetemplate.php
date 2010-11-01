@@ -73,6 +73,46 @@ global $bp;
 }
 ?>
 <?php
+function jes_theme_template_calendar() {
+global $bp;
+/**************************************/
+/* Calendar Template for Event Loop   */
+/*                                    */
+/* Base Template					  */
+/**************************************/
+?>
+
+<?php
+
+	$nowds = jes_datetounix(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm());
+	$nowde = jes_datetounix(jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm());
+	$s_year = date('Y', $nowds );
+	$s_month = date('m', $nowds);
+	$s_days = date('d', $nowds);
+
+	$e_year = date('Y', $nowde );
+	$e_month = date('m', $nowde);
+	$e_days = date('d', $nowde);
+	
+	$eventtitle = jes_bp_get_event_name();
+?>	
+    {
+	title: "<?php echo $eventtitle.'-'.$s_month.'-'.$e_month; ?>",
+	start: new Date(<?php echo $s_year ?>, <?php echo $s_month ?>-1, <?php echo $s_days; ?>),
+	end: new Date(<?php echo $e_year ?>, <?php echo $e_month ?>-1, <?php echo $e_days; ?>),
+	url: '<?php jes_bp_event_permalink() ?>'
+    },
+<?php
+	$jes_adata = get_option( 'jes_events' );
+	$_eventstatus = eventstatus(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm(),jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm());
+?>
+<?php
+// End Calendar Template
+}
+?>
+
+
+<?php
 function jes_theme_template_standartfull() {
 global $bp;
 /**************************************/

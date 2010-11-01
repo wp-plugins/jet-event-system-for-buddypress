@@ -408,7 +408,8 @@ function on_jes_events_admin_translate($jes_events) {
 		<li><strong>es_ES</strong> - <em>Alex_Mx</em></li>
 		<li><strong>da_DK</strong> - <em>Chono</em>, <a href="http://www.chono.dk" target="_blank">chono.dk</a></li>
 		<li><strong>it_IT</strong> - <em>Andrea</em>, <a href="http://riderbook.it">riderbook.it</a>
-	</ul></p>
+		<li><strong>sv_SE</strong> - <em>Thomas Schneider</em>
+</ul></p>
 	<p>To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>
 	<p><em><?php _e('Please send your translations to milord_k @ mail.ru','jet-event-system'); ?></em></p>
 	<p>Do not forget to include links to your sites (for accommodation options in the list of translators)</p>
@@ -605,6 +606,7 @@ function on_jes_events_admin_setupmain($jes_events) {
 										<option <?php if ($jes_events[ 'jes_events_style' ] == 'Standart') { ?>selected <?php } ?>value="Standart"><?php _e('Standart Style','jet-event-system'); ?></option>
 										<option <?php if ($jes_events[ 'jes_events_style' ] == 'Standard will full description') { ?>selected <?php } ?>value="Standard will full description"><?php _e('Standard will full description Style','jet-event-system'); ?></option>						
 										<option <?php if ($jes_events[ 'jes_events_style' ] == 'Twitter') { ?>selected <?php } ?>value="Twitter"><?php _e('Twitter Style','jet-event-system'); ?></option>
+										<option <?php if ($jes_events[ 'jes_events_style' ] == 'Calendar') { ?>selected <?php } ?>value="Calendar"><?php _e('Calendar Style','jet-event-system'); ?></option>
 										<option <?php if ($jes_events[ 'jes_events_style' ] == 'Custom') { ?>selected <?php } ?>value="Custom"><?php _e('Custom Style*','jet-event-system'); ?></option>
 									</select>
 <p><?php _e('* To use a custom design Directory Events, modify the file:','jet-event-system'); ?> <?php echo STYLESHEETPATH.'/events/looptemplates/custom.php'; ?></p>

@@ -136,6 +136,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.6.3 =
+
+* Added a test mode to display the directory of events in a calendar format ( see http://jes.milordk.ru/ )
+
 = 1.6.2.1 =
 
 * Added Swedish translation, thanks Thomas Schneider

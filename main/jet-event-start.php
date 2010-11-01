@@ -39,6 +39,7 @@ function jet_events_add_js() {
 				wp_enqueue_script( 'jquery-jes-uicore', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-ui-core.js' );
 				wp_enqueue_script( 'jquery-jes-uidpcore', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-datapicker.js' );
 				wp_enqueue_script( 'jquery-jes-uidp', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jes_datepicker.js' );
+
 				$locale = apply_filters( 'wordpress_locale', get_locale() );
 				if (!file_exists( WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-'.$locale.'.js')) {
 				wp_enqueue_script( 'jet-event-js-uilocale', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-en_GB.js' );
@@ -48,7 +49,9 @@ function jet_events_add_js() {
 				}
 			}
 		}	
+		wp_enqueue_script( 'jquery-jes-calendar', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/fullcalendar.min.js' );
 }
+		
 add_action( 'template_redirect', 'jet_events_add_js', 1 );	
 	
 function jes_events_add_css() {
@@ -69,6 +72,7 @@ function jes_events_add_css() {
 		{
 			wp_enqueue_style( 'jes-datepicker-css', apply_filters( 'jes_events_add_css', get_stylesheet_directory_uri() . '/events/css/datepicker.css' ) );
 		}
+    wp_enqueue_style( 'jes-cal-css', apply_filters( 'jes_events_add_css', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/css/fullcalendar.css' ) );
 }
 add_action( 'init', 'jes_events_add_css' );
 
@@ -300,7 +304,10 @@ function events_get_events( $args = '' ) {
 			break;
 		case 'soon':
 			$events = JES_Events_Event::jes_get_soon( $per_page, $page, $user_id, $search_terms, $populate_extras );
-			break;			
+			break;
+		case 'calendar':
+			$events = JES_Events_Event::jes_get_calendar( $per_page, $page, $user_id, $search_terms, $populate_extras );
+			break;
 	}
 	
 	return apply_filters( 'events_get_events', $events, &$params );

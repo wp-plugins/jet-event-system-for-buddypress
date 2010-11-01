@@ -27,7 +27,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 	$show_avatar = $instance['show_avatar'];	
 ?>
 <?php if (!$data[ 'jes_events_code_index' ]) { ?>
-	<noindex>
+<!--<noindex>-->
 <?php } ?>
 
 		<?php if ( bp_jes_has_events( 'type=soon&per_page=' . $instance['max_events'] . '&max=' . $instance['max_events'] ) ) : ?>
@@ -133,7 +133,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 			</div>
 		<?php endif; ?>
 	<?php if (!$data[ 'jes_events_code_index' ]) { ?>
-		</noindex>
+		<!--</noindex>-->
 	<?php } ?>
 		<?php echo $after_widget; ?>
 <?php
