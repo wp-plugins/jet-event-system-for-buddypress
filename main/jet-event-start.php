@@ -72,7 +72,7 @@ function jes_events_add_css() {
 		{
 			wp_enqueue_style( 'jes-datepicker-css', apply_filters( 'jes_events_add_css', get_stylesheet_directory_uri() . '/events/css/datepicker.css' ) );
 		}
-    wp_enqueue_style( 'jes-cal-css', apply_filters( 'jes_events_add_css', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/css/fullcalendar.css' ) );
+    wp_enqueue_style( 'jes-cal-css', apply_filters( 'jes_events_fc_css', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/css/fullcalendar.css' ) );
 }
 add_action( 'init', 'jes_events_add_css' );
 
