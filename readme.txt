@@ -103,9 +103,9 @@ Tell about problems with the plugin and read the other comments you can: http://
 
 == Translate ==
 
-* <strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru" target="_blank">http://milordk.ru</a>
-* <strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">http://www.paysterresdelorraine.com/</a>
-* <strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="http://www.pixelartist.de" target="_blank">www.pixelartist.de</a>
+* <strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru" target="_blank">milordk.ru</a>
+* <strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">paysterresdelorraine.com/</a>
+* <strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="http://www.pixelartist.de" target="_blank">pixelartist.de</a>
 * <strong>es_ES</strong> - <em>Alex_Mx</em>
 * <strong>da_DK</strong> - <em>Chono</em>, <a href="http://www.chono.dk">chono.dk</a>
 * <strong>it_IT</strong> - <em>Andrea Bianchi</em>
@@ -135,6 +135,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.6.3.1 =
+
+* Fixed: When using the catalog of events to the calendar - the tab "My Events" lists all the events.
 
 = 1.6.3 =
 

@@ -58,8 +58,8 @@
 			<div id="groups-dir-list" class="events dir-list">
 				<?php locate_template( array( 'events/events-loop.php' ), true ) ?>
 			</div><!-- #events-dir-list -->
-			<div>
-				<span style="font-size:80%; text-align:right;"><a href="http://milordk.ru">Milordk Studio</a></span>
+			<div style="text-align:right;">
+				<span style="font-size:80%;"><a href="http://milordk.ru">Milordk Studio</a><?php if (is_admin()) { ?> <a href="http://milordk.ru/projects/wordpress-buddypress/podderzhka.html"> | Admin, Donate to develop plug-in ;)</a><?php } ?></span>
 			</div>
 			<?php do_action( 'bp_directory_events_content' ) ?>
 

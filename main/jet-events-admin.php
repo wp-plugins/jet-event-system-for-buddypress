@@ -402,12 +402,12 @@ function on_jes_events_admin_support($jes_events) {
 function on_jes_events_admin_translate($jes_events) {
 ?>
 <p><ul>
-		<li><strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru" target="_blank">milordk.ru</a></li>
-		<li><strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">paysterresdelorraine.com/</a></li>
-		<li><strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="http://www.pixelartist.de" target="_blank">pixelartist.de</a></li>
+		<li><strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru/" target="_blank">milordk.ru</a></li>
+		<li><strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">paysterresdelorraine.com</a></li>
+		<li><strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="http://www.pixelartist.de/" target="_blank">pixelartist.de</a></li>
 		<li><strong>es_ES</strong> - <em>Alex_Mx</em></li>
-		<li><strong>da_DK</strong> - <em>Chono</em>, <a href="http://www.chono.dk" target="_blank">chono.dk</a></li>
-		<li><strong>it_IT</strong> - <em>Andrea</em>, <a href="http://riderbook.it">riderbook.it</a>
+		<li><strong>da_DK</strong> - <em>Chono</em>, <a href="http://www.chono.dk/" target="_blank">chono.dk</a></li>
+		<li><strong>it_IT</strong> - <em>Andrea</em>, <a href="http://riderbook.it/">riderbook.it</a>
 		<li><strong>sv_SE</strong> - <em>Thomas Schneider</em>
 </ul></p>
 	<p>To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>

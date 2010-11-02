@@ -28,10 +28,8 @@
 
 <?php if ($jes_adata['jes_events_style'] == 'Calendar') { ?>
 <?php				require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-themetemplate.php' ); ?>
-	<?php if ( bp_jes_has_events( 'type=calendar&per_page=' . $instance['max_events'] . '&max=' . $instance['max_events'] ) ) : ?>
-
-<?php /* <script type="text/javascript" src="http://jes.milordk.ru/wp-content/plugins/jet-event-system-for-buddypress/js/fullcalendar.min.js">
-*/?>
+	<?php // if ( bp_jes_has_events( 'type=calendar&per_page=' . $instance['max_events'] ) ) : ?>
+<ul id="group-list" class="item-list">
 <script type="text/javascript">
     var jqr = jQuery;
     jqr(document).ready(function($) {
@@ -40,6 +38,7 @@
 	$("#icalendar").fullCalendar({
 	    editable: true,
 	    	events: [
+
 <?php while ( jes_bp_events() ) : bp_jes_the_event();
 
 	$er = jes_bp_get_event_type();
@@ -80,18 +79,19 @@ if ( $showevent )
 endwhile; ?>
  	{
 	    title:"end event",
-	    start: new Date(2010,12,2),
-	    end: new Date(2010,12,6)
+	    start: new Date(2009,11,1),
+	    end: new Date(2009,11,1)
 	}
 	]
     });
     });
-<?php /* $('#icalendar').fullCalendar('render');*/?>
 });
 </script>
 <div id="loading" style="display:none">loading...</div>
 <div id="icalendar"></div>
-<?php endif; } else { ?>
+</ul>
+<?php // endif;
+ } else { ?>
 
 <ul id="group-list" class="item-list">
 
@@ -138,21 +138,18 @@ if ( $showevent )
 		if ($jes_adata['jes_events_style'] == 'Standart') 
 			{
 				jes_theme_template_standart();
-				// include('looptemplates/standart.php');
 		}
 
 	// Standard will full description
 		if ($jes_adata['jes_events_style'] == 'Standard will full description') 
 			{
 				jes_theme_template_standartfull();
-				// include('looptemplates/standartfull.php');
 		}
 
 	// Twitter style Event Catalog
 		if ($jes_adata['jes_events_style'] == 'Twitter' )
 			{
 				jes_theme_template_twitter();
-				// include('looptemplates/twitter.php');
 		}
 
 	// Custom style Event Catalog
@@ -165,7 +162,6 @@ if ( $showevent )
 						else
 					{
 						jes_theme_template_standart();
-						// include('looptemplates/standart.php');
 					}
 		}
 	}
