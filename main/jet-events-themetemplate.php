@@ -19,12 +19,12 @@ global $bp;
 		<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width='.$jes_adata['jes_events_show_avatar_directory_size'].'&height='.$jes_adata['jes_events_show_avatar_directory_size'] ) ?></a>
 	</div>
 
-	<div class="item" style="width:80%;" id="jes-templ-item">
+	<div class="item" style="width:80%;" id="jes-templ-item-<?php jes_bp_event_id() ?>">
 		<div class="item-title" id="jes-title"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a></div>			
-			<div class="item-meta" id="jes-template-meta">
+			<div class="item-meta" id="jes-template-meta-<?php jes_bp_event_id() ?>">
 				<em><?php echo $_eventstatus; ?></em> , 
 				<p class="meta"><em><?php jes_bp_event_type() ?></em></p>
-				<div class="item-desc" id="jes-timedate">
+				<div class="item-desc" id="jes-timedate-<?php jes_bp_event_id() ?>">
 					<?php _e('From: ','jet-event-system') ?><span class="meta"><?php jes_bp_event_edtsd() ?>, <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?></span> <?php _e('to: ','jet-event-system') ?> <span><?php jes_bp_event_edted() ?>, <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?></span>
 				</div>
 		<?php if ($jes_adata['jes_events_style'] == 'Standart') { ?>
@@ -33,7 +33,7 @@ global $bp;
 			<?php _e('Description:','jet-event-system') ?> <?php jes_bp_event_description() ?>
 		<?php } ?>
 			</div>				
-			<div class="item-desc" id="jes-desc">
+			<div class="item-desc" id="jes-desc-<?php jes_bp_event_id() ?>">
 				<span><?php _e('The event will take place:','jet-event-system');
 				if ( $jes_adata[ 'jes_events_countryopt_enable' ] )
 					{
@@ -55,7 +55,7 @@ global $bp;
 						bp_event_join_button();
 					}
 			?>
-				<div class="meta" id="jes-approval">
+				<div class="meta" id="jes-approval-<?php jes_bp_event_id() ?>">
 					<?php if ( $shiftcan ) 
 							{ ?>
 								<span class="meta"><em><?php _e('Event requires approval!','jet-event-system'); ?></em></span>
@@ -97,6 +97,7 @@ global $bp;
 	$eventtitle = jes_bp_get_event_name();
 ?>	
     {
+	id: "<?php jes_bp_event_id() ?>",
 	title: "<?php echo $eventtitle.'-'.$s_month.'-'.$e_month; ?>",
 	start: new Date(<?php echo $s_year ?>, <?php echo $s_month ?>-1, <?php echo $s_days; ?>),
 	end: new Date(<?php echo $e_year ?>, <?php echo $e_month ?>-1, <?php echo $e_days; ?>),
@@ -130,7 +131,7 @@ global $bp;
 		<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width=50&height=50' ) ?></a>
 	</div>
 
-	<div class="item" style="width:80%;" id="jes-templ-item">
+	<div class="item" style="width:80%;" id="jes-templ-item-<?php jes_bp_event_id() ?>">
 		<span style="font-size:80%;"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a> 
 		<em><?php echo $_eventstatus; ?></em>				
 		<em><?php jes_bp_event_type() ?></em>, <strong><?php jes_bp_event_etype() ?></strong>
@@ -158,7 +159,7 @@ global $bp;
 						bp_event_join_button();
 					}
 			?>
-		<div class="meta" id="jes-template-meta">
+		<div class="meta" id="jes-template-meta-<?php jes_bp_event_id() ?>">
 			<?php if ( $shiftcan ) 
 					{ ?>
 						<span class="meta"><em><?php _e('Event requires approval!','jet-event-system'); ?></em></span>
@@ -193,7 +194,7 @@ global $bp;
 			<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width=50&height=50' ) ?></a>
 		</div>
 
-		<div class="item" style="width:80%;" id="jes-templ-item">
+		<div class="item" style="width:80%;" id="jes-templ-item-<?php jes_bp_event_id() ?>">
 			<span style="font-size:80%;"><a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_name() ?></a> 
 			<em><?php echo $_eventstatus; ?></em>				
 			<em><?php jes_bp_event_type() ?></em>, <strong><?php jes_bp_event_etype() ?></strong>
@@ -220,7 +221,7 @@ global $bp;
 						bp_event_join_button();
 					}
 			?>
-		<div class="meta" id="jes-template-meta">
+		<div class="meta" id="jes-template-meta-<?php jes_bp_event_id() ?>">
 			<?php if ( $shiftcan ) 
 					{ ?>
 						<span class="meta"><em><?php _e('Event requires approval!','jet-event-system'); ?></em></span>

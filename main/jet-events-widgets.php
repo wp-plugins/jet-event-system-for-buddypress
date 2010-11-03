@@ -86,11 +86,11 @@ class JES_BP_Events_Widget extends WP_Widget {
 		if ($keyvisible)
 			{ ?>
 				<li>
-					<div class="item-avatar" id="jes-avatar">
+					<div class="item-avatar" id="jes-avatar-<?php jes_bp_event_id() ?>">
 						<?php if ($show_avatar) { ?>
 							<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar_thumb() ?></a>
 						<?php } ?>
-							<div class="item-title" id="jes-title">
+							<div class="item-title" id="jes-title--<?php jes_bp_event_id() ?>">
 								<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>
 							</div>
 	
@@ -100,9 +100,9 @@ class JES_BP_Events_Widget extends WP_Widget {
 <?php } ?>
 					</div>
 
-					<div class="item" id="jes-item">
+					<div class="item" id="jes-item--<?php jes_bp_event_id() ?>">
 
-						<div style="font-size:85%;" id="jes-placed">
+						<div style="font-size:85%;" id="jes-placed-<?php jes_bp_event_id() ?>">
 							<?php if ( $show_countrystate ) { ?>
 								<?php if ( jes_bp_get_event_placedcountry() != null ) { 
 									$kkey = 1;

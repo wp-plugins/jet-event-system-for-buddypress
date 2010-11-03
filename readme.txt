@@ -136,6 +136,12 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.6.3.3 =
+
+* Optimized loading of js-scripts and css-styles
+* Fixed id for div
+* Updated the style of the "Calendar" for a directory of events
+
 = 1.6.3.1 =
 
 * Fixed: When using the catalog of events to the calendar - the tab "My Events" lists all the events.
