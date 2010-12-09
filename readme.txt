@@ -21,7 +21,7 @@ Support for 8 languages.
 <strong>Before you install or upgrade sure to read the Readme file!</strong>! 
 <strong>Перед установкой или обновлением обязательно прочтите Readme файл!</strong>
 
-Translation for the following locations: ru_RU, fr_FR, de_DE, es_ES, da_DK, it_IT (see Translate section in readme)
+Translation for the following locations: ru_RU, fr_FR, de_DE, es_ES, da_DK, it_IT, sv_SE (see Translate section in readme)
 
 Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://volks-wagen-club.ru">Volkswagen Club</a> (Please do not create events on these sites! Use the <a href="http://jes.milordk.ru">jes.milordk.ru</a>)
 
