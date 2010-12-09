@@ -136,6 +136,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.6.5 =
+
+* Localization of a calendar for the style of "Calendar"
+
 = 1.6.4 =
 
 * Update Calendar Style Engine

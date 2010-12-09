@@ -37,6 +37,17 @@
 	var date = new Date();
 	$("#icalendar").fullCalendar({
 	    editable: true,
+		buttonText: {
+			month: '<?php _e('month'); ?>',
+			week: '<?php _e('week'); ?>' },
+			day: '<?php _e('day'); ?>' },
+		dayNamesShort: ['<?php _e('Sun'); ?>','<?php _e('Mon'); ?>','<?php _e('Tue'); ?>','<?php _e('Wed'); ?>','<?php _e('Thu'); ?>','<?php _e('Fri'); ?>','<?php _e('Sat'); ?>'],
+		monthNames: ['<?php _e('January'); ?>','<?php _e('February'); ?>','<?php _e('March'); ?>','<?php _e('April'); ?>','<?php _e('May'); ?>','<?php _e('June'); ?>','<?php _e('July'); ?>','<?php _e('August'); ?>','<?php _e('September'); ?>','<?php _e('October'); ?>','<?php _e('November'); ?>','<?php _e('December'); ?>',],
+		monthNamesShort: ['<?php _e('Jan'); ?>','<?php _e('Feb'); ?>','<?php _e('Mar'); ?>','<?php _e('Apr'); ?>','<?php _e('May'); ?>','<?php _e('Jun'); ?>','<?php _e('Jul'); ?>','<?php _e('Aug'); ?>','<?php _e('Sep'); ?>','<?php _e('Oct'); ?>','<?php _e('Nov'); ?>','<?php _e('Dec'); ?>',],
+		header: {
+			left: 'title',
+			center: '',
+			right: 'basicWeek,month,today,prev,next' },
 	    	events: [
 
 <?php while ( jes_bp_events() ) : bp_jes_the_event();
