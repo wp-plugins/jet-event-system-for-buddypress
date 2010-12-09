@@ -69,6 +69,7 @@ class JES_EVENTS_ADMIN_PAGE {
 		$jes_events = get_option( 'jes-events' );
 		?>
 		<div id="jes-event-admin-general" class="wrap">
+		<?php echo "<div id='message' class='updated fade'><p>Support the development of plug-in! Do not give up a modest donation:)</p></div>"; ?>
 		<h2><img src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/jeslogo.gif'; ?>"></h2>
 		<?php
 /* JES */
@@ -805,6 +806,7 @@ function on_jes_events_admin_setupmain($jes_events) {
 					<option <?php if ($jes_events[ 'jes_events_notify_timed' ] == '12') { ?>selected<?php } ?> value="12"><?php echo sprintf ( __('%s hours','jet-event-system'),'12'); ?></option>
 					<option <?php if ($jes_events[ 'jes_events_notify_timed' ] == '24') { ?>selected<?php } ?> value="24"><?php echo sprintf ( __('%s hours','jet-event-system'),'24'); ?></option>
 					<option <?php if ($jes_events[ 'jes_events_notify_timed' ] == '48') { ?>selected<?php } ?> value="48"><?php echo sprintf ( __('%s hours','jet-event-system'),'48'); ?></option>
+					<option <?php if ($jes_events[ 'jes_events_notify_timed' ] == '72') { ?>selected<?php } ?> value="72"><?php echo sprintf ( __('%s hours','jet-event-system'),'72'); ?></option>
 			</select>
 			</td>
 		</tr>
