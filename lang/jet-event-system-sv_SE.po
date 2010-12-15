@@ -24,7 +24,7 @@ msgstr "Avatar"
 
 #: main/jet-event-start.php:193
 msgid "Make this a group event for one of your groups"
-msgstr "Gör detta till en gruppevenemang till en av dina grupper"
+msgstr "Koppla detta evenemang till en av dina grupper"
 
 #: main/jet-event-start.php:404
 #, php-format
@@ -105,12 +105,12 @@ msgstr "Anmälningar till evenemang"
 #: main/jet-events-activity.php:75
 #, php-format
 msgid "%d new membership requests for the event \"%s\""
-msgstr ""
+msgstr "%d nya medlemsförfrågan för detta evenemang \"%s\""
 
 #: main/jet-events-activity.php:78
 #, php-format
 msgid "%s requests membership for the event \"%s\""
-msgstr ""
+msgstr "%s vill gärna vara med i detta evenemang \"%s\""
 
 #: main/jet-events-activity.php:89
 #: main/jet-events-activity.php:102
@@ -125,42 +125,42 @@ msgstr "Evenemang"
 #: main/jet-events-activity.php:89
 #, php-format
 msgid "%d accepted event membership requests"
-msgstr ""
+msgstr "%d accepterade medlemsförfrågan"
 
 #: main/jet-events-activity.php:91
 #, php-format
 msgid "Membership for event \"%s\" accepted"
-msgstr ""
+msgstr "Deltagande i evenemanget \"%s\" har bekräftats"
 
 #: main/jet-events-activity.php:102
 #, php-format
 msgid "%d rejected event membership requests"
-msgstr ""
+msgstr "%d avvisade deltagande i evenemang"
 
 #: main/jet-events-activity.php:104
 #, php-format
 msgid "Membership for event \"%s\" rejected"
-msgstr ""
+msgstr "Deltagande i evenemanget \"%s\" har avvisats"
 
 #: main/jet-events-activity.php:115
 #, php-format
 msgid "You were promoted to an admin in %d events"
-msgstr ""
+msgstr "Du har utsetts till administratör i %d evenemang"
 
 #: main/jet-events-activity.php:117
 #, php-format
 msgid "You were promoted to an admin in the event %s"
-msgstr ""
+msgstr "Du har utsetts till administratör i evenemanget %s"
 
 #: main/jet-events-activity.php:128
 #, php-format
 msgid "You were promoted to a mod in %d events"
-msgstr ""
+msgstr "Du har utsetts till moderator i %d evenemanget"
 
 #: main/jet-events-activity.php:130
 #, php-format
 msgid "You were promoted to a mod in the event %s"
-msgstr ""
+msgstr "Du har utsetts till moderator i evenemanget %s"
 
 #: main/jet-events-activity.php:141
 #: main/jet-events-activity.php:143
@@ -170,12 +170,12 @@ msgstr "Evenemangsinbjudan"
 #: main/jet-events-activity.php:141
 #, php-format
 msgid "You have %d new event invitations"
-msgstr ""
+msgstr "Du har %d nya evenemangsinbjudan."
 
 #: main/jet-events-activity.php:143
 #, php-format
 msgid "You have an invitation to the event: %s"
-msgstr ""
+msgstr "Du har en inbjudan till evenemanget: %s"
 
 #: main/jet-events-admin.php:28
 msgid "Jet Event System"
@@ -210,44 +210,45 @@ msgid "Base Options"
 msgstr "Grundinställningar"
 
 #: main/jet-events-admin.php:47
+#, fuzzy
 msgid "Setting up access to the fields events"
-msgstr ""
+msgstr "Ändra tillgång till fält evenemang"
 
 #: main/jet-events-admin.php:49
 msgid "Style Options"
-msgstr ""
+msgstr "Stilinställning"
 
 #: main/jet-events-admin.php:51
 msgid "Classification options"
-msgstr ""
+msgstr "Kategoriinställning"
 
 #: main/jet-events-admin.php:53
 msgid "Google Map options (future)"
-msgstr ""
+msgstr "Google Map-inställning (kommer)"
 
 #: main/jet-events-admin.php:55
 msgid "Reminder options (future)"
-msgstr ""
+msgstr "Påminnelseinställning"
 
 #: main/jet-events-admin.php:57
 msgid "Restrict options"
-msgstr ""
+msgstr "Begränsingsinställning"
 
 #: main/jet-events-admin.php:59
 msgid "Privacy options"
-msgstr ""
+msgstr "Sekretessinställning"
 
 #: main/jet-events-admin.php:79
 msgid "Database updated."
-msgstr ""
+msgstr "Database. uppdaterades."
 
 #: main/jet-events-admin.php:85
 msgid "Templates updated."
-msgstr ""
+msgstr "Mallen uppdaterades."
 
 #: main/jet-events-admin.php:90
 msgid "Files checked."
-msgstr ""
+msgstr "Filerna kontrolerades."
 
 #: main/jet-events-admin.php:213
 #: main/jet-events-admin.php:219
@@ -284,11 +285,11 @@ msgstr ""
 
 #: main/jet-events-admin.php:421
 msgid "Recommended plugins"
-msgstr ""
+msgstr "Rekommenderade tillägg"
 
 #: main/jet-events-admin.php:430
 msgid "Recommended themes"
-msgstr ""
+msgstr "Rekommenderade teman"
 
 #: main/jet-events-admin.php:442
 msgid "version"
@@ -300,11 +301,11 @@ msgstr "build"
 
 #: main/jet-events-admin.php:444
 msgid "Template version:"
-msgstr ""
+msgstr "Mall version:"
 
 #: main/jet-events-admin.php:452
 msgid "DB version:"
-msgstr ""
+msgstr "DB version:"
 
 #: main/jet-events-admin.php:467
 msgid "Select the location you are using themes:"
@@ -312,23 +313,23 @@ msgstr ""
 
 #: main/jet-events-admin.php:475
 msgid "Update Database"
-msgstr ""
+msgstr "Uppdatera databasen"
 
 #: main/jet-events-admin.php:476
 msgid "Update Templates"
-msgstr ""
+msgstr "Uppdatera mallar"
 
 #: main/jet-events-admin.php:477
 msgid "Checking for files"
-msgstr ""
+msgstr "Kontrollera filer"
 
 #: main/jet-events-admin.php:488
 msgid "Allow costum slug"
-msgstr ""
+msgstr "Tillåt anpassad länk"
 
 #: main/jet-events-admin.php:491
 msgid "Slug:"
-msgstr ""
+msgstr "Länk:"
 
 #: main/jet-events-admin.php:498
 msgid "Sort of events in the directory (by default)"
@@ -344,7 +345,7 @@ msgstr "Kommande"
 #: templates/events/index.php:48
 #: templates/members/single/events.php:36
 msgid "Last Active"
-msgstr "Senast aktiv"
+msgstr "Senast aktivt"
 
 #: main/jet-events-admin.php:503
 #: templates/events/index.php:49
@@ -356,7 +357,7 @@ msgstr "Antal deltagare"
 #: templates/events/index.php:50
 #: templates/members/single/events.php:38
 msgid "Newly Created"
-msgstr "Senast skapad"
+msgstr "Senast skapat"
 
 #: main/jet-events-admin.php:505
 #: templates/events/index.php:51
@@ -366,7 +367,7 @@ msgstr "Alfabetisk ordning"
 
 #: main/jet-events-admin.php:507
 msgid "By:"
-msgstr ""
+msgstr ":"
 
 #: main/jet-events-admin.php:509
 msgid "Ascending"
@@ -492,35 +493,35 @@ msgstr ""
 
 #: main/jet-events-admin.php:685
 msgid "Classification - 1"
-msgstr ""
+msgstr "Kategori - 1"
 
 #: main/jet-events-admin.php:691
 msgid "Classification - 2"
-msgstr ""
+msgstr "Kategori - 2"
 
 #: main/jet-events-admin.php:698
 msgid "Classification - 3"
-msgstr ""
+msgstr "Kategori - 3"
 
 #: main/jet-events-admin.php:705
 msgid "Classification - 4"
-msgstr ""
+msgstr "Kategori - 4"
 
 #: main/jet-events-admin.php:712
 msgid "Classification - 5"
-msgstr ""
+msgstr "Kategori - 5"
 
 #: main/jet-events-admin.php:725
 msgid "Prohibit non-administrators to create events"
-msgstr ""
+msgstr "Förbjud icke-administratörer att skapa evenemang"
 
 #: main/jet-events-admin.php:732
 msgid "Allow verification of events by the administrator"
-msgstr ""
+msgstr "Tillåt godkännande av evenemang genom administratörer"
 
 #: main/jet-events-admin.php:744
 msgid "Allow indexing of events search engines"
-msgstr ""
+msgstr "Tillåt indexering av evenemang genom sökmotorer"
 
 #: main/jet-events-admin.php:751
 msgid "Deny access to events for unregistered users"
@@ -545,19 +546,19 @@ msgstr ""
 #: main/jet-events-admin.php:788
 #: templates/events/single/admin.php:334
 msgid "Administrators"
-msgstr ""
+msgstr "Administratörer"
 
 #: main/jet-events-admin.php:789
 msgid "All users"
-msgstr ""
+msgstr "Alla användare"
 
 #: main/jet-events-admin.php:790
 msgid "Function is not active"
-msgstr ""
+msgstr "Funktionen är inte aktiv"
 
 #: main/jet-events-admin.php:796
 msgid "Time remind default:"
-msgstr ""
+msgstr "Standardinställning för påmminnelser: "
 
 #: main/jet-events-admin.php:799
 #: main/jet-events-admin.php:800
@@ -568,7 +569,7 @@ msgstr ""
 #: main/jet-events-admin.php:805
 #, php-format
 msgid "%s hours"
-msgstr ""
+msgstr "%s timmar"
 
 #: main/jet-events-admin.php:817
 msgid "Use the following mechanism for the demonstration maps:"
@@ -576,30 +577,30 @@ msgstr ""
 
 #: main/jet-events-admin.php:820
 msgid "Google"
-msgstr ""
+msgstr "Google"
 
 #: main/jet-events-admin.php:821
 msgid "Image"
-msgstr ""
+msgstr "Bild"
 
 #: main/jet-events-ajax.php:29
 #: templates/events/create.php:421
 #: templates/events/single/send-invites.php:41
 msgid "Remove Invite"
-msgstr ""
+msgstr "Ta bort inbjudan"
 
 #: main/jet-events-classes.php:896
 msgid "Event Mod"
-msgstr ""
+msgstr "Evenemangsmoderator"
 
 #: main/jet-events-classes.php:902
 #: main/jet-events-operations.php:128
 msgid "Event Admin"
-msgstr ""
+msgstr "Evenemangsadministratör"
 
 #: main/jet-events-functions.php:132
 msgid "Current event"
-msgstr "Denna evenemang"
+msgstr "Detta evenemang"
 
 #: main/jet-events-functions.php:138
 #: main/jet-events-themetemplate.php:53
@@ -608,11 +609,11 @@ msgstr "Denna evenemang"
 #: templates/events/looptemplates/custom.php:47
 #: templates/events/single/event-header.php:42
 msgid "Past event"
-msgstr "Tidigare evenemang"
+msgstr "Avslutat evenemang"
 
 #: main/jet-events-functions.php:142
 msgid "Active event"
-msgstr "Aktiv"
+msgstr "Aktivt"
 
 #: main/jet-events-menu.php:41
 #, php-format
@@ -626,13 +627,13 @@ msgstr "Mina evenemang"
 
 #: main/jet-events-menu.php:50
 msgid "Invitations to Event"
-msgstr ""
+msgstr "Evenemangsinbjudningar"
 
 #: main/jet-events-menu.php:75
 #: main/jet-events-templatetags.php:1434
 #: main/jet-events-templatetags.php:2513
 msgid "Event Avatar"
-msgstr ""
+msgstr "Avatar"
 
 #: main/jet-events-menu.php:97
 msgid "Home"
@@ -641,16 +642,16 @@ msgstr "Hem"
 #: main/jet-events-menu.php:103
 #: templates/events/single/google-map.php:31
 msgid "Google Map"
-msgstr ""
+msgstr "Google Map"
 
 #: main/jet-events-menu.php:109
 #: templates/events/single/flyer.php:5
 msgid "Flyer"
-msgstr ""
+msgstr "Broschyr"
 
 #: main/jet-events-menu.php:114
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 #: main/jet-events-menu.php:118
 msgid "Request join to event"
@@ -668,29 +669,29 @@ msgstr "Skicka inbjudan"
 
 #: main/jet-events-menu.php:149
 msgid "Admin Options"
-msgstr ""
+msgstr "Administrationsinställningar"
 
 #: main/jet-events-menu.php:152
 #: main/jet-events-templatetags.php:1443
 #: templates/events/single/admin.php:471
 msgid "Delete Event"
-msgstr ""
+msgstr "Ta bort evenemang"
 
 #: main/jet-events-module_eu.php:51
 msgid "An event with this name already exists .. do not want to change it?"
-msgstr ""
+msgstr "Ett evenemang med detta namn finns redan. Vill du ändra det?"
 
 #: main/jet-events-module_eu.php:53
 msgid "good name for the event"
-msgstr ""
+msgstr "bra namn för evenemanget"
 
 #: main/jet-events-module_eu.php:58
 msgid "The event name can not be empty .."
-msgstr ""
+msgstr "Evenemangets namn kan inte vara tomt"
 
 #: main/jet-events-notifications.php:7
 msgid "Event Details Updated"
-msgstr ""
+msgstr "Evenemangsdetaljer har uppdaterats"
 
 #: main/jet-events-notifications.php:22
 #, php-format
@@ -765,11 +766,11 @@ msgstr ""
 
 #: main/jet-events-notifications.php:144
 msgid "an administrator"
-msgstr ""
+msgstr "en administratör"
 
 #: main/jet-events-notifications.php:147
 msgid "a moderator"
-msgstr ""
+msgstr "en moderator"
 
 #: main/jet-events-notifications.php:166
 #, php-format
@@ -829,7 +830,7 @@ msgstr ""
 #: main/jet-events-operations.php:361
 #: templates/events/create.php:262
 msgid "Reminder"
-msgstr ""
+msgstr "Påminnelse"
 
 #: main/jet-events-operations.php:377
 #, php-format
@@ -844,23 +845,23 @@ msgstr ""
 
 #: main/jet-events-screen.php:37
 msgid "Event invite could not be accepted"
-msgstr ""
+msgstr "Evenemangsinbjudan kunde inte accepteras"
 
 #: main/jet-events-screen.php:39
 msgid "Event invite accepted"
-msgstr ""
+msgstr "Evenemangsinbjudan har accepterats"
 
 #: main/jet-events-screen.php:59
 msgid "Event invite could not be rejected"
-msgstr ""
+msgstr "Evenemangsinbjudan kunde inte avvisas"
 
 #: main/jet-events-screen.php:61
 msgid "Event invite rejected"
-msgstr ""
+msgstr "Evenemangsinbjudan har avvisats"
 
 #: main/jet-events-screen.php:133
 msgid "Event invites sent."
-msgstr ""
+msgstr "Evenemangsinbjudan har skickats"
 
 #: main/jet-events-screen.php:159
 msgid "There was an error sending your join event request, please try again."
@@ -884,7 +885,7 @@ msgstr ""
 
 #: main/jet-events-screen.php:253
 msgid "Event settings were successfully updated."
-msgstr ""
+msgstr "Evenemangsinställningar har uppdaterats."
 
 #: main/jet-events-screen.php:283
 msgid "Your avatar was deleted successfully!"
@@ -948,49 +949,50 @@ msgstr ""
 
 #: main/jet-events-screen.php:459
 msgid "Event membership request rejected"
-msgstr ""
+msgstr "Förfrågan om evenemangsdeltagande har avslagits."
 
 #: main/jet-events-screen.php:491
 msgid "There was an error deleting the event, please try again."
-msgstr ""
+msgstr "Det uppstod ett fel när evenemanget skulel ha tagits bort, försök igen."
 
 #: main/jet-events-screen.php:493
 msgid "The event was deleted successfully"
-msgstr ""
+msgstr "Evenemanget har tagits bort."
 
 #: main/jet-events-screen.php:517
 #: templates/events/create.php:265
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: main/jet-events-screen.php:518
 #: templates/events/create.php:266
 msgid "No"
-msgstr ""
+msgstr "Nej"
 
 #: main/jet-events-screen.php:525
 msgid "A member invites you to join a event"
-msgstr ""
+msgstr "En medlem bjuder in dig till ett evenemang"
 
 #: main/jet-events-screen.php:531
 msgid "Event information is updated"
-msgstr ""
+msgstr "Evenemangsinformationen har uppdaterats"
 
 #: main/jet-events-screen.php:538
 msgid "You are promoted to a event administrator or moderator"
-msgstr ""
+msgstr "Du har befordrats till en evenemangsadministratör eller -moderator"
 
 #: main/jet-events-screen.php:544
 msgid "A member requests to join a private event for which you are an admin"
-msgstr ""
+msgstr "En medlem ansöker om att delta i ett privat evenemang där du är administratör"
 
 #: main/jet-events-screen.php:551
+#, fuzzy
 msgid "You come reminder of imminent events"
-msgstr ""
+msgstr "Du får en påminnelse om evenemang som snart äger rum."
 
 #: main/jet-events-templatetags.php:276
 msgid "Public Event"
-msgstr "Offentlig"
+msgstr "Offentligt"
 
 #: main/jet-events-templatetags.php:278
 msgid "Hidden Event"
@@ -1006,20 +1008,20 @@ msgstr "Evenemang"
 
 #: main/jet-events-templatetags.php:311
 msgid "Avatar Image"
-msgstr ""
+msgstr "Avatarbild"
 
 #: main/jet-events-templatetags.php:510
 #: main/jet-events-templatetags.php:2340
 msgid "Event avatar"
-msgstr ""
+msgstr "Avatar"
 
 #: main/jet-events-templatetags.php:566
 msgid "not yet active"
-msgstr ""
+msgstr "inte aktiverad än"
 
 #: main/jet-events-templatetags.php:1030
 msgid "Public"
-msgstr "Offentlig"
+msgstr "Offentligt"
 
 #: main/jet-events-templatetags.php:1032
 msgid "Private"
@@ -1027,11 +1029,11 @@ msgstr "Privat"
 
 #: main/jet-events-templatetags.php:1087
 msgid "No Admins"
-msgstr ""
+msgstr "Inga administratörer"
 
 #: main/jet-events-templatetags.php:1107
 msgid "No Mods"
-msgstr ""
+msgstr "Inga moderatorer"
 
 #: main/jet-events-templatetags.php:1129
 msgid "Filter Events"
@@ -1057,48 +1059,48 @@ msgstr "%s deltagare"
 #: main/jet-events-templatetags.php:1214
 #, php-format
 msgid "(%s)"
-msgstr ""
+msgstr "(%s)"
 
 #: main/jet-events-templatetags.php:1255
 #: main/jet-events-templatetags.php:1293
 msgid "Demote to Member"
-msgstr ""
+msgstr "Degradera till medlem"
 
 #: main/jet-events-templatetags.php:1261
 #: main/jet-events-templatetags.php:1299
 #: main/jet-events-templatetags.php:1917
 #, php-format
 msgid "joined %s ago"
-msgstr ""
+msgstr "anmält sig för %s dagar"
 
 #: main/jet-events-templatetags.php:1274
 msgid "This event has no administrators"
-msgstr ""
+msgstr "Detta evenemang har inga administratörer"
 
 #: main/jet-events-templatetags.php:1293
 #: templates/events/single/admin.php:382
 msgid "Promote to Admin"
-msgstr ""
+msgstr "Befordra till administratör"
 
 #: main/jet-events-templatetags.php:1312
 msgid "This event has no moderators"
-msgstr ""
+msgstr "Detta evenemang har inga moderatorer"
 
 #: main/jet-events-templatetags.php:1426
 msgid "Edit Details"
-msgstr ""
+msgstr "Redigera detaljer"
 
 #: main/jet-events-templatetags.php:1433
 msgid "Event Settings"
-msgstr ""
+msgstr "Evenemangsinställningar"
 
 #: main/jet-events-templatetags.php:1435
 msgid "Manage Members"
-msgstr ""
+msgstr "Hantera deltagare"
 
 #: main/jet-events-templatetags.php:1438
 msgid "Membership Requests"
-msgstr ""
+msgstr "Ansök om medlemskap"
 
 #: main/jet-events-templatetags.php:1624
 #: main/jet-events-templatetags.php:1632
@@ -1112,27 +1114,27 @@ msgstr "Jag vill anmäla mig"
 
 #: main/jet-events-templatetags.php:1635
 msgid "Request to join Event"
-msgstr ""
+msgstr "Ansök om att delta i evenemanget"
 
 #: main/jet-events-templatetags.php:1637
 msgid "Request Sent"
-msgstr ""
+msgstr "Färfågan sänd"
 
 #: main/jet-events-templatetags.php:1659
 msgid "This is a private event and you must request event membership in order to join."
-msgstr ""
+msgstr "Detta är ett privat evenemang och du måste skicka en förfrågan om att delta."
 
 #: main/jet-events-templatetags.php:1661
 msgid "This is a private event. To join you must be a registered site member and request event membership."
-msgstr ""
+msgstr "Detta är ett privat evenemang. För att delta måste du vara medlem i nätverket och skicka en förfrågan om att delta i evenemanget."
 
 #: main/jet-events-templatetags.php:1663
 msgid "This is a private event. Your membership request is awaiting approval from the event administrator."
-msgstr ""
+msgstr "Detta är ett privat evenemang. Din förfrågan om deltagande väntar på godkännande från administratören."
 
 #: main/jet-events-templatetags.php:1665
 msgid "This is a hidden event and only invited members can join."
-msgstr ""
+msgstr "Detta är ett dolt evenemang och bara inbjudna deltagare kan delta."
 
 #: main/jet-events-templatetags.php:1967
 #, php-format
@@ -1141,51 +1143,51 @@ msgstr "Visar deltagare %1$s till %2$s (av %3$s)"
 
 #: main/jet-events-templatetags.php:2447
 msgid "Search"
-msgstr ""
+msgstr "Sök"
 
 #: main/jet-events-templatetags.php:2455
 #: main/jet-events-templatetags.php:2472
 msgid "Recently Active"
-msgstr ""
+msgstr "Senast aktiva"
 
 #: main/jet-events-templatetags.php:2456
 #: main/jet-events-templatetags.php:2475
 msgid "Recently Joined"
-msgstr ""
+msgstr "Senast anmälda"
 
 #: main/jet-events-templatetags.php:2457
 #: main/jet-events-templatetags.php:2478
 #: main/jet-events-widgets.php:40
 msgid "Most Popular"
-msgstr ""
+msgstr "Populära"
 
 #: main/jet-events-templatetags.php:2458
 #: main/jet-events-templatetags.php:2481
 msgid "Administrator Of"
-msgstr ""
+msgstr "Administratör för "
 
 #: main/jet-events-templatetags.php:2459
 #: main/jet-events-templatetags.php:2484
 msgid "Moderator Of"
-msgstr ""
+msgstr "Moderator för"
 
 #: main/jet-events-templatetags.php:2460
 #: main/jet-events-templatetags.php:2487
 msgid "Alphabetically"
-msgstr ""
+msgstr "Alfabetiskt"
 
 #: main/jet-events-templatetags.php:2515
 msgid "No Event Avatar"
-msgstr ""
+msgstr "Avatar"
 
 #: main/jet-events-templatetags.php:2760
 #, php-format
 msgid "requested %s ago"
-msgstr ""
+msgstr "begärd före %s sedan"
 
 #: main/jet-events-templatetags.php:2942
 msgid "Member avatar"
-msgstr ""
+msgstr "Medlemsavatar"
 
 #: main/jet-events-themetemplate.php:28
 #: main/jet-events-themetemplate.php:98
@@ -1204,7 +1206,7 @@ msgstr "-"
 #: main/jet-events-themetemplate.php:31
 #: templates/events/looptemplates/custom.php:25
 msgid "Short description:"
-msgstr ""
+msgstr "Kort beskrivning:"
 
 #: main/jet-events-themetemplate.php:33
 #: main/jet-events-themetemplate.php:110
@@ -1243,22 +1245,22 @@ msgstr " "
 #: main/jet-events-themetemplate.php:186
 #: templates/events/looptemplates/custom.php:55
 msgid "Event requires approval!"
-msgstr ""
+msgstr "Evenemanget behöver godkännas!"
 
 #: main/jet-events-themetemplate.php:65
 #: main/jet-events-themetemplate.php:128
 #: main/jet-events-themetemplate.php:190
 #, php-format
 msgid "Last activity:<br /> %s ago"
-msgstr ""
+msgstr "Senaste aktivitet: före <br /> %s sedan"
 
 #: main/jet-events-widgets.php:38
 msgid "Newest"
-msgstr ""
+msgstr "Nyaste"
 
 #: main/jet-events-widgets.php:39
 msgid "Most Active"
-msgstr ""
+msgstr "Aktiva"
 
 #: main/jet-events-widgets.php:121
 #: main/jet-events-widgets.php:238
@@ -1277,64 +1279,64 @@ msgstr "Slutar:"
 
 #: main/jet-events-widgets.php:132
 msgid "There are no events to display."
-msgstr ""
+msgstr "Det finns inga evenemang att visa."
 
 #: main/jet-events-widgets.php:169
 msgid "Title:"
-msgstr ""
+msgstr "Titel:"
 
 #: main/jet-events-widgets.php:171
 msgid "Max events to show:"
-msgstr ""
+msgstr "Max antal evenemang att visa: "
 
 #: main/jet-events-widgets.php:174
 msgid "Show navigation:"
-msgstr ""
+msgstr "Visa navigation:"
 
 #: main/jet-events-widgets.php:177
 msgid "Show type of event and its Classification:"
-msgstr ""
+msgstr "Visa evenemangstyp och klassificering:"
 
 #: main/jet-events-widgets.php:179
 msgid "Show time:"
-msgstr ""
+msgstr "Visa tid:"
 
 #: main/jet-events-widgets.php:181
 msgid "Show the country and state for the event (if allowed to use administrative panel):"
-msgstr ""
+msgstr "Visa land och stat för evenemanget (om tillåtet att använda adminpanelen):"
 
 #: main/jet-events-widgets.php:184
 msgid "Show archived events only for administrator:"
-msgstr ""
+msgstr "Visa erkiverade evenemang bara för administratörer:"
 
 #: main/jet-events-widgets.php:187
 msgid "Color to archive events:"
-msgstr ""
+msgstr "Färg för arkiverade evenemang:"
 
 #: main/jet-events-widgets.php:189
 msgid "Show avatar:"
-msgstr ""
+msgstr "Visa avatar:"
 
 #: main/jet-events-widgets.php:231
 #, php-format
 msgid "created %s ago"
-msgstr ""
+msgstr "skapad före %s sedan"
 
 #: main/jet-events-widgets.php:233
 #: templates/events/single/event-header.php:35
 #, php-format
 msgid "active %s ago"
-msgstr ""
+msgstr "aktivt före %s sedan"
 
 #: main/jet-events-widgets.php:253
 msgid "No events matched the current filter."
-msgstr ""
+msgstr "Inga evenemang matcahde det aktuella filtret."
 
 #: templates/events/create.php:24
 #: templates/events/index.php:18
 #: templates/events/index.php:24
 msgid "Create an Event"
-msgstr ""
+msgstr "Skapa evenemang"
 
 #: templates/events/create.php:24
 #: templates/events/index.php:7
@@ -1350,7 +1352,7 @@ msgstr "Om evenemanget"
 #: templates/events/create.php:48
 #: templates/events/single/admin.php:21
 msgid "* Event Name"
-msgstr ""
+msgstr "* Rubrik"
 
 #: templates/events/create.php:48
 #: templates/events/create.php:70
@@ -1370,32 +1372,32 @@ msgstr ""
 #: templates/events/single/admin.php:145
 #: templates/events/single/admin.php:177
 msgid "(required)"
-msgstr ""
+msgstr "(obligatoriskt)"
 
 #: templates/events/create.php:70
 #: templates/events/single/admin.php:33
 msgid "* Event classification"
-msgstr ""
+msgstr "* Klassificering"
 
 #: templates/events/create.php:92
 #: templates/events/single/admin.php:45
 msgid "* Event Description"
-msgstr ""
+msgstr "* Beskrivning"
 
 #: templates/events/create.php:96
 #: templates/events/single/admin.php:49
 msgid "* Event Country"
-msgstr ""
+msgstr "* Land"
 
 #: templates/events/create.php:103
 #: templates/events/single/admin.php:57
 msgid "* Event State"
-msgstr ""
+msgstr "* Stat"
 
 #: templates/events/create.php:109
 #: templates/events/single/admin.php:64
 msgid "* Event City"
-msgstr ""
+msgstr "* Stad"
 
 #: templates/events/create.php:114
 #: templates/events/single/admin.php:69
@@ -1409,38 +1411,38 @@ msgstr "Adress"
 #: templates/events/single/details.php:34
 #: templates/events/single/google-map.php:26
 msgid "Event note"
-msgstr ""
+msgstr "Anteckning"
 
 #: templates/events/create.php:126
 #: templates/events/single/admin.php:109
 msgid "News for event"
-msgstr ""
+msgstr "Nyheter"
 
 #: templates/events/create.php:129
 msgid "Event Public news"
-msgstr ""
+msgstr "Offentliga nyheter"
 
 #: templates/events/create.php:133
 #: templates/events/single/admin.php:116
 #: templates/events/single/details.php:64
 msgid "Private Event News"
-msgstr ""
+msgstr "Privata nyheter"
 
 #: templates/events/create.php:137
 #: templates/events/single/admin.php:104
 #: templates/events/single/details.php:43
 msgid "Special Conditions"
-msgstr ""
+msgstr "Särskilda förutsättningar"
 
 #: templates/events/create.php:144
 #: templates/events/single/admin.php:85
 msgid "Link to Google Maps or any other image"
-msgstr ""
+msgstr "Länk till Google Maps eller andra bilder"
 
 #: templates/events/create.php:154
 #: templates/events/single/admin.php:96
 msgid "Link to image flyer"
-msgstr ""
+msgstr "Länk till bild"
 
 #: templates/events/create.php:164
 #: templates/events/single/admin.php:141
@@ -1451,99 +1453,99 @@ msgstr "När?"
 #: templates/events/create.php:168
 #: templates/events/single/admin.php:145
 msgid "* Event Start date"
-msgstr ""
+msgstr "* Startdatum"
 
 #: templates/events/create.php:181
 #: templates/events/create.php:213
 #: templates/events/single/admin.php:158
 #: templates/events/single/admin.php:190
 msgid " hours"
-msgstr ""
+msgstr "timmar"
 
 #: templates/events/create.php:191
 #: templates/events/create.php:223
 #: templates/events/single/admin.php:168
 #: templates/events/single/admin.php:200
 msgid " minutes"
-msgstr ""
+msgstr "minuter"
 
 #: templates/events/create.php:200
 #: templates/events/single/admin.php:177
 msgid "* Event End date"
-msgstr ""
+msgstr "* Slutdatum"
 
 #: templates/events/create.php:263
 #, php-format
 msgid "Remind participants about the early events in %s hours?"
-msgstr ""
+msgstr "Påminn deltagare om evenemang inom %s timmar?"
 
 #: templates/events/create.php:289
 #: templates/events/single/admin.php:228
 msgid "Privacy Options"
-msgstr ""
+msgstr "Sekretessinställningar"
 
 #: templates/events/create.php:293
 #: templates/events/single/admin.php:233
 msgid "This is a public event"
-msgstr ""
+msgstr "Detta är ett offentligt evenemang"
 
 #: templates/events/create.php:295
 #: templates/events/single/admin.php:235
 msgid "Any site member can join this event."
-msgstr ""
+msgstr "Alla medlemmar i nätverket kan anmäla sig till detta evenemang."
 
 #: templates/events/create.php:296
 #: templates/events/create.php:305
 #: templates/events/single/admin.php:236
 #: templates/events/single/admin.php:245
 msgid "This event will be listed in the events directory and in search results."
-msgstr ""
+msgstr "Detta evenemang kommer att visas i evenemangslistan och i sökresultaten."
 
 #: templates/events/create.php:297
 #: templates/events/single/admin.php:237
 msgid "Event content and activity will be visible to any site member."
-msgstr ""
+msgstr "Evenemangets innehåll och aktivitet kommer att visas för alla nätverksmedlemmar."
 
 #: templates/events/create.php:302
 #: templates/events/single/admin.php:242
 msgid "This is a private event"
-msgstr ""
+msgstr "Detta är ett privat evenemang"
 
 #: templates/events/create.php:304
 msgid "Just send a request to join, users can join the event."
-msgstr ""
+msgstr "Skicka en förfrågan om att delta, användare kan delta i evenemanget"
 
 #: templates/events/create.php:306
 #: templates/events/create.php:315
 #: templates/events/single/admin.php:246
 #: templates/events/single/admin.php:255
 msgid "Event content and activity will only be visible to members of the event."
-msgstr ""
+msgstr "Evenemangets innehåll och aktivitet kommer bara att visas för evenemangsdeltagare."
 
 #: templates/events/create.php:311
 #: templates/events/single/admin.php:251
 msgid "This is a hidden event"
-msgstr ""
+msgstr "Detta är ett gömt evenemang"
 
 #: templates/events/create.php:313
 #: templates/events/single/admin.php:253
 msgid "Only users who are invited can join the event."
-msgstr ""
+msgstr "Bara inbjudna medlemmar kan delta i evenemanget."
 
 #: templates/events/create.php:314
 #: templates/events/single/admin.php:254
 msgid "This event will not be listed in the events directory or search results."
-msgstr ""
+msgstr "Detta evenemang kommer inte att visas i evenemangslistan och i sökresultaten."
 
 #: templates/events/create.php:320
 #: templates/events/single/admin.php:260
 msgid "Group/Forum link options"
-msgstr ""
+msgstr "Grupp/Forum inställningar"
 
 #: templates/events/create.php:321
 #: templates/events/single/admin.php:261
 msgid "Select the group you want to contact the event:"
-msgstr ""
+msgstr "Välj till vilken grupp evenemanget ska kopplas:"
 
 #: templates/events/create.php:344
 #: templates/events/single/admin.php:287
@@ -1566,17 +1568,17 @@ msgstr ""
 #: templates/events/create.php:361
 #: templates/events/single/admin.php:308
 msgid "Avatar to crop"
-msgstr ""
+msgstr "Avatar att beskära"
 
 #: templates/events/create.php:364
 #: templates/events/single/admin.php:311
 msgid "Avatar preview"
-msgstr ""
+msgstr "Förhandsgranska avatar"
 
 #: templates/events/create.php:367
 #: templates/events/single/admin.php:314
 msgid "Crop Image"
-msgstr ""
+msgstr "Beskär bild"
 
 #: templates/events/create.php:405
 #: templates/events/single/send-invites.php:22
@@ -1590,35 +1592,35 @@ msgstr ""
 
 #: templates/events/create.php:454
 msgid "Previous Step"
-msgstr ""
+msgstr "Föregående steg"
 
 #: templates/events/create.php:459
 msgid "Next Step"
-msgstr ""
+msgstr "Nästa steg"
 
 #: templates/events/create.php:464
 msgid "Create Event and Continue"
-msgstr ""
+msgstr "Skapa evenemang och fortsätt"
 
 #: templates/events/create.php:469
 msgid "Finish"
-msgstr ""
+msgstr "Slut"
 
 #: templates/events/events-loop.php:17
 msgid "Style:"
-msgstr ""
+msgstr "Stil:"
 
 #: templates/events/events-loop.php:17
 msgid "jes_events_style"
-msgstr ""
+msgstr "jes_events_style"
 
 #: templates/events/events-loop.php:25
 msgid "Private events are not shown, register to view"
-msgstr ""
+msgstr "Privata evenemang visas inte för oregistrerade användare"
 
 #: templates/events/events-loop.php:111
 msgid "There were no events found."
-msgstr ""
+msgstr "Det finns inga evenemang."
 
 #: templates/events/index.php:33
 #, php-format
@@ -1637,7 +1639,7 @@ msgstr "Sortera efter"
 
 #: templates/events/single/activity.php:3
 msgid "RSS"
-msgstr ""
+msgstr "RSS"
 
 #: templates/events/single/activity.php:9
 msgid "No Filter"
@@ -1645,37 +1647,37 @@ msgstr "Inget filter"
 
 #: templates/events/single/activity.php:10
 msgid "Show Updates"
-msgstr ""
+msgstr "Visa uppdateringar"
 
 #: templates/events/single/activity.php:11
 msgid "Show New Event Memberships"
-msgstr ""
+msgstr "Visa nya evenemangsdeltagare"
 
 #: templates/events/single/admin.php:27
 msgid "Approve Event?"
-msgstr ""
+msgstr "Godkänna evenemanget?"
 
 #: templates/events/single/admin.php:29
 msgid "Approve"
-msgstr ""
+msgstr "Godkännt"
 
 #: templates/events/single/admin.php:30
 msgid "Not Approve"
-msgstr ""
+msgstr "Inte godkännt"
 
 #: templates/events/single/admin.php:112
 #: templates/events/single/details.php:54
 msgid "Public Event News"
-msgstr ""
+msgstr "Offentliga evenemangsnyheter"
 
 #: templates/events/single/admin.php:208
 msgid "Notify participants of the event to update the details?"
-msgstr ""
+msgstr "Vill du meddela deltagarna ändringar i evenemanget?"
 
 #: templates/events/single/admin.php:218
 #: templates/events/single/admin.php:277
 msgid "Save Changes"
-msgstr ""
+msgstr "Spara ändringar"
 
 #: templates/events/single/admin.php:244
 msgid "Only users who request membership and are accepted can join the event."
@@ -1687,59 +1689,59 @@ msgstr ""
 
 #: templates/events/single/admin.php:297
 msgid "Delete Avatar"
-msgstr ""
+msgstr "Ta bort avatar"
 
 #: templates/events/single/admin.php:307
 msgid "Crop Avatar"
-msgstr ""
+msgstr "Beskär avatar"
 
 #: templates/events/single/admin.php:341
 msgid "Moderators"
-msgstr ""
+msgstr "Moderatorer"
 
 #: templates/events/single/admin.php:348
 msgid "Members"
-msgstr ""
+msgstr "Deltagare"
 
 #: templates/events/single/admin.php:376
 msgid "(banned)"
-msgstr ""
+msgstr "(Utslängd)"
 
 #: templates/events/single/admin.php:376
 #: templates/events/single/admin.php:382
 msgid "Kick and ban this member"
-msgstr ""
+msgstr "Släng ut och banna denna deltagare"
 
 #: templates/events/single/admin.php:376
 msgid "Remove Ban"
-msgstr ""
+msgstr "Ta bort bann"
 
 #: templates/events/single/admin.php:382
 msgid "Kick &amp; Ban"
-msgstr ""
+msgstr "Släng ut &amp; Banna"
 
 #: templates/events/single/admin.php:382
 msgid "Promote to Mod"
-msgstr ""
+msgstr "Befordra till moderator"
 
 #: templates/events/single/admin.php:395
 #: templates/events/single/members.php:51
 msgid "This event has no members."
-msgstr ""
+msgstr "Detta evenemang har inga deltagare."
 
 #: templates/events/single/admin.php:426
 #: templates/members/single/events/invites.php:20
 msgid "Accept"
-msgstr ""
+msgstr "Acceptera"
 
 #: templates/events/single/admin.php:432
 #: templates/members/single/events/invites.php:21
 msgid "Reject"
-msgstr ""
+msgstr "Avvisa"
 
 #: templates/events/single/admin.php:446
 msgid "There are no pending membership requests."
-msgstr ""
+msgstr "Det finns inga väntande deltagarförfrågningar."
 
 #: templates/events/single/admin.php:463
 msgid "WARNING: Deleting this event will completely remove ALL content associated with it. There is no way back, please be careful with this option."
@@ -1747,7 +1749,7 @@ msgstr ""
 
 #: templates/events/single/admin.php:466
 msgid "I understand the consequences of deleting this event."
-msgstr ""
+msgstr "Jag förstår konsekvenserna av att ta bort detta evenemang."
 
 #: templates/events/single/details.php:9
 msgid "Event Description"
@@ -1772,11 +1774,11 @@ msgstr "Slutar"
 
 #: templates/events/single/event-header.php:9
 msgid "Event Admins"
-msgstr ""
+msgstr "Evenemangsadministratörer"
 
 #: templates/events/single/event-header.php:17
 msgid "Event Mods"
-msgstr ""
+msgstr "Evenemangsmoderatorer"
 
 #: templates/events/single/event-header.php:36
 msgid "Event classification"
@@ -1784,16 +1786,16 @@ msgstr "Kategori"
 
 #: templates/events/single/event-header.php:72
 msgid "Outlook"
-msgstr ""
+msgstr "Outlook"
 
 #: templates/events/single/event-header.php:73
 msgid "iPhone"
-msgstr ""
+msgstr "iPhone"
 
 #: templates/events/single/event-header.php:81
 #, php-format
 msgid "You can not join or refuse to participate in an event as this - %s"
-msgstr ""
+msgstr "Du kan inte anmäla dig för detta evenemang. Orsak: %s"
 
 #: templates/events/single/flyer.php:19
 msgid "Available only to participants of the event!"
@@ -1801,7 +1803,7 @@ msgstr ""
 
 #: templates/events/single/flyer.php:23
 msgid "Currently unavailable"
-msgstr ""
+msgstr "Inte tillgängligt just nu"
 
 #: templates/events/single/request-join-to-event.php:4
 #, php-format
@@ -1810,17 +1812,17 @@ msgstr ""
 
 #: templates/events/single/request-join-to-event.php:7
 msgid "Comments (optional)"
-msgstr ""
+msgstr "Kommentarer (frivillgt)"
 
 #: templates/events/single/request-join-to-event.php:12
 msgid "Send Request"
-msgstr ""
+msgstr "Skicka förfrågan"
 
 #: templates/members/single/events.php:40
 msgid "Soon"
-msgstr ""
+msgstr "Snart"
 
 #: templates/members/single/events/invites.php:34
 msgid "You have no outstanding event invites."
-msgstr ""
+msgstr "Du har inga väntande evenemangsinbjudan"
 
