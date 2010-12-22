@@ -419,7 +419,7 @@ msgstr "Tillåt Anteckning"
 
 #: main/jet-events-admin.php:582
 msgid "Allow Event GoogleMap"
-msgstr "Tillår GoogleMap"
+msgstr "Tillåt GoogleMap"
 
 #: main/jet-events-admin.php:589
 msgid "Allow Event Flyer"
@@ -427,7 +427,7 @@ msgstr "Tillåt Flyer"
 
 #: main/jet-events-admin.php:602
 msgid "Style for Event Catalog:"
-msgstr ""
+msgstr "Stil för evenemangskatalog:"
 
 #: main/jet-events-admin.php:605
 #: main/jet-events-admin.php:618
@@ -453,7 +453,7 @@ msgstr ""
 
 #: main/jet-events-admin.php:615
 msgid "Style for Single Event:"
-msgstr ""
+msgstr "Stil för enskilt evenemang:"
 
 #: main/jet-events-admin.php:624
 msgid "Avatar Options"
