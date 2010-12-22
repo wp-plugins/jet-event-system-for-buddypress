@@ -1,5 +1,5 @@
 === Jet Event System for BuddyPress ===
-Contributors: milordk, Jettochkin
+Contributors: milordk
 Donate link: http://milordk.ru/projects/wordpress-buddypress/podderzhka.html
 Plugin link: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Authoe link: http://milordk.ru/
