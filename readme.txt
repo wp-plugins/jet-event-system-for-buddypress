@@ -142,6 +142,7 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 = 1.6.5.7 =
 
+* !!! Update technical, optional
 * Tested with BP 1.2.7
 * Update sv_SE translate
 
