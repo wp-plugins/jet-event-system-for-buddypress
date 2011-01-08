@@ -36,7 +36,7 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://vol
 
 1. Upload `jet-event-system-for-buddypress` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Visit the admin panel plugin (JES Event System)
+3. Visit the admin panel plugin (BuddyPress -> JES Event System)
 4. The plugin automatically updates the Templates (and DB), but if you changed the subject and / or updated plug-in - need to visit the administrative panel of the plugin and follow the instructions - upgrade Templates!
 5. Add widget to site (if needed)
 6. See Events Catalog: http://yousite/events
