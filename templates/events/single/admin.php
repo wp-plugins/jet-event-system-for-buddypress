@@ -141,7 +141,7 @@
 			<h4><?php _e('Event Date','jet-event-system') ?></h4>
 				<table>
 					<tr>
-						<td widht="49%">
+						<td width="49%">
 							<label for="event-edtsd"><?php _e('* Event Start date', 'jet-event-system') ?> <?php _e( '(required)', 'jet-event-system' )?></label>
 						</td>
 						<td>

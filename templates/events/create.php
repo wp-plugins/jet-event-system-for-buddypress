@@ -41,6 +41,7 @@
 				<?php if ( jes_is_event_creation_step( 'event-details' ) ) : ?>
 
 					<?php do_action( 'bp_before_event_details_creation_step' ); ?>
+	<div style="clear:left;"></div>
 	<table valign="top">
 		<tr>
 			<td width="50%" style="vertical-align:top;">

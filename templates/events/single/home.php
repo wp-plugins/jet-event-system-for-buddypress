@@ -20,6 +20,8 @@
 				</div>
 			</div><!-- #item-nav -->
 
+	<div style="clear:left;"></div>
+
 			<div id="item-body">
 				<?php do_action( 'bp_before_event_body' ) ?>
 

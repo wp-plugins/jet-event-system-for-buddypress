@@ -234,8 +234,8 @@ function events_ajax_widget_events_list() {
 								} else if ( 'popular-events' == $_POST['filter'] ) {
 									jes_bp_event_member_count();
 								}
-								 else if ( 'soon-events' == $_POST['filter'] ) {
-								?><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>, <?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?> <?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?> <?
+								 else if ( 'soon-events' == $_POST['filter'] ) { ?>
+								<?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>, <?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?> <?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?> <?php
 								}								
 								?>
 							</span>
