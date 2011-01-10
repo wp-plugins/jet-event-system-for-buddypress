@@ -140,6 +140,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.6.5.8.1 =
+
+* Fix: en-US and sr-RS date format for datapicker
+
 = 1.6.5.8 =
 
 * Fixed widgets (php shot code, thanks RoyDean Leighton, Jr. and Brajesh)
