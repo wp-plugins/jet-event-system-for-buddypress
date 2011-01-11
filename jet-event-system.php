@@ -12,7 +12,7 @@ Network: true
 
 define ('Jet Events System', '1.6.5.8.1');
 define ('JES_EVENTS_VERSION', '1.6' );
-define ('JES_EVENTS_BUILD', '3' );
+define ('JES_EVENTS_BUILD', '5' );
 define ('JES_EVENTS_DB_VERSION', 17 );
 define ('JES_EVENTS_THEME_VERSION', 26 );
 define ('JES_EVENTS_RELEASE', '2011-01-10');
