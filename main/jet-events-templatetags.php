@@ -153,7 +153,7 @@ function bp_is_event_membership_request() {
 function bp_jes_has_events( $args = '' ) {
 	global $events_template, $bp;
 
-	$sdata = get_option( 'jes_events' );
+	$sdata = get_site_option('jes_events' );
 	$sortby = $sdata[ 'jes_events_sort_by' ];
 	$sortby_ad = $sdata[ 'jes_events_sort_by_ad' ];	
 	
@@ -2402,7 +2402,7 @@ function bp_new_jes_event_invite_friend_list() {
 		$r = wp_parse_args( $args, $defaults );
 		extract( $r, EXTR_SKIP );
 
-		$jes_adata = get_option( 'jes_events' );
+		$jes_adata = get_site_option('jes_events' );
 		$eshowavatar = $jes_adata[ 'jes_events_show_avatar_invite_enable' ];		
 		
 		if ( !$event_id )
@@ -2422,7 +2422,7 @@ function bp_new_jes_event_invite_friend_list() {
 					}
 				}
 			if ($eshowavatar) { 
-				$adata = get_option( 'jes_events' );
+				$adata = get_site_option('jes_events' );
 				$size_for_avatar = $adata['jes_events_show_avatar_invite_size'];
 				$padding_size = (int)($size_for_avatar/2);
 			$items[] = '<' . $separator . ' style="padding-bottom:'.$padding_size.'px;">'.jes_get_member_avatar('id='.$friends[$i]['id'].'&alt='.$friends[$i]['full_name'].'&height='.$size_for_avatar.'&width='.$size_for_avatar).'<input' . $checked . ' type="checkbox" name="friends[]" id="f-' . $friends[$i]['id'] . '" value="' . attribute_escape( $friends[$i]['id'] ) . '" /> ' . $friends[$i]['full_name'] . '<br /></' . $separator . '><br />';

@@ -1,8 +1,8 @@
 <?php do_action( 'bp_before_event_googlemap' ); ?>
 
-<?php $jes_adata = get_option( 'jes_events' ); ?>
+<?php $jes_adata = get_site_option('jes_events' ); ?>
 
-<table valign="top">
+<table valign="top" width="100%">
     <tr>
 	<td width="50%">
 <span><h4><?php _e('The event will take place:','jet-event-system'); ?></h4>

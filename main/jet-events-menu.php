@@ -96,7 +96,7 @@ function events_setup_nav() {
 			/* Add the "Home" subnav item, as this will always be present */
 			bp_core_new_subnav_item( array( 'name' => __( 'Home', 'jet-event-system' ), 'slug' => 'home', 'parent_url' => $event_link, 'parent_slug' => $bp->jes_events->slug, 'screen_function' => 'events_screen_event_home', 'position' => 10, 'item_css_id' => 'home' ) );
 
-$navi = get_option( 'jes_events' );
+$navi = get_site_option('jes_events' );
 if ($navi['jes_events_googlemapopt_enable'])
 		{
 			/* Add Google map navi */

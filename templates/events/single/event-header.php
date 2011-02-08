@@ -1,8 +1,9 @@
 <?php do_action( 'bp_before_event_header' ) ?>
 <?php
 	$_eventstatus = eventstatus(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm(),jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm());
-$jes_adata = get_option( 'jes_events' );	
+	$jes_adata = get_site_option('jes_events' );	
 ?>
+	<h3><a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a></h3>
 <div id="item-actions">
 	<?php if ( jes_bp_event_is_visible() ) : ?>
 
@@ -25,15 +26,14 @@ $jes_adata = get_option( 'jes_events' );
 
 <div id="item-header-avatar">
 	<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>">
-	<?php $adata = get_option( 'jes_events' ); ?>
+	<?php $adata = get_site_option('jes_events' ); ?>
 		<?php jes_bp_event_avatar('height='.$adata['jes_events_show_avatar_main_size'].'&width='.$adata['jes_events_show_avatar_main_size']) ?>
 	</a><br />
 </div><!-- #item-header-avatar -->
 
 <div id="item-header-content">
-	<h2><a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a></h2>
-	<span class="highlight"><?php jes_bp_event_type() ?></span> <span class="activity"><?php printf( __( 'active %s ago', 'jet-event-system' ), jes_bp_get_event_last_active() ) ?></span>
-	<p><strong><?php _e('Event classification', 'jet-event-system') ?>:</strong> <?php jes_bp_event_etype() ?></p>
+	<p><span class="highlight"><?php jes_bp_event_type() ?></span> <span class="activity"><?php printf( __( 'active %s ago', 'jet-event-system' ), jes_bp_get_event_last_active() ) ?></span></p>
+	<p><em><?php _e('Event classification', 'jet-event-system') ?>:</em> <?php jes_bp_event_etype() ?></p>
 	
 	<?php do_action( 'bp_before_event_header_meta' ) ?>
 

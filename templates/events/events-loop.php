@@ -2,7 +2,7 @@
 
 <?php
 	$showevent = 1;
-	$jes_adata = get_option( 'jes_events' );
+	$jes_adata = get_site_option('jes_events' );
 	$eshowevent = $jes_adata[ 'jes_events_addnavicatalog_disable' ];
 	$sortby = $jes_adata[ 'jes_events_sort_by' ]; ?>
 
@@ -30,6 +30,9 @@
 <?php				require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-themetemplate.php' ); ?>
 	<?php // if ( bp_jes_has_events( 'type=calendar&per_page=' . $instance['max_events'] ) ) : ?>
 <ul id="group-list" class="item-list">
+<script>
+JQuery.noConflict();
+</script>
 <script type="text/javascript">
     var jqr = jQuery;
     jqr(document).ready(function($) {

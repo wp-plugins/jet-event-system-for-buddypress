@@ -476,7 +476,7 @@ Class JES_Events_Event {
 
 	function jes_get_newest( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
 		global $wpdb, $bp;
-	$jes_adata = get_option( 'jes_events' );
+	$jes_adata = get_site_option('jes_events' );
 	$sortby_ad = $jes_adata[ 'jes_events_sort_by_ad' ];
 		if ( $limit && $page )
 			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
@@ -510,7 +510,7 @@ Class JES_Events_Event {
 
 	function jes_get_soon( $limit = 10, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
 		global $wpdb, $bp;
-	$jes_adata = get_option( 'jes_events' );
+	$jes_adata = get_site_option('jes_events' );
 	$sortby_ad = $jes_adata[ 'jes_events_sort_by_ad' ];
 	
 		if ( $limit && $page )
@@ -544,7 +544,7 @@ Class JES_Events_Event {
 	
 	function jes_get_calendar( $limit = 10, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
 		global $wpdb, $bp;
-	$jes_adata = get_option( 'jes_events' );
+	$jes_adata = get_site_option('jes_events' );
 	$sortby_ad = $jes_adata[ 'jes_events_sort_by_ad' ];
 	
 		if ( $limit && $page )
@@ -579,7 +579,7 @@ Class JES_Events_Event {
 	
 	function jes_get_active( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
 		global $wpdb, $bp;
-	$jes_adata = get_option( 'jes_events' );
+	$jes_adata = get_site_option('jes_events' );
 	$sortby_ad = $jes_adata[ 'jes_events_sort_by_ad' ];
 		if ( $limit && $page )
 			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );
@@ -612,7 +612,7 @@ Class JES_Events_Event {
 
 	function jes_get_popular( $limit = null, $page = null, $user_id = false, $search_terms = false, $populate_extras = true ) {
 		global $wpdb, $bp;
-	$jes_adata = get_option( 'jes_events' );
+	$jes_adata = get_site_option('jes_events' );
 	$sortby_ad = $jes_adata[ 'jes_events_sort_by_ad' ];
 		if ( $limit && $page ) {
 			$pag_sqle = $wpdb->prepare( " LIMIT %d, %d", intval( ( $page - 1 ) * $limit), intval( $limit ) );

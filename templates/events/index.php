@@ -10,7 +10,7 @@
 
 			<div id="group-dir-search" class="dir-search">
 			<?php if ( is_user_logged_in() ) : ?>
-	<?php 	$jes_adata = get_option( 'jes_events' );
+	<?php 	$jes_adata = get_site_option('jes_events' );
 			$createa = $jes_adata[ 'jes_events_createnonadmin_disable' ];
 	?>
 		<?php if (!$createa )
@@ -58,9 +58,10 @@
 			<div id="groups-dir-list" class="events dir-list">
 				<?php locate_template( array( 'events/events-loop.php' ), true ) ?>
 			</div><!-- #events-dir-list -->
-			<div style="text-align:right;">
-				<span style="font-size:80%;"><a href="http://milordk.ru">Milordk Studio</a><?php if (is_admin()) { ?> <a href="http://milordk.ru/projects/wordpress-buddypress/podderzhka.html"> | Admin, Donate to develop plug-in ;)</a><?php } ?></span>
-			</div>
+
+				<!-- Page Generate by Jet Event System for BP , http://milordk.ru Milordk Studio -->
+				<?php if (is_admin()) { ?><span style="font-size:85%;"><a href="http://milordk.ru/projects/wordpress-buddypress/podderzhka.html"> | Admin, Donate to develop plug-in ;) -> is_admin only view ;) </a><?php } ?></span>
+
 			<?php do_action( 'bp_directory_events_content' ) ?>
 
 			<?php wp_nonce_field( 'directory_events', '_wpnonce-events-filter' ) ?>

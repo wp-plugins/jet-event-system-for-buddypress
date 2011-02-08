@@ -137,7 +137,7 @@ function events_create_event( $args = '' ) {
 /* Set Notify CRON */
 if ($notify_timed_enable)
 	{
-		$jes_adata = get_option( 'jes_events' );
+		$jes_adata = get_site_option('jes_events' );
 		$hours = (int)$jes_adata[ 'jes_events_notify_timed' ];
 		$offset = jes_offset();
 		$todorem = (jes_datetounix($event_edtsd,$event_edtsth,$event_edtstm) - $offset - $hours*3600);
@@ -179,12 +179,12 @@ function events_edit_base_event_details( $event_id, $event_name, $event_etype, $
 /* Set Notify CRON */
 if ($notify_timed_enable)
 	{
-		$jes_adata = get_option( 'jes_events' );
+		$jes_adata = get_site_option('jes_events' );
 		$hours = (int)$jes_adata[ 'jes_events_notify_timed' ]; 
 		$todorem = jes_datetounix($event_edtsd,$event_edtsth,$event_edtstm) - $hours*3600;
 		// wp_schedule_single_event($todorem,'jes_events_notification_cron_hook',$event_id);
 	} else {
-		$jes_adata = get_option( 'jes_events' );
+		$jes_adata = get_site_option('jes_events' );
 		$hours = (int)$jes_adata[ 'jes_events_notify_timed' ]; 
 		$todorem = jes_datetounix($event_edtsd,$event_edtsth,$event_edtstm) - $hours*3600;
 		// wp_unschedule_event($todorem,'jes_events_notification_cron_hook',$event_id);
@@ -353,12 +353,12 @@ function events_join_event( $event_id, $user_id = false ) {
 function jes_events_notification_cron( $event_id, $event_name, $event_placed, $event_timed ) {
 	global $bp;
 
-	$jes_adata = get_option( 'jes_events' );
+	$jes_adata = get_site_option('jes_events' );
 	$message = $jes_adata[ 'jes_events_notify_templates' ];
 	$timenotify = $jes_adata[ 'jes_events_notify_timed' ];
 		
 	$event = new JES_Events_Event( $event_id );
-	$subject = __( 'Reminder', 'jet-event-system' ). '! [' . get_blog_option( BP_ROOT_BLOG, 'blogname' ) . '] -' .$event_name;
+	$subject = __( 'Reminder', 'jet-event-system' ). '! [' . get_site_option( BP_ROOT_BLOG, 'blogname' ) . '] -' .$event_name;
 
 	$user_ids = JES_Events_Member::jes_get_event_member_ids( $event->id );
 	foreach ( (array)$user_ids as $user_id ) {

@@ -2,9 +2,9 @@
 
 	<div id="content">
 		<div class="padder" id="jes-padder">
-<?php $jes_adata = get_option( 'jes_events' ); ?>
+<?php $jes_adata = get_site_option('jes_events' ); ?>
 	<?php
-			$jes_adata = get_option( 'jes_events' );
+			$jes_adata = get_site_option('jes_events' );
 			$createa = $jes_adata[ 'jes_events_createnonadmin_disable' ];
 			$showcreate = 0;
 			if ( is_user_logged_in() )
@@ -485,6 +485,8 @@ if ($jes_adata[ 'jes_events_notifymembers_enable' ] == 'none' )
 
 		</form>
 
+				<!-- Page Generate by Jet Event System for BP , http://milordk.ru Milordk Studio -->		
+		
 		</div><!-- .padder -->
 	</div><!-- #content -->
 

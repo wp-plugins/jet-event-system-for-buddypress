@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: JES\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-10-07 15:10+0300\n"
-"PO-Revision-Date: 2010-10-07 15:49+0300\n"
+"PO-Revision-Date: 2011-02-08 23:20+0300\n"
 "Last-Translator: Jettochkin <milord_k@mail.ru>\n"
 "Language-Team: Jettochkin <milord_k@mail.ru>\n"
 "MIME-Version: 1.0\n"
@@ -282,7 +282,7 @@ msgstr "Сохранить настройки"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-admin.php:391
 msgid "please specify in the designation of the site and name :) All who have made a contribution to the development of plug-in will be included in honor roll, as well as gain access to additional modules!"
-msgstr ""
+msgstr "Просьба указать в назначении свое имя и сайт :) Все, кто внес свой вклад в развитие плагина будут отмечены, а также получить доступ к дополнительным модулям!"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-admin.php:413
 msgid "Please send your translations to milord_k @ mail.ru"
@@ -290,7 +290,7 @@ msgstr "Пожалуйста присылайте свои переводы на
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-admin.php:415
 msgid "Translates can be discussed at the forum on the official website of the plugin:"
-msgstr ""
+msgstr "Переводы можно обсуждать на форуме официального сайта плагина:"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-admin.php:421
 msgid "Recommended plugins"
@@ -370,11 +370,11 @@ msgstr ""
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-admin.php:509
 msgid "Ascending"
-msgstr ""
+msgstr "Возрастанию"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-admin.php:510
 msgid "Descending"
-msgstr ""
+msgstr "Убыванию"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-admin.php:523
 msgid "Allow Country"
@@ -448,7 +448,7 @@ msgstr "Пользовательский стиль*"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-admin.php:610
 msgid "* To use a custom design Directory Events, modify the file:"
-msgstr "Для использования пользовательского дизайна Каталога событий, - измените файл:"
+msgstr "* Для использования пользовательского дизайна Каталога событий, - измените файл:"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-admin.php:615
 msgid "Style for Single Event:"
@@ -609,7 +609,7 @@ msgstr "Ожидаемое событие"
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-menu.php:41
 #, php-format
 msgid "Events <span>(%d)</span>"
-msgstr "Событий <span>(%d)</span>"
+msgstr "События <span>(%d)</span>"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-menu.php:46
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-menu.php:56
@@ -1048,7 +1048,7 @@ msgstr "Аватар события"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-templatetags.php:566
 msgid "not yet active"
-msgstr ""
+msgstr "not yet active"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-templatetags.php:1030
 msgid "Public"
@@ -1068,7 +1068,7 @@ msgstr "Модераторы отстутсвуют"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-templatetags.php:1129
 msgid "Filter Events"
-msgstr ""
+msgstr "Фильтр"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-templatetags.php:1177
 #, php-format
@@ -1178,12 +1178,12 @@ msgstr "Поиск"
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-templatetags.php:2455
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-templatetags.php:2472
 msgid "Recently Active"
-msgstr ""
+msgstr "Активные"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-templatetags.php:2456
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-templatetags.php:2475
 msgid "Recently Joined"
-msgstr ""
+msgstr "Недавно присоединившиеся"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-templatetags.php:2457
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/main/jet-events-templatetags.php:2478
@@ -1543,7 +1543,7 @@ msgstr "Это приватное событие"
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:304
 msgid "Just send a request to join, users can join the event."
-msgstr ""
+msgstr "Достаточно отправить запрос на вступление, пользователи могут присоединиться к событию."
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:306
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:315
@@ -1616,7 +1616,7 @@ msgstr "Выберите людей для приглашения на собы�
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:436
 msgid "Once you have built up friend connections you will be able to invite others to your event. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new event."
-msgstr ""
+msgstr "После того как вы пригласите пользователей к себе в друзья вы сможете приглашать их к мероприятию. Вы можете отправлять приглашения в любое время в будущем, выбрав \"Отправить приглашение \"."
 
 #: D:\Plugins-Wordpress\jet-event-system-for-buddypress\trunk/templates/events/create.php:454
 msgid "Previous Step"

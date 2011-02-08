@@ -11,7 +11,7 @@ global $bp;
 /**************************************/
 ?>
 <?php
-	$jes_adata = get_option( 'jes_events' );
+	$jes_adata = get_site_option('jes_events' );
 	$_eventstatus = eventstatus(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm(),jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm());
 ?>
 <li>
@@ -104,7 +104,7 @@ global $bp;
 	url: '<?php jes_bp_event_permalink() ?>'
     },
 <?php
-	$jes_adata = get_option( 'jes_events' );
+	$jes_adata = get_site_option('jes_events' );
 	$_eventstatus = eventstatus(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm(),jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm());
 ?>
 <?php
@@ -123,7 +123,7 @@ global $bp;
 /**************************************/
 ?>
 <?php
-	$jes_adata = get_option( 'jes_events' );
+	$jes_adata = get_site_option('jes_events' );
 	$_eventstatus = eventstatus(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm(),jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm());
 ?>
 <li>
@@ -186,7 +186,7 @@ global $bp;
 /**************************************/
 ?>
 <?php
-	$jes_adata = get_option( 'jes_events' );
+	$jes_adata = get_site_option('jes_events' );
 	$_eventstatus = eventstatus(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm(),jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm());
 ?>
 	<li>

@@ -4,7 +4,7 @@ var jesjq = jQuery;
 // Global variable to prevent multiple AJAX requests
 // var bp_ajax_request = null;
 
-jesjq(document).ready( function() {
+jesjq(document).ready( function($) {
 
 	var object = 'events';
 	

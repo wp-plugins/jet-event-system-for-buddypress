@@ -66,7 +66,7 @@ class JES_EVENTS_ADMIN_PAGE {
 		global $screen_layout_columns;
 
 		//define some data can be given to each metabox during rendering
-		$jes_events = get_option( 'jes-events' );
+		$jes_events = get_site_option('jes-events' );
 		?>
 		<div id="jes-event-admin-general" class="wrap">
 		<?php echo "<div id='message' class='updated fade'><p>Support the development of plug-in! Do not give up a modest donation:)</p></div>"; ?>
@@ -94,7 +94,7 @@ if ( isset($_POST['checkfiles']) )
 			echo "</p></div>";
 		}
 
-	$jes_events = get_option( 'jes_events' );
+	$jes_events = get_site_option('jes_events' );
 if ( isset($_POST['saveData']) ) {
 		// save all inputed data
 		$jes_events[ 'jes_events_class_enable' ] = 0;
@@ -323,7 +323,7 @@ if (stripos($blogversion, 'MU') > 0)
 			update_blog_option( $blog['blog_id'], 'jes_events', $jes_events );
 		}
 	} else {
-		update_option( 'jes_events', $jes_events );
+		update_site_option( 'jes_events', $jes_events );
 	}
 		echo "<div id='message' class='updated fade'><p>" . __( 'Options updated.', 'jet-event-system' ) . "</p></div>";
 	}

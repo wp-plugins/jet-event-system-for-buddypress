@@ -4,7 +4,7 @@ function events_notification_event_updated( $event_id ) {
 	global $bp;
 
 	$event = new JES_Events_Event( $event_id );
-	$subject = '[' . get_blog_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . __( 'Event Details Updated', 'jet-event-system' );
+	$subject = '[' . get_site_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . __( 'Event Details Updated', 'jet-event-system' );
 
 	$user_ids = JES_Events_Member::jes_get_event_member_ids( $event->id );
 	foreach ( (array)$user_ids as $user_id ) {
@@ -59,7 +59,7 @@ function events_notification_new_membership_request( $requesting_user_id, $admin
 
 	// Set up and send the message
 	$to = $ud->user_email;
-	$subject = '[' . get_blog_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . sprintf( __( 'Membership request for event: %s', 'jet-event-system' ), $event->name );
+	$subject = '[' . get_site_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . sprintf( __( 'Membership request for event: %s', 'jet-event-system' ), $event->name );
 
 $message = sprintf( __(
 '%s wants to join the event "%s".
@@ -107,7 +107,7 @@ function events_notification_membership_request_completed( $requesting_user_id, 
 	$to = $ud->user_email;
 
 	if ( $accepted ) {
-		$subject = '[' . get_blog_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . sprintf( __( 'Membership request for event "%s" accepted', 'jet-event-system' ), $event->name );
+		$subject = '[' . get_site_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . sprintf( __( 'Membership request for event "%s" accepted', 'jet-event-system' ), $event->name );
 		$message = sprintf( __(
 'Your membership request for the event "%s" has been accepted.
 
@@ -117,7 +117,7 @@ To view the event please login and visit: %s
 ', 'jet-event-system' ), $event->name, $event_link );
 
 	} else {
-		$subject = '[' . get_blog_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . sprintf( __( 'Membership request for event "%s" rejected', 'jet-event-system' ), $event->name );
+		$subject = '[' . get_site_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . sprintf( __( 'Membership request for event "%s" rejected', 'jet-event-system' ), $event->name );
 		$message = sprintf( __(
 'Your membership request for the event "%s" has been rejected.
 
@@ -163,7 +163,7 @@ function events_notification_promoted_member( $user_id, $event_id ) {
 	// Set up and send the message
 	$to = $ud->user_email;
 
-	$subject = '[' . get_blog_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . sprintf( __( 'You have been promoted in the event: "%s"', 'jet-event-system' ), $event->name );
+	$subject = '[' . get_site_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . sprintf( __( 'You have been promoted in the event: "%s"', 'jet-event-system' ), $event->name );
 
 	$message = sprintf( __(
 'You have been promoted to %s for the event: "%s".
@@ -211,7 +211,7 @@ function events_notification_jes_event_invite_jes( &$event, &$member, $inviter_u
 		// Set up and send the message
 		$to = $invited_ud->user_email;
 
-		$subject = '[' . get_blog_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . sprintf( __( 'You have an invitation to the event: "%s"', 'jet-event-system' ), $event->name );
+		$subject = '[' . get_site_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . sprintf( __( 'You have an invitation to the event: "%s"', 'jet-event-system' ), $event->name );
 
 		$message = sprintf( __(
 'One of your friends %s has invited you to the event: "%s".
@@ -270,7 +270,7 @@ function events_at_message_notification( $content, $poster_user_id, $event_id, $
 			// Set up and send the message
 			$ud = bp_core_get_core_userdata( $receiver_user_id );
 			$to = $ud->user_email;
-			$subject = '[' . get_blog_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . sprintf( __( '%s mentioned you in the event "%s"', 'jet-event-system' ), $poster_name, $event->name );
+			$subject = '[' . get_site_option( BP_ROOT_BLOG, 'blogname' ) . '] ' . sprintf( __( '%s mentioned you in the event "%s"', 'jet-event-system' ), $poster_name, $event->name );
 
 $message = sprintf( __(
 '%s mentioned you in the event "%s":

@@ -4,7 +4,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 		parent::WP_Widget(false, $name = __( 'Events', 'jet-event-system' ) );
 		if ( is_active_widget( false, false, $this->id_base ) ) {
 			if (!is_admin()) {
-				wp_enqueue_script( 'events_widget_events_list-js', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/widget-events.js', array('jquery') );
+				wp_enqueue_script( 'events_widget_events_list-js', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/widget.events.js', array('jquery') );
 			}
 		}
 	}
@@ -17,7 +17,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 		echo $before_title
 			. $instance['title']
 			. $after_title; 
-	$data = get_option( 'jes_events' );
+	$data = get_site_option('jes_events' );
 	$show_navi = $instance['show_navi'];
 	$show_type = $instance['show_type'];
 	$show_countrystate = $instance['show_countrystate'];

@@ -16,7 +16,7 @@ require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-admi
 function jet_events_add_js() {
   global $bp;
 	$jsload = 0;
-	$jes_adata = get_option( 'jes_events' );
+	$jes_adata = get_site_option('jes_events' );
 
 	if ( $bp->current_component == $bp->jes_events->slug )
 		{
@@ -40,16 +40,17 @@ function jet_events_add_js() {
 				}
 		if ($jsload)
 			{
-				wp_enqueue_script( 'jquery-jes-uicore', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-ui-core.js' );
-				wp_enqueue_script( 'jquery-jes-uidpcore', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-datapicker.js' );
-				wp_enqueue_script( 'jquery-jes-uidp', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jes_datepicker.js' );
+				wp_enqueue_script( 'jquery-jes-uicore', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery.ui.core.js', array('jquery') );
+				wp_enqueue_script( 'jquery-jes-uiwidget', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery.ui.widget.js', array('jquery') );
+				wp_enqueue_script( 'jquery-jes-uidpcore', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery.datapicker.js', array('jquery') );
+				wp_enqueue_script( 'jquery-jes-uidp', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jes.datepicker.js', array('jquery') );
 
 				$locale = apply_filters( 'wordpress_locale', get_locale() );
-				if (!file_exists( WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-'.$locale.'.js')) {
-				wp_enqueue_script( 'jet-event-js-uilocale', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-en_GB.js' );
+				if (!file_exists( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-'.$locale.'.js')) {
+				wp_enqueue_script( 'jet-event-js-uilocale', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-en_GB.js', array('jquery') );
 				} else
 				{
-				wp_enqueue_script( 'jet-event-js-uilocale', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-'.$locale.'.js' );
+				wp_enqueue_script( 'jet-event-js-uilocale', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-iu-locale/jquery.ui.datepicker-'.$locale.'.js', array('jquery') );
 				}
 			}
 		}	
@@ -60,7 +61,7 @@ add_action( 'template_redirect', 'jet_events_add_js', 1 );
 function jes_events_add_css() {
   global $bp;
 	$jsload = 0;
-	$jes_adata = get_option( 'jes_events' );
+	$jes_adata = get_site_option('jes_events' );
 	
 	if ( $bp->current_component == $bp->jes_events->slug )
 		{
@@ -271,7 +272,7 @@ function events_jes_get_total_member_count( $event_id ) {
 function events_get_events( $args = '' ) {
 	global $bp;
 
-	$sdata = get_option( 'jes_events' );
+	$sdata = get_site_option('jes_events' );
 	$sortby = $sdata[ 'jes_events_sort_by' ];
 	$sortby_ad = $sdata[ 'jes_events_sort_by_ad' ];
 	

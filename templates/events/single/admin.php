@@ -1,4 +1,4 @@
-<?php $jes_adata = get_option( 'jes_events' ); ?>
+<?php $jes_adata = get_site_option('jes_events' ); ?>
 <div class="item-list-tabs no-ajax" id="subnav">
 	<ul>
 		<?php bp_event_admin_tabs(); ?>
@@ -13,8 +13,8 @@
 <?php if ( bp_is_event_admin_screen( 'edit-details' ) ) : ?>
 
 	<?php do_action( 'bp_before_event_details_admin' ); ?>
-
-<table valign="top">
+<div style="clear:left;"> </div>
+<table width="100%" valign="top">
 	<tr>
 		<td width="50%" style="vertical-align:top;">
 			<h4><?php _e('Base event details','jet-event-system') ?></h4>

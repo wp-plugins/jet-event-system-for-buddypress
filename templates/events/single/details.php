@@ -1,8 +1,8 @@
 <?php do_action( 'bp_before_event_details_admin' ); ?>
 
-<?php $jes_adata = get_option( 'jes_events' ); ?>
+<?php $jes_adata = get_site_option('jes_events' ); ?>
 
-<table valign="top">
+<table width="100%" valign="top">
 	<tr>
 		<td width="49%" style="vertical-align:top;">
 				<h4><?php _e('Base event details','jet-event-system'); ?></h4>

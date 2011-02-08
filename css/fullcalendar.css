@@ -22,6 +22,7 @@
 .fc {
 	direction: ltr;
 	text-align: left;
+	min-height: 580px;
 	}
 	
 .fc table {
