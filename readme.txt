@@ -143,7 +143,7 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 = 1.6.5.8.2 =
 
 * Minor changes: A title single event, adjusting style to style the calendar, save the settings plug-in mechanism, the formation date (as long as nothing significant - all in the future)
-> Planned changes and additions - are expected after the release of the EP 3.1 and BS 1.3
+> Planned changes and additions - are expected after the release of the WP 3.1 and BP 1.3
 
 = 1.6.5.8.1 =
 
