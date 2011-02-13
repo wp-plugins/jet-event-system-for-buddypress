@@ -98,7 +98,7 @@ global $bp;
 ?>	
     {
 	id: "<?php jes_bp_event_id() ?>",
-	title: "<?php echo $eventtitle.'-'.$s_month.'-'.$e_month; ?>",
+	title: "<?php echo $eventtitle; ?>",
 	start: new Date(<?php echo $s_year ?>, <?php echo $s_month ?>-1, <?php echo $s_days; ?>),
 	end: new Date(<?php echo $e_year ?>, <?php echo $e_month ?>-1, <?php echo $e_days; ?>),
 	url: '<?php jes_bp_event_permalink() ?>'
