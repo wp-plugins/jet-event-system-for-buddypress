@@ -56,6 +56,11 @@ Live Demo: <a href="http://sportactions.ru">Sport site</a> , <a href="http://vol
 
 == Frequently Asked Questions ==
 
+= Fix conflit BP Ajax Chat =
+
+In /wp-content/plugins/buddypress-ajax-chat/bp-chat/bp-chat-cssjs.php
+change <em>add_action( 'template_redirect', 'bp_chat_add_js', 1);</em> to <em>add_action( 'template_redirect', 'bp_chat_add_js', <strong>10</strong>);</em>
+
 = Where can I see the plug-in work? =
 
 You can see the latest version of the dev website: <a href="http://jes.milordk.ru">http://jes.milordk.ru</a>
@@ -139,6 +144,11 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.6.5.9 = 
+
+* Fix conflict BP Ajax Chat
+* Fix widget
 
 = 1.6.5.8.2 =
 

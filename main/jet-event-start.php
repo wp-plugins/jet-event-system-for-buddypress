@@ -40,6 +40,15 @@ function jet_events_add_js() {
 				}
 		if ($jsload)
 			{
+		// bp ajax chat fix
+		/* In /wp-content/plugins/buddypress-ajax-chat/bp-chat/bp-chat-cssjs.php
+			change
+				add_action( 'template_redirect', 'bp_chat_add_js', 1);</em>
+			to 
+				add_action( 'template_redirect', 'bp_chat_add_js', <strong>10</strong>);
+		*/
+				remove_action( 'template_redirect', 'bp_chat_add_js', 1 );				
+				
 				wp_enqueue_script( 'jquery-jes-uicore', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery.ui.core.js', array('jquery') );
 				wp_enqueue_script( 'jquery-jes-uiwidget', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery.ui.widget.js', array('jquery') );
 				wp_enqueue_script( 'jquery-jes-uidpcore', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery.datapicker.js', array('jquery') );

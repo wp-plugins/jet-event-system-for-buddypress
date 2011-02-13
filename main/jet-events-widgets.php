@@ -26,6 +26,10 @@ class JES_BP_Events_Widget extends WP_Widget {
 	$showtime = $instance['showtime'];
 	$show_avatar = $instance['show_avatar'];	
 ?>
+<?php	global $bp;
+		$_key = $bp->displayed_user->id;
+		$bp->displayed_user->id = 0; ?>
+	
 <?php if (!$data[ 'jes_events_code_index' ]) { ?>
 <!--<noindex>-->
 <?php } ?>
@@ -136,6 +140,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 		<!--</noindex>-->
 	<?php } ?>
 		<?php echo $after_widget; ?>
+	<?php $bp->displayed_user->id = $_key; ?>
 <?php
 }
 
