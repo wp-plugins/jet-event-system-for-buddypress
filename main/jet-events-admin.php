@@ -368,26 +368,31 @@ if (stripos($blogversion, 'MU') > 0)
 	
 function on_jes_events_admin_donations($jes_events) {
 ?>
-	<p><em>WMZ</em>: <strong>Z113010060388</strong> / <em>WMR</em>: <strong>R144831580346</strong></p>
+<table>
+<tbody>
+<tr>
+<td><img class="alignleft size-full wp-image-2614" title="Web Money" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/'; ?>webmoney31.gif" alt="" width="50" height="30" /></a></td>
+<td>Z113010060388 / R144831580346</td>
+</tr>
+<tr>
+<td><img class="alignleft size-full wp-image-2615" title="Pay Pal" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/'; ?>paypal1.jpg" alt="" width="50" height="50" /></a></td>
+<td><script type="text/javascript">// <![CDATA[
+ 			function chcount(form){ 			document.sf.amount.value = document.sf.UCount.value; 			return true; 			}
+// ]]></script>
 
-		<SCRIPT LANGUAGE="JavaScript">
-			function chcount(form){
-			document.sf.amount.value = document.sf.UCount.value;    
-			return true;
-			}
-		</SCRIPT>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post"> <input name="cmd" type="hidden" value="_xclick" /> <input name="business" type="hidden" value="milordk@rambler.ru" /> <label id="UCount">
+<input maxlength="3" name="UCount" size="3" type="text" value="20" /></label>
 
-		<form name="sf" method="post" action= "https://www.paypal.com/cgi-bin/webscr">
-			<input type="text" name="UCount" value="20" MAXLENGTH="3" SIZE="3" onChange="return chcount(this.form)">
-			<input type="hidden" name="cmd" value="_xclick">
-			<input type="hidden" name="business" value="milordk@rambler.ru">
-			<input type="hidden" name="item_name" value="Project Support JES">
-			<input type="hidden" name="item_number" value="1">
-			<input type="hidden" name="amount" value="20">
-			<input type="hidden" name="no_shipping" value="1">
-			<input type="hidden" name="return" value="<?php echo site_url() . '/wp-admin/admin.php?page=jes-event-admin' ?>">
-			<input type="submit" value="Donations with PayPal (USD)">
-		</form>
+<input name="item_name" type="hidden" value="JES Project" /> <input name="item_number" type="hidden" value="1" /> <input name="amount" type="hidden" value="20" /> <input name="no_shipping" type="hidden" value="1" /> <input name="return" type="hidden" value="http://milordk.ru/projects/wordpress-buddypress/podderzhka.html" /> <input type="submit" value="Donations with PayPal (USD)" />
+
+</form></td>
+</tr>
+<tr>
+<td><img class="alignleft size-full wp-image-2616" title="Yandex Money" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/'; ?>yandex_money1.png" alt="" width="46" height="12" /></a></td>
+<td>41001289356064</td>
+</tr>
+</tbody>
+</table>
 
 		<p>(<?php _e('please specify in the designation of the site and name :) All who have made a contribution to the development of plug-in will be included in honor roll, as well as gain access to additional modules!','jet-event-system'); ?>)</p>
 <?php
