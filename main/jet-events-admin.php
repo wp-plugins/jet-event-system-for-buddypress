@@ -441,6 +441,11 @@ function on_jes_events_admin_note($jes_events) {
 		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-lite-yellow-%e2%80%93-tema-dlya-wordpress-3-0.html">Jet Lite Yellow</a></li>
 	</ul></p>
 	<p>Special thanks to <a href="http://cosydale.com">slaFFik</a> for his help in writing a plugin!</p>
+	<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+		<div>
+			<a href="http://twitter.com/share?url=http://jes.milordk.ru" class="twitter-share-button">Tweet</a>
+		</div>
+
 <?php
 }
 	
