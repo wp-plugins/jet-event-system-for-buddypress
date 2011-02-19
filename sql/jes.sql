@@ -45,6 +45,7 @@ CREATE TABLE `wp_jet_events` (
   `status` varchar(10) NOT NULL DEFAULT 'public',
   `grouplink` varchar(5) NOT NULL DEFAULT '0',
   `forumlink` varchar(5) NOT NULL DEFAULT '0',
+  `enablesocial` tinyint(1) NOT NULL DEFAULT '0',
   `enable_forum` tinyint(1) NOT NULL DEFAULT '1',
   `date_created` datetime NOT NULL,
   `notify_timed_enable` varchar(1) NOT NULL DEFAULT '0',

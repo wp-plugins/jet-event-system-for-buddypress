@@ -28,6 +28,7 @@ Class JES_Events_Event {
 	var $enable_forum;
 	var $grouplink;
 	var $forumlink;
+	var $enablesocial;
 	var $date_created;
 	var $notify_timed_enable;
 
@@ -72,6 +73,7 @@ Class JES_Events_Event {
 			$this->edtedunix = stripslashes($event->edtedunix);	
 			$this->grouplink = stripslashes($event->grouplink);	
 			$this->forumlink = stripslashes($event->forumlink);
+			$this->enablesocial = stripslashes($event->enablesocial);
 			$this->status = $event->status;
 			$this->enable_forum = $event->enable_forum;
 			$this->date_created = $event->date_created;
@@ -120,6 +122,7 @@ Class JES_Events_Event {
 		$this->edtedunix = jes_datetounix(apply_filters( 'events_event_edtedunix_before_save', $this->edted, $this->id ), apply_filters( 'events_event_edteth_before_save', $this->edteth, $this->id ), apply_filters( 'events_event_edtetm_before_save', $this->edtetm, $this->id ));		
 		$this->grouplink = apply_filters( 'events_event_grouplink_before_save', $this->grouplink, $this->id );
 		$this->forumlink = apply_filters( 'events_event_forumlink_before_save', $this->forumlink, $this->id );		
+		$this->enablesocial = apply_filters( 'events_event_enablesocial_before_save', $this->enablesocial, $this->id );	
  		$this->status = apply_filters( 'events_event_status_before_save', $this->status, $this->id );
 		$this->enable_forum = apply_filters( 'events_event_enable_forum_before_save', $this->enable_forum, $this->id );
 		$this->date_created = apply_filters( 'events_event_date_created_before_save', $this->date_created, $this->id );
@@ -156,6 +159,7 @@ Class JES_Events_Event {
 					edtedunix = %s,
 					grouplink = %s,
 					forumlink = %s,
+					enablesocial = %d,
 					status = %s,
 					enable_forum = %d,
 					date_created = %s,
@@ -189,6 +193,7 @@ Class JES_Events_Event {
 					jes_datetounix($this->edted, $this->edteth, $this->edtetm),
 					$this->grouplink,
 					$this->forumlink,
+					$this->enablesocial,
 					$this->status,
 					$this->enable_forum,
 					$this->date_created,
@@ -225,12 +230,13 @@ Class JES_Events_Event {
 					edtedunix,
 					grouplink,
 					forumlink,
+					enablesocial,
 					status,
 					enable_forum,
 					date_created,
 					notify_timed_enable
 				) VALUES (
-					%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %s, %s
+					%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %d, %s, %s
 				)",
 					$this->creator_id,
 					$this->name,
@@ -258,6 +264,7 @@ Class JES_Events_Event {
 					$this->edtedunix,
 					$this->grouplink,
 					$this->forumlink,
+					$this->enablesocial,
 					$this->status,
 					$this->enable_forum,
 					$this->date_created,

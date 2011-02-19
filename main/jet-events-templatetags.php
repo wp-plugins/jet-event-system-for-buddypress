@@ -474,9 +474,17 @@ function jes_core_fetch_avatar( $args = '' ) {
 		else
 			$host = 'http://www.gravatar.com/avatar/';
 
+	// Gravatar's
+	
+	$_opt = get_site_option('jes_events');			
+
+	if ( $_opt[ 'jes_events_defavatar' ] == null ) { 
 		// Filter gravatar vars
 		$email		= apply_filters( 'bp_core_gravatar_email', $email, $item_id, $object );
 		$gravatar	= apply_filters( 'bp_gravatar_url', $host ) . md5( strtolower( $email ) ) . '?d=' . $default_grav . '&amp;s=' . $grav_size;
+		} else {
+		$gravatar = $_opt[ 'jes_events_defavatar' ];
+		}
 
 		// Return gravatar wrapped in <img />
 		if ( true === $html )
@@ -756,7 +764,19 @@ function jes_bp_event_forumlink() {
 
 		return apply_filters( 'jes_bp_get_event_forumlink', stripslashes($event->forumlink) );
 	}	
-	
+
+function jes_bp_event_enablesocial() {
+	echo jes_bp_get_event_enablesocial();
+}
+	function jes_bp_get_event_enablesocial( $event = false ) {
+		global $events_template;
+
+		if ( !$event )
+			$event =& $events_template->event;
+
+		return apply_filters( 'jes_bp_get_event_enablesocial', stripslashes($event->enablesocial) );
+	}	
+		
 // City
 function jes_bp_event_placedcity() {
 	echo jes_bp_get_event_placedcity();
@@ -2315,6 +2335,14 @@ function bp_new_event_forumlink() {
 	function bp_get_new_event_forumlink() {
 		global $bp;
 		return apply_filters( 'bp_get_new_event_forumlink', $bp->jes_events->current_event->forumlink );
+	}
+
+function bp_new_event_enablesocial() {
+	echo bp_get_new_event_enablesocial();
+}
+	function bp_get_new_event_enablesocial() {
+		global $bp;
+		return apply_filters( 'bp_get_new_event_enablesocial', $bp->jes_events->current_event->enablesocial );
 	}
 	
 function bp_new_event_grouplink() {

@@ -96,6 +96,9 @@ function events_create_event( $args = '' ) {
 
 	if ( isset( $forumlink ) )
 		$event->forumlink = $forumlink;		
+
+	if ( isset( $enablesocial ) )
+		$event->enablesocial = $enablesocial;	
 		
 	if ( isset( $slug ) && events_jes_check_slug( $slug ) )
 		$event->slug = $slug;

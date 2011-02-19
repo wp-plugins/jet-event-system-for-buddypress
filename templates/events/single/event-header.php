@@ -32,19 +32,11 @@
 </div><!-- #item-header-avatar -->
 
 <div id="item-header-content">
-	<p><span class="highlight"><?php jes_bp_event_type() ?></span> <span class="activity"><?php printf( __( 'active %s ago', 'jet-event-system' ), jes_bp_get_event_last_active() ) ?></span></p>
-	<p><em><?php _e('Event classification', 'jet-event-system') ?>:</em> <?php jes_bp_event_etype() ?></p>
-	
-	<?php do_action( 'bp_before_event_header_meta' ) ?>
-
-	<div id="item-meta">
-			<?php 
-				if (!strpos($_eventstatus,__('Past event','jet-event-system')))
-					{
-						bp_event_join_button();
- 
+	<p><span class="highlight"><?php jes_bp_event_type() ?></span> <span class="activity"><?php printf( __( 'active %s ago', 'jet-event-system' ), jes_bp_get_event_last_active() ) ?></span><br />
+	<em><?php _e('Event classification', 'jet-event-system') ?>:</em> <?php jes_bp_event_etype() ?></p>
+<?php 
 /* Add to Outlook / iPhone Calendar */
-if (bp_event_is_member()) { ?>
+if (bp_event_is_member() & jes_bp_get_event_enablesocial()) { ?>
 <script>
 <!--
 	function onChoseOutlook(form)
@@ -59,8 +51,8 @@ if (bp_event_is_member()) { ?>
 		}
 //-->
 </script>
-	<div id="eventstyle">
-		<form name="jes_send_calendar" action="<?php echo WP_PLUGIN_URL ?>/jet-event-system-for-buddypress/tosend/calendar.php" method="post">
+	<div id="eventstyle" style="padding-top: 5px;">
+	<form name="jes_send_calendar" action="<?php echo WP_PLUGIN_URL ?>/jet-event-system-for-buddypress/tosend/calendar.php" method="post">
 			<input type="hidden" name="jes_send_type" value="">
 			<input type="hidden" name="jes-send-eventname" value="<?php jes_bp_event_name() ?>">
 			<input type="hidden" name="jes-send-eventslug" value="<?php jes_bp_event_slug() ?>">
@@ -69,11 +61,20 @@ if (bp_event_is_member()) { ?>
 			<input type="hidden" name="jes-send-unixsd" value="<?php echo (jes_datetounix(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm())-jes_offset()) ?>">
 			<input type="hidden" name="jes-send-unixed" value="<?php echo (jes_datetounix(jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm())-jes_offset()); ?>">
 			<input type="hidden" name="jes-send-placed" value="<?php if ( $jes_adata[ 'jes_events_countryopt_enable' ] ) { jes_bp_event_placedcountry(); ?>, <?php } ?><?php if ( $jes_adata[ 'jes_events_stateopt_enable' ] ) { jes_bp_event_placedstate(); ?>, <?php } jes_bp_event_placedaddress(); ?>, <?php jes_bp_event_placednote(); ?>">
-			<input name="jes-send-outlook" class="eventstyle" type="submit" value="<?php _e('Outlook','jet-event-system'); ?>" onClick="return onChoseOutlook(this.form)">
-			<input name="jes-send-iphone" class="eventstyle" type="submit" value="<?php _e('iPhone','jet-event-system'); ?>" onClick="return onChoseiPhone(this.form)">
+		<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+				<a href="http://twitter.com/share?url=<?php jes_bp_get_event_permalink() ?>" class="twitter-share-button">Tweet</a>
+			<input name="jes-send-outlook" class="eventstyle" type="image" value="iPhone" src="<?php echo WP_PLUGIN_URL ?>/jet-event-system-for-buddypress/images/outlook.png" onClick="return onChoseOutlook(this.form)">
+			<input name="jes-send-iphone" class="eventstyle" type="image" value="Outlook" src="<?php echo WP_PLUGIN_URL ?>/jet-event-system-for-buddypress/images/iphone.png" onClick="return onChoseiPhone(this.form)">
 		</form>
 	</div>
-<?php }
+<?php } ?>	
+	<?php do_action( 'bp_before_event_header_meta' ) ?>
+
+	<div id="item-meta">
+			<?php 
+				if (!strpos($_eventstatus,__('Past event','jet-event-system')))
+					{
+						bp_event_join_button();
 					}
 					else
 					{ ?>

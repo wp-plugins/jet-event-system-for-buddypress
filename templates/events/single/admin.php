@@ -272,6 +272,9 @@
 
 	<input type="hidden" name="event-forumlink" id="event-forumlink" value="1" />
 
+		<h4><?php _e('Enable Social Share?','jet-event-system'); ?></h4>
+		
+	
 	<?php do_action( 'bp_after_event_settings_admin' ); ?>
 
 	<p><input type="submit" value="<?php _e( 'Save Changes', 'jet-event-system' ) ?> &rarr;" id="save" name="save" /></p>

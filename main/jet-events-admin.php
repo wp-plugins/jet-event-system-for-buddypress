@@ -69,7 +69,6 @@ class JES_EVENTS_ADMIN_PAGE {
 		$jes_events = get_site_option('jes-events' );
 		?>
 		<div id="jes-event-admin-general" class="wrap">
-		<?php echo "<div id='message' class='updated fade'><p>Support the development of plug-in! Do not give up a modest donation:)</p></div>"; ?>
 		<h2><img src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/jeslogo.gif'; ?>"></h2>
 		<?php
 /* JES */
@@ -241,9 +240,14 @@ if ( isset($_POST['saveData']) ) {
 		}
 
 /* Avatars size */	
+
 		if ( $_POST[ 'jes_events_show_avatar_invite_enable' ] == 1 )
 			$jes_events[ 'jes_events_show_avatar_invite_enable' ] = 1;
 
+		if ( $_POST[ 'jes_events_defavatar' ] != null ) {
+			$jes_events[ 'jes_events_defavatar' ] = stripslashes($_POST[ 'jes_events_defavatar' ]);
+		}
+			
 		if ( $_POST[ 'jes_events_show_avatar_invite_size' ] != null ) {
 			$jes_events[ 'jes_events_show_avatar_invite_size' ] = stripslashes($_POST[ 'jes_events_show_avatar_invite_size' ]);
 		} else {
@@ -370,6 +374,11 @@ function on_jes_events_admin_donations($jes_events) {
 ?>
 <table>
 <tbody>
+<tr>
+<td>
+<p>Support the development of plug-in! Do not give up a modest donation</p>
+</td>
+</tr>
 <tr>
 <td><img class="alignleft size-full wp-image-2614" title="Web Money" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/'; ?>webmoney31.gif" alt="" width="50" height="30" /></a></td>
 <td>Z113010060388 / R144831580346</td>
@@ -635,11 +644,19 @@ function on_jes_events_admin_setupmain($jes_events) {
 							</tr>
 
 							<tr valign="top"><td><p><strong><?php _e('Avatar Options','jet-event-system'); ?></strong></p></td></tr>
-							
+
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_defavatar"><?php _e( 'Default avatar for events (img url):', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_defavatar" type="text" id="jes_events_defavatar" value="<?php echo $jes_events[ 'jes_events_defavatar' ]; ?>" />
+								</td>
+							</tr>
+									
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_show_avatar_invite_enable"><?php _e( 'Show avatars in the list of invited friends', 'jet-event-system' ) ?></label></th>
 								<td>
 									<input name="jes_events_show_avatar_invite_enable" type="checkbox" id="jes_events_show_avatar_invite_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_show_avatar_invite_enable' ] ? ' checked="checked"' : '' ); ?> />
+
 									<label for="jes_events_show_avatar_invite_size"><?php _e( 'Avatars size:', 'jet-event-system' ) ?></label>
 									<input name="jes_events_show_avatar_invite_size" type="text" id="jes_events_show_avatar_invite_size" value="<?php echo $jes_events[ 'jes_events_show_avatar_invite_size' ]; ?>" />
 								</td>
