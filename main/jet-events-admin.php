@@ -372,13 +372,9 @@ if (stripos($blogversion, 'MU') > 0)
 	
 function on_jes_events_admin_donations($jes_events) {
 ?>
+<p>Support the development of plug-in! Do not give up a modest donation</p>
 <table>
 <tbody>
-<tr>
-<td>
-<p>Support the development of plug-in! Do not give up a modest donation</p>
-</td>
-</tr>
 <tr>
 <td><img class="alignleft size-full wp-image-2614" title="Web Money" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/'; ?>webmoney31.gif" alt="" width="50" height="30" /></a></td>
 <td>Z113010060388 / R144831580346</td>
