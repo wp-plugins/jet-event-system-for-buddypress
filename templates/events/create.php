@@ -323,9 +323,12 @@ if ($jes_adata[ 'jes_events_notifymembers_enable' ] == 'none' )
 					<?php jes_event_groups_dropdown( $_POST['event-grouplink'] ) ?>
 
 	<input type="hidden" name="event-forumlink" id="event-forumlink" value="1" />
-		<h4><?php _e('Enable Social Share?','jet-event-system'); ?></h4>
-			<label><input type="checkbox" name="event-enablesocial" value="1"<?php if ( 'public' == bp_get_new_event_enablesocial() || !bp_get_new_event_enablesocial() ) { ?> checked="checked"<?php } ?> />	
-
+		<h4><?php _e('Sociable Share','jet-event-system'); ?></h4>
+		<label for="event-enablesocial"><?php _e('Enable Social share button?','jet-event-system'); ?></label>
+				<select name="event-enablesocial" id="event-enablesocial">
+					<option value="1"><?php _e('Yes','jet-event-system'); ?></option>
+					<option value="0"><?php _e('No','jet-event-system'); ?></option>
+				</select>
 					<?php do_action( 'bp_after_event_settings_creation_step' ); ?>
 
 					<?php wp_nonce_field( 'events_create_save_event-settings' ) ?>

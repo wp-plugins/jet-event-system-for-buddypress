@@ -647,7 +647,21 @@ function on_jes_events_admin_setupmain($jes_events) {
 									<input name="jes_events_defavatar" type="text" id="jes_events_defavatar" value="<?php echo $jes_events[ 'jes_events_defavatar' ]; ?>" />
 								</td>
 							</tr>
-									
+
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_defavatar_iphone"><?php _e( 'Default image for "save to iphone" (img url):', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_defavatar_iphone" type="text" id="jes_events_defavatar_iphone" value="<?php echo $jes_events[ 'jes_events_defavatar_iphone' ]; ?>" />
+								</td>
+							</tr>
+
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_defavatar_outlook"><?php _e( 'Default image for "save to outlook" (img url):', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_defavatar_outlook" type="text" id="jes_events_defavatar_outlook" value="<?php echo $jes_events[ 'jes_events_defavatar_outlook' ]; ?>" />
+								</td>
+							</tr>
+							
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_show_avatar_invite_enable"><?php _e( 'Show avatars in the list of invited friends', 'jet-event-system' ) ?></label></th>
 								<td>

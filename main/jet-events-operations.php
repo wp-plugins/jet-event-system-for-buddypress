@@ -98,7 +98,9 @@ function events_create_event( $args = '' ) {
 		$event->forumlink = $forumlink;		
 
 	if ( isset( $enablesocial ) )
-		$event->enablesocial = $enablesocial;	
+		$event->enablesocial = $enablesocial;
+	else if ( !$event_id && !isset( $enablesocial ) )
+		$event->enablesocial = 1;
 		
 	if ( isset( $slug ) && events_jes_check_slug( $slug ) )
 		$event->slug = $slug;
@@ -207,13 +209,14 @@ if ($notify_timed_enable)
 	return true;
 }
 
-function events_edit_event_settings( $event_id, $enable_forum, $glink, $flink, $status ) {
+function events_edit_event_settings( $event_id, $enable_forum, $glink, $flink, $esocial, $status ) {
 	global $bp;
 
 	$event = new JES_Events_Event( $event_id );
 	$event->enable_forum = $enable_forum;
 	$event->grouplink = $glink;
 	$event->forumlink = $flink;
+	$event->enablesocial = $esocial;
 
 	/***
 	 * Before we potentially switch the event status, if it has been changed to public

@@ -120,22 +120,6 @@
 	</tr>
 	<tr>
 	<td width="50%" style="vertical-align:bottom;">
-		<script type="text/javascript">
-			$(function() {
-			$("#event-edtsd").datepicker(
-				{
-					changeMonth: true,
-					changeYear: true,
-					yearRange: '2010:2020'
-				});
-			$("#event-edted").datepicker(
-				{
-					changeMonth: true,
-					changeYear: true,
-					yearRange: '2010:2020'
-				});		
-			});
-		</script>
 	<tr>
 		<td>
 			<h4><?php _e('Event Date','jet-event-system') ?></h4>
@@ -212,7 +196,6 @@
 		</td>
 	</tr>
 </table>		
-
 	<?php do_action( 'bp_after_event_details_admin' ); ?>
 
 	<p><input type="submit" value="<?php _e( 'Save Changes', 'jet-event-system' ) ?> &rarr;" id="save" name="save" /></p>
@@ -272,8 +255,12 @@
 
 	<input type="hidden" name="event-forumlink" id="event-forumlink" value="1" />
 
-		<h4><?php _e('Enable Social Share?','jet-event-system'); ?></h4>
-		
+		<h4><?php _e('Sociable Share','jet-event-system'); ?></h4>
+		<label for="event-enablesocial"><?php _e('Enable Social share button?','jet-event-system'); ?></label>
+				<select name="event-enablesocial" id="event-enablesocial">
+					<option <?php if (jes_bp_event_enablesocial()) { ?>selected<?php } ?> value="1"><?php _e('Yes','jet-event-system'); ?></option>
+					<option <?php if (!jes_bp_event_enablesocial()) { ?>selected<?php } ?> value="0"><?php _e('No','jet-event-system'); ?></option>
+				</select>	
 	
 	<?php do_action( 'bp_after_event_settings_admin' ); ?>
 

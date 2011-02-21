@@ -145,6 +145,11 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.6.5.9.1.1 =
+
+* Important update for users of 1.6.5.9.1 (Please update DB & Templates from JES adminpanel)
+
+
 = 1.6.5.9.1 =
 
 * The ability to use the image for an avatar by default. If the image is not specified, it uses the gravatar

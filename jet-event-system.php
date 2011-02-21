@@ -13,9 +13,9 @@ Network: true
 define ('Jet Events System', '1.6.6');
 define ('JES_EVENTS_VERSION', '1.6' );
 define ('JES_EVENTS_BUILD', '6' );
-define ('JES_EVENTS_DB_VERSION', 18 );
-define ('JES_EVENTS_THEME_VERSION', 27 );
-define ('JES_EVENTS_RELEASE', '2011-02-19');
+define ('JES_EVENTS_DB_VERSION', 19 );
+define ('JES_EVENTS_THEME_VERSION', 28 );
+define ('JES_EVENTS_RELEASE', '2011-02-22');
 
 /* Define the slug for the component */
 if ( !defined( 'JES_SLUG' ) ) {
@@ -32,8 +32,6 @@ if (!$jes_adata[ 'jes_events_costumslug_enable' ])
 
 include ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-event-start.php' );
 
-register_activation_hook( __FILE__, 'jes_activation' );
-register_deactivation_hook( __FILE__, 'jes_deactivation' );
 
 function jes_activation() {
 /* Update DB and Templates */
@@ -53,6 +51,10 @@ function jes_activation() {
 function jes_deactivation() {
 // delete_option( 'jes_events' ); 
 }
+
+
+register_activation_hook( __FILE__, 'jes_activation' );
+register_deactivation_hook( __FILE__, 'jes_deactivation' );
 
 /* LOAD LANGUAGES */
 function jet_event_system_load_textdomain() {
