@@ -364,7 +364,7 @@ function jes_events_notification_cron( $event_id, $event_name, $event_placed, $e
 	$timenotify = $jes_adata[ 'jes_events_notify_timed' ];
 		
 	$event = new JES_Events_Event( $event_id );
-	$subject = __( 'Reminder', 'jet-event-system' ). '! [' . get_site_option( BP_ROOT_BLOG, 'blogname' ) . '] -' .$event_name;
+	$subject = __( 'Reminder', 'jet-event-system' ). '! [' . get_site_option( 'site_name' ) . '] - ' .$event_name;
 
 	$user_ids = JES_Events_Member::jes_get_event_member_ids( $event->id );
 	foreach ( (array)$user_ids as $user_id ) {
