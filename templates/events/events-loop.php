@@ -40,9 +40,15 @@ JQuery.noConflict();
 	var date = new Date();
 	$("#icalendar").fullCalendar({
 	    editable: true,
+		buttonText: {
+			today: '<?php _e('today','jet-event-system'); ?>',
+			month: '<?php _e('month','jet-event-system'); ?>',
+			week: '<?php _e('week','jet-event-system'); ?>',
+			day: '<?php _e('day','jet-event-system'); ?>'
+		},
 		dayNamesShort: ['<?php _e('Sun'); ?>','<?php _e('Mon'); ?>','<?php _e('Tue'); ?>','<?php _e('Wed'); ?>','<?php _e('Thu'); ?>','<?php _e('Fri'); ?>','<?php _e('Sat'); ?>'],
 		monthNames: ['<?php _e('January'); ?>','<?php _e('February'); ?>','<?php _e('March'); ?>','<?php _e('April'); ?>','<?php _e('May'); ?>','<?php _e('June'); ?>','<?php _e('July'); ?>','<?php _e('August'); ?>','<?php _e('September'); ?>','<?php _e('October'); ?>','<?php _e('November'); ?>','<?php _e('December'); ?>',],
-		monthNamesShort: ['<?php _e('Jan'); ?>','<?php _e('Feb'); ?>','<?php _e('Mar'); ?>','<?php _e('Apr'); ?>','<?php _e('May'); ?>','<?php _e('Jun'); ?>','<?php _e('Jul'); ?>','<?php _e('Aug'); ?>','<?php _e('Sep'); ?>','<?php _e('Oct'); ?>','<?php _e('Nov'); ?>','<?php _e('Dec'); ?>',],
+		monthNamesShort: ['<?php _e('Jan','jet-event-system'); ?>','<?php _e('Feb','jet-event-system'); ?>','<?php _e('Mar','jet-event-system'); ?>','<?php _e('Apr','jet-event-system'); ?>','<?php _e('May','jet-event-system'); ?>','<?php _e('Jun','jet-event-system'); ?>','<?php _e('Jul','jet-event-system'); ?>','<?php _e('Aug','jet-event-system'); ?>','<?php _e('Sep','jet-event-system'); ?>','<?php _e('Oct','jet-event-system'); ?>','<?php _e('Nov','jet-event-system'); ?>','<?php _e('Dec','jet-event-system'); ?>',],
 		header: {
 			left: 'title',
 			center: '',
