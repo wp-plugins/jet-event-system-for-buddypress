@@ -35,21 +35,23 @@
 	<em><?php _e('Event classification', 'jet-event-system') ?>:</em> <?php jes_bp_event_etype() ?></p>
 <?php 
 /* Add to Outlook / iPhone Calendar */
-if (bp_event_is_member() && jes_bp_get_event_enablesocial()) { ?>
-<script>
-<!--
-	function onChoseOutlook(form)
-		{
-			document.jes_send_calendar.jes_send_type.value = 'Outlook';
-			return true;
-		}
-	function onChoseiPhone(form)
-		{
-			document.jes_send_calendar.jes_send_type.value = 'iPhone';
-			return true;
-		}
-//-->
-</script>
+if (bp_event_is_member() { ?>
+	<script>
+	<!--
+		function onChoseOutlook(form)
+			{
+				document.jes_send_calendar.jes_send_type.value = 'Outlook';
+				return true;
+			}
+		function onChoseiPhone(form)
+			{
+				document.jes_send_calendar.jes_send_type.value = 'iPhone';
+				return true;
+			}
+	//-->
+	</script>
+<?php } ?>
+
 	<div id="eventstyle" style="padding-top: 5px;">
 	<form name="jes_send_calendar" action="<?php echo WP_PLUGIN_URL ?>/jet-event-system-for-buddypress/tosend/calendar.php" method="post">
 			<input type="hidden" name="jes_send_type" value="">
@@ -60,9 +62,11 @@ if (bp_event_is_member() && jes_bp_get_event_enablesocial()) { ?>
 			<input type="hidden" name="jes-send-unixsd" value="<?php echo (jes_datetounix(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm())-jes_offset()) ?>">
 			<input type="hidden" name="jes-send-unixed" value="<?php echo (jes_datetounix(jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm())-jes_offset()); ?>">
 			<input type="hidden" name="jes-send-placed" value="<?php if ( $jes_adata[ 'jes_events_countryopt_enable' ] ) { jes_bp_event_placedcountry(); ?>, <?php } ?><?php if ( $jes_adata[ 'jes_events_stateopt_enable' ] ) { jes_bp_event_placedstate(); ?>, <?php } jes_bp_event_placedaddress(); ?>, <?php jes_bp_event_placednote(); ?>">
+<?php if (bp_event_is_member() { ?>		
+<?php && jes_bp_get_event_enablesocial()) { ?>
 		<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 				<a href="http://twitter.com/share?url=<?php jes_bp_get_event_permalink() ?>" class="twitter-share-button">Tweet</a>
-
+<?php } ?>
 		<?php if ($jes_adata['jes_events_defavatar_iphone'] != null) { ?>
 			<input name="jes-send-outlook" class="eventstyle" type="image" value="iPhone" src="<?php echo $jes_adata['jes_events_defavatar_iphone']; ?>" onClick="return onChoseOutlook(this.form)">
 		<?php } else { ?>
@@ -73,9 +77,10 @@ if (bp_event_is_member() && jes_bp_get_event_enablesocial()) { ?>
 		<?php } else { ?>
 			<input name="jes-send-iphone" class="eventstyle" type="image" value="Outlook" src="<?php echo WP_PLUGIN_URL ?>/jet-event-system-for-buddypress/images/iphone.png" onClick="return onChoseiPhone(this.form)">
 		<?php } ?>
+<?php } ?>
 		</form>
 	</div>
-<?php } ?>	
+
 	<?php do_action( 'bp_before_event_header_meta' ) ?>
 
 	<div id="item-meta">

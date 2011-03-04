@@ -16,7 +16,11 @@ global $bp;
 ?>
 <li>
 	<div class="item-avatar" id="jes-avatar">
+		<?php if ($jes_adata['jes_events_show_avatar_directory_size'] > 50 ) { ?>
+		<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=full&width='.$jes_adata['jes_events_show_avatar_directory_size'].'&height='.$jes_adata['jes_events_show_avatar_directory_size'] ) ?></a>
+		<?php } else { ?>
 		<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width='.$jes_adata['jes_events_show_avatar_directory_size'].'&height='.$jes_adata['jes_events_show_avatar_directory_size'] ) ?></a>
+		<?php } ?>
 	</div>
 
 	<div class="item" style="width:80%;" id="jes-templ-item-<?php jes_bp_event_id() ?>">
@@ -128,7 +132,11 @@ global $bp;
 ?>
 <li>
 	<div class="item-avatar">
-		<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width=50&height=50' ) ?></a>
+		<?php if ($jes_adata['jes_events_show_avatar_directory_size'] > 50 ) { ?>
+		<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=full&width='.$jes_adata['jes_events_show_avatar_directory_size'].'&height='.$jes_adata['jes_events_show_avatar_directory_size'] ) ?></a>
+		<?php } else { ?>
+		<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width='.$jes_adata['jes_events_show_avatar_directory_size'].'&height='.$jes_adata['jes_events_show_avatar_directory_size'] ) ?></a>
+		<?php } ?>
 	</div>
 
 	<div class="item" style="width:80%;" id="jes-templ-item-<?php jes_bp_event_id() ?>">
@@ -180,7 +188,7 @@ global $bp;
 function jes_theme_template_twitter() {
 global $bp;
 /**************************************/
-/* Standart Template for Event Loop   */
+/* Twitter Template for Event Loop   */
 /*                                    */
 /* Base Template 					  */
 /**************************************/
@@ -191,7 +199,7 @@ global $bp;
 ?>
 	<li>
 		<div class="item-avatar">
-			<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width=50&height=50' ) ?></a>
+			<a href="<?php jes_bp_event_permalink() ?>"><?php jes_bp_event_avatar( 'type=thumb&width=25&height=25' ) ?></a>
 		</div>
 
 		<div class="item" style="width:80%;" id="jes-templ-item-<?php jes_bp_event_id() ?>">

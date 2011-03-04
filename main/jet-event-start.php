@@ -18,6 +18,7 @@ function jet_events_add_js() {
 	$jsload = 0;
 	$jes_adata = get_site_option('jes_events' );
 
+
 	if ( $bp->current_component == $bp->jes_events->slug )
 		{
 			if ($jes_adata['jes_events_style'] == 'Calendar')
@@ -66,6 +67,13 @@ function jet_events_add_js() {
 }
 		
 add_action( 'template_redirect', 'jet_events_add_js', 1 );	
+
+function jes_admin_js() {
+	wp_enqueue_script( 'jquery-jes-admin', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery.tabs.js' );
+	wp_enqueue_script( 'jquery-jes-admin-tabs', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/admintabs.js' );
+}
+
+add_action('admin_init','jes_admin_js');
 	
 function jes_events_add_css() {
   global $bp;

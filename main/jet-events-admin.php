@@ -1,76 +1,130 @@
 <?php
-//avoid direct calls to this file where wp core files not present
+
+/***
+ * This file is used to add site administration menus to the WordPress network admin backend.
+ */
+
+/**
+ * jes_admin()
+ *
+ * Checks for form submission, saves component settings and outputs admin screen HTML.
+ */
+ 
 if ( !function_exists( 'add_action' ) ) {
 	header( 'Status: 403 Forbidden' );
 	header( 'HTTP/1.1 403 Forbidden' );
 	exit();
 }
 
+function jes_add_network_menu() {
+?>
+<style type="text/css">
+/* <![CDATA[ */
+
+* {margin: 0; padding: 0;}
+a {color: #0094D6;}
+p {padding: 7px 0; font-size: 11px;}
+h1 {font-size: 21px; font-weight: normal; margin: 0 0 30px;}
+label { font-size: 12px; font-weight: normal; text-align: left;}
+th { text-align: left; }
+.section {
+	min-width: 600px;
+	background: #EFEFEF;
+	margin: 0 0 30px;
+}
+
+table tr { vertical-align: top; }
+ul.tabs {
+	height: 28px;
+	line-height: 25px;
+	list-style: none;
+	border-bottom: 1px solid #DDD;
+	background: #FFF;
+}
+.tabs li {
+	float: left;
+	display: inline;
+	margin: 0 1px -1px 0;
+	padding: 0 13px 1px;
+	color: #777;
+	cursor: pointer;
+	background: #F9F9F9;
+	border: 1px solid #E4E4E4;
+	border-bottom: 1px solid #F9F9F9;
+	position: relative;
+	font-size: 11px;
+}
+.tabs li:hover,
+.vertical .tabs li:hover {
+	color: #F70;
+	padding: 0 13px;
+	background: #FFFFDF;
+	border: 1px solid #FFCA95;
+}
+.tabs li.current {
+	color: #444;
+	background: #EFEFEF;
+	padding: 0 13px 2px;
+	border: 1px solid #D4D4D4;
+	border-bottom: 1px solid #EFEFEF;
+}
+.box {
+	display: none;
+	border: 1px solid #D4D4D4;
+  border-width: 0 1px 1px;
+	background: #EFEFEF;
+	padding: 0 12px;
+}
+.box.visible {
+	display: block;
+}
+
+.section.vertical {
+/*	width: 440px;*/
+	border-left: 250px solid #FFF;
+}
+.vertical .tabs {
+	width: 200px;
+	float: left;
+	display: inline;
+	margin: 0 0 0 -210px;
+	height: 390px;
+}
+.vertical .tabs li {
+	padding: 0 13px;
+	margin: 0 0 1px;
+	border: 1px solid #E4E4E4;
+	border-right: 1px solid #F9F9F9;
+	width: 180px;
+	height: 35px;
+}
+.vertical .tabs li:hover {
+	width: 190px;
+}
+.vertical .tabs li.current {
+	width: 180px;
+	color: #444;
+	background: #EFEFEF;
+	border: 1px solid #D4D4D4;
+  border-right: 1px solid #EFEFEF;
+  margin-right: -1px;
+}
+.vertical .box {
+  border-width: 1px;
+}
+
+/* ]]> */
+</style>
+
+
+<?php
+	global $bp;
+
+	
 require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-update.php' );
 
-$new_jes_events_admin = new JES_EVENTS_ADMIN_PAGE();
-
-class JES_EVENTS_ADMIN_PAGE {
-
-	//constructor of class, PHP4 compatible construction for backward compatibility (until WP 3.1)
-	function jes_events_admin_page() {
-		add_filter( 'screen_layout_columns', array( &$this, 'on_screen_layout_columns' ), 10, 2 );
-		add_action( 'admin_menu', array( &$this, 'jeson_admin_menu' ) );
-	}
-
-	function on_screen_layout_columns( $columns, $screen ) {
-		if ( $screen == $this->pagehook ) {
-			$columns[ $this->pagehook ] = 2;
-		}
-		return $columns;
-	}
-	function jeson_admin_menu() {	
-		$this->pagehook = add_submenu_page( 'bp-general-settings', __( 'Jet Event System', 'jet-event-system' ), __( 'Jet Event System', 'jet-event-system' ), 'manage_options', 'jes-event-admin', array( &$this, 'jeson_show_page' ) );
-		add_action( 'load-'.$this->pagehook, array( &$this, 'on_load_page' ) );
-	}
-	//will be executed if wordpress core detects this page has to be rendered
-	function on_load_page() {
-		wp_enqueue_script( 'common' );
-		wp_enqueue_script( 'wp-lists' );
-		wp_enqueue_script( 'postbox' );
-
-		// sidebar
-		add_meta_box( 'jes-events-admin-information', __( 'Information', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_information'), $this->pagehook, 'side', 'core' );
-		add_meta_box('jes-events-admin-donations', __( 'Donations', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_donations'), $this->pagehook, 'side', 'core');
-		add_meta_box('jes-events-admin-setup', __( 'Setup', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_setupmain'), $this->pagehook, 'side', 'core');
-		add_meta_box('jes-events-admin-support', __( 'Support', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_support'), $this->pagehook, 'side', 'core');
-		add_meta_box('jes-events-admin-translate', __( 'Translate', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_translate'), $this->pagehook, 'side', 'core');
-		add_meta_box('jes-events-admin-note', __( 'Note', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_note'), $this->pagehook, 'side', 'core');
-
-		// main content - normal
-		add_meta_box( 'jes-event-admin-baseoptions', __( 'Base Options', 'jet-event-system' ), array( &$this, 'on_jes_events_admin_baseoptions' ), $this->pagehook, 'normal', 'core' );
-		add_meta_box('jes-event-admin-accessfield', __( 'Setting up access to the fields events', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_accessfield'), $this->pagehook, 'normal', 'core');
-
-		add_meta_box('jes-event-admin-styleoptions', __( 'Style Options', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_styleoptions'), $this->pagehook, 'normal', 'core');		
-	
-		add_meta_box('jes-event-admin-classificationoptions', __( 'Classification options', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_classificationoptions'), $this->pagehook, 'normal', 'core');		
-
-		add_meta_box('jes-event-admin-googlemap', __( 'Google Map options (future)', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_googlemap'), $this->pagehook, 'normal', 'core');
-
-		add_meta_box('jes-event-admin-reminder', __( 'Reminder options (future)', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_reminder'), $this->pagehook, 'normal', 'core');
-
-		add_meta_box('jes-event-admin-restrictoptions', __( 'Restrict options', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_restrictoptions'), $this->pagehook, 'normal', 'core');
-
-		add_meta_box('jes-event-admin-privacyoptions', __( 'Privacy options', 'jet-event-system' ), array(&$this, 'on_jes_events_admin_privacyoptions'), $this->pagehook, 'normal', 'core');
-
-	}
-
-	//executed to show the plugins complete admin page
-	function jeson_show_page() {
-		global $bp, $wpdb;
-		global $screen_layout_columns;
-
-		//define some data can be given to each metabox during rendering
 		$jes_events = get_site_option('jes-events' );
-		?>
-		<div id="jes-event-admin-general" class="wrap">
-		<h2><img src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/jeslogo.gif'; ?>"></h2>
-		<?php
+
 /* JES */
 
 if ( isset($_POST['updatedb']) )
@@ -332,156 +386,67 @@ if (stripos($blogversion, 'MU') > 0)
 		echo "<div id='message' class='updated fade'><p>" . __( 'Options updated.', 'jet-event-system' ) . "</p></div>";
 	}
 
-/* JES */
-		?>
+/* JES */		
 
-	<form action="<?php echo site_url() . '/wp-admin/admin.php?page=jes-event-admin' ?>" name="jes_events_form" id="jes_events_form" method="post">
-			<?php wp_nonce_field('jes-event-admin-general'); ?>
-			<?php wp_nonce_field('closedpostboxes', 'closedpostboxesnonce', false ); ?>
-			<?php wp_nonce_field('meta-box-order', 'meta-box-order-nonce', false ); ?>
+	?>
 
-			<div id="poststuff" class="metabox-holder<?php echo 2 == $screen_layout_columns ? ' has-right-sidebar' : ''; ?>">
-            <div id="side-info-column" class="inner-sidebar">
-					<?php do_meta_boxes($this->pagehook, 'side', $jes_events); ?>
-				</div>
-				<div id="post-body" class="has-sidebar">
-					<div id="post-body-content" class="has-sidebar-content">
-						<?php do_meta_boxes($this->pagehook, 'normal', $jes_events); ?>
-				<p align="center" class="submit"><input type="submit" name="saveData" value="<?php _e( 'Save Settings', 'jet-event-system' ) ?>"/></p>						
-					</div>
-				</div>
-			</div>
-		</form>
-		</div>
-	<script type="text/javascript">
-		//<![CDATA[
-		jQuery(document).ready( function($) {
-			// close postboxes that should be closed
-			$('.if-js-closed').removeClass('if-js-closed').addClass('closed');
-			// postboxes setup
-			postboxes.add_postbox_toggles('<?php echo $this->pagehook; ?>');
-		});
-		//]]>
-	</script>
+	<div class="wrap">
+		<h2><img src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/jeslogo.gif'; ?>"></h2>
 
-		<?php
-	}
-   /*
-    * Sidebar Blocks
-    */
+	<form action="" name="jes_events_form" id="jes_events_form" method="post">
+<div class="section vertical">
+    <ul class="tabs">
+		<li class="current"><?php _e( 'Information', 'jet-event-system' ); ?>
+		<li><?php _e( 'Main Block', 'jet-event-system' ); ?></li>
+		<li><?php _e( 'Setting up access to the fields events', 'jet-event-system' ); ?></li>
+		<li><?php _e( 'Style Options', 'jet-event-system' ); ?></li>
+		<li><?php _e( 'Classification options', 'jet-event-system' ); ?></li>
+		<li><?php _e( 'Google Map options (future)', 'jet-event-system' ); ?></li>
+		<li><?php _e( 'Reminder options (future)', 'jet-event-system' ); ?></li>
+		<li><?php _e( 'Restrict options', 'jet-event-system' ); ?></li>
+		<li><?php _e( 'Privacy options', 'jet-event-system' ); ?></li> 
+		<li><?php _e( 'Tech info', 'jet-event-system' ); ?></li> 
+	</ul>
 	
-function on_jes_events_admin_donations($jes_events) {
-?>
-<p>Support the development of plug-in! Do not give up a modest donation</p>
-<table>
-<tbody>
-<tr>
-<td><img class="alignleft size-full wp-image-2614" title="Web Money" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/'; ?>webmoney31.gif" alt="" width="50" height="30" /></a></td>
-<td>Z113010060388 / R144831580346</td>
-</tr>
-<tr>
-<td><img class="alignleft size-full wp-image-2615" title="Pay Pal" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/'; ?>paypal1.jpg" alt="" width="50" height="50" /></a></td>
-<td><script type="text/javascript">// <![CDATA[
- 			function chcount(form){ 			document.sf.amount.value = document.sf.UCount.value; 			return true; 			}
-// ]]></script>
-
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post"> <input name="cmd" type="hidden" value="_xclick" /> <input name="business" type="hidden" value="milordk@rambler.ru" /> <label id="UCount">
-<input maxlength="3" name="UCount" size="3" type="text" value="20" /></label>
-
-<input name="item_name" type="hidden" value="JES Project" /> <input name="item_number" type="hidden" value="1" /> <input name="amount" type="hidden" value="20" /> <input name="no_shipping" type="hidden" value="1" /> <input name="return" type="hidden" value="http://milordk.ru/projects/wordpress-buddypress/podderzhka.html" /> <input type="submit" value="Donations with PayPal (USD)" />
-
-</form></td>
-</tr>
-<tr>
-<td><img class="alignleft size-full wp-image-2616" title="Yandex Money" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/'; ?>yandex_money1.png" alt="" width="46" height="12" /></a></td>
-<td>41001289356064</td>
-</tr>
-</tbody>
-</table>
-
-		<p>(<?php _e('please specify in the designation of the site and name :) All who have made a contribution to the development of plug-in will be included in honor roll, as well as gain access to additional modules!','jet-event-system'); ?>)</p>
-<?php
-}
-	
-function on_jes_events_admin_support($jes_events) {
-?>
-	<p><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html">About</a></p>
-	<p><a href="http://jes.milordk.ru">Website Developer</a>: <a href="http://test.jes.milordk.ru/">Ticket site</a>, <a href="http://jes.milordk.ru/manual-working-with-a-event.html">Manual</a>, <a href="http://jes.milordk.ru/changelog.html">Changelog</a>, <a href="http://jes.milordk.ru/polls-oprosy.html">Polls</a></p>
-<?php
-}
-
-function on_jes_events_admin_translate($jes_events) {
-?>
-<p><ul>
-		<li><strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru/" target="_blank">milordk.ru</a></li>
-		<li><strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">paysterresdelorraine.com</a></li>
-		<li><strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="http://www.pixelartist.de/" target="_blank">pixelartist.de</a></li>
-		<li><strong>es_ES</strong> - <em>Alex_Mx</em></li>
-		<li><strong>da_DK</strong> - <em>Chono</em>, <a href="http://www.chono.dk/" target="_blank">chono.dk</a></li>
-		<li><strong>it_IT</strong> - <em>Andrea</em>, <a href="http://riderbook.it/">riderbook.it</a>
-		<li><strong>sv_SE</strong> - <em>Thomas Schneider</em>
-</ul></p>
-	<p>To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>
-	<p><em><?php _e('Please send your translations to milord_k @ mail.ru','jet-event-system'); ?></em></p>
-	<p>Do not forget to include links to your sites (for accommodation options in the list of translators)</p>
-	<p><?php _e('Translates can be discussed at the forum on the official website of the plugin:','jet-event-system'); ?> <a href="http://jes.milordk.ru/groups/translates/">Group</a></p>
-<?php
-}
-
-function on_jes_events_admin_note($jes_events) {
-?>
-<p><strong><?php _e('Recommended plugins','jet-event-system'); ?></strong>
-	<ul>
-		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-site-unit-could-poleznye-vidzhety-dlya-vashej-socialnoj-seti.html" title="Jet Site Unit Could">Jet Site Unit Could</a></li>
-		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/publikaciya-v-wordpress-minuyu-administrativnuyu-panel-jet-quickpress.html">Jet QuickPress (for BP < 1.2.5)</a></li>
-		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/v-pomoshh-adminam-jet-footer-code.html">Jet Footer Code</a></li>
-		<li><a href="http://cosydale.com/plugin-cd-avatar-bubble.html">CD Avatar Bubble</a></li>
-		<li><a href="http://wordpress.org/extend/plugins/wp-minify/">WP Minify</a></li>
-		<li><a href="http://dev.pellicule.org/?page_id=19">One Click Post (for BP > 1.2.5, WP 3.0.x)</a></li>
-	</ul></p>
-<p><strong><?php _e('Recommended themes','jet-event-system'); ?></strong>
-	<ul>
-		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-lite-tema-dlya-wordpress-3-0.html" title="Jet Site Unit Could">Jet Lite Standart</a></li>
-		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-lite-fresh-cut-day-tema-dlya-wordpress-3-0.html">Jet Lite Fresh Cut Day</a></li>
-		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-lite-yellow-%e2%80%93-tema-dlya-wordpress-3-0.html">Jet Lite Yellow</a></li>
-	</ul></p>
-	<p>Special thanks to <a href="http://cosydale.com">slaFFik</a> for his help in writing a plugin!</p>
-	<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
-		<div>
-			<a href="http://twitter.com/share?url=http://jes.milordk.ru" class="twitter-share-button">Tweet</a>
-		</div>
-
-<?php
-}
-	
-function on_jes_events_admin_information($jes_events) {
-?>
-		<h4>Jet Event System <?php _e('version','jet-event-system'); ?> <?php echo JES_EVENTS_VERSION; ?> <?php _e('build','jet-event-system'); ?> <?php echo JES_EVENTS_BUILD; ?></h4>
-				<p><?php echo JES_EVENTS_RELEASE; ?></p>
-			<p><?php _e('Template version:','jet-event-system');?>
-				<?php if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION )
-							{
-								echo '<span style="color:#CC0033;">';
-							} else {
-								echo '<span>';
-							} ?>
-				<?php echo get_site_option( 'jes-theme-version' ); ?></span><?php echo '('.JES_EVENTS_THEME_VERSION.')'; ?></p>
-				<p><?php _e('DB version:','jet-event-system'); ?>
-				<?php if ( get_site_option( 'jes-events-db-version' ) < JES_EVENTS_DB_VERSION )
-							{
-								echo '<span style="color:#CC0033;">';
-							} else {
-								echo '<span>';
-							} ?>
-				<?php echo get_site_option( 'jes-events-db-version' );?></span><?php echo '('.JES_EVENTS_DB_VERSION.')'; ?></p>
-			<p><strong>locale:</strong> wplang: <?php echo WPLANG; ?>, wplocale: <?php echo apply_filters( 'wordpress_locale', get_locale() ); ?></p>
-<?php
-}
-
-function on_jes_events_admin_setupmain($jes_events) {
-?>  
-	<form action="<?php echo site_url() . '/wp-admin/admin.php?page=jes-event-admin' ?>" name="jes_events_update_j" id="jes_events_update_j" method="post">
-		<label name="jthemepath"><?php _e('Select the location you are using themes:','jet-event-system'); ?></label>
+	<div class="box" style="display: block;">
+		<h3><?php _e( 'Information', 'jet-event-system' ); ?></h3>
+<table width="100%">
+	<tr>
+		<th>
+			<?php _e('Information','jet-event-system'); ?>
+		</th>
+		<th>
+			<?php _e( 'Setup', 'jet-event-system' ); ?>
+		</th>
+		<th>
+			<?php _e( 'Donations', 'jet-event-system' ); ?>
+		</th>
+	</tr>
+	<tr>
+		<td width="25%">
+			<h4>Jet Event System <?php _e('version','jet-event-system'); ?> <?php echo JES_EVENTS_VERSION; ?> <?php _e('build','jet-event-system'); ?> <?php echo JES_EVENTS_BUILD; ?></h4>
+					<p><?php echo JES_EVENTS_RELEASE; ?></p>
+				<p><?php _e('Template version:','jet-event-system');?>
+					<?php if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION )
+								{
+									echo '<span style="color:#CC0033;">';
+								} else {
+									echo '<span>';
+								} ?>
+					<?php echo get_site_option( 'jes-theme-version' ); ?></span><?php echo '('.JES_EVENTS_THEME_VERSION.')'; ?></p>
+					<p><?php _e('DB version:','jet-event-system'); ?>
+					<?php if ( get_site_option( 'jes-events-db-version' ) < JES_EVENTS_DB_VERSION )
+								{
+									echo '<span style="color:#CC0033;">';
+								} else {
+									echo '<span>';
+								} ?>
+					<?php echo get_site_option( 'jes-events-db-version' );?></span><?php echo '('.JES_EVENTS_DB_VERSION.')'; ?></p>
+				<p><strong>locale:</strong> wplang: <?php echo WPLANG; ?>, wplocale: <?php echo apply_filters( 'wordpress_locale', get_locale() ); ?></p>
+		</td>
+		<td>
+	<form action="<?php echo site_url() . '/wp-admin/admin.php?page=jes-event-settings' ?>" name="jes_events_update_j" id="jes_events_update_j" method="post">
+		<label name="jthemepath"><?php _e('Select the location you are using themes:','jet-event-system'); ?></label><br />
 <?php
 	$stps_vis = substr(STYLESHEETPATH,strlen(STYLESHEETPATH)-25,strlen(STYLESHEETPATH)-24);
 ?>
@@ -489,18 +454,49 @@ function on_jes_events_admin_setupmain($jes_events) {
 			<option value="<?php echo STYLESHEETPATH; ?>">..<?php echo substr(STYLESHEETPATH,strlen(STYLESHEETPATH)-30,strlen(STYLESHEETPATH)-29); ?>*</option>
 			<option value="<?php echo TEMPLATEPATH; ?>">..<?php echo substr(TEMPLATEPATH,strlen(TEMPLATEPATH)-30,strlen(TEMPLATEPATH)-29); ?></option>
 		</select>
+		<br />
 		<input type="submit" name="updatedb" value="<?php _e( 'Update Database', 'jet-event-system' ) ?>"/>
 		<input type="submit" name="updatetemplate" value="<?php _e( 'Update Templates', 'jet-event-system' ) ?>"/>
 		<input type="submit" name="checkfiles" value="<?php _e( 'Checking for files', 'jet-event-system' ) ?>"/>		
-	</form>	
-<?php	}
+	</form>
+		</td>
+		<td>
+			<p>Support the development of plug-in! Do not give up a modest donation</p>
+				<table>
+					<tbody>
+						<tr>
+							<td><img class="alignleft size-full wp-image-2614" title="Web Money" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/'; ?>webmoney31.gif" alt="" width="50" height="30" /></a></td>
+							<td>Z113010060388 / R144831580346</td>
+						</tr>
+						<tr>
+							<td><img class="alignleft size-full wp-image-2615" title="Pay Pal" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/'; ?>paypal1.jpg" alt="" width="50" height="50" /></a></td>
+							<td><script type="text/javascript">
+									// <![CDATA[
+										function chcount(form){
+											document.sf.amount.value = document.sf.UCount.value;
+											return true; 			}
+									// ]]></script>
 
-   /*
-    * Main Content Blocks
-    */
-	function on_jes_events_admin_baseoptions($jes_events) {
-	?>
-						<table class="form-table" width="90%">
+									<form action="https://www.paypal.com/cgi-bin/webscr" method="post"> <input name="cmd" type="hidden" value="_xclick" /> <input name="business" type="hidden" value="milordk@rambler.ru" /> <label id="UCount">
+										<input maxlength="3" name="UCount" size="3" type="text" value="20" /></label>
+										<input name="item_name" type="hidden" value="JES Project" /> <input name="item_number" type="hidden" value="1" /> <input name="amount" type="hidden" value="20" /> <input name="no_shipping" type="hidden" value="1" /> <input name="return" type="hidden" value="http://milordk.ru/projects/wordpress-buddypress/podderzhka.html" /> <input type="submit" value="Donations with PayPal (USD)" />
+									</form></td>
+						</tr>
+						<tr>
+							<td><img class="alignleft size-full wp-image-2616" title="Yandex Money" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/'; ?>yandex_money1.png" alt="" width="46" height="12" /></a></td>
+							<td>41001289356064</td>
+						</tr>
+					</tbody>
+				</table>
+		<p>(<?php _e('please specify in the designation of the site and name :) All who have made a contribution to the development of plug-in will be included in honor roll, as well as gain access to additional modules!','jet-event-system'); ?>)</p>
+		</td>
+	</tr>
+</table>
+	
+	</div>
+    <div class="box" style="display: none;">
+		<h3><?php _e( 'Main Block', 'jet-event-system' ); ?></h3>
+<table width="100%">
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_costumslug_enable"><?php _e( 'Allow costum slug', 'jet-event-system' ) ?></label></th>
 								<td>
@@ -529,12 +525,11 @@ function on_jes_events_admin_setupmain($jes_events) {
 								</td>
 							</tr>				
 </table>
-<?
-	}
-
-	function on_jes_events_admin_accessfield($jes_events) {
-?>
-						<table class="form-table" width="90%">
+				<p align="center" class="submit"><input type="submit" name="saveData" value="<?php _e( 'Save Settings', 'jet-event-system' ) ?>"/></p>			
+    </div>
+    <div class="box" style="display: none;">
+		<h3><?php _e( 'Setting up access to the fields events', 'jet-event-system' ); ?></h3>
+<table width="100%">
 		<!-- Country/State/City Options -->
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_countryopt_enable"><?php _e( 'Allow Country', 'jet-event-system' ) ?></label></th>
@@ -609,12 +604,11 @@ function on_jes_events_admin_setupmain($jes_events) {
 								</td>
 							</tr>				
 </table>
-<?php      
-   }
-
-	function on_jes_events_admin_styleoptions($jes_events) {
-?>
-						<table class="form-table" width="90%">
+				<p align="center" class="submit"><input type="submit" name="saveData" value="<?php _e( 'Save Settings', 'jet-event-system' ) ?>"/></p>	
+    </div>
+	<div class="box" style="display: none;">
+		<h3><?php _e( 'Style Options', 'jet-event-system' ); ?></h3>
+<table width="100%">
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_style"><?php _e( 'Style for Event Catalog:', 'jet-event-system' ) ?></label></th>
 								<td>
@@ -707,13 +701,12 @@ function on_jes_events_admin_setupmain($jes_events) {
 								</td>
 							</tr>
 							
-</table>							
-<?php  
-   }   
-
-	function on_jes_events_admin_classificationoptions($jes_events) {
-?>
-						<table class="form-table" width="90%">
+</table>
+				<p align="center" class="submit"><input type="submit" name="saveData" value="<?php _e( 'Save Settings', 'jet-event-system' ) ?>"/></p>	
+	</div>
+	<div class="box" style="display: none;">
+		<h3><?php _e( 'Classification options', 'jet-event-system' ); ?></h3>
+<table width="100%">
 							<tr valign="top">
 							<th scope="row"><label for="jes_events_class_enable"><?php _e( 'Allow the use of classifiers through an administrative panel (unless you want to use some or classifier - leave his field blank)', 'jet-event-system' ) ?></label></th>
 								<td>
@@ -755,64 +748,27 @@ function on_jes_events_admin_setupmain($jes_events) {
 								</td>
 							</tr>
 </table>
-<?php  
-   } 
-   
-	function on_jes_events_admin_restrictoptions($jes_events) {
-?>
-						<table class="form-table" width="90%">
-							<tr valign="top">
-							<th scope="row"><label for="jes_events_createnonadmin_disable"><?php _e( 'Prohibit non-administrators to create events', 'jet-event-system' ) ?></label></th>
-								<td>
-									<input name="jes_events_createnonadmin_disable" type="checkbox" id="jes_events_createnonadmin_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_createnonadmin_disable' ] ? ' checked="checked"' : '' ); ?> />
-								</td>
-							</tr>
-
-							<tr valign="top">
-							<th scope="row"><label for="jes_events_adminapprove_enable"><?php _e( 'Allow verification of events by the administrator', 'jet-event-system' ) ?></label></th>
-								<td>
-									<input name="jes_events_adminapprove_enable" type="checkbox" id="jes_events_adminapprove_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_adminapprove_enable' ] ? ' checked="checked"' : '' ); ?> />
-								</td>
-							</tr>
-</table>
-<?php   } 
-
-	function on_jes_events_admin_privacyoptions($jes_events) {
-?>
-						<table class="form-table" width="90%">
-							<tr valign="top">
-							<th scope="row"><label for="jes_events_code_index"><?php _e( 'Allow indexing of events search engines', 'jet-event-system' ) ?></label></th>
-								<td>
-									<input name="jes_events_code_index" type="checkbox" id="jes_events_code_index" value="1"<?php echo( '1' == $jes_events[ 'jes_events_code_index' ] ? ' checked="checked"' : '' ); ?> />
-								</td>
-							</tr>
-
-							<tr valign="top">
-							<th scope="row"><label for="jes_events_addnavi_disable"><?php _e( 'Deny access to events for unregistered users', 'jet-event-system' ) ?></label></th>
-								<td>
-									<input name="jes_events_addnavi_disable" type="checkbox" id="jes_events_addnavi_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_addnavi_disable' ] ? ' checked="checked"' : '' ); ?> />
-								</td>
-							</tr>
-
-							<tr valign="top">
-							<th scope="row"><label for="jes_events_addnavi_disable"><?php _e( 'Show private events in the catalog for unregistered users (in the cases allow access to events)', 'jet-event-system' ) ?></label></th>
-								<td>
-									<input name="jes_events_addnavicatalog_disable" type="checkbox" id="jes_events_addnavicatalog_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_addnavicatalog_disable' ] ? ' checked="checked"' : '' ); ?> />
-								</td>
-							</tr>
-							
-							<tr valign="top">
-							<th scope="row"><label for="jes_events_flyer_toall"><?php _e( 'Show flyers to all users? (otherwise, flyers will be available only to participants of the event)', 'jet-event-system' ) ?></label></th>
-								<td>
-									<input name="jes_events_flyer_toall" type="checkbox" id="jes_events_flyer_toall" value="1"<?php echo( '1' == $jes_events[ 'jes_events_flyer_toall' ] ? ' checked="checked"' : '' ); ?> />
-								</td>
-							</tr>							
-</table>
-<?php   }   
-
-	function on_jes_events_admin_reminder($jes_events) {
-?>
-	<table class="form-table" width="90%">
+				<p align="center" class="submit"><input type="submit" name="saveData" value="<?php _e( 'Save Settings', 'jet-event-system' ) ?>"/></p>	
+	</div>
+	<div class="box" style="display: none;">
+		<h3><?php _e( 'Google Map options (future)', 'jet-event-system' ); ?></h3>
+<table width="100%">
+		
+		<tr valign="top">
+			<th scope="row"><label for="jes_events_googlemapopt_type"><?php _e( 'Use the following mechanism for the demonstration maps:', 'jet-event-system' ) ?></label></th>
+			<td>
+				<select name="jes_events_googlemapopt_type" id="jes_events_googlemapopt_type">
+					<option <?php if ($jes_events[ 'jes_events_googlemapopt_type' ] == 'google') { ?>selected<?php } ?> value="google"><?php _e('Google','jet-event-system'); ?></option>
+					<option <?php if ($jes_events[ 'jes_events_googlemapopt_type' ] == 'image') { ?>selected<?php } ?> value="image"><?php _e('Image','jet-event-system'); ?></option>
+				</select>
+			</td>
+		</tr>
+	</table>
+				<p align="center" class="submit"><input type="submit" name="saveData" value="<?php _e( 'Save Settings', 'jet-event-system' ) ?>"/></p>	
+	</div>
+	<div class="box" style="display: none;">
+		<h3><?php _e( 'Reminder options (future)', 'jet-event-system' ); ?></h3>
+<table width="100%">
 	
 		<tr valign="top">
 			<th scope="row"><label for="jes_events_notifymembers_manual_enable"><?php _e( 'Provide administrators an opportunity to remind participants of the events of the coming event in manual mode?', 'jet-event-system' ) ?></label></th>
@@ -847,23 +803,132 @@ function on_jes_events_admin_setupmain($jes_events) {
 			</select>
 			</td>
 		</tr>
-	</table>
-<?php   } 
+	</table>	
+				<p align="center" class="submit"><input type="submit" name="saveData" value="<?php _e( 'Save Settings', 'jet-event-system' ) ?>"/></p>	
+	</div>
+	<div class="box" style="display: none;">
+		<h3><?php _e( 'Restrict options', 'jet-event-system' ); ?></h3>
+<table width="100%">
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_createnonadmin_disable"><?php _e( 'Prohibit non-administrators to create events', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_createnonadmin_disable" type="checkbox" id="jes_events_createnonadmin_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_createnonadmin_disable' ] ? ' checked="checked"' : '' ); ?> />
+								</td>
+							</tr>
 
-	function on_jes_events_admin_googlemap($jes_events) {
-?>
-	<table class="form-table" width="90%">
-		
-		<tr valign="top">
-			<th scope="row"><label for="jes_events_googlemapopt_type"><?php _e( 'Use the following mechanism for the demonstration maps:', 'jet-event-system' ) ?></label></th>
-			<td>
-				<select name="jes_events_googlemapopt_type" id="jes_events_googlemapopt_type">
-					<option <?php if ($jes_events[ 'jes_events_googlemapopt_type' ] == 'google') { ?>selected<?php } ?> value="google"><?php _e('Google','jet-event-system'); ?></option>
-					<option <?php if ($jes_events[ 'jes_events_googlemapopt_type' ] == 'image') { ?>selected<?php } ?> value="image"><?php _e('Image','jet-event-system'); ?></option>
-				</select>
-			</td>
-		</tr>
-	</table>
-<?php   } 
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_adminapprove_enable"><?php _e( 'Allow verification of events by the administrator', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_adminapprove_enable" type="checkbox" id="jes_events_adminapprove_enable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_adminapprove_enable' ] ? ' checked="checked"' : '' ); ?> />
+								</td>
+							</tr>
+</table>
+				<p align="center" class="submit"><input type="submit" name="saveData" value="<?php _e( 'Save Settings', 'jet-event-system' ) ?>"/></p>	
+	</div>
+	<div class="box" style="display: none;">
+		<h3><?php _e( 'Privacy options', 'jet-event-system' ); ?></h3>
+<table width="100%">
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_code_index"><?php _e( 'Allow indexing of events search engines', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_code_index" type="checkbox" id="jes_events_code_index" value="1"<?php echo( '1' == $jes_events[ 'jes_events_code_index' ] ? ' checked="checked"' : '' ); ?> />
+								</td>
+							</tr>
+
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_addnavi_disable"><?php _e( 'Deny access to events for unregistered users', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_addnavi_disable" type="checkbox" id="jes_events_addnavi_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_addnavi_disable' ] ? ' checked="checked"' : '' ); ?> />
+								</td>
+							</tr>
+
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_addnavi_disable"><?php _e( 'Show private events in the catalog for unregistered users (in the cases allow access to events)', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_addnavicatalog_disable" type="checkbox" id="jes_events_addnavicatalog_disable" value="1"<?php echo( '1' == $jes_events[ 'jes_events_addnavicatalog_disable' ] ? ' checked="checked"' : '' ); ?> />
+								</td>
+							</tr>
+							
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_flyer_toall"><?php _e( 'Show flyers to all users? (otherwise, flyers will be available only to participants of the event)', 'jet-event-system' ) ?></label></th>
+								<td>
+									<input name="jes_events_flyer_toall" type="checkbox" id="jes_events_flyer_toall" value="1"<?php echo( '1' == $jes_events[ 'jes_events_flyer_toall' ] ? ' checked="checked"' : '' ); ?> />
+								</td>
+							</tr>							
+</table>
+	</div>
+	<div class="box" style="display: none;">
+<table width="100%">
+	<tr>	
+		<th>
+			<?php _e( 'Support', 'jet-event-system' ); ?>
+		</th>
+		<th>
+			<?php _e( 'Translate', 'jet-event-system' ); ?>
+		</th>
+		<th>
+			<?php _E( 'Note', 'jet-event-system' ); ?>
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<p><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html">About</a></p>
+	<p><a href="http://jes.milordk.ru">Website Developer</a>: <a href="http://test.jes.milordk.ru/">Ticket site</a>, <a href="http://jes.milordk.ru/manual-working-with-a-event.html">Manual</a>, <a href="http://jes.milordk.ru/changelog.html">Changelog</a>, <a href="http://jes.milordk.ru/polls-oprosy.html">Polls</a></p>
+		</td>
+		<td>
+	<p><ul>
+		<li><strong>ru_RU</strong> - <em>Jettochkin</em>, <a href="http://milordk.ru/" target="_blank">milordk.ru</a></li>
+		<li><strong>fr_FR</strong> - <em>Laurent Hermann</em>, <a href="http://www.paysterresdelorraine.com/" target="_blank">paysterresdelorraine.com</a></li>
+		<li><strong>de_DE</strong> - <em>Manuel MЭller</em>, <a href="http://www.pixelartist.de/" target="_blank">pixelartist.de</a></li>
+		<li><strong>es_ES</strong> - <em>Alex_Mx</em></li>
+		<li><strong>da_DK</strong> - <em>Chono</em>, <a href="http://www.chono.dk/" target="_blank">chono.dk</a></li>
+		<li><strong>it_IT</strong> - <em>Andrea</em>, <a href="http://riderbook.it/">riderbook.it</a>
+		<li><strong>sv_SE</strong> - <em>Thomas Schneider</em>
+</ul></p>
+	<p>To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>
+	<p><em><?php _e('Please send your translations to milord_k @ mail.ru','jet-event-system'); ?></em></p>
+	<p>Do not forget to include links to your sites (for accommodation options in the list of translators)</p>
+	<p><?php _e('Translates can be discussed at the forum on the official website of the plugin:','jet-event-system'); ?> <a href="http://jes.milordk.ru/groups/translates/">Group</a></p>
+
+		</td>
+		<td>
+		</td>
+		<td>
+		<p><strong><?php _e('Recommended plugins','jet-event-system'); ?></strong>
+	<ul>
+		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-site-unit-could-poleznye-vidzhety-dlya-vashej-socialnoj-seti.html" title="Jet Site Unit Could">Jet Site Unit Could</a></li>
+		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/publikaciya-v-wordpress-minuyu-administrativnuyu-panel-jet-quickpress.html">Jet QuickPress (for BP < 1.2.5)</a></li>
+		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/v-pomoshh-adminam-jet-footer-code.html">Jet Footer Code</a></li>
+		<li><a href="http://cosydale.com/plugin-cd-avatar-bubble.html">CD Avatar Bubble</a></li>
+		<li><a href="http://wordpress.org/extend/plugins/wp-minify/">WP Minify</a></li>
+		<li><a href="http://dev.pellicule.org/?page_id=19">One Click Post (for BP > 1.2.5, WP 3.0.x)</a></li>
+	</ul></p>
+<p><strong><?php _e('Recommended themes','jet-event-system'); ?></strong>
+	<ul>
+		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-lite-tema-dlya-wordpress-3-0.html" title="Jet Site Unit Could">Jet Lite Standart</a></li>
+		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-lite-fresh-cut-day-tema-dlya-wordpress-3-0.html">Jet Lite Fresh Cut Day</a></li>
+		<li><a href="http://milordk.ru/r-lichnoe/opyt/cms/jet-lite-yellow-%e2%80%93-tema-dlya-wordpress-3-0.html">Jet Lite Yellow</a></li>
+	</ul></p>
+	<p>Special thanks to <a href="http://cosydale.com">slaFFik</a> for his help in writing a plugin!</p>
+	<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+		<div>
+			<a href="http://twitter.com/share?url=http://jes.milordk.ru" class="twitter-share-button">Tweet</a>
+		</div>
+		</td>
+	</tr>
+</table>
+
+	</div>
+</div>
+
+
+	</div>
+	</form>
+
+<?php
 }
+function jes_add_network_menu_s() {
+	add_submenu_page( 'bp-general-settings', __( 'Jet Event System', 'jet-event-system' ), __( 'Jet Event System', 'jet-event-system' ), 'manage_options', 'jet-event-settings',	'jes_add_network_menu' );
+}
+add_action( 'network_admin_menu', 'jes_add_network_menu_s' );
 ?>

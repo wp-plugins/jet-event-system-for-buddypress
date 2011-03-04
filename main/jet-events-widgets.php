@@ -29,9 +29,9 @@ class JES_BP_Events_Widget extends WP_Widget {
 <?php	global $bp;
 		$_key = $bp->displayed_user->id;
 		$bp->displayed_user->id = 0; ?>
-	
+<!-- Jet Event System for BuddyPress http://milordk.ru/ -->
 <?php if (!$data[ 'jes_events_code_index' ]) { ?>
-<!--<noindex>-->
+<!-- <noindex> -->
 <?php } ?>
 
 		<?php if ( bp_jes_has_events( 'type=soon&per_page=' . $instance['max_events'] . '&max=' . $instance['max_events'] ) ) : ?>
@@ -137,7 +137,7 @@ class JES_BP_Events_Widget extends WP_Widget {
 			</div>
 		<?php endif; ?>
 	<?php if (!$data[ 'jes_events_code_index' ]) { ?>
-		<!--</noindex>-->
+		<!-- </noindex> -->
 	<?php } ?>
 		<?php echo $after_widget; ?>
 	<?php $bp->displayed_user->id = $_key; ?>
@@ -196,6 +196,152 @@ class JES_BP_Events_Widget extends WP_Widget {
 <?php
 	}
 }
+
+class JES_BP_ShortEvents_Widget extends WP_Widget {
+	function jes_bp_shortevents_widget() {
+		parent::WP_Widget(false, $name = __( 'Short Events', 'jet-event-system' ) );
+		if ( is_active_widget( false, false, $this->id_base ) ) {
+			if (!is_admin()) {
+				wp_enqueue_script( 'events_widget_events_list-js', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/widget.events.js', array('jquery') );
+			}
+		}
+	}
+
+	function widget($args, $instance) {
+		global $bp;
+	    extract( $args );
+
+		echo $before_widget;
+		echo $before_title
+			. $instance['title']
+			. $after_title; 
+	$data = get_site_option('jes_events' );
+	$show_type = $instance['show_type'];
+	$showonlyadmin = $instance['showonlyadmin'];
+	$archive_color = $instance['archive_color'];
+?>
+<?php	global $bp;
+		$_key = $bp->displayed_user->id;
+		$bp->displayed_user->id = 0; ?>
+<!-- Jet Event System for BuddyPress http://milordk.ru/ -->
+<?php if (!$data[ 'jes_events_code_index' ]) { ?>
+<!-- <noindex> -->
+<?php } ?>
+
+		<?php if ( bp_jes_has_events( 'type=soon&per_page=' . $instance['max_events'] . '&max=' . $instance['max_events'] ) ) : ?>
+<?php 
+		$kdate_now = jes_datetounix();
+?>
+			<ul id="events-list" class="item-list">
+				<?php while ( jes_bp_events() ) : bp_jes_the_event(); ?>
+<?php
+		$kdate_end = jes_datetounix(jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm());
+		if (  (int)$kdate_now > (int)$kdate_end )
+			{
+				$check_keydate = 1;
+			}
+			else
+			{
+				$check_keydate = 0;
+			}
+		$keyvisible = 1;
+		if ($check_keydate and $showonlyadmin )
+			{
+			if ( current_user_can('manage_options') )
+				{
+				$keyvisible = 1;
+				}
+				else
+				{
+				$keyvisible = 0;
+				}
+			}
+	$showeventnona = $data[ 'jes_events_adminapprove_enable' ];
+		if ( !jes_bp_get_event_eventapproved() and $showeventnona ) {
+		if ( current_user_can('manage_options') )
+			{ 
+				$keyvisible = 1;
+				$shiftcan = 1;
+			}
+				else
+			{
+				$keyvisible = 0;
+				$shiftcan = 0;
+			} 
+		} 
+		if (jes_bp_event_is_admin() || jes_bp_event_is_mod() || $bp->jes_events->current_event->is_user_member)
+		{
+			$keyvisible = 1;		
+		}
+		if ($keyvisible)
+			{ ?>
+				<li>
+					<div class="item" id="jes-item--<?php jes_bp_event_id() ?>">
+
+						<div style="font-size:85%;" id="jes-placed-<?php jes_bp_event_id() ?>">
+								<a href="<?php jes_bp_event_permalink() ?>" title="<?php jes_bp_event_name() ?>"><?php jes_bp_event_name() ?></a>&nbsp;
+								<span><?php _e('In city:','jet-event-system') ?> <?php jes_bp_event_placedcity() ?>,<br /><?php _e('Start:','jet-event-system') ?> <?php jes_bp_event_edtsd() ?><?php if ($showtime) { ?>, <?php jes_bp_event_edtsth() ?>:<?php jes_bp_event_edtstm() ?><br /><?php } ?> <?php _e('End:','jet-event-system') ?> <?php jes_bp_event_edted() ?><?php if ($showtime) { ?>, <?php jes_bp_event_edteth() ?>:<?php jes_bp_event_edtetm() ?><?php } ?></span>
+							<?php if ($show_type) { ?>
+								<br /><span style="font-size:80%;"><?php jes_bp_event_type() ?>, <strong><?php jes_bp_event_etype() ?></strong></span>
+							<?php } ?>
+							<em><span style="font-size: 80%;"><?php echo eventstatus(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm(),jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm()); ?></span></em>
+						</div>
+					</div>
+				</li>
+			<?php } ?>
+				<?php endwhile; ?>
+			</ul>
+			<?php wp_nonce_field( 'events_widget_events_list', '_wpnonce-events' ); ?>
+			<input type="hidden" name="events_widget_max" id="events_widget_max" value="<?php echo attribute_escape( $instance['max_events'] ); ?>" />
+		<?php else: ?>
+			<div class="widget-error">
+				<?php _e('There are no events to display.', 'jet-event-system') ?>
+			</div>
+		<?php endif; ?>
+	<?php if (!$data[ 'jes_events_code_index' ]) { ?>
+		<!-- </noindex> -->
+	<?php } ?>
+		<?php echo $after_widget; ?>
+	<?php $bp->displayed_user->id = $_key; ?>
+<?php
+}
+
+	function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+		$instance['title'] = strip_tags( $new_instance['title'] );
+		$instance['max_events'] = strip_tags( $new_instance['max_events'] );
+		$instance['show_type'] = strip_tags( $new_instance['show_type'] );
+		$instance['showonlyadmin'] = strip_tags( $new_instance['showonlyadmin'] );		
+		$instance['archive_color'] = strip_tags( $new_instance['archive_color'] );
+		return $instance;
+	}
+
+	function form( $instance ) {
+		$instance = wp_parse_args( (array) $instance, array( 'max_events' => 5 ) );
+		$max_events = strip_tags( $instance['max_events'] );
+		$title = strip_tags( $instance['title'] );
+		$show_type = $instance['show_type'];
+		$showonlyadmin = $instance['showonlyadmin'];
+		$archive_color = strip_tags( $instance['archive_color'] );		
+		?>
+
+		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'jet-event-system'); ?> 
+		<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo attribute_escape( $title ); ?>" style="width: 30%" /></label></p>
+		<p><label for="<?php echo $this->get_field_id('max_events'); ?>"><?php _e('Max events to show:', 'jet-event-system'); ?> 
+		<input id="<?php echo $this->get_field_id( 'max_events' ); ?>" name="<?php echo $this->get_field_name( 'max_events' ); ?>" type="text" value="<?php echo attribute_escape( $max_events ); ?>" style="width: 30%" /></label></p>
+
+
+		<p><label for="<?php echo $this->get_field_id('show_type'); ?>"><?php _e('Show type of event and its Classification:', 'jet-event-system'); ?>
+		<input class="checkbox" type="checkbox" <?php if ($show_type) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('show_type'); ?>" name="<?php echo $this->get_field_name('show_type'); ?>" value="1" /></label></p>	
+	
+		<p><label for="<?php echo $this->get_field_id('showonlyadmin'); ?>"><?php _e('Show archived events only for administrator:', 'jet-event-system'); ?>
+		<input type="checkbox" <?php if ($showonlyadmin) {echo 'checked="checked"';} ?> id="<?php echo $this->get_field_id('showonlyadmin'); ?>" name="<?php echo $this->get_field_name('showonlyadmin'); ?>" value="1" /></label></p>	
+		
+		<p><label for="<?php echo $this->get_field_id('archive_color'); ?>"><?php _e('Color to archive events:', 'jet-event-system'); ?> <input id="<?php echo $this->get_field_id( 'archive_color' ); ?>" name="<?php echo $this->get_field_name( 'archive_color' ); ?>" type="text" value="<?php echo attribute_escape( $archive_color ); ?>" style="width: 30%" /></label></p>	
+<?php
+	}
+}
+
 
 function events_ajax_widget_events_list() {
 	global $bp;
@@ -260,5 +406,6 @@ function events_ajax_widget_events_list() {
 	<?php endif;
 }
 	add_action('widgets_init', create_function('', 'return register_widget("JES_BP_Events_Widget");') );
+	add_action('widgets_init', create_function('', 'return register_widget("JES_BP_ShortEvents_Widget");') );
 	add_action( 'wp_ajax_widget_events_list', 'events_ajax_widget_events_list' );
 ?>
