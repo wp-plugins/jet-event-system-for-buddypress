@@ -35,7 +35,7 @@
 	<em><?php _e('Event classification', 'jet-event-system') ?>:</em> <?php jes_bp_event_etype() ?></p>
 <?php 
 /* Add to Outlook / iPhone Calendar */
-if (bp_event_is_member() { ?>
+if (bp_event_is_member()) { ?>
 	<script>
 	<!--
 		function onChoseOutlook(form)
