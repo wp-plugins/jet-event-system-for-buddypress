@@ -76,7 +76,6 @@ if (bp_event_is_member()) { ?>
 		<?php } else { ?>
 			<input name="jes-send-iphone" class="eventstyle" type="image" value="Outlook" src="<?php echo WP_PLUGIN_URL ?>/jet-event-system-for-buddypress/images/iphone.png" onClick="return onChoseiPhone(this.form)">
 		<?php } ?>
-<?php } ?>
 		</form>
 	</div>
 
