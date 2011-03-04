@@ -62,7 +62,7 @@ if (bp_event_is_member()) { ?>
 			<input type="hidden" name="jes-send-unixsd" value="<?php echo (jes_datetounix(jes_bp_get_event_edtsd(),jes_bp_get_event_edtsth(),jes_bp_get_event_edtstm())-jes_offset()) ?>">
 			<input type="hidden" name="jes-send-unixed" value="<?php echo (jes_datetounix(jes_bp_get_event_edted(),jes_bp_get_event_edteth(),jes_bp_get_event_edtetm())-jes_offset()); ?>">
 			<input type="hidden" name="jes-send-placed" value="<?php if ( $jes_adata[ 'jes_events_countryopt_enable' ] ) { jes_bp_event_placedcountry(); ?>, <?php } ?><?php if ( $jes_adata[ 'jes_events_stateopt_enable' ] ) { jes_bp_event_placedstate(); ?>, <?php } jes_bp_event_placedaddress(); ?>, <?php jes_bp_event_placednote(); ?>">
-<?php if (bp_event_is_member() { ?>		
+<?php if (bp_event_is_member()) { ?>		
 <?php && jes_bp_get_event_enablesocial()) { ?>
 		<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 				<a href="http://twitter.com/share?url=<?php jes_bp_get_event_permalink() ?>" class="twitter-share-button">Tweet</a>
