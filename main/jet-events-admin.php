@@ -856,6 +856,7 @@ if (stripos($blogversion, 'MU') > 0)
 								</td>
 							</tr>							
 </table>
+				<p align="center" class="submit"><input type="submit" name="saveData" value="<?php _e( 'Save Settings', 'jet-event-system' ) ?>"/></p>
 	</div>
 	<div class="box" style="display: none;">
 <table width="100%">
