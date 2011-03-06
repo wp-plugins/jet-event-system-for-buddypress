@@ -64,7 +64,8 @@ if (bp_event_is_member()) { ?>
 			<input type="hidden" name="jes-send-placed" value="<?php if ( $jes_adata[ 'jes_events_countryopt_enable' ] ) { jes_bp_event_placedcountry(); ?>, <?php } ?><?php if ( $jes_adata[ 'jes_events_stateopt_enable' ] ) { jes_bp_event_placedstate(); ?>, <?php } jes_bp_event_placedaddress(); ?>, <?php jes_bp_event_placednote(); ?>">
 <?php if (bp_event_is_member() && jes_bp_get_event_enablesocial()) { ?>		
 		<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
-				<a href="http://twitter.com/share?url=<?php jes_bp_get_event_permalink() ?>" class="twitter-share-button">Tweet</a>
+				<a href="http://twitter.com/share?url=<?php jes_bp_get_event_permalink() ?>" class="twitter-share-button"><?php _e('Tweet','jet-event-system'); ?></a>
+		<iframe src="http://www.facebook.com/plugins/like.php?href=<?php jes_bp_get_event_permalink() ?>&amp;layout=button_count&amp;show_faces=true&amp;width=100&amp;action=recommend&amp;font=tahoma&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
 <?php } ?>
 		<?php if ($jes_adata['jes_events_defavatar_iphone'] != null) { ?>
 			<input name="jes-send-outlook" class="eventstyle" type="image" value="iPhone" src="<?php echo $jes_adata['jes_events_defavatar_iphone']; ?>" onClick="return onChoseOutlook(this.form)">
