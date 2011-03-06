@@ -65,7 +65,7 @@ if (bp_event_is_member()) { ?>
 <?php if (bp_event_is_member() && jes_bp_get_event_enablesocial()) { ?>		
 		<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 				<a href="http://twitter.com/share?url=<?php jes_bp_get_event_permalink() ?>" class="twitter-share-button"><?php _e('Tweet','jet-event-system'); ?></a>
-		<iframe src="http://www.facebook.com/plugins/like.php?href=<?php jes_bp_get_event_permalink() ?>&amp;layout=button_count&amp;show_faces=true&amp;width=100&amp;action=recommend&amp;font=tahoma&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+		<script src="http://connect.facebook.net/<?php echo WPLANG ?>/all.js#xfbml=1"></script><fb:like href="<?php jes_bp_get_event_permalink() ?>" layout="button_count" show_faces="true" width="100"></fb:like>
 <?php } ?>
 		<?php if ($jes_adata['jes_events_defavatar_iphone'] != null) { ?>
 			<input name="jes-send-outlook" class="eventstyle" type="image" value="iPhone" src="<?php echo $jes_adata['jes_events_defavatar_iphone']; ?>" onClick="return onChoseOutlook(this.form)">
