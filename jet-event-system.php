@@ -39,7 +39,7 @@ function jes_activation() {
 /* DB */
 //	if ( get_site_option( 'jes-events-db-version' ) != JES_EVENTS_DB_VERSION )
 //		{
-include( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-db.php' );;
+include( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-db.php' );
 			jes_events_init_jesdb();
 //		} 
 /* Template */
