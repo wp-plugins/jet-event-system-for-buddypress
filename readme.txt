@@ -146,6 +146,12 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.6.7 =
+
+* Added ability to specify the code for the "Social Share"
+* Fixed a problem arises when you activate the plugin
+* To create the event: If you specify an avatar by default - it completely replaces gravitar
+
 = 1.6.6 = 
 
 * Redesign Admin Panel (full compatibility with Wordpress 3.1)

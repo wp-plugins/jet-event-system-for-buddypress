@@ -13,6 +13,8 @@ require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-invi
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-module_eu.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-admin.php' );
 
+
+
 function jet_events_add_js() {
   global $bp;
 	$jsload = 0;

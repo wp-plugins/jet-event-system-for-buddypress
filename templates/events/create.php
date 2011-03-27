@@ -324,11 +324,13 @@ if ($jes_adata[ 'jes_events_notifymembers_enable' ] == 'none' )
 
 	<input type="hidden" name="event-forumlink" id="event-forumlink" value="1" />
 		<h4><?php _e('Sociable Share','jet-event-system'); ?></h4>
-		<label for="event-enablesocial"><?php _e('Enable Social share button?','jet-event-system'); ?></label>
+
+			<label for="event-enablesocial"><?php _e('Enable Social share button?','jet-event-system'); ?></label>
 				<select name="event-enablesocial" id="event-enablesocial">
 					<option value="1"><?php _e('Yes','jet-event-system'); ?></option>
-					<option value="0"><?php _e('No','jet-event-system'); ?></option>
+					<option selected value="0"><?php _e('No','jet-event-system'); ?></option>
 				</select>
+	
 					<?php do_action( 'bp_after_event_settings_creation_step' ); ?>
 
 					<?php wp_nonce_field( 'events_create_save_event-settings' ) ?>

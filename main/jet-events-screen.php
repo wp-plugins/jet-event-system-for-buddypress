@@ -247,7 +247,7 @@ function events_screen_event_admin_settings() {
 			if ( !check_admin_referer( 'events_edit_event_settings' ) )
 				return false;
 
-			if ( !events_edit_event_settings( $_POST['event-id'], $enable_forum, $_POST['event-grouplink'], $_POST['event-forumlink'], $_POST['event-enablesocial'], $status ) ) {
+			if ( !events_edit_event_settings( $_POST['event-id'], $enable_forum, $_POST['event-grouplink'], $_POST['event-forumlink'], $_POST['enablesocial'], $status ) ) {
 				bp_core_add_message( __( 'There was an error updating event settings, please try again.', 'jet-event-system' ), 'error' );
 			} else {
 				bp_core_add_message( __( 'Event settings were successfully updated.', 'jet-event-system' ) );

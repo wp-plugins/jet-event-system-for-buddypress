@@ -3,19 +3,19 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: The modern System of events for your social network. Ability to attract members of the network to the ongoing activities, a wide range of possibilities and options, support for different types of display, etc. <a href="http://jes.milordk.ru">JES DEV Site</a>. <strong>Before you install or upgrade sure to read the Readme file!</strong>
-Version: 1.6.6
+Version: 1.6.7
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
 Network: true
 */
 
-define ('Jet Events System', '1.6.6');
-define ('JES_EVENTS_VERSION', '1.6' );
-define ('JES_EVENTS_BUILD', '6' );
-define ('JES_EVENTS_DB_VERSION', 19 );
-define ('JES_EVENTS_THEME_VERSION', 30 );
-define ('JES_EVENTS_RELEASE', '2011-03-04');
+define ('Jet Events System', '1.6.7');
+define ('JES_EVENTS_VERSION', '1.7' );
+define ('JES_EVENTS_BUILD', '1' );
+define ('JES_EVENTS_DB_VERSION', 20 );
+define ('JES_EVENTS_THEME_VERSION', 32 );
+define ('JES_EVENTS_RELEASE', '2011-03-26');
 
 /* Define the slug for the component */
 if ( !defined( 'JES_SLUG' ) ) {
@@ -30,7 +30,7 @@ if (!$jes_adata[ 'jes_events_costumslug_enable' ])
 	}
 }
 
-include ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-event-start.php' );
+require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-event-start.php' );
 
 
 function jes_activation() {
@@ -39,19 +39,19 @@ function jes_activation() {
 /* DB */
 //	if ( get_site_option( 'jes-events-db-version' ) != JES_EVENTS_DB_VERSION )
 //		{
+include( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-db.php' );;
 			jes_events_init_jesdb();
 //		} 
 /* Template */
-	if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION )
-		{
-			update_template(null,'no');
-		}
+// 	if ( get_site_option( 'jes-theme-version' ) < JES_EVENTS_THEME_VERSION )
+		//{
+//			update_template(null,'no');
+//		}
 }
 
 function jes_deactivation() {
 // delete_option( 'jes_events' ); 
 }
-
 
 register_activation_hook( __FILE__, 'jes_activation' );
 register_deactivation_hook( __FILE__, 'jes_deactivation' );

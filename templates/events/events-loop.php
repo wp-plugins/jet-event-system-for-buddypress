@@ -14,10 +14,11 @@
 		</div>
 		<div class="pagination-links" id="group-dir-pag">
 			<?php jes_bp_events_pagination_links() ?>
-			<?php _e('Style:','jet-event-system'); ?> <?php _e($jes_adata['jes_events_style'],'jet-event-system'); ?>
 		</div>
 	</div>
 
+<!-- <?php _e('Style:','jet-event-system'); ?> <?php _e($jes_adata['jes_events_style'],'jet-event-system'); ?> -->
+				<!-- Page Generate by Jet Event System for BP , http://milordk.ru Milordk Studio -->	
 <?php 
 	if ( !is_user_logged_in() and !$eshowevent )
 		{ ?>

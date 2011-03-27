@@ -70,9 +70,7 @@
 			<?php do_action( 'bp_after_event_home_content' ) ?>
 
 			<?php endwhile; endif; ?>
-				
-				<!-- Page Generate by Jet Event System for BP , http://milordk.ru Milordk Studio -->
-		
+						
 		</div><!-- .padder -->
 	</div><!-- #content -->
 

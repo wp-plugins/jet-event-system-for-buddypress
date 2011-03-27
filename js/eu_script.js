@@ -21,23 +21,18 @@ j("#eventname_checker").append("<span id='name-info'></span> ");
 			},
 		function(response){
                     var resp=JSON.parse(response);
-					if(resp.code=='success')
-						show_message(resp.message,0);
-					else
-					show_message(resp.message,1);
+						show_message(resp.message,resp.code);
 				}
      
     );
 });
-function show_message(msg,is_error)
+function show_message(msg,respcode)
     {//hide ajax loader
 	j("#eventname_checker #name-info").removeClass();
 	j("#eventname_checker .loading").css({display:'none'});
      j("#eventname_checker #name-info").empty().html(msg);
-      if(is_error)
-       j("#eventname_checker #name-info").addClass("error");
-	   else
-	   j("#eventname_checker #name-info").addClass("available");
+       j("#eventname_checker #name-info").addClass(respcode);
+
     }
 });
 

@@ -16,7 +16,11 @@
 	padding: 6px;
 	border-color: #ffff33;
 }
-#eventname_checker span.available{display:block;color: #1a9b00;background: #dffcd9;}
+#eventname_checker span.available{
+	display:block;
+	color: #1a9b00;
+	background: #dffcd9;
+}
 
 #eventname_checker span.error{
 display:block;

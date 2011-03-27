@@ -39,7 +39,7 @@ ul.tabs {
 	line-height: 25px;
 	list-style: none;
 	border-bottom: 1px solid #DDD;
-	background: #FFF;
+	/* background: #FFF;*/
 }
 .tabs li {
 	float: left;
@@ -80,8 +80,7 @@ ul.tabs {
 }
 
 .section.vertical {
-/*	width: 440px;*/
-	border-left: 250px solid #FFF;
+	margin-left: 250px;
 }
 .vertical .tabs {
 	width: 200px;
@@ -99,7 +98,7 @@ ul.tabs {
 	height: 35px;
 }
 .vertical .tabs li:hover {
-	width: 190px;
+	width: 180px;
 }
 .vertical .tabs li.current {
 	width: 180px;
@@ -248,7 +247,15 @@ if ( isset($_POST['saveData']) ) {
 		}else{
 			$jes_events[ 'jes_events_costumslug' ] = 'events';
 		}
-	/* Date format */
+
+		if ( $_POST[ 'jes_events_social_code' ] != null ) {
+			$jes_events[ 'jes_events_social_code' ] = stripslashes($_POST[ 'jes_events_social_code' ]);
+		}else{
+			$jes_events[ 'jes_events_social_code' ] = '<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+<a href="http://twitter.com/share" class="twitter-share-button">Tweet</a>';
+		}
+		
+/* Date format */
 		if ( $_POST[ 'jes_events_date_format' ] != null ) {
 			$jes_events[ 'jes_events_date_format' ] = stripslashes($_POST[ 'jes_events_date_format' ]);
 		}else{
@@ -523,7 +530,14 @@ if (stripos($blogversion, 'MU') > 0)
 										<option <?php if ($jes_events[ 'jes_events_sort_by_ad' ] == 'DESC') { ?>selected<?php } ?> value="DESC"><?php _e('Descending','jet-event-system'); ?></option> 
 									</select>	
 								</td>
-							</tr>				
+							</tr>
+							<tr valign="top">
+							<th scope="row"><label for="jes_events_social_code"><?php _e( 'Social Share Code', 'jet-event-system' ) ?></label></th>
+								<td>
+									<label for="jes_events_social_code"><?php _e( 'Code:', 'jet-event-system' ) ?></label>
+									<textarea name="jes_events_social_code" type="text" id="jes_events_social_code"><?php echo $jes_events[ 'jes_events_social_code' ]; ?></textarea>				
+								</td>
+							</tr>							
 </table>
 				<p align="center" class="submit"><input type="submit" name="saveData" value="<?php _e( 'Save Settings', 'jet-event-system' ) ?>"/></p>			
     </div>
@@ -913,7 +927,7 @@ if (stripos($blogversion, 'MU') > 0)
 	<p>Special thanks to <a href="http://cosydale.com">slaFFik</a> for his help in writing a plugin!</p>
 	<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 		<div>
-			<a href="http://twitter.com/share?url=http://jes.milordk.ru" class="twitter-share-button">Tweet</a>
+			Tweet Jes DEV Site <a href="http://twitter.com/share?url=http://jes.milordk.ru&text=Jet Event System for BuddyPress" class="twitter-share-button">Tweet</a>
 		</div>
 		</td>
 	</tr>
@@ -931,5 +945,5 @@ if (stripos($blogversion, 'MU') > 0)
 function jes_add_network_menu_s() {
 	add_submenu_page( 'bp-general-settings', __( 'Jet Event System', 'jet-event-system' ), __( 'Jet Event System', 'jet-event-system' ), 'manage_options', 'jet-event-settings',	'jes_add_network_menu' );
 }
-add_action( 'network_admin_menu', 'jes_add_network_menu_s' );
+add_action( is_multisite() && function_exists( 'is_network_admin' ) ? 'network_admin_menu' : 'admin_menu', 'jes_add_network_menu_s', 90 );
 ?>

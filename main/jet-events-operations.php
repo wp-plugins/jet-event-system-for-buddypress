@@ -100,7 +100,7 @@ function events_create_event( $args = '' ) {
 	if ( isset( $enablesocial ) )
 		$event->enablesocial = $enablesocial;
 	else if ( !$event_id && !isset( $enablesocial ) )
-		$event->enablesocial = 1;
+		$event->enablesocial = 0;
 		
 	if ( isset( $slug ) && events_jes_check_slug( $slug ) )
 		$event->slug = $slug;

@@ -2371,8 +2371,16 @@ function bp_new_event_avatar( $args = '' ) {
 
 		$r = wp_parse_args( $args, $defaults );
 		extract( $r, EXTR_SKIP );
-
-		return apply_filters( 'bp_get_new_event_avatar', bp_core_fetch_avatar( array( 'item_id' => $bp->jes_events->current_event->id, 'object' => 'event', 'type' => $type, 'avatar_dir' => 'event-avatars', 'alt' => $alt, 'width' => $width, 'height' => $height, 'class' => $class, 'no_grav' => $no_grav ) ) );
+	$adata = get_site_option('jes_events' );
+	 $_acheck = $adata['jes_events_defavatar'];
+	if ($_acheck)
+		{
+			return '<img src="'.$_acheck.'">';
+		}
+			else
+				{
+					return apply_filters( 'bp_get_new_event_avatar', bp_core_fetch_avatar( array( 'item_id' => $bp->jes_events->current_event->id, 'object' => 'event', 'type' => $type, 'avatar_dir' => 'event-avatars', 'alt' => $alt, 'width' => $width, 'height' => $height, 'class' => $class, 'no_grav' => $no_grav ) ) );
+				}
 	}
 
 function bp_event_creation_previous_link() {

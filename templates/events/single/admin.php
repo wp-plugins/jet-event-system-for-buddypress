@@ -256,10 +256,10 @@
 	<input type="hidden" name="event-forumlink" id="event-forumlink" value="1" />
 
 		<h4><?php _e('Sociable Share','jet-event-system'); ?></h4>
-		<label for="event-enablesocial"><?php _e('Enable Social share button?','jet-event-system'); ?></label>
-				<select name="event-enablesocial" id="event-enablesocial">
-					<option <?php if (jes_bp_event_enablesocial()) { ?>selected<?php } ?> value="1"><?php _e('Yes','jet-event-system'); ?></option>
-					<option <?php if (!jes_bp_event_enablesocial()) { ?>selected<?php } ?> value="0"><?php _e('No','jet-event-system'); ?></option>
+		<label for="enablesocial"><?php _e('Enable Social share button?','jet-event-system'); ?></label>
+				<select name="enablesocial" id="enablesocial">
+					<option <?php if (jes_bp_get_event_enablesocial()) { ?>selected<?php } ?> value="1"><?php _e('Yes','jet-event-system'); ?></option>
+					<option <?php if (!jes_bp_get_event_enablesocial()) { ?>selected<?php } ?> value="0"><?php _e('No','jet-event-system'); ?></option>
 				</select>	
 	
 	<?php do_action( 'bp_after_event_settings_admin' ); ?>
