@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JES\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/jet-event-system-for-buddypress\n"
-"POT-Creation-Date: 2011-02-23 17:46:49+00:00\n"
-"PO-Revision-Date: 2011-02-23 21:23+0300\n"
+"POT-Creation-Date: 2011-03-27 00:38:56+00:00\n"
+"PO-Revision-Date: 2011-03-27 04:48+0300\n"
 "Last-Translator: Jettochkin <milord_k@mail.ru>\n"
 "Language-Team: Jettochkin <milord_k@mail.ru>\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgid "Event invite accepted"
 msgstr "Приглашение на событие принято"
 
 #: main/jet-events-screen.php:45
-#: main/jet-event-start.php:567
+#: main/jet-event-start.php:577
 #: main/jet-events-operations.php:345
 msgid "%s joined the event %s"
 msgstr "%s присоединился к событию %s"
@@ -161,14 +161,14 @@ msgstr "События"
 #: main/jet-events-screen.php:517
 #: templates/events/single/admin.php:261
 #: templates/events/create.php:266
-#: templates/events/create.php:329
+#: templates/events/create.php:330
 msgid "Yes"
 msgstr "Да"
 
 #: main/jet-events-screen.php:518
 #: templates/events/single/admin.php:262
 #: templates/events/create.php:267
-#: templates/events/create.php:330
+#: templates/events/create.php:331
 msgid "No"
 msgstr "Нет"
 
@@ -238,76 +238,76 @@ msgstr "Произошла ошибка выхода из события."
 msgid "You successfully left the event."
 msgstr "Вы успешно отсоединились от события."
 
-#: main/jet-events-themetemplate.php:28
-#: main/jet-events-themetemplate.php:139
-#: main/jet-events-themetemplate.php:202
+#: main/jet-events-themetemplate.php:32
+#: main/jet-events-themetemplate.php:147
+#: main/jet-events-themetemplate.php:210
 #: templates/events/looptemplates/custom.php:22
 msgid "From: "
 msgstr "c:"
 
-#: main/jet-events-themetemplate.php:28
-#: main/jet-events-themetemplate.php:139
-#: main/jet-events-themetemplate.php:202
+#: main/jet-events-themetemplate.php:32
+#: main/jet-events-themetemplate.php:147
+#: main/jet-events-themetemplate.php:210
 #: templates/events/looptemplates/custom.php:22
 msgid "to: "
 msgstr "по:"
 
-#: main/jet-events-themetemplate.php:31
+#: main/jet-events-themetemplate.php:35
 #: templates/events/looptemplates/custom.php:25
 msgid "Short description:"
 msgstr "Краткое описание:"
 
-#: main/jet-events-themetemplate.php:33
-#: main/jet-events-themetemplate.php:151
-#: main/jet-events-themetemplate.php:213
+#: main/jet-events-themetemplate.php:37
+#: main/jet-events-themetemplate.php:159
+#: main/jet-events-themetemplate.php:221
 #: templates/events/looptemplates/custom.php:27
 msgid "Description:"
 msgstr "Описание:"
 
-#: main/jet-events-themetemplate.php:37
-#: main/jet-events-themetemplate.php:140
-#: main/jet-events-themetemplate.php:203
+#: main/jet-events-themetemplate.php:41
+#: main/jet-events-themetemplate.php:148
+#: main/jet-events-themetemplate.php:211
 #: templates/events/looptemplates/custom.php:31
 #: templates/events/single/google-map.php:8
 #: templates/events/single/details.php:14
 msgid "The event will take place:"
 msgstr "Событие будет проходить:"
 
-#: main/jet-events-themetemplate.php:47
-#: main/jet-events-themetemplate.php:149
-#: main/jet-events-themetemplate.php:212
+#: main/jet-events-themetemplate.php:51
+#: main/jet-events-themetemplate.php:157
+#: main/jet-events-themetemplate.php:220
 #: templates/events/looptemplates/custom.php:41
 #: templates/events/single/google-map.php:19
 #: templates/events/single/details.php:26
 msgid "in city:"
 msgstr "в городе:"
 
-#: main/jet-events-themetemplate.php:47
-#: main/jet-events-themetemplate.php:149
-#: main/jet-events-themetemplate.php:212
+#: main/jet-events-themetemplate.php:51
+#: main/jet-events-themetemplate.php:157
+#: main/jet-events-themetemplate.php:220
 #: templates/events/looptemplates/custom.php:41
 msgid "at "
 msgstr "в "
 
-#: main/jet-events-themetemplate.php:53
-#: main/jet-events-themetemplate.php:157
-#: main/jet-events-themetemplate.php:219
+#: main/jet-events-themetemplate.php:57
+#: main/jet-events-themetemplate.php:165
+#: main/jet-events-themetemplate.php:227
 #: main/jet-events-functions.php:151
 #: templates/events/looptemplates/custom.php:47
-#: templates/events/single/event-header.php:83
+#: templates/events/single/event-header.php:87
 msgid "Past event"
 msgstr "Прошедшее событие"
 
-#: main/jet-events-themetemplate.php:61
-#: main/jet-events-themetemplate.php:165
-#: main/jet-events-themetemplate.php:227
+#: main/jet-events-themetemplate.php:65
+#: main/jet-events-themetemplate.php:173
+#: main/jet-events-themetemplate.php:235
 #: templates/events/looptemplates/custom.php:55
 msgid "Event requires approval!"
 msgstr "Событие требует подтверждения!"
 
-#: main/jet-events-themetemplate.php:65
-#: main/jet-events-themetemplate.php:169
-#: main/jet-events-themetemplate.php:231
+#: main/jet-events-themetemplate.php:69
+#: main/jet-events-themetemplate.php:177
+#: main/jet-events-themetemplate.php:239
 msgid "Last activity:<br /> %s ago"
 msgstr "Последняя активность:<br /> %s назад"
 
@@ -411,7 +411,7 @@ msgid "Event Settings"
 msgstr "Настройки события"
 
 #: main/jet-events-templatetags.php:1454
-#: main/jet-events-templatetags.php:2541
+#: main/jet-events-templatetags.php:2549
 #: main/jet-events-menu.php:75
 msgid "Event Avatar"
 msgstr "Аватар события"
@@ -468,70 +468,70 @@ msgstr "Это скрытое событие и присоединиться к 
 msgid "Viewing members %1$s to %2$s (of %3$s members)"
 msgstr "Просмотр участников %1$s по %2$s (из %3$s участников)"
 
-#: main/jet-events-templatetags.php:2475
+#: main/jet-events-templatetags.php:2483
 msgid "Search"
 msgstr "Поиск"
 
-#: main/jet-events-templatetags.php:2483
-#: main/jet-events-templatetags.php:2500
+#: main/jet-events-templatetags.php:2491
+#: main/jet-events-templatetags.php:2508
 msgid "Recently Active"
 msgstr "Активные"
 
-#: main/jet-events-templatetags.php:2484
-#: main/jet-events-templatetags.php:2503
+#: main/jet-events-templatetags.php:2492
+#: main/jet-events-templatetags.php:2511
 msgid "Recently Joined"
 msgstr "Недавно присоединившиеся"
 
-#: main/jet-events-templatetags.php:2485
-#: main/jet-events-templatetags.php:2506
+#: main/jet-events-templatetags.php:2493
+#: main/jet-events-templatetags.php:2514
 #: main/jet-events-widgets.php:44
 msgid "Most Popular"
 msgstr "Популярные"
 
-#: main/jet-events-templatetags.php:2486
-#: main/jet-events-templatetags.php:2509
+#: main/jet-events-templatetags.php:2494
+#: main/jet-events-templatetags.php:2517
 msgid "Administrator Of"
 msgstr "администратор "
 
-#: main/jet-events-templatetags.php:2487
-#: main/jet-events-templatetags.php:2512
+#: main/jet-events-templatetags.php:2495
+#: main/jet-events-templatetags.php:2520
 msgid "Moderator Of"
 msgstr "модератор "
 
-#: main/jet-events-templatetags.php:2488
-#: main/jet-events-templatetags.php:2515
+#: main/jet-events-templatetags.php:2496
+#: main/jet-events-templatetags.php:2523
 msgid "Alphabetically"
 msgstr "алфав."
 
-#: main/jet-events-templatetags.php:2543
+#: main/jet-events-templatetags.php:2551
 msgid "No Event Avatar"
 msgstr "Событие без аватара"
 
-#: main/jet-events-templatetags.php:2788
+#: main/jet-events-templatetags.php:2796
 msgid "requested %s ago"
 msgstr "запрошено %s назад"
 
-#: main/jet-events-templatetags.php:2970
+#: main/jet-events-templatetags.php:2978
 msgid "Member avatar"
 msgstr "Аватар участника"
 
-#: main/jet-event-start.php:125
+#: main/jet-event-start.php:135
 msgid "Details"
 msgstr "Детали"
 
-#: main/jet-event-start.php:126
+#: main/jet-event-start.php:136
 msgid "Settings"
 msgstr "Настройки"
 
-#: main/jet-event-start.php:127
+#: main/jet-event-start.php:137
 msgid "Avatar"
 msgstr "Автар"
 
-#: main/jet-event-start.php:214
+#: main/jet-event-start.php:224
 msgid "Make this a group event for one of your groups"
 msgstr "Сделать это событие групповым для одной из ваших групп"
 
-#: main/jet-event-start.php:428
+#: main/jet-event-start.php:438
 msgid "%s posted an update in the event %s:"
 msgstr "%s разместил информацию в событии %s:"
 
@@ -834,426 +834,451 @@ msgstr "Модератор события"
 msgid "Event Admin"
 msgstr "Администратор события"
 
-#: main/jet-events-admin.php:28
-msgid "Jet Event System"
-msgstr ""
-
-#: main/jet-events-admin.php:38
-msgid "Information"
-msgstr "Информация"
-
-#: main/jet-events-admin.php:39
-msgid "Donations"
-msgstr "Поддержка проекта"
-
-#: main/jet-events-admin.php:40
-msgid "Setup"
-msgstr "Настройка"
-
-#: main/jet-events-admin.php:41
-msgid "Support"
-msgstr "Поддержка"
-
-#: main/jet-events-admin.php:42
-msgid "Translate"
-msgstr "Перевод"
-
-#: main/jet-events-admin.php:43
-msgid "Note"
-msgstr "Описание"
-
-#: main/jet-events-admin.php:46
-msgid "Base Options"
-msgstr "Основные настройки"
-
-#: main/jet-events-admin.php:47
-msgid "Setting up access to the fields events"
-msgstr "Настройка доступа к полям события"
-
-#: main/jet-events-admin.php:49
-msgid "Style Options"
-msgstr "Настройки стиля"
-
-#: main/jet-events-admin.php:51
-msgid "Classification options"
-msgstr "Настройки классификаторов"
-
-#: main/jet-events-admin.php:53
-msgid "Google Map options (future)"
-msgstr "Настройка Google Map (бета)"
-
-#: main/jet-events-admin.php:55
-msgid "Reminder options (future)"
-msgstr "Настройки оповещения (бета)"
-
-#: main/jet-events-admin.php:57
-msgid "Restrict options"
-msgstr "Настройки ограничений"
-
-#: main/jet-events-admin.php:59
-msgid "Privacy options"
-msgstr "Параметры конфиденциальности"
-
-#: main/jet-events-admin.php:79
+#: main/jet-events-admin.php:132
 msgid "Database updated."
 msgstr "База данных обновлена."
 
-#: main/jet-events-admin.php:85
+#: main/jet-events-admin.php:138
 msgid "Templates updated."
 msgstr "Тема обновлена."
 
-#: main/jet-events-admin.php:90
+#: main/jet-events-admin.php:143
 msgid "Files checked."
 msgstr "Файлы проверенны."
 
-#: main/jet-events-admin.php:213
-#: main/jet-events-admin.php:219
+#: main/jet-events-admin.php:274
+#: main/jet-events-admin.php:280
 msgid "Standart"
 msgstr "Стандартная"
 
-#: main/jet-events-admin.php:272
+#: main/jet-events-admin.php:333
 msgid "Site"
 msgstr "Сайт"
 
-#: main/jet-events-admin.php:277
+#: main/jet-events-admin.php:338
 msgid "Personal"
 msgstr "Персональное"
 
-#: main/jet-events-admin.php:332
+#: main/jet-events-admin.php:393
 msgid "Options updated."
 msgstr "Настройки сохранены."
 
-#: main/jet-events-admin.php:350
-msgid "Save Settings"
-msgstr "Сохранить настройки"
+#: main/jet-events-admin.php:406
+#: main/jet-events-admin.php:419
+#: main/jet-events-admin.php:423
+msgid "Information"
+msgstr "Информация"
 
-#: main/jet-events-admin.php:402
-msgid "please specify in the designation of the site and name :) All who have made a contribution to the development of plug-in will be included in honor roll, as well as gain access to additional modules!"
-msgstr "Просьба указать в назначении свое имя и сайт :) Все, кто внес свой вклад в развитие плагина будут отмечены, а также получить доступ к дополнительным модулям!"
+#: main/jet-events-admin.php:407
+#: main/jet-events-admin.php:505
+msgid "Main Block"
+msgstr "Основной блок"
 
-#: main/jet-events-admin.php:425
-msgid "Please send your translations to milord_k @ mail.ru"
-msgstr "Пожалуйста присылайте свои переводы на milord_k @ mail.ru"
+#: main/jet-events-admin.php:408
+#: main/jet-events-admin.php:545
+msgid "Setting up access to the fields events"
+msgstr "Настройка доступа к полям события"
 
-#: main/jet-events-admin.php:427
-msgid "Translates can be discussed at the forum on the official website of the plugin:"
-msgstr "Переводы можно обсуждать на форуме официального сайта плагина:"
+#: main/jet-events-admin.php:409
+#: main/jet-events-admin.php:624
+msgid "Style Options"
+msgstr "Настройки стиля"
 
-#: main/jet-events-admin.php:433
-msgid "Recommended plugins"
-msgstr "Рекомендованные плагины"
+#: main/jet-events-admin.php:410
+#: main/jet-events-admin.php:722
+msgid "Classification options"
+msgstr "Настройки классификаторов"
 
-#: main/jet-events-admin.php:442
-msgid "Recommended themes"
-msgstr "Рекомендованные темы"
+#: main/jet-events-admin.php:411
+#: main/jet-events-admin.php:768
+msgid "Google Map options (future)"
+msgstr "Настройка Google Map (бета)"
 
-#: main/jet-events-admin.php:459
+#: main/jet-events-admin.php:412
+#: main/jet-events-admin.php:784
+msgid "Reminder options (future)"
+msgstr "Настройки оповещения (бета)"
+
+#: main/jet-events-admin.php:413
+#: main/jet-events-admin.php:824
+msgid "Restrict options"
+msgstr "Настройки ограничений"
+
+#: main/jet-events-admin.php:414
+#: main/jet-events-admin.php:843
+msgid "Privacy options"
+msgstr "Параметры конфиденциальности"
+
+#: main/jet-events-admin.php:415
+msgid "Tech info"
+msgstr "Техническая информация"
+
+#: main/jet-events-admin.php:426
+msgid "Setup"
+msgstr "Настройка"
+
+#: main/jet-events-admin.php:429
+msgid "Donations"
+msgstr "Поддержка проекта"
+
+#: main/jet-events-admin.php:434
 msgid "version"
 msgstr "версия"
 
-#: main/jet-events-admin.php:459
+#: main/jet-events-admin.php:434
 msgid "build"
 msgstr "сборка"
 
-#: main/jet-events-admin.php:461
+#: main/jet-events-admin.php:436
 msgid "Template version:"
 msgstr "Версия темы:"
 
-#: main/jet-events-admin.php:469
+#: main/jet-events-admin.php:444
 msgid "DB version:"
 msgstr "Версия БД:"
 
-#: main/jet-events-admin.php:484
+#: main/jet-events-admin.php:456
 msgid "Select the location you are using themes:"
 msgstr "Укажите месторасположение файлов Вашей темы:"
 
-#: main/jet-events-admin.php:492
+#: main/jet-events-admin.php:465
 msgid "Update Database"
 msgstr "Обновить БД"
 
-#: main/jet-events-admin.php:493
+#: main/jet-events-admin.php:466
 msgid "Update Templates"
 msgstr "Обновить Тему"
 
-#: main/jet-events-admin.php:494
+#: main/jet-events-admin.php:467
 msgid "Checking for files"
 msgstr "Проверка файлов"
 
-#: main/jet-events-admin.php:505
+#: main/jet-events-admin.php:498
+msgid "please specify in the designation of the site and name :) All who have made a contribution to the development of plug-in will be included in honor roll, as well as gain access to additional modules!"
+msgstr "Просьба указать в назначении свое имя и сайт :) Все, кто внес свой вклад в развитие плагина будут отмечены, а также получить доступ к дополнительным модулям!"
+
+#: main/jet-events-admin.php:508
 msgid "Allow costum slug"
 msgstr "Разрешить настраиваемый slug"
 
-#: main/jet-events-admin.php:508
+#: main/jet-events-admin.php:511
 msgid "Slug:"
 msgstr "Slug:"
 
-#: main/jet-events-admin.php:515
+#: main/jet-events-admin.php:518
 msgid "Sort of events in the directory (by default)"
 msgstr "Сортировка событий в каталоге по-умолчанию"
 
-#: main/jet-events-admin.php:518
+#: main/jet-events-admin.php:521
 #: main/jet-events-widgets.php:41
 #: templates/events/index.php:47
 msgid "Upcoming"
 msgstr "Ожидаемые"
 
-#: main/jet-events-admin.php:519
+#: main/jet-events-admin.php:522
 #: templates/events/index.php:48
 #: templates/members/single/events.php:36
 msgid "Last Active"
 msgstr "Активность"
 
-#: main/jet-events-admin.php:520
+#: main/jet-events-admin.php:523
 #: templates/events/index.php:49
 #: templates/members/single/events.php:37
 msgid "Most Members"
 msgstr "Пользователи"
 
-#: main/jet-events-admin.php:521
+#: main/jet-events-admin.php:524
 #: templates/events/index.php:50
 #: templates/members/single/events.php:38
 msgid "Newly Created"
 msgstr "Недавно созданное"
 
-#: main/jet-events-admin.php:522
+#: main/jet-events-admin.php:525
 #: templates/events/index.php:51
 #: templates/members/single/events.php:39
 msgid "Alphabetical"
 msgstr "Алф"
 
-#: main/jet-events-admin.php:524
+#: main/jet-events-admin.php:527
 msgid "By:"
 msgstr ""
 
-#: main/jet-events-admin.php:526
+#: main/jet-events-admin.php:529
 msgid "Ascending"
 msgstr "Возрастанию"
 
-#: main/jet-events-admin.php:527
+#: main/jet-events-admin.php:530
 msgid "Descending"
 msgstr "Убыванию"
 
-#: main/jet-events-admin.php:540
+#: main/jet-events-admin.php:535
+msgid "Social Share Code"
+msgstr "Код социальных закладок"
+
+#: main/jet-events-admin.php:537
+msgid "Code:"
+msgstr "код:"
+
+#: main/jet-events-admin.php:542
+#: main/jet-events-admin.php:621
+#: main/jet-events-admin.php:719
+#: main/jet-events-admin.php:765
+#: main/jet-events-admin.php:781
+#: main/jet-events-admin.php:821
+#: main/jet-events-admin.php:840
+#: main/jet-events-admin.php:873
+msgid "Save Settings"
+msgstr "Сохранить настройки"
+
+#: main/jet-events-admin.php:549
 msgid "Allow Country"
 msgstr "Разрешить Страны"
 
-#: main/jet-events-admin.php:543
+#: main/jet-events-admin.php:552
 msgid "Name of the country by default:"
 msgstr "Название Страны по-умолчанию:"
 
-#: main/jet-events-admin.php:549
+#: main/jet-events-admin.php:558
 msgid "Allow State"
 msgstr "Разрешить Штат"
 
-#: main/jet-events-admin.php:552
+#: main/jet-events-admin.php:561
 msgid "Name of the state by default:"
 msgstr "Название Штата по-умолчанию:"
 
-#: main/jet-events-admin.php:558
+#: main/jet-events-admin.php:567
 msgid "Allow City"
 msgstr "Разрешить Город"
 
-#: main/jet-events-admin.php:561
+#: main/jet-events-admin.php:570
 msgid "Name of the city by default:"
 msgstr "Имя Города по-умолчанию:"
 
-#: main/jet-events-admin.php:569
+#: main/jet-events-admin.php:578
 msgid "Allow Special Conditions"
 msgstr "Разрешить Специальные условия"
 
-#: main/jet-events-admin.php:576
+#: main/jet-events-admin.php:585
 msgid "Allow Public News"
 msgstr "Разрешить Публичные новости"
 
-#: main/jet-events-admin.php:583
+#: main/jet-events-admin.php:592
 msgid "Allow Private News"
 msgstr "Разрешить Приватные новости"
 
-#: main/jet-events-admin.php:592
+#: main/jet-events-admin.php:601
 msgid "Allow Event Note"
 msgstr "Разрешить дополнительное описание"
 
-#: main/jet-events-admin.php:599
+#: main/jet-events-admin.php:608
 msgid "Allow Event GoogleMap"
 msgstr "Разрешить использование Google Map"
 
-#: main/jet-events-admin.php:606
+#: main/jet-events-admin.php:615
 msgid "Allow Event Flyer"
 msgstr "Разрешить Флайеры"
 
-#: main/jet-events-admin.php:619
+#: main/jet-events-admin.php:627
 msgid "Style for Event Catalog:"
 msgstr "Стиль для Каталога событий:"
 
-#: main/jet-events-admin.php:622
-#: main/jet-events-admin.php:636
+#: main/jet-events-admin.php:630
+#: main/jet-events-admin.php:644
 msgid "Standart Style"
 msgstr "Стандартный стиль"
 
-#: main/jet-events-admin.php:623
+#: main/jet-events-admin.php:631
 msgid "Standard will full description Style"
 msgstr "Стандартный стиль с расширенным описанием"
 
-#: main/jet-events-admin.php:624
-#: main/jet-events-admin.php:637
+#: main/jet-events-admin.php:632
+#: main/jet-events-admin.php:645
 msgid "Twitter Style"
 msgstr "Twitter стиль"
 
-#: main/jet-events-admin.php:625
+#: main/jet-events-admin.php:633
 msgid "Calendar Style"
 msgstr "Календарь"
 
-#: main/jet-events-admin.php:626
+#: main/jet-events-admin.php:634
 msgid "Custom Style*"
 msgstr "Пользовательский стиль*"
 
-#: main/jet-events-admin.php:628
+#: main/jet-events-admin.php:636
 msgid "* To use a custom design Directory Events, modify the file:"
 msgstr "* Для использования пользовательского дизайна Каталога событий, - измените файл:"
 
-#: main/jet-events-admin.php:633
+#: main/jet-events-admin.php:641
 msgid "Style for Single Event:"
 msgstr "Стиль для одиночного событи:"
 
-#: main/jet-events-admin.php:642
+#: main/jet-events-admin.php:650
 msgid "Avatar Options"
 msgstr "Настройки аватара"
 
-#: main/jet-events-admin.php:645
+#: main/jet-events-admin.php:653
 msgid "Default avatar for events (img url):"
 msgstr "Аватар для событий по-умолчанию (ссылка на изображение):"
 
-#: main/jet-events-admin.php:652
+#: main/jet-events-admin.php:660
 msgid "Default image for \"save to iphone\" (img url):"
 msgstr "Изображение для \"отправить в iPhone\" (ссылка на изображение):"
 
-#: main/jet-events-admin.php:659
+#: main/jet-events-admin.php:667
 msgid "Default image for \"save to outlook\" (img url):"
 msgstr "Изображение для \"отправить в Outlook\" (ссылка на изображение):"
 
-#: main/jet-events-admin.php:666
+#: main/jet-events-admin.php:674
 msgid "Show avatars in the list of invited friends"
 msgstr "Показывать аватары в списке приглашаемых друзей"
 
-#: main/jet-events-admin.php:670
+#: main/jet-events-admin.php:678
 msgid "Avatars size:"
 msgstr "Размер аватаров:"
 
-#: main/jet-events-admin.php:676
+#: main/jet-events-admin.php:684
 msgid "Single Event - avatars size (25..150px):"
 msgstr "Одиночное событие - размер аватара (25..150px):"
 
-#: main/jet-events-admin.php:683
+#: main/jet-events-admin.php:691
 msgid "Directory Events - avatars size ( 25..150px):"
 msgstr "Каталог событий - размер аватара (25..150px):"
 
-#: main/jet-events-admin.php:690
+#: main/jet-events-admin.php:698
 msgid "Color for past event:"
 msgstr "Цвет прошедших событий:"
 
-#: main/jet-events-admin.php:697
+#: main/jet-events-admin.php:705
 msgid "Color for active event:"
 msgstr "Цвет активных событий:"
 
-#: main/jet-events-admin.php:704
+#: main/jet-events-admin.php:712
 msgid "Color for current event:"
 msgstr "Цвет текущих событий:"
 
-#: main/jet-events-admin.php:718
+#: main/jet-events-admin.php:725
 msgid "Allow the use of classifiers through an administrative panel (unless you want to use some or classifier - leave his field blank)"
 msgstr "Разрешить использование классификаторов настроенных  через административную панель (если Вы не хотите использовать один из классификаторов - оставьте поле пустым)"
 
-#: main/jet-events-admin.php:725
+#: main/jet-events-admin.php:732
 msgid "Classification - 1"
 msgstr "Классификатор - 1"
 
-#: main/jet-events-admin.php:731
+#: main/jet-events-admin.php:738
 msgid "Classification - 2"
 msgstr "Классификатор - 2"
 
-#: main/jet-events-admin.php:738
+#: main/jet-events-admin.php:745
 msgid "Classification - 3"
 msgstr "Классификатор - 3"
 
-#: main/jet-events-admin.php:745
+#: main/jet-events-admin.php:752
 msgid "Classification - 4"
 msgstr "Классификатор - 4"
 
-#: main/jet-events-admin.php:752
+#: main/jet-events-admin.php:759
 msgid "Classification - 5"
 msgstr "Классификатор - 5"
 
-#: main/jet-events-admin.php:765
-msgid "Prohibit non-administrators to create events"
-msgstr "Запретить не администраторам создавать события"
-
 #: main/jet-events-admin.php:772
-msgid "Allow verification of events by the administrator"
-msgstr "Разрешить подтверждение событий администратором"
+msgid "Use the following mechanism for the demonstration maps:"
+msgstr "Использовать следующий механизм для демонстрации карты:"
 
-#: main/jet-events-admin.php:784
-msgid "Allow indexing of events search engines"
-msgstr "Разрешить индексирование событий поисковыми системами"
+#: main/jet-events-admin.php:775
+msgid "Google"
+msgstr ""
 
-#: main/jet-events-admin.php:791
-msgid "Deny access to events for unregistered users"
-msgstr "Запретить доступ к событиям для незарегистрированных пользователей"
+#: main/jet-events-admin.php:776
+msgid "Image"
+msgstr "Изображение"
 
-#: main/jet-events-admin.php:798
-msgid "Show private events in the catalog for unregistered users (in the cases allow access to events)"
-msgstr "Показывать приватные события в каталоге для незарегистрированных пользователей"
-
-#: main/jet-events-admin.php:805
-msgid "Show flyers to all users? (otherwise, flyers will be available only to participants of the event)"
-msgstr "Показывать флайеры для всех пользователей? (иначе флайеры будут доступных только участникам события)"
-
-#: main/jet-events-admin.php:818
+#: main/jet-events-admin.php:788
 msgid "Provide administrators an opportunity to remind participants of the events of the coming event in manual mode?"
 msgstr "Предоставлять администраторам возможность напоминать участникам о скором начале событий в ручном режиме?"
 
-#: main/jet-events-admin.php:825
+#: main/jet-events-admin.php:795
 msgid "To allow the setting reminder?"
 msgstr "Кому разрешить настройку напоминания?"
 
-#: main/jet-events-admin.php:828
+#: main/jet-events-admin.php:798
 #: templates/events/single/admin.php:324
 msgid "Administrators"
 msgstr "Администраторы"
 
-#: main/jet-events-admin.php:829
+#: main/jet-events-admin.php:799
 msgid "All users"
 msgstr "Все пользователи"
 
-#: main/jet-events-admin.php:830
+#: main/jet-events-admin.php:800
 msgid "Function is not active"
 msgstr "Функция не доступна"
 
-#: main/jet-events-admin.php:836
+#: main/jet-events-admin.php:806
 msgid "Time remind default:"
 msgstr "Время напоминания по-умолчанию:"
 
-#: main/jet-events-admin.php:839
-#: main/jet-events-admin.php:840
-#: main/jet-events-admin.php:841
-#: main/jet-events-admin.php:842
-#: main/jet-events-admin.php:843
-#: main/jet-events-admin.php:844
-#: main/jet-events-admin.php:845
-#: main/jet-events-admin.php:846
+#: main/jet-events-admin.php:809
+#: main/jet-events-admin.php:810
+#: main/jet-events-admin.php:811
+#: main/jet-events-admin.php:812
+#: main/jet-events-admin.php:813
+#: main/jet-events-admin.php:814
+#: main/jet-events-admin.php:815
+#: main/jet-events-admin.php:816
 msgid "%s hours"
 msgstr "%s часов"
 
-#: main/jet-events-admin.php:858
-msgid "Use the following mechanism for the demonstration maps:"
-msgstr "Использовать следующий механизм для демонстрации карты:"
+#: main/jet-events-admin.php:827
+msgid "Prohibit non-administrators to create events"
+msgstr "Запретить не администраторам создавать события"
 
-#: main/jet-events-admin.php:861
-msgid "Google"
+#: main/jet-events-admin.php:834
+msgid "Allow verification of events by the administrator"
+msgstr "Разрешить подтверждение событий администратором"
+
+#: main/jet-events-admin.php:846
+msgid "Allow indexing of events search engines"
+msgstr "Разрешить индексирование событий поисковыми системами"
+
+#: main/jet-events-admin.php:853
+msgid "Deny access to events for unregistered users"
+msgstr "Запретить доступ к событиям для незарегистрированных пользователей"
+
+#: main/jet-events-admin.php:860
+msgid "Show private events in the catalog for unregistered users (in the cases allow access to events)"
+msgstr "Показывать приватные события в каталоге для незарегистрированных пользователей"
+
+#: main/jet-events-admin.php:867
+msgid "Show flyers to all users? (otherwise, flyers will be available only to participants of the event)"
+msgstr "Показывать флайеры для всех пользователей? (иначе флайеры будут доступных только участникам события)"
+
+#: main/jet-events-admin.php:879
+msgid "Support"
+msgstr "Поддержка"
+
+#: main/jet-events-admin.php:882
+msgid "Translate"
+msgstr "Перевод"
+
+#: main/jet-events-admin.php:904
+msgid "Please send your translations to milord_k @ mail.ru"
+msgstr "Пожалуйста присылайте свои переводы на milord_k @ mail.ru"
+
+#: main/jet-events-admin.php:906
+msgid "Translates can be discussed at the forum on the official website of the plugin:"
+msgstr "Переводы можно обсуждать на форуме официального сайта плагина:"
+
+#: main/jet-events-admin.php:912
+msgid "Recommended plugins"
+msgstr "Рекомендованные плагины"
+
+#: main/jet-events-admin.php:921
+msgid "Recommended themes"
+msgstr "Рекомендованные темы"
+
+#: main/jet-events-admin.php:946
+msgid "Jet Event System"
 msgstr ""
-
-#: main/jet-events-admin.php:862
-msgid "Image"
-msgstr "Изображение"
 
 #: main/jet-events-widgets.php:42
 msgid "Newest"
@@ -1264,29 +1289,35 @@ msgid "Most Active"
 msgstr "Активные"
 
 #: main/jet-events-widgets.php:125
-#: main/jet-events-widgets.php:243
+#: main/jet-events-widgets.php:283
+#: main/jet-events-widgets.php:389
 msgid "In city:"
 msgstr "в городе:"
 
 #: main/jet-events-widgets.php:125
-#: main/jet-events-widgets.php:243
+#: main/jet-events-widgets.php:283
+#: main/jet-events-widgets.php:389
 msgid "Start:"
 msgstr "Начало:"
 
 #: main/jet-events-widgets.php:125
-#: main/jet-events-widgets.php:243
+#: main/jet-events-widgets.php:283
+#: main/jet-events-widgets.php:389
 msgid "End:"
 msgstr "Окончание:"
 
 #: main/jet-events-widgets.php:136
+#: main/jet-events-widgets.php:298
 msgid "There are no events to display."
 msgstr "Нет событий для отображения."
 
 #: main/jet-events-widgets.php:174
+#: main/jet-events-widgets.php:328
 msgid "Title:"
 msgstr "Заголовок"
 
 #: main/jet-events-widgets.php:176
+#: main/jet-events-widgets.php:330
 msgid "Max events to show:"
 msgstr "Максимальное количество событий для отображения:"
 
@@ -1295,6 +1326,7 @@ msgid "Show navigation:"
 msgstr "Показывать навигацию:"
 
 #: main/jet-events-widgets.php:182
+#: main/jet-events-widgets.php:334
 msgid "Show type of event and its Classification:"
 msgstr "Показывать тип события и классификатор:"
 
@@ -1307,10 +1339,12 @@ msgid "Show the country and state for the event (if allowed to use administrativ
 msgstr "Показывать Страну и Штат для события (если разрешено в административной панели):"
 
 #: main/jet-events-widgets.php:189
+#: main/jet-events-widgets.php:337
 msgid "Show archived events only for administrator:"
 msgstr "Показывать архивные события только администраторам:"
 
 #: main/jet-events-widgets.php:192
+#: main/jet-events-widgets.php:340
 msgid "Color to archive events:"
 msgstr "Цвет для архивных событий:"
 
@@ -1318,16 +1352,20 @@ msgstr "Цвет для архивных событий:"
 msgid "Show avatar:"
 msgstr "Показывать аватар:"
 
-#: main/jet-events-widgets.php:236
+#: main/jet-events-widgets.php:202
+msgid "Short Events"
+msgstr "Tweet события"
+
+#: main/jet-events-widgets.php:382
 msgid "created %s ago"
 msgstr "создано %s назад"
 
-#: main/jet-events-widgets.php:238
-#: templates/events/single/event-header.php:34
+#: main/jet-events-widgets.php:384
+#: templates/events/single/event-header.php:36
 msgid "active %s ago"
 msgstr "активность %s назад"
 
-#: main/jet-events-widgets.php:258
+#: main/jet-events-widgets.php:404
 msgid "No events matched the current filter."
 msgstr "Не найдены события по заданному фильтру"
 
@@ -1341,7 +1379,7 @@ msgstr "Ожидаемое событие"
 
 #: main/jet-events-ajax.php:29
 #: templates/events/single/send-invites.php:41
-#: templates/events/create.php:427
+#: templates/events/create.php:429
 msgid "Remove Invite"
 msgstr "Удалить приглашение"
 
@@ -1633,17 +1671,17 @@ msgid "Sociable Share"
 msgstr "Социальные закладки"
 
 #: templates/events/single/admin.php:259
-#: templates/events/create.php:327
+#: templates/events/create.php:328
 msgid "Enable Social share button?"
 msgstr "Разрешить кнопки социальных закладок?"
 
 #: templates/events/single/admin.php:277
-#: templates/events/create.php:350
+#: templates/events/create.php:352
 msgid "Upload an image to use as an avatar for this event. The image will be shown on the main event page, and in search results."
 msgstr "Загрузите изображение для использования в качестве аватара для этого события. Изображение будет показано на главной странице события, и в результатах поиска."
 
 #: templates/events/single/admin.php:280
-#: templates/events/create.php:354
+#: templates/events/create.php:356
 msgid "Upload Image"
 msgstr "Загрузить изображение"
 
@@ -1660,17 +1698,17 @@ msgid "Crop Avatar"
 msgstr "Обрезать аватар"
 
 #: templates/events/single/admin.php:298
-#: templates/events/create.php:367
+#: templates/events/create.php:369
 msgid "Avatar to crop"
 msgstr "Аватар для обрезания"
 
 #: templates/events/single/admin.php:301
-#: templates/events/create.php:370
+#: templates/events/create.php:372
 msgid "Avatar preview"
 msgstr "Предпросмотр аватара"
 
 #: templates/events/single/admin.php:304
-#: templates/events/create.php:373
+#: templates/events/create.php:375
 msgid "Crop Image"
 msgstr "Обрезать изображение"
 
@@ -1739,28 +1777,28 @@ msgid "Currently unavailable"
 msgstr "В настоящее время недоступно"
 
 #: templates/events/single/send-invites.php:22
-#: templates/events/create.php:411
+#: templates/events/create.php:413
 msgid "Select people to invite from your friends list."
 msgstr "Выберите людей для приглашения на событие из списка Ваших друзей."
 
 #: templates/events/single/send-invites.php:72
-#: templates/events/create.php:442
+#: templates/events/create.php:444
 msgid "Once you have built up friend connections you will be able to invite others to your event. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new event."
 msgstr "После того как вы пригласите пользователей к себе в друзья вы сможете приглашать их к мероприятию. Вы можете отправлять приглашения в любое время в будущем, выбрав \"Отправить приглашение \"."
 
-#: templates/events/single/event-header.php:10
+#: templates/events/single/event-header.php:12
 msgid "Event Admins"
 msgstr "Администраторы события"
 
-#: templates/events/single/event-header.php:18
+#: templates/events/single/event-header.php:20
 msgid "Event Mods"
 msgstr "Модераторы события"
 
-#: templates/events/single/event-header.php:35
+#: templates/events/single/event-header.php:37
 msgid "Event classification"
 msgstr "Классификатор события"
 
-#: templates/events/single/event-header.php:90
+#: templates/events/single/event-header.php:94
 msgid "You can not join or refuse to participate in an event as this - %s"
 msgstr "Вы не можете присоединиться или отказаться от участия в событие так как оно - %s"
 
@@ -1801,152 +1839,152 @@ msgstr "Показать обновления"
 msgid "Show New Event Memberships"
 msgstr "Показать новые запросы на присоединение к событию"
 
-#: templates/events/events-loop.php:17
+#: templates/events/events-loop.php:20
 msgid "Style:"
 msgstr "Cтиль:"
 
-#: templates/events/events-loop.php:25
+#: templates/events/events-loop.php:26
 msgid "Private events are not shown, register to view"
 msgstr "Приватные события не показываются, зарегистрируйтесь для просмотра"
 
-#: templates/events/events-loop.php:44
+#: templates/events/events-loop.php:45
 msgid "today"
 msgstr "сегодня"
 
-#: templates/events/events-loop.php:45
+#: templates/events/events-loop.php:46
 msgid "month"
 msgstr "месяц"
 
-#: templates/events/events-loop.php:46
+#: templates/events/events-loop.php:47
 msgid "week"
 msgstr "неделя"
 
-#: templates/events/events-loop.php:47
+#: templates/events/events-loop.php:48
 msgid "day"
 msgstr "день"
 
-#: templates/events/events-loop.php:49
+#: templates/events/events-loop.php:50
 msgid "Sun"
 msgstr "Вс"
 
-#: templates/events/events-loop.php:49
+#: templates/events/events-loop.php:50
 msgid "Mon"
 msgstr "Пн"
 
-#: templates/events/events-loop.php:49
+#: templates/events/events-loop.php:50
 msgid "Tue"
 msgstr "Вт"
 
-#: templates/events/events-loop.php:49
+#: templates/events/events-loop.php:50
 msgid "Wed"
 msgstr "Ср"
 
-#: templates/events/events-loop.php:49
+#: templates/events/events-loop.php:50
 msgid "Thu"
 msgstr "Чт"
 
-#: templates/events/events-loop.php:49
+#: templates/events/events-loop.php:50
 msgid "Fri"
 msgstr "Пт"
 
-#: templates/events/events-loop.php:49
+#: templates/events/events-loop.php:50
 msgid "Sat"
 msgstr "Сб"
 
-#: templates/events/events-loop.php:50
+#: templates/events/events-loop.php:51
 msgid "January"
 msgstr "Январь"
 
-#: templates/events/events-loop.php:50
+#: templates/events/events-loop.php:51
 msgid "February"
 msgstr "Февраль"
 
-#: templates/events/events-loop.php:50
+#: templates/events/events-loop.php:51
 msgid "March"
 msgstr "Март"
 
-#: templates/events/events-loop.php:50
+#: templates/events/events-loop.php:51
 msgid "April"
 msgstr "Апрель"
 
-#: templates/events/events-loop.php:50
 #: templates/events/events-loop.php:51
+#: templates/events/events-loop.php:52
 msgid "May"
 msgstr "Май"
 
-#: templates/events/events-loop.php:50
+#: templates/events/events-loop.php:51
 msgid "June"
 msgstr "Июнь"
 
-#: templates/events/events-loop.php:50
+#: templates/events/events-loop.php:51
 msgid "July"
 msgstr "Июль"
 
-#: templates/events/events-loop.php:50
+#: templates/events/events-loop.php:51
 msgid "August"
 msgstr "Август"
 
-#: templates/events/events-loop.php:50
+#: templates/events/events-loop.php:51
 msgid "September"
 msgstr "Сентябрь"
 
-#: templates/events/events-loop.php:50
+#: templates/events/events-loop.php:51
 msgid "October"
 msgstr "Октябрь"
 
-#: templates/events/events-loop.php:50
+#: templates/events/events-loop.php:51
 msgid "November"
 msgstr "Ноябрь"
 
-#: templates/events/events-loop.php:50
+#: templates/events/events-loop.php:51
 msgid "December"
 msgstr "Декабрь"
 
-#: templates/events/events-loop.php:51
+#: templates/events/events-loop.php:52
 msgid "Jan"
 msgstr "Янв"
 
-#: templates/events/events-loop.php:51
+#: templates/events/events-loop.php:52
 msgid "Feb"
 msgstr "Фев"
 
-#: templates/events/events-loop.php:51
+#: templates/events/events-loop.php:52
 msgid "Mar"
 msgstr "Мар"
 
-#: templates/events/events-loop.php:51
+#: templates/events/events-loop.php:52
 msgid "Apr"
 msgstr "Апр"
 
-#: templates/events/events-loop.php:51
+#: templates/events/events-loop.php:52
 msgid "Jun"
 msgstr "Июн"
 
-#: templates/events/events-loop.php:51
+#: templates/events/events-loop.php:52
 msgid "Jul"
 msgstr "Июл"
 
-#: templates/events/events-loop.php:51
+#: templates/events/events-loop.php:52
 msgid "Aug"
 msgstr "Авг"
 
-#: templates/events/events-loop.php:51
+#: templates/events/events-loop.php:52
 msgid "Sep"
 msgstr "Сен"
 
-#: templates/events/events-loop.php:51
+#: templates/events/events-loop.php:52
 msgid "Oct"
 msgstr "Окт"
 
-#: templates/events/events-loop.php:51
+#: templates/events/events-loop.php:52
 msgid "Nov"
 msgstr "Ноя"
 
-#: templates/events/events-loop.php:51
+#: templates/events/events-loop.php:52
 msgid "Dec"
 msgstr "Дек"
 
-#: templates/events/events-loop.php:192
+#: templates/events/events-loop.php:193
 msgid "There were no events found."
 msgstr "События не найдены."
 
@@ -1962,27 +2000,27 @@ msgstr "Напомнить участникам о начале события �
 msgid "Just send a request to join, users can join the event."
 msgstr "Достаточно отправить запрос на вступление, пользователи могут присоединиться к событию."
 
-#: templates/events/create.php:358
+#: templates/events/create.php:360
 msgid "To skip the avatar upload process, hit the \"Next Step\" button."
 msgstr "Для пропуска шага загрузки аватара, нажмите кнопку  \"Следующий шаг\""
 
-#: templates/events/create.php:365
+#: templates/events/create.php:367
 msgid "Crop Event Avatar"
 msgstr "Обрезать аватар события"
 
-#: templates/events/create.php:460
+#: templates/events/create.php:462
 msgid "Previous Step"
 msgstr "Предыдущий шаг"
 
-#: templates/events/create.php:465
+#: templates/events/create.php:467
 msgid "Next Step"
 msgstr "Следующий шаг"
 
-#: templates/events/create.php:470
+#: templates/events/create.php:472
 msgid "Create Event and Continue"
 msgstr "Создать событие и продолжить"
 
-#: templates/events/create.php:475
+#: templates/events/create.php:477
 msgid "Finish"
 msgstr "Закончить"
 
@@ -1993,6 +2031,12 @@ msgstr "Скоро"
 #: templates/members/single/events/invites.php:34
 msgid "You have no outstanding event invites."
 msgstr "У Вас отсутствуют приглашения на события."
+
+#~ msgid "Note"
+#~ msgstr "Описание"
+
+#~ msgid "Base Options"
+#~ msgstr "Основные настройки"
 
 #~ msgid "The database is updated!"
 #~ msgstr "База данных обновлена!"
