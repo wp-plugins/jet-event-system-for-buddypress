@@ -146,6 +146,10 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.6.8 =
+
+* add shortcode to post: ex. [jpostevent jevent='n'], where n - event id
+
 = 1.6.7 =
 
 * Added ability to specify the code for the "Social Share"

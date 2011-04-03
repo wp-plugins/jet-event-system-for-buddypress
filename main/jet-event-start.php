@@ -11,6 +11,7 @@ require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-filt
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-notifications.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-invites.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-module_eu.php' );
+require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-module_sc.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-admin.php' );
 
 
