@@ -119,6 +119,7 @@ Tell about problems with the plugin and read the other comments you can: http://
 * <strong>da_DK</strong> - <em>Chono</em>, <a href="http://www.chono.dk">chono.dk</a>
 * <strong>it_IT</strong> - <em>Andrea Bianchi</em>
 * <strong>sv_SE</strong> - <em>Thomas Schneider</em>
+* <strong>pt_BR</strong> - <em>Adilson, <a href="http://www.xrides.com.br/">XRides - DH e Freeride</a></em>
 
 Discuss the issues of localization plugin, you can: http://jes.milordk.ru/groups/translates
 
