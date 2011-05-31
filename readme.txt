@@ -147,6 +147,11 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 == Changelog ==
 
+= 1.6.8.1 =
+
+* add Finnish translate (thanks translation team's Mediajalostamo, Ilpo Puhakka)
+* Special Important Notice: In the near future in light of a new version of the plugin! Conceptually, the new system, more opportunities! All information on jes.milordk.ru
+
 = 1.6.8 =
 
 * add shortcode to post: ex. [jpostevent jevent='n'], where n - event id
