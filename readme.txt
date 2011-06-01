@@ -120,6 +120,7 @@ Tell about problems with the plugin and read the other comments you can: http://
 * <strong>it_IT</strong> - <em>Andrea Bianchi</em>
 * <strong>sv_SE</strong> - <em>Thomas Schneider</em>
 * <strong>pt_BR</strong> - <em>Adilson, <a href="http://www.xrides.com.br/">XRides - DH e Freeride</a></em>
+* <strong>fi</strong> - <em>Juho Pirhonen</em>, http://mediajalostamo.fi
 
 Discuss the issues of localization plugin, you can: http://jes.milordk.ru/groups/translates
 
@@ -149,7 +150,7 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 = 1.6.8.1 =
 
-* add Finnish translate (thanks translation team's Mediajalostamo, Ilpo Puhakka)
+* add Finnish translate (thanks translation team's Mediajalostamo, Juho Pirhonen)
 * Special Important Notice: In the near future in light of a new version of the plugin! Conceptually, the new system, more opportunities! All information on jes.milordk.ru
 
 = 1.6.8 =
