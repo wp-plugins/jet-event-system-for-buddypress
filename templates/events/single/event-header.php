@@ -38,7 +38,7 @@
 <?php 
 /* Add to Outlook / iPhone Calendar */
 if (bp_event_is_member()) { ?>
-	<script>
+	<script type="text/javascript">
 	<!--
 		function onChoseOutlook(form)
 			{

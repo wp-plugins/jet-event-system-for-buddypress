@@ -5,7 +5,7 @@ Plugin link: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypres
 Authoe link: http://milordk.ru/
 Tags: BuddyPress, Wordpress MU, meta, members, widget, event, group, invite, events
 Requires at least: 3.1, BuddyPress 1.2.8
-Tested up to: 3.1, BuddyPress 1.2.8
+Tested up to: 3.2, BuddyPress 1.2.9
 Stable tag: trunk
 
 The modern System of events for your social network. Ability to attract members of the network to the ongoing activities, etc.
@@ -147,6 +147,13 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.6.9 =
+
+* Update to Wordpress 3.2 and BuddyPress 1.2.9
+* Fixed Datapicker
+* Note: Update DB and Templates from JES admin panel!
+* Note: Support for plug-in will be carried out before the BP 1.3 and later released a brand new plugin with the ability to update the existing! All information on this site http://jes.milordk.ru
 
 = 1.6.8.1 =
 

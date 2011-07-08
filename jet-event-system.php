@@ -3,19 +3,19 @@
 Plugin Name: Jet Event System for BuddyPress
 Plugin URI: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypress-sistema-sobytij-dlya-vashej-socialnoj-seti.html
 Description: The modern System of events for your social network. Ability to attract members of the network to the ongoing activities, a wide range of possibilities and options, support for different types of display, etc. <a href="http://jes.milordk.ru">JES DEV Site</a>. <strong>Before you install or upgrade sure to read the Readme file!</strong>
-Version: 1.6.8.1
+Version: 1.6.9
 Author: Jettochkin
 Author URI: http://milordk.ru/
 Site Wide Only: true
 Network: true
 */
 
-define ('Jet Events System', '1.6.8.1');
+define ('Jet Events System', '1.6.9');
 define ('JES_EVENTS_VERSION', '1.7' );
 define ('JES_EVENTS_BUILD', '1' );
-define ('JES_EVENTS_DB_VERSION', 21 );
-define ('JES_EVENTS_THEME_VERSION', 32 );
-define ('JES_EVENTS_RELEASE', '2011-05-31');
+define ('JES_EVENTS_DB_VERSION', 22 );
+define ('JES_EVENTS_THEME_VERSION', 33 );
+define ('JES_EVENTS_RELEASE', '2011-07-08');
 
 /* Define the slug for the component */
 if ( !defined( 'JES_SLUG' ) ) {
