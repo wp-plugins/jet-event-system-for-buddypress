@@ -476,20 +476,6 @@ if (stripos($blogversion, 'MU') > 0)
 							<td>Z113010060388 / R144831580346</td>
 						</tr>
 						<tr>
-							<td><img class="alignleft size-full wp-image-2615" title="Pay Pal" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/'; ?>paypal1.jpg" alt="" width="50" height="50" /></a></td>
-							<td><script type="text/javascript">
-									// <![CDATA[
-										function chcount(form){
-											document.sf.amount.value = document.sf.UCount.value;
-											return true; 			}
-									// ]]></script>
-
-									<form action="https://www.paypal.com/cgi-bin/webscr" method="post"> <input name="cmd" type="hidden" value="_xclick" /> <input name="business" type="hidden" value="milordk@rambler.ru" /> <label id="UCount">
-										<input maxlength="3" name="UCount" size="3" type="text" value="20" /></label>
-										<input name="item_name" type="hidden" value="JES Project" /> <input name="item_number" type="hidden" value="1" /> <input name="amount" type="hidden" value="20" /> <input name="no_shipping" type="hidden" value="1" /> <input name="return" type="hidden" value="http://milordk.ru/projects/wordpress-buddypress/podderzhka.html" /> <input type="submit" value="Donations with PayPal (USD)" />
-									</form></td>
-						</tr>
-						<tr>
 							<td><img class="alignleft size-full wp-image-2616" title="Yandex Money" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/images/'; ?>yandex_money1.png" alt="" width="46" height="12" /></a></td>
 							<td>41001289356064</td>
 						</tr>
