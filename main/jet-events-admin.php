@@ -885,6 +885,8 @@ if (stripos($blogversion, 'MU') > 0)
 		<li><strong>da_DK</strong> - <em>Chono</em>, <a href="http://www.chono.dk/" target="_blank">chono.dk</a></li>
 		<li><strong>it_IT</strong> - <em>Andrea</em>, <a href="http://riderbook.it/">riderbook.it</a>
 		<li><strong>sv_SE</strong> - <em>Thomas Schneider</em>
+		<li><strong>pt_BR</strong> - <em>Adilson</em>, <a href="http://www.xrides.com.br/">XRides - DH e Freeride</a></li>
+		<li><strong>fi</strong> - <em>Juho Pirhonen</em>, http://mediajalostamo.fi</li>
 </ul></p>
 	<p>To translate use <a href="http://www.poedit.net/">POEdit</a>, also present in the folder plugin POT-file</p>
 	<p><em><?php _e('Please send your translations to milord_k @ mail.ru','jet-event-system'); ?></em></p>

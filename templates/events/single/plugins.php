@@ -33,7 +33,7 @@
 
 			<?php do_action( 'bp_after_event_plugin_template' ) ?>
 
-				<!-- Page Generate by Jet Event System for BP , http://milordk.ru Milordk Studio -->
+<!-- Page Generate by Jet Event System for BuddyPress , http://milordk.ru/ Milordk Studio -->
 			
 		</div><!-- .padder -->
 	</div><!-- #content -->

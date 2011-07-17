@@ -59,7 +59,7 @@
 				<?php locate_template( array( 'events/events-loop.php' ), true ) ?>
 			</div><!-- #events-dir-list -->
 
-				<!-- Page Generate by Jet Event System for BuddyPress , http://milordk.ru Milordk Studio -->
+				<!-- Page Generate by Jet Event System for BuddyPress , http://milordk.ru/ Milordk Studio -->
 				<?php if (is_admin()) { ?><span style="font-size:85%;"><a href="http://milordk.ru/projects/wordpress-buddypress/podderzhka.html"> | Admin, Donate to develop plug-in ;) -> is_admin only view ;) </a><?php } ?></span>
 
 			<?php do_action( 'bp_directory_events_content' ) ?>

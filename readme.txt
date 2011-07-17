@@ -5,7 +5,7 @@ Plugin link: http://milordk.ru/r-lichnoe/opyt/cms/jet-event-system-for-buddypres
 Authoe link: http://milordk.ru/
 Tags: BuddyPress, Wordpress MU, meta, members, widget, event, group, invite, events
 Requires at least: 3.1, BuddyPress 1.2.8
-Tested up to: 3.2, BuddyPress 1.2.9
+Tested up to: 3.2.1, BuddyPress 1.2.9
 Stable tag: trunk
 
 The modern System of events for your social network. Ability to attract members of the network to the ongoing activities, etc.
@@ -13,10 +13,10 @@ The modern System of events for your social network. Ability to attract members 
 == Description ==
 
 <strong>en:</strong> The modern System of events for your social network. Ability to attract members of the network to the ongoing activities, a wide range of possibilities and options, support for different types of display, etc.
-Support for 8 languages.
+Support for 9 languages.
 
 <strong>ru:</strong> Современная Система событий для Вашей социальной сети. Возможность привлекать участников сети к проводимым мероприятиям, широкий спектр возможностей и настроек, поддержка разных видов отображения и т.п.
-Поддержка 8 языков.
+Поддержка 9 языков.
 
 <strong>Before you install or upgrade sure to read the Readme file!</strong>! 
 <strong>Перед установкой или обновлением обязательно прочтите Readme файл!</strong>
@@ -147,6 +147,12 @@ For suggestions, bugs, hugs and love can be donated at the following locations.
 
 
 == Changelog ==
+
+= 1.7.0 =
+
+* Update & fixed Calendar Style
+* Update JQuery Scripts
+* Fixed Admin Panel
 
 = 1.6.9 =
 

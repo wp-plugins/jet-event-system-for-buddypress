@@ -24,10 +24,10 @@ function jet_events_add_js() {
 
 	if ( $bp->current_component == $bp->jes_events->slug )
 		{
-			if ($jes_adata['jes_events_style'] == 'Calendar')
-				{
-					wp_enqueue_script( 'jquery-jes-calendar', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/fullcalendar.min.js' );
-			}
+			// if ($jes_adata['jes_events_style'] == 'Calendar')
+			//	{
+			//		wp_enqueue_script( 'jquery-jes-calendar', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/fullcalendar.min.js' );
+			//}
 			if ($bp->current_action == 'create')
 				{
 					if (!jes_is_event_creation_step( 'event-avatar' ) )
@@ -53,7 +53,7 @@ function jet_events_add_js() {
 		*/
 				remove_action( 'template_redirect', 'bp_chat_add_js', 1 );				
 
-				wp_enqueue_script( 'jquery-jes-151', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-1.5.1.min.js', array('jquery') );				
+				wp_enqueue_script( 'jquery-jes-151', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery-1.5.2.min.js', array('jquery') );				
 				wp_enqueue_script( 'jquery-jes-uicore', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery.ui.core.js', array('jquery') );
 				wp_enqueue_script( 'jquery-jes-uiwidget', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery.ui.widget.js', array('jquery') );
 				wp_enqueue_script( 'jquery-jes-uidpcore', WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/jquery.datapicker.js', array('jquery') );

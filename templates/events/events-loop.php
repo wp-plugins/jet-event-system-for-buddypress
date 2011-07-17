@@ -28,7 +28,8 @@
 	<?php } ?>
 
 <?php if ($jes_adata['jes_events_style'] == 'Calendar') { ?>
-<?php				require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-themetemplate.php' ); ?>
+<script type="text/javascript" src="<?php echo WP_PLUGIN_URL . '/jet-event-system-for-buddypress/js/fullcalendar.min.js'; ?>"></script>
+<?php	require_once ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-themetemplate.php' ); ?>
 	<?php // if ( bp_jes_has_events( 'type=calendar&per_page=' . $instance['max_events'] ) ) : ?>
 <ul id="group-list" class="item-list">
 <script type="text/javascript">
