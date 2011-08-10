@@ -1,4 +1,7 @@
 <?php
+// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) exit;
+
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-menu.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-classes.php' );
 require ( WP_PLUGIN_DIR . '/jet-event-system-for-buddypress/main/jet-events-templatetags.php' );

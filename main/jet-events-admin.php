@@ -403,7 +403,7 @@ if (stripos($blogversion, 'MU') > 0)
 	<form action="" name="jes_events_form" id="jes_events_form" method="post">
 <div class="section vertical">
     <ul class="tabs">
-		<li class="current"><?php _e( 'Information', 'jet-event-system' ); ?>
+		<li class="current"><?php _e( 'Information', 'jet-event-system' ); ?></li>
 		<li><?php _e( 'Main Block', 'jet-event-system' ); ?></li>
 		<li><?php _e( 'Setting up access to the fields events', 'jet-event-system' ); ?></li>
 		<li><?php _e( 'Style Options', 'jet-event-system' ); ?></li>
